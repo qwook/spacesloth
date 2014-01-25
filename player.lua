@@ -9,7 +9,8 @@ function Player:initialize()
     self.type = "PLAYER"
 
     self.spritesheet = SpriteSheet:new("data/players.png", 32, 32)
-
+    self.expression = 0
+    
     self:initPhysics()
 end
 
@@ -63,6 +64,11 @@ function Player:update(dt)
         self.facing = 'right'
     end
 
+
+    self.expression = 0
+    if (self.controller:isKeyDown("L")) then self.expression = self.expression + 1 end
+    if (self.controller:isKeyDown("R")) then self.expression = self.expression + 2 end
+
     -- handle physics --
 
     local velx, vely = self.body:getLinearVelocity()
@@ -76,11 +82,6 @@ function Player:update(dt)
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
-<<<<<<< HEAD
-    -- print(self.floorangle)
-
-=======
->>>>>>> 236faa6706788e0d6708a9dda79bf7fa04a9a440
     if self:isOnFloor() then
 
         if self.controller:isKeyDown("left") then
@@ -171,10 +172,7 @@ function Player:drawPlayer()
     end
 
     self.spritesheet:draw(anim, 1, -16, -18)
-    local expression = 0
-    if (self.controller.isKeyDown("L")) then expression = expression + 1 end
-    if (self.controller.isKeyDown("R")) then expression = expression + 2 end
-    self.spritesheet:draw(expression, 0, -16, -18)
+    self.spritesheet:draw(self.expression, 0, -16, -18)
 end
 
 function Player:getPosition()
@@ -251,11 +249,8 @@ function Cindy:drawPlayer()
         anim = math.floor(love.timer.getTime()*10) % 4
     end
 
-    local expression = 0
-    if (self.controller.isKeyDown("L")) then expression = expression + 1 end
-    if (self.controller.isKeyDown("R")) then expression = expression + 2 end
     self.spritesheet:draw(anim, 3, -16, -18)
-    self.spritesheet:draw(expression, 2, -16, -18)
+    self.spritesheet:draw(self.expression, 2, -16, -18)
 end
 
 
