@@ -121,7 +121,7 @@ function Player:beginContact(other, contact, isother)
 
     print(self.name)
 
-    if isother ~= false then
+    if isother == false then
         normx = -normx
         normy = -normy
     end
