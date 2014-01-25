@@ -25,6 +25,7 @@ function Input:isKeyDown(in_key)
     return bit.band(self.keyCodes, key_enum) ~= 0
 end
 
+-- Only true for the first frame key is down. Use for jumping, etc.
 function Input:wasKeyPressed(in_key)
     local key_enum = IN_KEYS[in_key]
     if key_enum == nil then return end
@@ -70,6 +71,22 @@ function Input:eventKeyReleased(key)
     local in_key = self.binds[key]
 
     -- this isn't bound to anything valid. exit
+    if in_key == nil then return end
+
+    self:keyRelease(in_key)
+end
+
+function Input:eventJoyPressed(key)
+    local in_key = self.binds["joy_" .. key]
+
+    if in_key == nil then return end
+
+    self:keyPress(in_key)
+end
+
+function Input:eventJoyReleased(key)
+    local in_key = self.binds["joy_" .. key]
+
     if in_key == nil then return end
 
     self:keyRelease(in_key)

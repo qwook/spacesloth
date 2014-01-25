@@ -1,5 +1,8 @@
 
-Tile = class("Tile")
+Physical = require("physical")
+
+Tile = class("Tile", Physical)
+Tile.static.type = "TILE"
 
 function Tile:initialize()
     self:initPhysics()
@@ -9,6 +12,8 @@ function Tile:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newRectangleShape(50, 50)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+
+    self.fixture:setUserData(self)
 end
 
 function Tile:getPosition()
