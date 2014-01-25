@@ -74,12 +74,15 @@ function Player:update(dt)
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
+    print(self.floorangle)
+
     if self:isOnFloor() then
 
         if self.controller:isKeyDown("left") then
             self.body:setLinearVelocity(-200, vely)
 
-            if self.floorangle > math.pi/2 and self.floorangle < math.pi then
+            -- this is for climbing stairs
+            if self.floorangle < 0 and self.floorangle < -math.pi/2 then
                 goingUpOrDown = false
             end
         end
@@ -87,18 +90,22 @@ function Player:update(dt)
         if self.controller:isKeyDown("right") then
             self.body:setLinearVelocity(200, vely)
 
+            -- this is for climbing stairs
             if self.floorangle > math.pi/2 and self.floorangle < math.pi then
                 goingUpOrDown = true
             end
         end
 
-        -- up
-        if goingUpOrDown == true then
-            self.body:applyLinearImpulse(0, -100)
-        -- down
-        elseif goingUpOrDown == false then
-            self.body:applyLinearImpulse(0, 100)
-        end
+        -- so for climbing stairs, we actually push the player up a bit
+        -- when they're going up stairs, and push them down when they're going
+        -- down stairs.
+            -- up
+            if goingUpOrDown == true then
+                self.body:applyLinearImpulse(0, -100)
+            -- down
+            elseif goingUpOrDown == false then
+                self.body:applyLinearImpulse(0, 100)
+            end
 
     -- not on floor, we're in the air
     else
@@ -185,7 +192,7 @@ function Player:beginContact(other, contact, isother)
 
     -- detect a floor
     if (math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1) then        
-        self.floorangle = math.acos(dot)
+        self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
 

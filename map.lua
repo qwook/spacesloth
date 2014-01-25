@@ -20,6 +20,12 @@ function Map:initialize(mapname)
                     self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 elseif (colshape == "2") then
                     self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "3") then
+                    self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "4") then
+                    self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "5") then
+                    self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 end
             end
         end
