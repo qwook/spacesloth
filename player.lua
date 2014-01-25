@@ -235,6 +235,8 @@ function Player:endContact(other, contact, isother)
     end
 end
 
+
+-- Cindy is player 2.
 Cindy = class("Cindy", Player)
 
 function Cindy:initialize()
