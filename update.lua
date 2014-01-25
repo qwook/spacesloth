@@ -8,24 +8,24 @@ function love.update(dt)
     for _, joystick in ipairs(joysticks) do
         for i = 1, joystick:getAxisCount() do
             local axis = joystick:getAxis(i)
-            local last_axis = last_axes[joystick:getName() .. "_" .. i] or 0
+            local last_axis = last_axes[joystick:getID() .. "_" .. i] or 0
             if (axis > 0) and (last_axis <= 0) then
-                input:eventJoyPressed(joystick:getName() .. "_axisup_" .. i)
-                input:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
-                input2:eventJoyPressed(joystick:getName() .. "_axisup_" .. i)
-                input2:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
+                input:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
             elseif (axis < 0) and (last_axis >= 0) then
-                input:eventJoyPressed(joystick:getName() .. "_axisdown_" .. i)
-                input:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
-                input2:eventJoyPressed(joystick:getName() .. "_axisdown_" .. i)
-                input2:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
+                input:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
             elseif (axis == 0) and (last_axis ~= 0) then
-                input:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
-                input:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
-                input2:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
-                input2:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
             end
-            last_axes[joystick:getName() .. "_" .. i] = axis
+            last_axes[joystick:getID() .. "_" .. i] = axis
         end
     end
 

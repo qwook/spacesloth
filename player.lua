@@ -133,6 +133,7 @@ function Player:draw()
     -- love.graphics.setColor(0, 255, 0)
     -- love.graphics.rectangle('fill', -16, -16, 32, 32)
 
+    print(self.facing)
     if self.facing == 'right' then
         love.graphics.scale(1, 1)
     else
