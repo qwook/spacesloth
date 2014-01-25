@@ -78,11 +78,11 @@ function love.load()
     -- I honestly grabbed these button names by printing them
     -- in the eventJoyPressed function in the Input class
     -- we can make prettier names for them later
-    input:bind( "joy_SNES RetroPort_3", "jump" )
-    input:bind( "joy_SNES RetroPort_axisdown_2", "jump" )
-    input:bind( "joy_SNES RetroPort_axisup_2", "crouch" )
-    input:bind( "joy_SNES RetroPort_axisdown_1", "left" )
-    input:bind( "joy_SNES RetroPort_axisup_1", "right" )
+    input2:bind( "joy_SNES RetroPort_3", "jump" )
+    input2:bind( "joy_SNES RetroPort_axisdown_2", "jump" )
+    input2:bind( "joy_SNES RetroPort_axisup_2", "crouch" )
+    input2:bind( "joy_SNES RetroPort_axisdown_1", "left" )
+    input2:bind( "joy_SNES RetroPort_axisup_1", "right" )
 
     -- todo: stop using temp map and use tiled
     -- for y, row in pairs(tempmap) do
@@ -106,12 +106,15 @@ end
 
 function love.keyreleased(key)
     input:eventKeyReleased(key)
+    input2:eventKeyReleased(key)
 end
 
 function love.joystickpressed( joystick, button )
     input:eventJoyPressed(joystick:getName() .. "_" .. button)
+    input2:eventJoyPressed(joystick:getName() .. "_" .. button)
 end
 
 function love.joystickreleased( joystick, button )
     input:eventJoyReleased(joystick:getName() .. "_" .. button)
+    input2:eventJoyReleased(joystick:getName() .. "_" .. button)
 end

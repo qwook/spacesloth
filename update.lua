@@ -12,12 +12,18 @@ function love.update(dt)
             if (axis > 0) and (last_axis <= 0) then
                 input:eventJoyPressed(joystick:getName() .. "_axisup_" .. i)
                 input:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
+                input2:eventJoyPressed(joystick:getName() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
             elseif (axis < 0) and (last_axis >= 0) then
                 input:eventJoyPressed(joystick:getName() .. "_axisdown_" .. i)
                 input:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
+                input2:eventJoyPressed(joystick:getName() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
             elseif (axis == 0) and (last_axis ~= 0) then
                 input:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
                 input:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getName() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getName() .. "_axisup_" .. i)
             end
             last_axes[joystick:getName() .. "_" .. i] = axis
         end
