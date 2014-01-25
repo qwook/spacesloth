@@ -1,4 +1,6 @@
 
+STI = require("libs.sti")
+
 Map = class("Map")
 
 function Map:initialize()
