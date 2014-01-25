@@ -40,6 +40,8 @@ end
 
 function love.load()
 
+    love.graphics.setDefaultFilter('nearest', 'nearest')
+
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact)
     world:setGravity(0, 1000)
@@ -47,7 +49,12 @@ function love.load()
     map = Map:new("data/map1")
     player = Player:new()
     player2 = Cindy:new()
+
     input = Input:new()
+    input2 = Input:new()
+    
+    player:setController(input)
+    player2:setController(input2)
 
     for k,v in pairs(arg) do
         print(k, v)

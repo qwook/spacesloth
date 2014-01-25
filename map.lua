@@ -63,11 +63,11 @@ function Map:draw()
     love.graphics.pop()
     -- self.tiledmap:drawCollisionMap()
 
-    for y, row in pairs(self.map) do
-        for x, tile in pairs(row) do
-            tile:draw()
-        end
-    end
+    -- for y, row in pairs(self.map) do
+    --     for x, tile in pairs(row) do
+    --         tile:draw()
+    --     end
+    -- end
 end
 
 return Map

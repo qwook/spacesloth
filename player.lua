@@ -1,5 +1,6 @@
 
-Physical = require("Physical")
+Physical = require("physical")
+SpriteSheet = require("spritesheet")
 
 Player = class('Player', Physical)
 
@@ -7,12 +8,18 @@ function Player:initialize()
     self.name = "Stewart"
     self.type = "PLAYER"
 
+    self.spritesheet = SpriteSheet:new("data/players.png", 32, 32)
+
     self:initPhysics()
+end
+
+function Player:setController(input)
+    self.controller = input
 end
 
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    self.shape = love.physics.newRectangleShape(30, 50)
+    self.shape = love.physics.newRectangleShape(32, 28)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -22,24 +29,54 @@ function Player:initPhysics()
     self.body:setAngularDamping(math.huge)
 
     self.floors = {}
-    self.floorangle = 0;
+    self.floorangle = 0
 
-    self.nextJump = 0;
+    self.nextJump = 0
+
+    self.facing = 'right'
+    self.moving = false
 end
 
 function Player:isOnFloor()
-    return #self.floors > 0
+    local x, y = self:getPosition()
+    local bboxcheck = false
+    world:queryBoundingBox(x - 16, y + 10, x + 16, y + 16, function(fixture)
+        local hit = fixture:getUserData()
+        if hit ~= self then
+            bboxcheck = true
+        end
+        return true
+    end)
+
+    return #self.floors > 0 and bboxcheck
 end
 
 function Player:update(dt)
+
+    -- handle animation --
+
+    if self.controller:wasKeyPressed("left") then
+        self.facing = 'left'
+    elseif self.controller:wasKeyPressed("right")  then
+        self.facing = 'right'
+    end
+
+    -- handle physics --
+
     local velx, vely = self.body:getLinearVelocity()
+
+    if math.length(velx, vely) > 0.1 then
+        self.moving = true
+    else
+        self.moving = false
+    end
 
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
     if self:isOnFloor() then
 
-        if input:isKeyDown("left") then
+        if self.controller:isKeyDown("left") then
             self.body:setLinearVelocity(-200, vely)
 
             if self.floorangle > math.pi/2 and self.floorangle < math.pi then
@@ -47,7 +84,7 @@ function Player:update(dt)
             end
         end
 
-        if input:isKeyDown("right") then
+        if self.controller:isKeyDown("right") then
             self.body:setLinearVelocity(200, vely)
 
             if self.floorangle > math.pi/2 and self.floorangle < math.pi then
@@ -60,16 +97,16 @@ function Player:update(dt)
             self.body:applyLinearImpulse(0, -100)
         -- down
         elseif goingUpOrDown == false then
-            self.body:applyLinearImpulse(0, 200)
+            self.body:applyLinearImpulse(0, 100)
         end
 
     -- not on floor, we're in the air
     else
-        if input:isKeyDown("left") then
+        if self.controller:isKeyDown("left") then
             self.body:setLinearVelocity(velx - 300*dt, vely)
         end
 
-        if input:isKeyDown("right") then
+        if self.controller:isKeyDown("right") then
             self.body:setLinearVelocity(velx + 300*dt, vely)
         end
     end
@@ -78,11 +115,11 @@ function Player:update(dt)
         self.nextJump = self.nextJump - dt
     end
 
-    -- if input:wasKeyPressed("jump") and #self.floors > 0 then
-    if input:isKeyDown("jump") and self:isOnFloor() and self.nextJump <= 0 then
-        self.body:applyLinearImpulse(0, -750)
-        self.nextJump = 0.05
+    if self.controller:isKeyDown("jump") and self:isOnFloor() and self.nextJump <= 0 then
+        self.body:applyLinearImpulse(0, -500)
+        self.nextJump = 0.1
     end
+
 end
 
 function Player:draw()
@@ -93,10 +130,30 @@ function Player:draw()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
 
-    love.graphics.setColor(0, 255, 0)
-    love.graphics.rectangle('fill', -15, -25, 30, 50)
+    -- love.graphics.setColor(0, 255, 0)
+    -- love.graphics.rectangle('fill', -16, -16, 32, 32)
+
+    if self.facing == 'right' then
+        love.graphics.scale(1, 1)
+    else
+        love.graphics.scale(-1, 1)
+    end
+
+    love.graphics.setColor(255, 255, 255)
+
+    self:drawPlayer()
 
     love.graphics.pop()
+end
+
+function Player:drawPlayer()
+    local anim = 0
+    if self.moving then
+        anim = math.floor(love.timer.getTime()*10) % 4
+    end
+
+    self.spritesheet:draw(anim, 1, -16, -18)
+    self.spritesheet:draw(0, 0, -16, -18)
 end
 
 function Player:getPosition()
@@ -118,8 +175,6 @@ end
 -- the player hit something
 function Player:beginContact(other, contact, isother)
     local normx, normy = contact:getNormal()
-
-    print(self.name)
 
     if isother == false then
         normx = -normx
@@ -143,6 +198,11 @@ function Player:beginContact(other, contact, isother)
         -- we want to slide down walls, not cling onto them
         contact:setFriction(0)
     end
+
+    if other.type == "PLAYER" then
+        contact:setFriction(1)
+    end
+
 end
 
 function Player:endContact(other, contact, isother)
@@ -162,18 +222,14 @@ function Cindy:initialize()
     self.name = "Cindy"
 end
 
-function Cindy:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
+function Cindy:drawPlayer()
+    local anim = 0
+    if self.moving then
+        anim = math.floor(love.timer.getTime()*10) % 4
+    end
 
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(255, 0, 0)
-    love.graphics.rectangle('fill', -15, -25, 30, 50)
-
-    love.graphics.pop()
+    self.spritesheet:draw(anim, 3, -16, -18)
+    self.spritesheet:draw(0, 2, -16, -18)
 end
 
 
