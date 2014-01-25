@@ -56,9 +56,9 @@ function love.load()
     player:setController(input)
     player2:setController(input2)
 
-    for k,v in pairs(arg) do
+    --[[ for k,v in pairs(arg) do
         print(k, v)
-    end
+    end ]]
 
     -- run love . dvorak for dvorak bindings
     if arg[2] == "dvorak" then
@@ -81,12 +81,16 @@ function love.load()
     input:bind( "joy_1_3", "jump" )
     input:bind( "joy_1_2", "jump" )
     input:bind( "joy_1_2", "crouch" )
+    input:bind( "joy_1_6", "L")
+    input:bind( "joy_1_8", "R")
     input:bind( "joy_1_axisdown_1", "left" )
     input:bind( "joy_1_axisup_1", "right" )
 
     input2:bind( "joy_2_3", "jump" )
     input2:bind( "joy_2_2", "jump" )
     input2:bind( "joy_2_2", "crouch" )
+    input2:bind( "joy_2_6", "L")
+    input2:bind( "joy_2_8", "R")
     input2:bind( "joy_2_axisdown_1", "left" )
     input2:bind( "joy_2_axisup_1", "right" )
 

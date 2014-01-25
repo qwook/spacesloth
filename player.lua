@@ -74,7 +74,7 @@ function Player:update(dt)
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
-    print(self.floorangle)
+    -- print(self.floorangle)
 
     if self:isOnFloor() then
 
@@ -166,7 +166,10 @@ function Player:drawPlayer()
     end
 
     self.spritesheet:draw(anim, 1, -16, -18)
-    self.spritesheet:draw(0, 0, -16, -18)
+    local expression = 0
+    if (self.controller.isKeyDown("L")) then expression = expression + 1 end
+    if (self.controller.isKeyDown("R")) then expression = expression + 2 end
+    self.spritesheet:draw(expression, 0, -16, -18)
 end
 
 function Player:getPosition()
@@ -241,8 +244,11 @@ function Cindy:drawPlayer()
         anim = math.floor(love.timer.getTime()*10) % 4
     end
 
+    local expression = 0
+    if (self.controller.isKeyDown("L")) then expression = expression + 1 end
+    if (self.controller.isKeyDown("R")) then expression = expression + 2 end
     self.spritesheet:draw(anim, 3, -16, -18)
-    self.spritesheet:draw(0, 2, -16, -18)
+    self.spritesheet:draw(expression, 2, -16, -18)
 end
 
 
