@@ -49,9 +49,14 @@
  <objectgroup name="Objects" width="100" height="100">
   <object name="spawnpoint" gid="13" x="215" y="313"/>
  </objectgroup>
- <layer name="Collision" width="100" height="100" opacity="0.48">
+ <layer name="Collision" width="100" height="100" visible="0" opacity="0.48">
   <data encoding="base64" compression="zlib">
    eJzt2dGKgzAQBVB/vdv2v5c+BCSojTrqxJ4DwiLdYeJNmqrDAEB2j6sbWPAYcvd3hMzj3ZLH3+j/eswzc79rr+cni+dEjZ5k7ndNHlNZlBpZtKzbTP3WWvOYy6LUmPp8fW1ajteK3r/1csc8ynWdy6LUaDnX2s8ed1kfc/N5KYdxjZZzLd7D/jXyTQ95tFz3pRot51odnUn2PI6osbfukZlkziPC3N6813uI2eNrmfOof49EHlGi10rmPI4SPebItSKPOCWXreuxt+c7db9Tf7eM6ewx3z2PvX1H70VR+1VveazV09jG97xca3zP+wt5ZJ93Lc8ZOU8veUTsoWfcE+6Vta/akb1lGXfZx3twdh5nz8/yHq2nPCKPV1X7SuN3mlf3cpUt455aMxFz41nV+0VRv2Ouun+/m/G49zwnn5rjrDf1vbO1zq/O6UjyyKW+hlu/s+QRY+mewx58vqX3d/IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuL9/Qt+20g==
+  </data>
+ </layer>
+ <layer name="Decoration" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2VFygjAUBdAszaW5h64C5Vec/nVpJUNoGaoShrRkyjkzb/LUH8yFBDQEAABqcUtjs+tREMUsxhyaIJM9TbMIod4sjnqeLH3vS1/Xvto05rxmWReGeW9TjY54Dv6l9/A9569qlLMudEOdc/tbGvkpJ48l/Tyf+vrI7aOjZ3JNY/ukD5P3pnnMP597tvfn9EfP5LesXa+mfSSXstauV/O1K5JJGVvWq0d7k1y2eZuNj/pp5Xp1jwHwX3R7HwBf4j2C38jqcQnyYL3xXv8+1Llkz3qTPE739Gxcqq+BPbweMYuj7xm1/F8a1017eLk8jj6PpdRyfTAY83B+10EedRnz6DyDVKEJ268R1xYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbPcJakGZqQ==
   </data>
  </layer>
 </map>
