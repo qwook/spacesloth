@@ -210,11 +210,23 @@ return {
       properties = {},
       objects = {
         {
-          name = "spawnpoint",
+          name = "player1",
           type = "",
           shape = "rectangle",
           x = 215,
           y = 313,
+          width = 0,
+          height = 0,
+          gid = 13,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 276,
+          y = 308,
           width = 0,
           height = 0,
           gid = 13,

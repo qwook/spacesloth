@@ -1,6 +1,7 @@
 
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
+require("libs.print2") -- this adds "print2"
 class = require("libs.middleclass")
 
 Player = require("player")
@@ -41,20 +42,16 @@ end
 function love.load()
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
+    love.graphics.setBackgroundColor(134, 200, 255)
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact)
     world:setGravity(0, 1000)
 
-    map = Map:new("data/map2")
-    player = Player:new()
-    player2 = Cindy:new()
-
     input = Input:new()
     input2 = Input:new()
-    
-    player:setController(input)
-    player2:setController(input2)
+
+    map = Map:new("data/nazifirehazard")
 
     --[[ for k,v in pairs(arg) do
         print(k, v)
@@ -102,9 +99,6 @@ function love.load()
     --         end
     --     end
     -- end
-
-    player:setPosition(150, -10)
-    player2:setPosition(170, -10)
 
 end
 

@@ -30,6 +30,8 @@ function Player:initPhysics()
 
     self.floors = {}
     self.floorangle = 0
+    self.floornx = 0
+    self.floorny = 0
 
     self.nextJump = 0
 
@@ -74,8 +76,11 @@ function Player:update(dt)
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
+<<<<<<< HEAD
     -- print(self.floorangle)
 
+=======
+>>>>>>> 236faa6706788e0d6708a9dda79bf7fa04a9a440
     if self:isOnFloor() then
 
         if self.controller:isKeyDown("left") then
@@ -204,6 +209,8 @@ function Player:beginContact(other, contact, isother)
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
+
+        self.body:applyLinearImpulse(normx*25, normy*25)
 
         -- count how many potential floors we are touching
         if not table.hasvalue(self.floors, other) then
