@@ -41,6 +41,7 @@ end
 function love.load()
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
+    love.graphics.setBackgroundColor(134, 200, 255)
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact)
