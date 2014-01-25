@@ -51,7 +51,7 @@ function love.load()
     input = Input:new()
     input2 = Input:new()
 
-    map = Map:new("data/map2")
+    map = Map:new("data/nazifirehazard")
 
     for k,v in pairs(arg) do
         print(k, v)
