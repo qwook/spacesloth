@@ -4,11 +4,13 @@ bit = require("bit")
 Input = class("Input")
 
 IN_KEYS = {
-    ["attack"] =    bit.lshift(1, 1);
-    ["jump"] =      bit.lshift(1, 2);
-    ["left"] =      bit.lshift(1, 3);
-    ["right"] =     bit.lshift(1, 4);
-    ["crouch"] =    bit.lshift(1, 5);
+    ["attack"] = bit.lshift(1, 1);
+    ["jump"]   = bit.lshift(1, 2);
+    ["left"]   = bit.lshift(1, 3);
+    ["right"]  = bit.lshift(1, 4);
+    ["crouch"] = bit.lshift(1, 5);
+    ["L"]      = bit.lshift(1, 6);
+    ["R"]      = bit.lshift(1, 7);
 }
 
 function Input:initialize()
