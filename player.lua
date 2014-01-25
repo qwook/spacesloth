@@ -76,8 +76,6 @@ function Player:update(dt)
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
 
-    print(self.floorangle)
-
     if self:isOnFloor() then
 
         if self.controller:isKeyDown("left") then

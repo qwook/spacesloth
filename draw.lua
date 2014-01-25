@@ -14,8 +14,8 @@ function love.draw()
     camera2_x, camera2_y = math.lerp(camera2_x, camera2_y, p2x, p2y, 0.15)
 
     love.graphics.push()
-        love.graphics.translate(0, -love.graphics.getHeight()/4)
-        love.graphics.translate(-camera1_x+offsetx, -camera1_y+offsety)
+        love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
+        love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
 
         love.graphics.setScissor(0, 0, love.graphics.getWidth(), love.graphics.getHeight()/2)
 
