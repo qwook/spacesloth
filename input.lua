@@ -11,6 +11,8 @@ IN_KEYS = {
     ["crouch"] = bit.lshift(1, 5);
     ["L"]      = bit.lshift(1, 6);
     ["R"]      = bit.lshift(1, 7);
+    ["select"] = bit.lshift(1, 8);
+    ["start"]  = bit.lshift(1, 9);
 }
 
 function Input:initialize()

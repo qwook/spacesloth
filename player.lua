@@ -134,6 +134,10 @@ function Player:update(dt)
         self.nextJump = 0.1
     end
 
+    if self.controller:isKeyDown("start") and self.controller:isKeyDown("select") then
+        reset() -- this is just a global function that will reset the entire level
+    end
+
 end
 
 function Player:draw()

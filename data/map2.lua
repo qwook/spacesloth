@@ -232,6 +232,90 @@ return {
           gid = 13,
           visible = true,
           properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 838,
+          y = 252,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 526,
+          y = 159,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 561,
+          y = 158,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 596,
+          y = 158,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 544,
+          y = 117,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 578,
+          y = 117,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 562,
+          y = 74,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {}
         }
       }
     },

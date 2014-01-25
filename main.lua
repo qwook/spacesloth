@@ -9,6 +9,8 @@ Map = require("map")
 Tile = require("tile")
 Input = require("input")
 
+PhysBox = require("physbox")
+
 require("update")
 require("draw")
 
@@ -39,23 +41,24 @@ function endContact(fixture1, fixture2, contact)
     physical2:endContact(physical1, contact, true)
 end
 
-function love.load()
-
-    love.graphics.setDefaultFilter('nearest', 'nearest')
-    love.graphics.setBackgroundColor(134, 200, 255)
+function reset()
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact)
     world:setGravity(0, 1000)
 
+    map = Map:new("data/map2")
+    map:spawnObjects()
+
+end
+
+function love.load()
+
+    love.graphics.setDefaultFilter('nearest', 'nearest')
+    love.graphics.setBackgroundColor(134, 200, 255)
+
     input = Input:new()
     input2 = Input:new()
-
-    map = Map:new("data/map2")
-
-    --[[ for k,v in pairs(arg) do
-        print(k, v)
-    end ]]
 
     -- run love . dvorak for dvorak bindings
     if arg[2] == "dvorak" then
@@ -80,6 +83,8 @@ function love.load()
     input:bind( "joy_1_2", "crouch" )
     input:bind( "joy_1_6", "L")
     input:bind( "joy_1_8", "R")
+    input:bind( "joy_1_5", "select")
+    input:bind( "joy_1_7", "start")
     input:bind( "joy_1_axisdown_1", "left" )
     input:bind( "joy_1_axisup_1", "right" )
 
@@ -88,17 +93,12 @@ function love.load()
     input2:bind( "joy_2_2", "crouch" )
     input2:bind( "joy_2_6", "L")
     input2:bind( "joy_2_8", "R")
+    input2:bind( "joy_2_5", "select")
+    input2:bind( "joy_2_7", "start")
     input2:bind( "joy_2_axisdown_1", "left" )
     input2:bind( "joy_2_axisup_1", "right" )
 
-    -- todo: stop using temp map and use tiled
-    -- for y, row in pairs(tempmap) do
-    --     for x, tile in pairs(row) do
-    --         if tile == 1 then
-    --             map:set(x, y, Tile:new(32, 32))
-    --         end
-    --     end
-    -- end
+    reset()
 
 end
 

@@ -6,6 +6,7 @@ Map = class("Map")
 
 function Map:initialize(mapname)
     self.map = {}
+    self.objects = {}
 
     self.tiledmap = STI.new(mapname)
     self.tiledmap:createCollisionMap("Collision")
@@ -13,18 +14,6 @@ function Map:initialize(mapname)
     self.background = self:getImageLayer("Background")
 
     local collision = self.tiledmap.collision.data
-
-    for _, v in pairs(self:getObjectsLayer("Objects")) do
-        if v.name == "player1" then
-            player = Player:new()
-            player:setController(input)
-            player:setPosition(v.x, v.y)
-        elseif v.name == "player2" then
-            player2 = Cindy:new()
-            player2:setController(input2)
-            player2:setPosition(v.x, v.y)
-        end
-    end
 
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
@@ -42,6 +31,23 @@ function Map:initialize(mapname)
                     self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 end
             end
+        end
+    end
+end
+
+function Map:spawnObjects()
+    for _, v in pairs(self:getObjectsLayer("Objects")) do
+        if v.name == "player1" then
+            player = Player:new()
+            player:setController(input)
+            player:setPosition(v.x + 16, v.y + 16)
+        elseif v.name == "player2" then
+            player2 = Cindy:new()
+            player2:setController(input2)
+            player2:setPosition(v.x + 16, v.y + 16)
+        elseif tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
+            local instance = _G[v.type]:new()
+            instance:setPosition(v.x + 16, v.y + 16)
         end
     end
 end

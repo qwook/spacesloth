@@ -20,6 +20,7 @@ function love.draw()
 
         love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
 
+        love.graphics.setColor(255, 255, 255)
         love.graphics.draw(map.background, -camera1_x/50, -camera1_y/40, 0, bg_ratio, bg_ratio)
 
         love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
@@ -28,6 +29,10 @@ function love.draw()
             player:draw()
             player2:draw()
 
+            for i, object in pairs(map.objects) do
+                object:draw()
+            end
+            
         love.graphics.setScissor()
 
     love.graphics.pop()
@@ -39,6 +44,7 @@ function love.draw()
 
         love.graphics.translate(0, love.graphics.getHeight()/4)
 
+        love.graphics.setColor(255, 255, 255)
         love.graphics.draw(map.background, -camera2_x/50, -camera2_y/40, 0, bg_ratio, bg_ratio)
 
         love.graphics.translate(-camera2_x+offsetx, -camera2_y+offsety)
@@ -46,6 +52,10 @@ function love.draw()
             map:draw()
             player:draw()
             player2:draw()
+
+            for i, object in pairs(map.objects) do
+                object:draw()
+            end
 
         love.graphics.setScissor()
 

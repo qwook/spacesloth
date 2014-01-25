@@ -34,4 +34,8 @@ function love.update(dt)
     player:update(dt)
     player2:update(dt)
     world:update(dt)
+
+    for i, object in pairs(map.objects) do
+        object:update(dt)
+    end
 end
