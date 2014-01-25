@@ -30,6 +30,7 @@ function love.update(dt)
     end
 
     input:update(dt)
+    input2:update(dt)
     player:update(dt)
     player2:update(dt)
     world:update(dt)

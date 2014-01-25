@@ -107,6 +107,7 @@ end
 function love.keypressed(key, isrepeat)
     if not isrepeat then
         input:eventKeyPressed(key)
+        input2:eventKeyPressed(key)
     end
 end
 
