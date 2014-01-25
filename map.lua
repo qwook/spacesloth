@@ -12,6 +12,18 @@ function Map:initialize(mapname)
 
     local collision = self.tiledmap.collision.data
 
+    for _, v in pairs(self.tiledmap.layers["Objects"].objects) do
+        if v.name == "player1" then
+            player = Player:new()
+            player:setController(input)
+            player:setPosition(v.x, v.y)
+        elseif v.name == "player2" then
+            player2 = Cindy:new()
+            player2:setController(input2)
+            player2:setPosition(v.x, v.y)
+        end
+    end
+
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
@@ -20,6 +32,12 @@ function Map:initialize(mapname)
                     self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 elseif (colshape == "2") then
                     self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "3") then
+                    self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "4") then
+                    self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                elseif (colshape == "5") then
+                    self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 end
             end
         end

@@ -53,5 +53,46 @@ function Tile2:initPhysics()
     self.fixture:setUserData(self)
 end
 
+Tile3 = class("Tile3", Tile)
+Tile3.static.rampright = true
+
+function Tile3:initPhysics()
+    local hw = self.width / 2
+    local hh = self.height / 2
+
+    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, -hh)
+    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+
+    self.fixture:setUserData(self)
+end
+
+Tile4 = class("Tile4", Tile)
+Tile4.static.rampright = true
+
+function Tile4:initPhysics()
+    local hw = self.width / 2
+    local hh = self.height / 2
+
+    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, hh)
+    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+
+    self.fixture:setUserData(self)
+end
+
+Tile5 = class("Tile5", Tile)
+Tile5.static.rampright = true
+
+function Tile5:initPhysics()
+    local hw = self.width / 2
+    local hh = self.height / 2
+
+    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.shape = love.physics.newPolygonShape(-hw, -hh, hw, hh, hw, -hh)
+    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+
+    self.fixture:setUserData(self)
+end
 
 return Tile
