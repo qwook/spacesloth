@@ -22,6 +22,10 @@ function Player:initPhysics()
     self.floors = {}
 end
 
+function Player:isOnFloor()
+    return #self.floors > 0
+end
+
 function Player:update(dt)
     local velx, vely = self.body:getLinearVelocity()
 
@@ -72,10 +76,10 @@ end
 -- the player hit something
 function Player:beginContact(other, contact)
     local normx, normy = contact:getNormal()
-    local cx, cy, cz = math.crossproduct(normx, normy, 0, 0, 1, 0)
+    local dot = math.dotproduct(normx, normy, 0, 0, 1, 0)
 
     -- detect a floor
-    if math.abs(cz) < 0.5 then
+    if math.acos(dot) < math.pi / 4 then
         -- count how many potential floors we are touching
         if not table.hasvalue(self.floors, other) then
             table.insert(self.floors, other)

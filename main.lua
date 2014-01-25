@@ -1,12 +1,15 @@
 
-require("lib.mathext") -- this extends the math library
-require("lib.tableext") -- this extends the table library
-class = require("lib.middleclass")
+require("libs.mathext") -- this extends the math library
+require("libs.tableext") -- this extends the table library
+class = require("libs.middleclass")
 
 Player = require("player")
 Map = require("map")
 Tile = require("tile")
 Input = require("input")
+
+require("update")
+require("draw")
 
 ----------------------------------------------------
 
@@ -64,6 +67,15 @@ function love.load()
         input:bind( "s", "crouch" )
     end
 
+    -- I honestly grabbed these button names by printing them
+    -- in the eventJoyPressed function in the Input class
+    -- we can make prettier names for them later
+    input:bind( "joy_SNES RetroPort_3", "jump" )
+    input:bind( "joy_SNES RetroPort_axisdown_2", "jump" )
+    input:bind( "joy_SNES RetroPort_axisup_2", "crouch" )
+    input:bind( "joy_SNES RetroPort_axisdown_1", "left" )
+    input:bind( "joy_SNES RetroPort_axisup_1", "right" )
+
     -- todo: stop using temp map and use tiled
     for y, row in pairs(tempmap) do
         for x, tile in pairs(row) do
@@ -87,15 +99,10 @@ function love.keyreleased(key)
     input:eventKeyReleased(key)
 end
 
-function love.update(dt)
-    input:update(dt)
-    player:update(dt)
-    world:update(dt)
+function love.joystickpressed( joystick, button )
+    input:eventJoyPressed(joystick:getName() .. "_" .. button)
 end
 
-function love.draw()
-
-    map:draw()
-    player:draw()
-
+function love.joystickreleased( joystick, button )
+    input:eventJoyReleased(joystick:getName() .. "_" .. button)
 end

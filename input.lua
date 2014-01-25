@@ -76,6 +76,22 @@ function Input:eventKeyReleased(key)
     self:keyRelease(in_key)
 end
 
+function Input:eventJoyPressed(key)
+    local in_key = self.binds["joy_" .. key]
+
+    if in_key == nil then return end
+
+    self:keyPress(in_key)
+end
+
+function Input:eventJoyReleased(key)
+    local in_key = self.binds["joy_" .. key]
+
+    if in_key == nil then return end
+
+    self:keyRelease(in_key)
+end
+
 function Input:bind(key, in_key)
     self.binds[key] = in_key
 end
