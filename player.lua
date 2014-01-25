@@ -82,8 +82,11 @@ function Player:update(dt)
             self.body:setLinearVelocity(-200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle < 0 and self.floorangle < -math.pi/2 then
+            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
                 goingUpOrDown = false
+            end
+            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
+                goingUpOrDown = true
             end
         end
 
@@ -91,8 +94,11 @@ function Player:update(dt)
             self.body:setLinearVelocity(200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle > math.pi/2 and self.floorangle < math.pi then
+            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
                 goingUpOrDown = true
+            end
+            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
+                goingUpOrDown = false
             end
         end
 
