@@ -21,13 +21,13 @@ end
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
     self.shape = love.physics.newRectangleShape(32, 28)
+    -- self.shape = love.physics.newCircleShape(16)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
     self.fixture:setFriction(10)
-    self.body:setMass(10)
+    self.body:setMass(20)
     self.body:setFixedRotation(true)
-    self.body:setAngularDamping(math.huge)
 
     self.floors = {}
     self.floorangle = 0
@@ -43,15 +43,8 @@ end
 function Player:isOnFloor()
     local x, y = self:getPosition()
     local bboxcheck = false
-    world:queryBoundingBox(x - 16, y + 10, x + 16, y + 16, function(fixture)
-        local hit = fixture:getUserData()
-        if hit ~= self then
-            bboxcheck = true
-        end
-        return true
-    end)
 
-    return #self.floors > 0 and bboxcheck
+    return #self.floors > 0
 end
 
 function Player:update(dt)
@@ -83,6 +76,8 @@ function Player:update(dt)
     local goingUpOrDown = nil
 
     if self:isOnFloor() then
+
+        self.body:applyForce(self.floornx*500, self.floorny*500)
 
         if self.controller:isKeyDown("left") then
             self.body:setLinearVelocity(-200, vely)
@@ -193,6 +188,7 @@ end
 
 -- the player hit something
 function Player:beginContact(other, contact, isother)
+    local x, y = self:getPosition()
     local normx, normy = contact:getNormal()
 
     if isother == false then
@@ -203,12 +199,14 @@ function Player:beginContact(other, contact, isother)
     local dot = math.dotproduct(normx, normy, 0, 0, 1, 0)
 
     -- detect a floor
-    if (math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1) then        
+    local x1, y1, x2, y2 = contact:getPositions()
+
+    if (y1 > y and (y2 or y+1) > y) and ((math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1)) then        
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
 
-        self.body:applyLinearImpulse(normx*25, normy*25)
+        -- self.body:applyLinearImpulse(normx*25, normy*25)
 
         -- count how many potential floors we are touching
         if not table.hasvalue(self.floors, other) then
