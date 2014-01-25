@@ -314,7 +314,32 @@ return {
       visible = true,
       opacity = 1,
       properties = {},
-      objects = {}
+      objects = {
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 527,
+          y = 349,
+          width = 0,
+          height = 0,
+          gid = 9,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player1",
+          type = "",
+          shape = "rectangle",
+          x = 604,
+          y = 349,
+          width = 0,
+          height = 0,
+          gid = 9,
+          visible = true,
+          properties = {}
+        }
+      }
     }
   }
 }
