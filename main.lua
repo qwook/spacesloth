@@ -46,7 +46,7 @@ function love.load()
     world:setCallbacks(beginContact, endContact)
     world:setGravity(0, 1000)
 
-    map = Map:new("data/map1")
+    map = Map:new("data/map2")
     player = Player:new()
     player2 = Cindy:new()
 
