@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tilemap2" tilewidth="32" tileheight="32">
+  <image source="tilemap2.png" width="256" height="512"/>
+  <terraintypes>
+   <terrain name="testterrain" tile="-1"/>
+  </terraintypes>
+  <tile id="5" terrain="0,0,0,0"/>
+ </tileset>
+ <tileset firstgid="129" name="collision" tilewidth="32" tileheight="32">
+  <image source="collision.gif" width="160" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="colshape" value="1"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="colshape" value="2"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="colshape" value="3"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="colshape" value="4"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="colshape" value="5"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Ground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0TsKgEAQRMGNPIL3P6qJgoG6H1tYpAomnKRfKQAwbtmPOYz0WE9/emb17nnVQo+cnj3vWuiR07rnUws9cmp71jrokXXs2bq7Ht9600CPPD3mogcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/tgH1NgMx
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="100" height="100">
+  <object name="spawnpoint" gid="13" x="215" y="313"/>
+ </objectgroup>
+ <layer name="Collision" width="100" height="100" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKwCAMQFGvXk/epUIHxSgZRN4DJzFD/mApALDv+Q5n2OlRf+/0zLW6zzqYQY6VHr0WbQY5oj1GLdoMcsx61Ml9CdwT13r0/ujonvXIk7FLPfLocRY9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuNkL4KYUsA==
+  </data>
+ </layer>
+</map>
