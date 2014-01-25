@@ -25,6 +25,7 @@ function Input:isKeyDown(in_key)
     return bit.band(self.keyCodes, key_enum) ~= 0
 end
 
+-- Only true for the first frame key is down. Use for jumping, etc.
 function Input:wasKeyPressed(in_key)
     local key_enum = IN_KEYS[in_key]
     if key_enum == nil then return end
