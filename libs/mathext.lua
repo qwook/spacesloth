@@ -47,3 +47,8 @@ function math.approach2(start, _end, inc)
     local dir = math.sign(_end - start)
     return math.clamp(start + (dir * inc), start, _end)
 end
+
+function math.lerp(x1, y1, x2, y2, alpha)
+    local dist = math.distance(x1, y1, x2, y2)
+    return math.approach2(x1, x2, alpha * dist), math.approach2(y1, y2, alpha * dist)
+end
