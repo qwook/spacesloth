@@ -10,9 +10,11 @@ function Map:initialize(mapname)
     self.tiledmap = STI.new(mapname)
     self.tiledmap:createCollisionMap("Collision")
 
+    self.background = self:getImageLayer("Background")
+
     local collision = self.tiledmap.collision.data
 
-    for _, v in pairs(self.tiledmap.layers["Objects"].objects) do
+    for _, v in pairs(self:getObjectsLayer("Objects")) do
         if v.name == "player1" then
             player = Player:new()
             player:setController(input)
@@ -42,6 +44,16 @@ function Map:initialize(mapname)
             end
         end
     end
+end
+
+function Map:getImageLayer(layername)
+    if self.tiledmap.layers[layername] == nil then return nil end
+    return self.tiledmap.layers[layername].image
+end
+
+function Map:getObjectsLayer(layername)
+    if self.tiledmap.layers[layername] == nil then return {} end
+    return self.tiledmap.layers[layername].objects or {}
 end
 
 function Map:initPhysics()

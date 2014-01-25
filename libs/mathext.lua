@@ -52,3 +52,11 @@ function math.lerp(x1, y1, x2, y2, alpha)
     local dist = math.distance(x1, y1, x2, y2)
     return math.approach2(x1, x2, alpha * dist), math.approach2(y1, y2, alpha * dist)
 end
+
+function math.round(num)
+    if (num - math.floor(num)) < 0.5 then
+        return math.floor(num)
+    else
+        return math.ceil(num)
+    end
+end

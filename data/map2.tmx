@@ -47,12 +47,12 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
-  <object name="player1" gid="13" x="215" y="313"/>
-  <object name="player2" gid="13" x="276" y="308"/>
+  <object name="player1" gid="13" x="213" y="147"/>
+  <object name="player2" gid="13" x="274" y="142"/>
  </objectgroup>
- <layer name="Collision" width="100" height="100" visible="0" opacity="0.48">
+ <layer name="Collision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2dGKgzAQBVB/vdv2v5c+BCSojTrqxJ4DwiLdYeJNmqrDAEB2j6sbWPAYcvd3hMzj3ZLH3+j/eswzc79rr+cni+dEjZ5k7ndNHlNZlBpZtKzbTP3WWvOYy6LUmPp8fW1ajteK3r/1csc8ynWdy6LUaDnX2s8ed1kfc/N5KYdxjZZzLd7D/jXyTQ95tFz3pRot51odnUn2PI6osbfukZlkziPC3N6813uI2eNrmfOof49EHlGi10rmPI4SPebItSKPOCWXreuxt+c7db9Tf7eM6ewx3z2PvX1H70VR+1VveazV09jG97xca3zP+wt5ZJ93Lc8ZOU8veUTsoWfcE+6Vta/akb1lGXfZx3twdh5nz8/yHq2nPCKPV1X7SuN3mlf3cpUt455aMxFz41nV+0VRv2Ouun+/m/G49zwnn5rjrDf1vbO1zq/O6UjyyKW+hlu/s+QRY+mewx58vqX3d/IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuL9/Qt+20g==
+   eJzt2dGKgzAQBVB/vdv2v5c+BCSojTrqxJ4DwiLdYeJNGq3DAEB2j6sbWPAYcvd3hMzj3ZLH3+j/eswzc79rr+cni+dEjZ5k7ndNHlNZlBpZtKzbTP3WWvOYy6LUmPp8fW1ajteK3r/1csc8ynWdy6LUaDnX2s8ed1kfc/N5KYdxjZZzLd7D/jXyTQ95tFz3pRot51odnUn2PI6osbfukZlkziPC3N6813uI2eNrmfOo70cijyjRayVzHkeJHnPkWpFHnJLL1vXY2+87db9Tf7eM6ewx3z2PvX1H70VR+1VveazV09jGz7xca/zM+wt5ZJ93Lb8zcp5e8siwx54ha1+1I3vLMu6yj/fg7DzOnp/lPVpPeUQer6r2lcbvNK/u5Spb9s2pNRMxN55VvV8UdR9z53uLM43Hved38qk5znpT3ztb6/zqnI4kj1zqa7j1O0seMZaeOezB51t6fycPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgPv7Bw19t9Q=
   </data>
  </layer>
  <layer name="Decoration" width="100" height="100">

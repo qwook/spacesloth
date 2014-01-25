@@ -13,11 +13,16 @@ function love.draw()
     camera1_x, camera1_y = math.lerp(camera1_x, camera1_y, p1x, p1y, 0.15)
     camera2_x, camera2_y = math.lerp(camera2_x, camera2_y, p2x, p2y, 0.15)
 
-    love.graphics.push()
-        love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
-        love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
+    local bg_ratio = map.background:getHeight() / love.graphics.getHeight()
 
+    love.graphics.push()
         love.graphics.setScissor(0, 0, love.graphics.getWidth(), love.graphics.getHeight()/2)
+
+        love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
+
+        love.graphics.draw(map.background, -camera1_x/50, -camera1_y/40, 0, bg_ratio, bg_ratio)
+
+        love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
 
             map:draw()
             player:draw()
@@ -30,10 +35,13 @@ function love.draw()
 
 
     love.graphics.push()
-        love.graphics.translate(0, love.graphics.getHeight()/4)
-        love.graphics.translate(-camera2_x+offsetx, -camera2_y+offsety)
-
         love.graphics.setScissor(0, love.graphics.getHeight()/2, love.graphics.getWidth(), love.graphics.getHeight())
+
+        love.graphics.translate(0, love.graphics.getHeight()/4)
+
+        love.graphics.draw(map.background, -camera2_x/50, -camera2_y/40, 0, bg_ratio, bg_ratio)
+
+        love.graphics.translate(-camera2_x+offsetx, -camera2_y+offsety)
 
             map:draw()
             player:draw()
