@@ -26,26 +26,27 @@ function beginContact(fixture1, fixture2, contact)
     local physical1 = fixture1:getUserData()
     local physical2 = fixture2:getUserData()
 
-    physical1:beginContact(fixture2, contact)
-    physical2:beginContact(fixture1, contact)
+    physical1:beginContact(physical2, contact, false)
+    physical2:beginContact(physical1, contact, true)
 end
 
 function endContact(fixture1, fixture2, contact)
     local physical1 = fixture1:getUserData()
     local physical2 = fixture2:getUserData()
 
-    physical1:endContact(fixture2, contact)
-    physical2:endContact(fixture1, contact)
+    physical1:endContact(physical2, contact, false)
+    physical2:endContact(physical1, contact, true)
 end
 
 function love.load()
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact)
-    world:setGravity(0, 500)
+    world:setGravity(0, 1000)
 
+    map = Map:new("data/map1")
     player = Player:new()
-    map = Map:new()
+    player2 = Cindy:new()
     input = Input:new()
 
     for k,v in pairs(arg) do
@@ -77,15 +78,16 @@ function love.load()
     input:bind( "joy_SNES RetroPort_axisup_1", "right" )
 
     -- todo: stop using temp map and use tiled
-    for y, row in pairs(tempmap) do
-        for x, tile in pairs(row) do
-            if tile == 1 then
-                map:set(x, y, Tile:new())
-            end
-        end
-    end
+    -- for y, row in pairs(tempmap) do
+    --     for x, tile in pairs(row) do
+    --         if tile == 1 then
+    --             map:set(x, y, Tile:new(32, 32))
+    --         end
+    --     end
+    -- end
 
     player:setPosition(150, -10)
+    player2:setPosition(170, -10)
 
 end
 

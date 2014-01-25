@@ -74,7 +74,14 @@ function STI.new(map)
                 -- Spacing does not affect the first row/col
                 if x > 1 then qx = qx + s * x - s end
                 if y > 1 then qy = qy + s * y - s end
-                
+
+                local properties = {}
+                local id = ((x-1)+(y-1)*w)
+                for k,v in pairs(tileset.tiles) do
+                    if v.id == id then
+                        properties = v.properties
+                    end
+                end
                 map.tiles[gid] = {
                     gid     = gid,
                     tileset = i,
@@ -82,6 +89,7 @@ function STI.new(map)
                     sx      = 1,
                     sy      = 1,
                     r       = 0,
+                    properties = properties,
                     offset  = {
                         x = -map.tilewidth,
                         y = -tileset.tileheight,
