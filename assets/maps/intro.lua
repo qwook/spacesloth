@@ -871,6 +871,19 @@ return {
             ["spriteheight"] = "32",
             ["spritewidth"] = "32"
           }
+        },
+        {
+          name = "MUZAC",
+          type = "",
+          shape = "rectangle",
+          x = 117,
+          y = 40,
+          width = 63,
+          height = 60,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global:playMusic(crap2_d1.ogg)"
+          }
         }
       }
     },

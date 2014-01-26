@@ -713,6 +713,19 @@ return {
             ["onpress"] = "global:swapCollision()",
             ["onrelease"] = "global:swapCollision()"
           }
+        },
+        {
+          name = "MUZAC",
+          type = "",
+          shape = "rectangle",
+          x = 388,
+          y = 29,
+          width = 87,
+          height = 80,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global.playMusic(crap_d1_sped_up.ogg)"
+          }
         }
       }
     },

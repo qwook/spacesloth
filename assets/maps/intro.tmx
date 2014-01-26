@@ -212,6 +212,11 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
+  <object name="MUZAC" x="117" y="40" width="63" height="60">
+   <properties>
+    <property name="onspawn" value="global:playMusic(crap2_d1.ogg)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
