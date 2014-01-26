@@ -42,6 +42,7 @@ function Map:generateTileCollision(layername, collisiongroup)
 
     local hack = Physical:new()
     hack.collisiongroup = collisiongroup
+    hack.type = "TILE"
 
     self.polylines = traceTiles(tiles, 32, 32)
     for _, tracedShape in pairs(self.polylines) do

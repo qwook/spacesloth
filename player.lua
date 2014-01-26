@@ -28,6 +28,24 @@ function Player:initialize()
     self:initPhysics()
 end
 
+function Player:call(name, args)
+    if self["event_" .. name] then
+        self["event_" .. name](self, unpack(args))
+    end
+end
+
+function Player:event_multiplyVelocity(x, y)
+    local vx, vy = self.body:getLinearVelocity()
+    self.body:setLinearVelocity(vx * tonumber(x), vy * tonumber(y))
+    self.body:setAwake(true)
+end
+
+function Player:event_addVelocity(x, y)
+    local vx, vy = self.body:getLinearVelocity()
+    self.body:setLinearVelocity(vx + tonumber(x), vy + tonumber(y))
+    self.body:setAwake(true)
+end
+
 function Player:setController(input)
     self.controller = input
 end

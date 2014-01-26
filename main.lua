@@ -77,8 +77,24 @@ function contactFilter(fixture1, fixture2)
         return true
     end
 
-    if physical1.collisiongroup ~= physical2.collisiongroup then
-        return false
+    print('hey', physical1, physical2)
+
+    -- there is probably a more elegant way to make this logic
+    -- i'm just so tired
+    if physical1.type == "TILE" or physical2.type == "TILE" then
+        if physical1.collisiongroup ~= physical2.collisiongroup then
+            if not collisionSwapped then
+                return false
+            end
+        else
+            if collisionSwapped then
+                return false
+            end
+        end
+    else
+        if physical1.collisiongroup ~= physical2.collisiongroup then
+            return false
+        end
     end
 
     return true
@@ -90,9 +106,15 @@ function reset()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
-
-    map = Map:new("data/map2")
+    if arg[2] then 
+        map = Map:new(arg[2])
+    else
+        map = Map:new("data/introMap")
+    end
+    
     map:spawnObjects()
+
+    collisionSwapped = false
 
 end
 

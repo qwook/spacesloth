@@ -17,6 +17,9 @@ function Button:initPhysics()
 
     self.fixture:setUserData(self)
     self.fixture:setFriction(0.5)
+
+    self.hasPressedLastUpdate = false
+    self.buttonDelay = 0
 end
 
 function Button:setPosition(x, y)
@@ -26,13 +29,25 @@ end
 function Button:isTouchingPlayer()
     for k,v in pairs(self.touching) do
         if v.type == "PLAYER" then
-            return true
+            return v
         end
     end
     return false
 end
 
 function Button:update(dt)
+    if self.buttonDelay > 0 then
+        self.buttonDelay = self.buttonDelay - dt
+    end
+
+    local isTouching = self:isTouchingPlayer()
+
+    if isTouching and not self.hasPressedLastUpdate and self.buttonDelay <= 0 then
+        self:trigger(self.onpress, isTouching)
+        self.buttonDelay = 0.25
+    end
+
+    self.hasPressedLastUpdate = isTouching
 end
 
 function Button:draw()
