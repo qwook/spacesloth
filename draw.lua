@@ -18,12 +18,12 @@ function love.draw()
     love.graphics.push()
         love.graphics.setScissor(0, 0, love.graphics.getWidth(), love.graphics.getHeight()/2)
 
-        love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
+        love.graphics.translate(0, math.round(-love.graphics.getHeight()/4))
 
         love.graphics.setColor(255, 255, 255)
         love.graphics.draw(map.background, -camera1_x/50, -camera1_y/40, 0, bg_ratio, bg_ratio)
 
-        love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
+        love.graphics.translate(math.round(-camera1_x+offsetx), math.round(-camera1_y+offsety))
 
             map:draw("player1")
             player:draw()

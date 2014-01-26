@@ -121,7 +121,7 @@ function Player:update(dt)
 
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
             self.body:setLinearVelocity(velx/2, vely/2)
-            self.body:applyLinearImpulse(0, -500)
+            self.body:applyLinearImpulse(0, -300)
             self.nextJump = 0.1
             goingUpOrDown = nil
 
