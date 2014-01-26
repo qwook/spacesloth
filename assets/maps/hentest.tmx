@@ -145,12 +145,14 @@
   <object name="othertoggle" type="Toggle" gid="301" x="412" y="292">
    <properties>
     <property name="collisiongroup" value="blue"/>
+    <property name="onpress" value="physpoop:setFrozen(true)"/>
+    <property name="onrelease" value="physpoop:setFrozen(false)"/>
    </properties>
   </object>
   <object type="Toggle" gid="301" x="486" y="292">
    <properties>
     <property name="collisiongroup" value="green"/>
-    <property name="onpress" value="physpoop:setVisible(false);othertoggle:setVisible(false)"/>
+    <property name="onpress" value="physpoop:setVisible(false)"/>
     <property name="onrelease" value="physpoop:setVisible(true)"/>
    </properties>
   </object>

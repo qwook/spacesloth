@@ -118,12 +118,18 @@ end
 function PhysBox:event_setVisible(visible)
     if visible == "true" then
         if not self.frozen then
-            self:event_setFrozen(false)
+            if self.frozenJoint then
+                self.frozenJoint:destroy()
+                self.frozenJoint = nil
+            end
         end
         self.visible = true
     elseif visible == "false" then
         if self.visible then
-            self:event_setFrozen(true)
+            if not self.frozenJoint then
+                local x, y = self:getPosition()
+                self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+            end
         end
         self.visible = false
     end

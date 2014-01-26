@@ -652,8 +652,8 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 542,
-          y = 593,
+          x = 574,
+          y = 594,
           width = 64,
           height = 13,
           visible = true,
@@ -665,8 +665,8 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 769,
-          y = 657,
+          x = 740,
+          y = 662,
           width = 64,
           height = 13,
           visible = true,
@@ -679,7 +679,7 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 1320,
-          y = 656,
+          y = 659,
           width = 57,
           height = 15,
           visible = true,
@@ -691,8 +691,8 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1827,
-          y = 656,
+          x = 1794,
+          y = 658,
           width = 64,
           height = 13,
           visible = true,
@@ -736,15 +736,15 @@ return {
           height = 26,
           visible = true,
           properties = {
-            ["ontrigger"] = "global:changeMap(level2)"
+            ["ontrigger"] = "global:changeMap(intro)"
           }
         },
         {
           name = "monster",
           type = "Prop",
           shape = "rectangle",
-          x = 1205,
-          y = 414,
+          x = 1297,
+          y = 401,
           width = 0,
           height = 0,
           gid = 16,
@@ -775,439 +775,6 @@ return {
         },
         {
           name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 866,
-          y = 438,
-          width = 88,
-          height = 23,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "fallingBlocks:setFrozen(false)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 770,
-          y = 81,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 856,
-          y = 52,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 927,
-          y = 78,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 978,
-          y = 65,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 844,
-          y = 103,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 914,
-          y = 103,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 978,
-          y = 91,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 952,
-          y = 20,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1023,
-          y = 27,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1042,
-          y = 72,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1074,
-          y = 8,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 988,
-          y = 618,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 898,
-          y = 566,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 969,
-          y = 573,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 790,
-          y = 649,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 802,
-          y = 598,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 924,
-          y = 611,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1020,
-          y = 554,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 924,
-          y = 637,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 873,
-          y = 624,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 860,
-          y = 649,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 993,
-          y = 510,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1013,
-          y = 629,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 973,
-          y = 635,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 841,
-          y = 523,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 794,
-          y = 483,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 794,
-          y = 523,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 854,
-          y = 582,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 834,
-          y = 642,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "fallingBlocks",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 913,
-          y = 649,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {
-            ["onspawn"] = "fallingBlocks:setFrozen(true)"
-          }
-        },
-        {
-          name = "",
           type = "Text",
           shape = "rectangle",
           x = 304,
@@ -1223,8 +790,8 @@ return {
           name = "fonz",
           type = "Prop",
           shape = "rectangle",
-          x = 903,
-          y = 398,
+          x = 912,
+          y = 409,
           width = 0,
           height = 0,
           gid = 16,
@@ -1240,13 +807,39 @@ return {
           name = "",
           type = "Text",
           shape = "rectangle",
-          x = 631,
-          y = 323,
+          x = 691,
+          y = 321,
           width = 171,
           height = 69,
           visible = true,
           properties = {
-            ["string"] = "as you can see, I am here, and I am everywhere. I am one and I am all. You will soon find out that you are also all."
+            ["string"] = "you'll find that most of the platforms here are easy to reach!"
+          }
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 1107,
+          y = 305,
+          width = 171,
+          height = 69,
+          visible = true,
+          properties = {
+            ["string"] = "But look at both your screens! See?? You can see different views!"
+          }
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 1406,
+          y = 545,
+          width = 171,
+          height = 69,
+          visible = true,
+          properties = {
+            ["string"] = "Is your friend stuck? Here's a tip: you can jump on another player!"
           }
         }
       }

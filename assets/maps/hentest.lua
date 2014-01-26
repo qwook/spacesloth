@@ -1270,7 +1270,9 @@ return {
           gid = 301,
           visible = true,
           properties = {
-            ["collisiongroup"] = "blue"
+            ["collisiongroup"] = "blue",
+            ["onpress"] = "physpoop:setFrozen(true)",
+            ["onrelease"] = "physpoop:setFrozen(false)"
           }
         },
         {
@@ -1285,7 +1287,7 @@ return {
           visible = true,
           properties = {
             ["collisiongroup"] = "green",
-            ["onpress"] = "physpoop:setVisible(false);othertoggle:setVisible(false)",
+            ["onpress"] = "physpoop:setVisible(false)",
             ["onrelease"] = "physpoop:setVisible(true)"
           }
         },

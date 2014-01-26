@@ -122,22 +122,22 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Trigger" x="542" y="593" width="64" height="13">
+  <object type="Trigger" x="574" y="594" width="64" height="13">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object type="Trigger" x="769" y="657" width="64" height="13">
+  <object type="Trigger" x="740" y="662" width="64" height="13">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1320" y="656" width="57" height="15">
+  <object type="Trigger" x="1320" y="659" width="57" height="15">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1827" y="656" width="64" height="13">
+  <object type="Trigger" x="1794" y="658" width="64" height="13">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5)"/>
    </properties>
@@ -154,7 +154,7 @@
   </object>
   <object type="Trigger" x="2596" y="1123" width="84" height="26">
    <properties>
-    <property name="ontrigger" value="global:changeMap(level2)"/>
+    <property name="ontrigger" value="global:changeMap(intro)"/>
    </properties>
   </object>
   <object name="monster" type="Prop" gid="16" x="1297" y="401">
@@ -173,161 +173,6 @@
     <property name="spritewidth" value="256"/>
    </properties>
   </object>
-  <object type="Trigger" x="866" y="438" width="88" height="23">
-   <properties>
-    <property name="ontrigger" value="fallingBlocks:setFrozen(false)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="770" y="81">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="856" y="52">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="927" y="78">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="978" y="65">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="844" y="103">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="914" y="103">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="978" y="91">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="952" y="20">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1023" y="27">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1042" y="72">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1074" y="8">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="988" y="618">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="898" y="566">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="969" y="573">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="790" y="649">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="802" y="598">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="924" y="611">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1020" y="554">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="924" y="637">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="873" y="624">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="860" y="649">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="993" y="510">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1013" y="629">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="973" y="635">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="841" y="523">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="794" y="483">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="794" y="523">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="854" y="582">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="834" y="642">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="913" y="649">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
   <object type="Text" x="304" y="435" width="171" height="69">
    <properties>
     <property name="string" value="hey whats up little dudes! welcome to the multidimensional rift!"/>
@@ -341,14 +186,19 @@
     <property name="spritewidth" value="256"/>
    </properties>
   </object>
-  <object type="Text" x="631" y="323" width="171" height="69">
+  <object type="Text" x="691" y="321" width="171" height="69">
    <properties>
-    <property name="string" value="as you can see, I am here, and I am everywhere. Now jump here, and join me in the cosmos."/>
+    <property name="string" value="you'll find that most of the platforms here are easy to reach!"/>
    </properties>
   </object>
-  <object type="Text" x="1075" y="307" width="171" height="69">
+  <object type="Text" x="1107" y="305" width="171" height="69">
    <properties>
-    <property name="string" value="Players of the same color "/>
+    <property name="string" value="But look at both your screens! See?? You can see different views!"/>
+   </properties>
+  </object>
+  <object type="Text" x="1406" y="545" width="171" height="69">
+   <properties>
+    <property name="string" value="Is your friend stuck? Here's a tip: you can jump on another player!"/>
    </properties>
   </object>
  </objectgroup>
