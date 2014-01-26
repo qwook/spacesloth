@@ -29,6 +29,8 @@ function Trigger:update(dt)
 end
 
 function Trigger:draw()
+    if not DEBUG then return end
+    
     local x, y = self:getPosition()
     local r = self:getAngle()
 

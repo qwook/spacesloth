@@ -17,7 +17,7 @@ function PhysBox:postSpawn()
 end
 
 function PhysBox:eval(str, activator)
-    local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%.]*)%)")
+    local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%)]*)%)")
 
     if not name or not event or not arg then return end
 

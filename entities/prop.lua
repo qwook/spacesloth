@@ -45,7 +45,6 @@ function Prop:draw()
     if self.animlife > 0 then
         local t = (self.animduration - self.animlife) / self.animduration
         local s = (self.xto - self.xfrom) + 1
-        print (self.xfrom + math.floor(t*s))
         self.spritesheet:draw(self.xfrom + math.floor(t*s), self.animy, -self.spritewidth/2, -self.spriteheight/2)
     else
         self.spritesheet:draw(0, 0, -self.spritewidth/2, -self.spriteheight/2)

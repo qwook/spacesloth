@@ -24,6 +24,17 @@ require("draw")
 
 ----------------------------------------------------
 
+local arguments = {}
+for k, v in pairs(arg) do
+    arguments[string.lower(v)] = true
+end
+
+if arguments["debug"] then
+    DEBUG = true
+end
+
+----------------------------------------------------
+
 -- replace with tiled later
 local tempmap = {
     {1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0};
