@@ -1740,7 +1740,9 @@ return {
           height = 0,
           gid = 1,
           visible = true,
-          properties = {}
+          properties = {
+            ["collisiongroup"] = "green"
+          }
         }
       }
     },
