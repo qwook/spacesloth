@@ -1,6 +1,11 @@
 
 last_axes = {}
 
+local updateList = {}
+function onNextUpdate(cb)
+    table.insert(updateList, cb)
+end
+
 function love.update(dt)
     local joysticks = love.joystick.getJoysticks()
 
@@ -37,5 +42,10 @@ function love.update(dt)
 
     for i, object in pairs(map.objects) do
         object:update(dt)
+    end
+
+    while (#updateList > 0) do
+        updateList[1]()
+        table.remove(updateList, 1)
     end
 end

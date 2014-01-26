@@ -11,10 +11,12 @@ Input = require("input")
 Events = require("events")
 
 PhysBox = require("physbox")
+Node = require("entities.node")
 Fonz = require("entities.fonz")
 Button = require("entities.button")
 Bull = require("entities.bull")
 BlueBall = require("entities.blueball")
+Trigger = require("entities.trigger")
 
 require("update")
 require("draw")

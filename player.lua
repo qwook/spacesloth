@@ -30,12 +30,6 @@ function Player:initialize()
     self:initPhysics()
 end
 
-function Player:call(name, args)
-    if self["event_" .. name] then
-        self["event_" .. name](self, unpack(args))
-    end
-end
-
 function Player:event_multiplyVelocity(x, y)
     local vx, vy = self.body:getLinearVelocity()
     self.body:setLinearVelocity(vx * tonumber(x), vy * tonumber(y))
@@ -46,6 +40,24 @@ function Player:event_addVelocity(x, y)
     local vx, vy = self.body:getLinearVelocity()
     self.body:setLinearVelocity(vx + tonumber(x), vy + tonumber(y))
     self.body:setAwake(true)
+end
+
+function Player:event_teleportTo(name)
+
+    for k,v in pairs(map.objects) do
+        if v.name == name then
+            -- print(v:getPosition())
+            self:setPosition(v:getPosition())
+            -- self:setPosition(self:getPosition())
+            return
+        end
+    end
+end
+
+function Player:call(name, args)
+    if self["event_" .. name] then
+        self["event_" .. name](self, unpack(args))
+    end
 end
 
 function Player:setController(input)
@@ -82,7 +94,7 @@ function Player:isOnFloor()
 
     for k, contact in pairs(self.contacts) do
         local x1, y1, x2, y2 = contact:getPositions()
-        if (y1 > y and (y2 or y+1) > y) then
+        if ((y1 or y-1) > y and (y2 or y+1) > y) then
             self.floornx, self.floorny = contact:getNormal()
             return true
         end
@@ -295,7 +307,7 @@ function Player:beginContact(other, contact, isother)
     local id, id2 = contact:getChildren()
     if isother then id = id2 end -- `isother` means we are the second object
 
-    if (y1 > y and (y2 or y+1) > y) then -- and ((math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1)) then        
+    if ((y1 or y-1) > y and (y2 or y+1) > y) then -- and ((math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1)) then        
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
