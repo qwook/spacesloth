@@ -59,6 +59,9 @@
  <tileset firstgid="299" name="orange2" tilewidth="32" tileheight="32">
   <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
  </tileset>
+ <tileset firstgid="351" name="object_tilemap" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
+ </tileset>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
@@ -199,6 +202,14 @@
   <object type="Text" x="1406" y="545" width="171" height="69">
    <properties>
     <property name="string" value="Is your friend stuck? Here's a tip: you can jump on another player!"/>
+   </properties>
+  </object>
+  <object name="teleporter_prop" type="Prop" gid="371" x="2623" y="1150">
+   <properties>
+    <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
+    <property name="sprite" value="teleporter.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
    </properties>
   </object>
  </objectgroup>

@@ -1447,6 +1447,23 @@ return {
           properties = {
             ["string"] = "Yo what's up? Lorem ipsum dolar set amet!"
           }
+        },
+        {
+          name = "teleporter_prop",
+          type = "Prop",
+          shape = "rectangle",
+          x = 563,
+          y = 265,
+          width = 0,
+          height = 0,
+          gid = 311,
+          visible = true,
+          properties = {
+            ["onspawn"] = "teleporter_prop:loopAnimation(0, 0, 3, 3)",
+            ["sprite"] = "teleporter.png",
+            ["spriteheight"] = "32",
+            ["spritewidth"] = "32"
+          }
         }
       }
     },

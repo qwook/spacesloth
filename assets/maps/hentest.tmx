@@ -196,6 +196,14 @@
     <property name="string" value="Yo what's up? Lorem ipsum dolar set amet!"/>
    </properties>
   </object>
+  <object name="teleporter_prop" type="Prop" gid="311" x="563" y="265">
+   <properties>
+    <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
+    <property name="sprite" value="teleporter.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
