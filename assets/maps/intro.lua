@@ -849,7 +849,7 @@ return {
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-500);tramp1:playAnimation(0,1,2,0.5)"
           }
         }
       }

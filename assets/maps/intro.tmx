@@ -169,7 +169,7 @@
   </object>
   <object type="Trigger" x="542" y="273" width="64" height="13">
    <properties>
-    <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)"/>
+    <property name="ontrigger" value="activator:setVelocity(0,-500);tramp1:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
  </objectgroup>
