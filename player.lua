@@ -7,6 +7,7 @@ Player = class('Player', Physical)
 function Player:initialize()
     self.name = "Stewart"
     self.type = "PLAYER"
+    self.collisiongroup = "blue"
 
     self.spritesheet = SpriteSheet:new("data/players.png", 32, 32)
     self.expression = 0
@@ -90,10 +91,10 @@ function Player:update(dt)
             self.body:setLinearVelocity(-200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2 then
                 goingUpOrDown = false
             end
-            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2 then
                 goingUpOrDown = true
             end
         end
@@ -102,10 +103,10 @@ function Player:update(dt)
             self.body:setLinearVelocity(200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2 then
                 goingUpOrDown = true
             end
-            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2 then
                 goingUpOrDown = false
             end
         end
@@ -265,7 +266,8 @@ Cindy = class("Cindy", Player)
 
 function Cindy:initialize()
     Player.initialize(self)
-    
+
+    self.collisiongroup = "green"
     self.name = "Cindy"
 end
 

@@ -58,10 +58,33 @@ function postSolve(fixture1, fixture2, contact, normal, tangent)
     physical2:postSolve(physical1, contact, normal, tangent, true)
 end
 
+function contactFilter(fixture1, fixture2)
+    local physical1 = fixture1:getUserData()
+    local physical2 = fixture2:getUserData()
+
+    physical1.collisiongroup = physical1.collisiongroup or "shared"
+    physical2.collisiongroup = physical2.collisiongroup or "shared"
+
+    if physical1.type == "PLAYER" and physical2.type == "PLAYER" then
+        return true
+    end
+
+    if physical1.collisiongroup == "shared" or physical2.collisiongroup == "shared" then
+        return true
+    end
+
+    if physical1.collisiongroup ~= physical2.collisiongroup then
+        return false
+    end
+
+    return true
+end
+
 function reset()
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
+    world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
 
     map = Map:new("data/map2")

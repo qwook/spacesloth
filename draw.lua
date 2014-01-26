@@ -25,7 +25,7 @@ function love.draw()
 
         love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
 
-            map:draw()
+            map:draw("player1")
             player:draw()
             player2:draw()
 
@@ -49,7 +49,7 @@ function love.draw()
 
         love.graphics.translate(-camera2_x+offsetx, -camera2_y+offsety)
 
-            map:draw()
+            map:draw("player2")
             player:draw()
             player2:draw()
 

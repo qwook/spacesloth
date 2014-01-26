@@ -3,7 +3,9 @@ Physical = require("physical")
 
 Tile = class("Tile", Physical)
 
-function Tile:initialize(w, h)
+function Tile:initialize(w, h, collisiongroup)
+    self.collisiongroup = collisiongroup or "shared"
+
     self.width = w
     self.height = h
     self.type = "TILE"
