@@ -7,7 +7,6 @@ local function drawSingleScreen()
 
         for i, object in pairs(map.objects) do
             if object.isCamera then
-                print(object:getPosition())
                 camera1_x, camera1_y = object:getPosition()
             end
         end

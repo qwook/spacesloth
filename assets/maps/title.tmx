@@ -59,12 +59,15 @@
  <tileset firstgid="299" name="orange2" tilewidth="32" tileheight="32">
   <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
  </tileset>
+ <tileset firstgid="351" name="object_tilemap" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
+ </tileset>
  <imagelayer name="Background" width="200" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2b1twkAYgOHzJu6hgQqlIDQswAQZhYoFWIBRGCWj5DscKygSFJx/xfNIX43t82vDkRIAAAAAAAAAAAAAAAAAAPDfskrHRZVSO6f02qyqdBnh8Hki1qSOtTm+Movqb+IeeVtx/l+bOP9zKpvP6EMj05HbiDWpY22OJbNpGvke+3zGkvsobSNPbkwj09C2ke/t0j7OSR9d9ZFn//s9bauTwcU1r/P3oViD23NfH+W67qOd/C7RyHC2d++MjT4601cfGhnOozb0Ua7PPjTSv2dt6KPcskrXUyqfuIYP5xCdfEQjfU27N72O+2Hs69laN8d02x+NY6z7mkPzGbtHE2tTPHGP7Ma+nrxuFe/A+E16zXsDU9g/y/tH++Z38m71xs9epmMqjWiDqRq7EW0wdWM1og3mYuhGtMHcDNWINpir+0YWPY02mLPcyLP/ZjoYbQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQKEf5j54Ug==
+   eJzt2bFtwkAUgOHzJvTQQIVSEBoWYIKMQsUCLJBRGCWj5B2OFRQJCs722cr3Sa/G9vm34UgJAAAAAAAAAAAAAAAAAAD4a9Wk07JJqZtzem3WTfqscPg8EWuyiLU5vTLL5nfiHvm34vw/tnH+l1Q279GHRqYjtxFrsoi1OZXMtm3kq/b51JL7KG0jT25MI9PQtZHv7dI+LkkfffWR5/DzPW2nk9HFNV/k70OxBrfnvj7K9d1HN/ldopHx7O7eGVt99GaoPjQynkdt6KPckH1oZHjP2tBHuVWTrudUPnENH84xOnmLRoaabm96E/dD7evZ2bTHdNsfjWNcDDXH9jP2jybWpnjiHtnXvp68bh3vwPhNes17A1PYP8v7R4f2d/J+/Y+fvUzHVBrRBlNVuxFtMHW1GtEGczF2I9pgbsZqRBvM1X0jy4FGG8xZbuTZfzM9TG7jWvs8AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgzr4BSqd4Mg==
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100" visible="0">
@@ -77,13 +80,16 @@
    eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
- <objectgroup name="Objects" width="200" height="100" visible="0">
+ <objectgroup name="Objects" width="200" height="100">
   <object name="player1" gid="13" x="533" y="467"/>
   <object name="player2" gid="13" x="594" y="462"/>
+  <object type="TitleScreen" gid="4" x="2542" y="838"/>
+  <object name="player1" gid="351" x="2075" y="744"/>
+  <object name="player2" gid="355" x="2984" y="747"/>
  </objectgroup>
- <layer name="SharedCollision" width="200" height="100" visible="0" opacity="0.48">
+ <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt28sKgCAURVF/PejDm0vHB0VhrQXOHbhBvFgKAAAAAAAAADBqqxZwTh+Q6QMyfUCmD8j0AZk+INMHZPqArJ4Vzqz9hf3CKjQCbRqBNvct6NMItGkE2jTCyq686Y7+HdEIf9ebLc42BV/irEN2950MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeM4BSYgqbQ==
+   eJzt2sEKwjAQRdH8uuKHuypK6ahFOnmBcyD7WcyltnEMAAAAAAAAAOBXt90BjukDavqAmj6gpg+o6QNq+oCaPqCmD6jt7wrPnMeEeWEVGoHPZjbyz7PvygPvZv3eStzFxJnI0N1I4i4mzkSOzkYSdzFxJrJ0NZK4i4kzcU7Hu2hHI2nfz+5DH7x824Wrv+8k3cNsbeiDTcouzG7Ec4MjSfcDsxrRBqvobkQbrKarEW2wqqsb0Qar8x8rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVvUE0Fhc7Q==
   </data>
  </layer>
  <layer name="BlueCollision" width="200" height="100" visible="0" opacity="0.48">

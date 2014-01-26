@@ -60,3 +60,25 @@ function math.round(num)
         return math.ceil(num)
     end
 end
+
+-----------------------------------------------------------------------------------------------------------------------
+-- tween.lua - v1.0.1 (2012-02)
+-- Enrique García Cota - enrique.garcia.cota [AT] gmail [DOT] com
+-- tweening functions for lua
+-- inspired by jquery's animate function
+-----------------------------------------------------------------------------------------------------------------------
+
+-- bounce
+function math.outBounce(t, b, c, d)
+  t = t / d
+  if t < 1 / 2.75 then return c * (7.5625 * t * t) + b end
+  if t < 2 / 2.75 then
+    t = t - (1.5 / 2.75)
+    return c * (7.5625 * t * t + 0.75) + b
+  elseif t < 2.5 / 2.75 then
+    t = t - (2.25 / 2.75)
+    return c * (7.5625 * t * t + 0.9375) + b
+  end
+  t = t - (2.625 / 2.75)
+  return c * (7.5625 * t * t + 0.984375) + b
+end
