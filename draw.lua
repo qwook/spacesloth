@@ -25,14 +25,19 @@ function love.draw()
 
         love.graphics.translate(math.round(-camera1_x+offsetx), math.round(-camera1_y+offsety))
 
-            map:draw("player1")
+            if not collisionSwapped then
+                map:draw("player1")
+            else
+                map:draw("player2")
+            end
+
             player:draw()
             player2:draw()
 
             for i, object in pairs(map.objects) do
                 if (object.collisiongroup == nil or
                     object.collisiongroup == "shared" or
-                    object.collisiongroup == "blue") or
+                    object.collisiongroup == "blue" and not collisionSwapped) or
                     (object.visibleonboth == "true") then
                     object:draw()
                 end
@@ -54,7 +59,12 @@ function love.draw()
 
         love.graphics.translate(-camera2_x+offsetx, -camera2_y+offsety)
 
-            map:draw("player2")
+            if not collisionSwapped then
+                map:draw("player2")
+            else
+                map:draw("player1")
+            end
+
             player:draw()
             player2:draw()
 

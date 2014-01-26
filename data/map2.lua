@@ -613,7 +613,7 @@ return {
           visible = true,
           properties = {
             ["collisiongroup"] = "green",
-            ["onpress"] = "activator:multiplyVelocity(1, -10)",
+            ["onpress"] = "global:swapCollision()",
             ["visibleonboth"] = "false"
           }
         }

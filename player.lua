@@ -36,8 +36,13 @@ end
 
 function Player:event_multiplyVelocity(x, y)
     local vx, vy = self.body:getLinearVelocity()
-    print(x, y)
-    self.body:setLinearVelocity(vx * tonumber(x), vx * tonumber(y))
+    self.body:setLinearVelocity(vx * tonumber(x), vy * tonumber(y))
+    self.body:setAwake(true)
+end
+
+function Player:event_addVelocity(x, y)
+    local vx, vy = self.body:getLinearVelocity()
+    self.body:setLinearVelocity(vx + tonumber(x), vy + tonumber(y))
     self.body:setAwake(true)
 end
 
