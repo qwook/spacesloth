@@ -208,6 +208,10 @@ function love.load()
 end
 
 function love.keypressed(key, isrepeat)
+    if key == "escape" then
+        love.event.quit()
+    end
+
     if not isrepeat then
         input:eventKeyPressed(key)
         input2:eventKeyPressed(key)
