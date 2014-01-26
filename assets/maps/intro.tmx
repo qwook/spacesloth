@@ -47,12 +47,24 @@
  <tileset firstgid="290" name="generic_box" tilewidth="32" tileheight="32">
   <image source="../sprites/box_generic.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="291" name="button" tilewidth="32" tileheight="32">
+  <image source="../sprites/button_blue.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="293" name="tramp" tilewidth="32" tileheight="32">
+  <image source="../sprites/trampoline.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="296" name="angled_tramp" tilewidth="32" tileheight="32">
+  <image source="../sprites/trampoline_angled.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="299" name="orange2" tilewidth="32" tileheight="32">
+  <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
+ </tileset>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1WFuwiAYBmCO6mlW/9f99ygeyQssGc2yjBjW0UoLnc+TfFFj+KC8IkMIp7cQwlRDoLWYw2mMr+PX+2vj5bw8efRFHn2pmceQ3EW5++gcv3+Pc5wf5pnGXWYq7XOPnz/i+KnumT7p/M/ciblee9yxNfNIey3pF/f8lo57rMvK+ZeMLem1x3/IEfIYV86/ZGxpL3k4HzV6OR915s3dYaW1du3Ox4+/fpfPVOnaf3v2VzwfW+ZRet5q9ay1nrlea89bqa3z+G8lj75KHn3V1nmExs93tNojj2+tn/UItWceS7TeF3nMa71PuaKc/e2f/QcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC2PgG2PAO9
+   eJzt2D1OwzAYBmDnMEyFHbEXcYyehrIDew/C0JXbcAEkbEQkK0QkTmnjps8jfaJV8E/8yjJ4G8LmMYSQahv4b9dN2KyaEIbq9qfi581zbJcqfZ55+ouT1vQ2W++hyvOIe2Q38/QXpzSPmIE8jmjOPLbZWdR3Hj3F569xjKfOOKndyx+V9/MRv3/G9qk+evrJxz/kTOzra0p/c+aR91XSX1zzfd6uWy8Txy9pO6avKWu0xDziO43q5xR53I+cS+t+gXnYH+WumsvYH8fOI71rO9a6+X1+ldS6sT+6SvP4ax0OrTT3tG+mvnu+P6b2k/IY03bsnNL5cZfVTay3+Lvv4ftn+r7Jn5eeH8fMY+x+6+6rvn7yu4WSflLb7t/Ph8ypdL/VtD+WWPKoq+RRVx07j1DBO55TpfM83fm01b37ae+E2io9z3Nzv+s51Cn2xxRxnH1ec6/TpefRM+6+pOZe16XnUer6TDNaah592ozWFWdzSXm0VgP/r8vjtORRF3nURR512Yawj++9q7Hau/+8ct1nS8ijZg9xzfL7kKE65L4EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGFfIqpAQQ==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -62,7 +74,7 @@
  </layer>
  <layer name="GreenLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzrENACAMBLEfldEyYhZAghkQUhq7ufYSAOBFJ2sndVvTLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMA/B1qrBH4=
+   eJzt2MEJwCAQBMAtNaVZog0Eoh2IIBdhBpb77mc/lwAAO3ryvEkbt1V3gdvNLa2muisAAADn+LcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAXHwwEGro=
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
@@ -74,110 +86,71 @@
   <object type="PhysBox" gid="290" x="334" y="174"/>
   <object type="PhysBox" gid="290" x="153" y="27"/>
   <object type="PhysBox" gid="290" x="333" y="28"/>
-  <object type="PhysBox" gid="290" x="575" y="287"/>
-  <object type="PhysBox" gid="290" x="575" y="253"/>
-  <object type="PhysBox" gid="290" x="541" y="287"/>
-  <object type="PhysBox" gid="290" x="1825" y="256"/>
-  <object type="PhysBox" gid="290" x="1824" y="318"/>
-  <object type="PhysBox" gid="290" x="1858" y="318"/>
-  <object type="PhysBox" gid="290" x="505" y="209"/>
-  <object type="PhysBox" gid="290" x="573" y="176"/>
-  <object type="PhysBox" gid="290" x="541" y="185"/>
-  <object type="PhysBox" gid="290" x="792" y="272"/>
-  <object type="PhysBox" gid="290" x="827" y="260"/>
-  <object type="PhysBox" gid="290" x="783" y="296"/>
-  <object type="PhysBox" gid="290" x="854" y="308"/>
-  <object type="PhysBox" gid="290" x="872" y="308"/>
-  <object type="PhysBox" gid="290" x="959" y="293"/>
-  <object type="PhysBox" gid="290" x="860" y="251"/>
-  <object type="PhysBox" gid="290" x="797" y="200"/>
-  <object type="PhysBox" gid="290" x="795" y="200"/>
-  <object type="PhysBox" gid="290" x="786" y="215"/>
-  <object type="PhysBox" gid="290" x="800" y="296"/>
-  <object type="PhysBox" gid="290" x="824" y="314"/>
-  <object type="PhysBox" gid="290" x="806" y="323"/>
-  <object type="PhysBox" gid="290" x="780" y="326"/>
-  <object type="PhysBox" gid="290" x="803" y="161"/>
-  <object type="PhysBox" gid="290" x="786" y="158"/>
-  <object type="PhysBox" gid="290" x="836" y="209"/>
-  <object type="PhysBox" gid="290" x="872" y="323"/>
-  <object type="PhysBox" gid="290" x="860" y="338"/>
-  <object type="PhysBox" gid="290" x="905" y="329"/>
-  <object type="PhysBox" gid="290" x="896" y="239"/>
-  <object type="PhysBox" gid="290" x="899" y="263"/>
-  <object type="PhysBox" gid="290" x="833" y="332"/>
-  <object type="PhysBox" gid="290" x="806" y="326"/>
-  <object type="PhysBox" gid="290" x="932" y="335"/>
-  <object type="PhysBox" gid="290" x="905" y="263"/>
-  <object type="PhysBox" gid="290" x="806" y="341"/>
-  <object type="PhysBox" gid="290" x="1365" y="158"/>
-  <object type="PhysBox" gid="290" x="1359" y="173"/>
-  <object type="PhysBox" gid="290" x="1362" y="197"/>
-  <object type="PhysBox" gid="290" x="1365" y="215"/>
-  <object type="PhysBox" gid="290" x="1368" y="233"/>
-  <object type="PhysBox" gid="290" x="1371" y="254"/>
-  <object type="PhysBox" gid="290" x="1371" y="272"/>
-  <object type="PhysBox" gid="290" x="1371" y="296"/>
-  <object type="PhysBox" gid="290" x="1371" y="308"/>
-  <object type="PhysBox" gid="290" x="1374" y="314"/>
-  <object type="PhysBox" gid="290" x="1416" y="251"/>
-  <object type="PhysBox" gid="290" x="1413" y="230"/>
-  <object type="PhysBox" gid="290" x="1416" y="269"/>
-  <object type="PhysBox" gid="290" x="1446" y="284"/>
-  <object type="PhysBox" gid="290" x="1449" y="290"/>
-  <object type="PhysBox" gid="290" x="1455" y="302"/>
-  <object type="PhysBox" gid="290" x="1478" y="320"/>
-  <object type="PhysBox" gid="290" x="1484" y="329"/>
-  <object type="PhysBox" gid="290" x="1484" y="329"/>
-  <object type="PhysBox" gid="290" x="1458" y="323"/>
-  <object type="PhysBox" gid="290" x="1440" y="323"/>
-  <object type="PhysBox" gid="290" x="1419" y="326"/>
-  <object type="PhysBox" gid="290" x="1398" y="332"/>
-  <object type="PhysBox" gid="290" x="1374" y="338"/>
-  <object type="PhysBox" gid="290" x="1374" y="338"/>
-  <object type="PhysBox" gid="290" x="1359" y="320"/>
-  <object type="PhysBox" gid="290" x="1395" y="251"/>
-  <object type="PhysBox" gid="290" x="1401" y="287"/>
-  <object type="PhysBox" gid="290" x="1452" y="341"/>
-  <object type="PhysBox" gid="290" x="1386" y="335"/>
-  <object type="PhysBox" gid="290" x="1368" y="335"/>
-  <object type="PhysBox" gid="290" x="1840" y="185"/>
-  <object type="PhysBox" gid="290" x="1858" y="221"/>
-  <object type="PhysBox" gid="290" x="1888" y="260"/>
-  <object type="PhysBox" gid="290" x="1906" y="278"/>
-  <object type="PhysBox" gid="290" x="1921" y="296"/>
-  <object type="PhysBox" gid="290" x="1938" y="308"/>
-  <object type="PhysBox" gid="290" x="1953" y="317"/>
-  <object type="PhysBox" gid="290" x="1956" y="323"/>
-  <object type="PhysBox" gid="290" x="1938" y="329"/>
-  <object type="PhysBox" gid="290" x="1909" y="329"/>
-  <object type="PhysBox" gid="290" x="1900" y="326"/>
-  <object type="PhysBox" gid="290" x="1885" y="326"/>
-  <object type="PhysBox" gid="290" x="1855" y="329"/>
-  <object type="PhysBox" gid="290" x="1855" y="329"/>
-  <object type="PhysBox" gid="290" x="1846" y="269"/>
-  <object type="PhysBox" gid="290" x="1855" y="269"/>
-  <object type="PhysBox" gid="290" x="1885" y="275"/>
-  <object type="PhysBox" gid="290" x="1888" y="284"/>
-  <object type="PhysBox" gid="290" x="1900" y="206"/>
-  <object type="PhysBox" gid="290" x="1935" y="239"/>
-  <object type="PhysBox" gid="290" x="1971" y="272"/>
-  <object type="PhysBox" gid="290" x="1992" y="302"/>
-  <object type="PhysBox" gid="290" x="2007" y="326"/>
+  <object type="trampoline" x="769" y="321" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
+  <object type="Button" gid="291" x="2525" y="321">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+   </properties>
+  </object>
+  <object type="Button" gid="291" x="2717" y="483">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2684" y="803" width="131" height="25">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2468" y="803" width="131" height="25">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2605" y="804" width="75" height="24">
+   <properties>
+    <property name="ontrigger" value="teleportto(next1)"/>
+   </properties>
+  </object>
+  <object name="next1" type="teleportTo" gid="117" x="2622" y="901"/>
+  <object type="trigger" gid="293" x="2619" y="1118">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="574" y="255" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="1351" y="317" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="1829" y="317" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1TEOgCAQRUGuzs1tLVSU3cRfzCRWyqp5Icwxxjxd5NAjix5Z9MhS7TEvrrv7q3VPc768f/efqt/SoaPHzrzVc5U5lR6Vb+mgx3qdHnp0rdej5s25+uXc1SOLHll291XnnK69fp5HDj2y6JFFjyx6ZNEjix4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8Dte9LFg==
+   eJzt11uOgyAABVBnh7Ol7ny+yBBTlLeo5ySkiQVEbgH72bbtExX6+mSWVFv6aplTefQnj7VcmcfZvphzvWR/zbl/7TO1jiXup1aPPGr6O6vX0k9LHi1jab1/a9tv7Z+Qx+/Pf6npTx51bVPtQg61/cmjrm2q3dV5tJaasayex1X7VW9PyCOI88h9h2x5vxuhdl317KfXWn/C+ngSeazhSefHyuJ5TpVQLyaP8eL5j6/Fn8Ho87zXeTfafl5m3e8u6+OqfI72lty6qTap/eqO58es9ZWax9y6Of0c7V93yaNUbkY1v+uzdXPUJv5uXz+Mu/Q572qfy9mczvTGPII4j/A5c32k6sVjK32WO9uvj3ieZpwfR9fenMc3M9+vvtWTx1remsfKpfRZGGd0fpSpWR8yGadmbq2VcVrmVB79yWMdrXuOPPpqzUIefdXOqSzGKX1XksU8/gsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAWv4AZoLWPA==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJztw7ENAAAIA6C+7ueu3dwNJCQAwGUqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8NsC+pMBhA==
+   eJzt1qENAAAIBLFfnc2xOAwC0Sa3wyUAwKZGAAD85NkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAuNKs+AMH
   </data>
  </layer>
  <layer name="GreenCollision" width="100" height="100" opacity="0.28">
   <data encoding="base64" compression="zlib">
-   eJztzKENAAAMw7C+vs/Hh4cqWwpNAgD95vT9BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHos1yIDiA==
+   eJzt1yEOADAIA0C+zs/xiBkQC7lLausqGgEA92XLdicw0zf6CgAAAHf5fwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/KIA7jQKlg==
   </data>
  </layer>
  <layer name="Decoration" width="100" height="100">
