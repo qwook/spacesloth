@@ -64,12 +64,12 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2DFOwzAYBlD3MEzAjthbcYyehrIDOwdh6MqtsBGWrBBI3LRNat6TflEUYsf+5Dp4F8L2MYSQahc4tptV2F6vQhiqu++Kn7fP8b5U6fPMj9+cNKd3xXwPVZlHXCNvMz9+c2rziBnI44TmzGNX7EV9+9FTvP4a+3jq9JPue/mjxu5r3f6n7Il9bR3S3px5lG3VtBfnfF/e162XA/uvuXdMW4fMUYt5xDGNaucceWxGPku2aTAP6+M4Y2hxfZw6jzTW3Nd69XP/qqn1yvroqs3jr3mYWmOf/bexL3F9pP3jvqjbWO/xbz/C18/0+7a8Xrt/nDKPseutu6762inPFmraSfd235+nPFNtvktaHy2WPJZV8lhWnTqPsIAxXlKl/Tyd+eTqnv3kM6Fctft5ae6xXkKdY30cIvazL2vuefrvefT0u6+puee19Txq3VxoRq3m0SdntK7IpvZdsWZu+mrsWUF2yXlk1wP/r0+d0ynv+/9pfWRjx+D76jyG1of947zksSy7EPZx3G9LrLSfX8V5K6vUvdZCHkv2EOesPA8ZqinnJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM+wRgESlB
+   eJzt2E1KAzEYBuD0MK7UvbiveIyexrq37j1Kj2YCBkIcnUnHdqbxeeCDSpn8vcRMsw9h9xJCSLUP/LW7TdjdbkIYq4evip93b/G5VOnzwsPvTlrTh2K9x6rMI+6Rj4WH353WPGIG8jijJfPYF2fR0Hn0Gr9/j328Vv2k5w6/1NRzre5/zpk41NYp7S2ZR9lWS3txzY/lc3UdTuy/5dkpbZ2yRj3mEec0qZ1L5PE0cSzZU4d52B9/M4ce98e580hzzX1tN9/Pr5babuyPWmsev63D3Jo69p/mvsb9kc6Px6Luq7HFv3fl963nxznzmLrf6n011E55t9DSTnq2fn+eM6bWfNe0P3oseayr5LGuOnceYQVzvKZK53m688lV3/3kO6Fcred5aem5XkNdYn+cIvZzLGvpdfrveQz0e2yppde19zxa3V1pRr3mMSRntG3IpvVdsWVthmrqXUF2zXlktyO/1+eu6Zz3/f+0P7Kpc/D/6jLG9ofz47LksS77EI5x3h9rrHSe38R1K6tUf9dDHmv2HNesvA8Zqzn3JQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM+wTF5iVg
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzjERACAMBMGXirQIiQFcgQMqJs1uc+0lAMBLJ2sndVvTLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBfB9vKA+I=
+   eJzt1jENACAQBMGTirQXggFcgYBPaEhoZpptr7wEALiZyVhJndbvLQAA9Hw2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF7ZdfUHww==
   </data>
  </layer>
  <layer name="GreenLayer" width="100" height="100">
@@ -102,7 +102,7 @@
   </object>
   <object type="Trigger" x="2596" y="803" width="87" height="27">
    <properties>
-    <property name="ontrigger" value="teleportto(next1)"/>
+    <property name="ontrigger" value="activator:teleportTo(next1)"/>
    </properties>
   </object>
   <object name="next1" type="teleportTo" gid="117" x="2622" y="901"/>
@@ -113,7 +113,7 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="tramp3" type="Prop" gid="293" x="1347" y="352">
+  <object name="tramp3" type="Prop" gid="293" x="1343" y="351">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -151,9 +151,9 @@
     <property name="ontrigger" value="activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1346" y="336" width="64" height="13">
+  <object type="Trigger" x="1320" y="336" width="57" height="15">
    <properties>
-    <property name="ontrigger" value="activator:setVelocity(0,-500);tramp3:playAnimation(0,1,2,0.5)"/>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
   <object type="Trigger" x="1827" y="336" width="64" height="13">
