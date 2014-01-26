@@ -1,4 +1,6 @@
 
+DEACCELERATION_SPEED = 600
+
 Physical = require("physical")
 SpriteSheet = require("spritesheet")
 Particle = require("entities.particle")
@@ -28,7 +30,7 @@ function Player:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(5)
+    self.fixture:setFriction(0.5)
     self.body:setMass(20)
     self.body:setFixedRotation(true)
 
@@ -109,7 +111,11 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("left") and not jumping then
-            self.body:setLinearVelocity(-200, vely)
+            if math.abs(velx) < 100 then
+                self.body:applyLinearImpulse(-20, 0)
+            else
+                self.body:setLinearVelocity(-200, vely)
+            end
 
             -- this is for climbing stairs
             if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
@@ -122,7 +128,12 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("right") and not jumping then
-            self.body:setLinearVelocity(200, vely)
+
+            if math.abs(velx) < 100 then
+                self.body:applyLinearImpulse(20, 0)
+            else
+                self.body:setLinearVelocity(200, vely)
+            end
 
             -- this is for climbing stairs
             if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
@@ -141,23 +152,31 @@ function Player:update(dt)
             local velx, vely = self.body:getLinearVelocity()
             -- up
             if goingUpOrDown == true then
-                -- self.body:applyLinearImpulse(0, -50)
+                self.body:applyLinearImpulse(0, -50)
                 self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
-                -- self.body:applyLinearImpulse(0, 10)
+                self.body:applyLinearImpulse(0, 10)
                 self.body:setLinearVelocity(velx, 200 * -ypoop)
             end
         end
 
     -- not on floor, we're in the air
     else
-        if self.controller:isKeyDown("left") and velx >= 0 then
-            self.body:setLinearVelocity(velx - 600*dt, vely)
+        if self.controller:isKeyDown("left") then
+            if velx >= 0 then
+                self.body:setLinearVelocity(velx - DEACCELERATION_SPEED*dt, vely)
+            elseif math.abs(velx) < 250 then
+                self.body:applyLinearImpulse(-10, 0)
+            end
         end
 
-        if self.controller:isKeyDown("right") and velx <= 0 then
-            self.body:setLinearVelocity(velx + 600*dt, vely)
+        if self.controller:isKeyDown("right") then
+            if velx <= 0 then
+                self.body:setLinearVelocity(velx + DEACCELERATION_SPEED*dt, vely)
+            elseif math.abs(velx) < 250 then
+                self.body:applyLinearImpulse(10, 0)
+            end
         end
     end
 
