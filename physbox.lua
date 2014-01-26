@@ -8,7 +8,7 @@ function PhysBox:initialize()
     self.contacts = {}
     self.touching = {}
 
-    self.spritesheet = SpriteSheet:new("assets/box_generic.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("assets/sprites/box_generic.png", 32, 32)
 
     table.insert(map.objects, self)
 end
