@@ -123,7 +123,7 @@ function changeMap(mapname)
     world:setGravity(0, 1000)
 
     collisionSwapped = false
-    singleCamera = true
+    singleCamera = false
 
     map = Map:new("assets/maps/" .. mapname)
 

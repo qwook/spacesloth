@@ -57,6 +57,18 @@ function Player:event_applyImpulse(x, y)
     self.body:setAwake(true)
 end
 
+function Player:event_teleportTo(name)
+
+    for k,v in pairs(map.objects) do
+        if v.name == name then
+            -- print(v:getPosition())
+            self:setPosition(v:getPosition())
+            -- self:setPosition(self:getPosition())
+            return
+        end
+    end
+end
+
 function Player:call(name, args)
     if self["event_" .. name] then
         self["event_" .. name](self, unpack(args))
@@ -163,7 +175,7 @@ function Player:update(dt)
 
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
             self.body:setLinearVelocity(velx/10, vely/5)
-            self.body:applyLinearImpulse(0, -325)
+            self.body:applyLinearImpulse(0, -400)
             self.nextJump = 0.1
             goingUpOrDown = nil
 

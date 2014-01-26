@@ -1215,8 +1215,8 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1140,
-          y = 31,
+          x = 517,
+          y = 211,
           width = 84,
           height = 71,
           visible = true,
@@ -1430,18 +1430,6 @@ return {
           width = 0,
           height = 0,
           gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "TitleScreen",
-          shape = "rectangle",
-          x = 343,
-          y = 187,
-          width = 0,
-          height = 0,
-          gid = 296,
           visible = true,
           properties = {}
         }

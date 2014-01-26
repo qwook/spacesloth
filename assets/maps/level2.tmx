@@ -59,12 +59,15 @@
  <tileset firstgid="299" name="orange2" tilewidth="32" tileheight="32">
   <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
  </tileset>
+ <tileset firstgid="351" name="objects" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
+ </tileset>
  <imagelayer name="Background" width="200" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt3EFKQmEUBeDnetR5NGnkPlxNs0ZtoKW4tH4TQYjfzOfzHn3fBwcahN3oHDSwhuEyq8WwXS6GYUzaY8BTav3evrR+j0l7jK/q7wOmcNzHpnW8fby7Jiv74Ekd9+E5AH6zD+izD+izD+izD+izD+izD+izD+izD+izD+izD+izD+hL28e599vf+330SbdQI20f595vf+8bk26hhn08xi3UsI/HuIUaJ38f9fO6+n3o52OYvhNJnUy6hRrHDnwOf+etdWLqjSR1MukWauw7cMk29tn3YuqNJHUy6RZq/Hcfp6/FpthJUieTbqHGNfs45tLnknX7Gq/tc9cXdCqpk0m3UGPMPqZ4vZXUyaRbqDF2H7feSFInk26hRu/nf03G/h/G5eF3m24nNzf6Go94CzVuuY8nzK4q1b3gIKCDybGPmQvoYHLsY+YCOpgc+5i5gA4mxz5mLqCDybGPmQvoYHLsY+YqOyD2ka66B2Ifyap7IPaRrLoHYh/Jqnsg9pGsugdiH8mqeyD2AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANzHNycltNs=
+   eJzt2zFu20AUBNDVeSL1RppUuodPky5VLuCj+GjeFIQFGytQS1L/Z/c9YAAXhrgiZ2AVcinrnE/l9ceplC2prwFDqv1+fan93pL6Gm/R7wOOsOzjWjtef37vydk+GNSyD38D4Dv7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gLZs+7j3fftnf4++dZbf5TN7neuZ12K9bPu49337Z5+xdZa/5TN7neuZ12I9+3j8LPYxD/t4/Cz2MY+b/4/69nn3a/6U45+NfdhHJstzuX0Orfyqz+bojdiHfWTy77ms2cbyfI7eiH3YRyaP7uP2s9gRO7EP+8ikZx9L1v4tudRr/Ky/e1nxbO3DPjLZso8jPm/Zh31ksnUfe2/EPuwjk1YXe9L6Xsgjud7Zx3Wna2w9y9fO7nGue+878h7slf/VnvsYMO+yT6J73itBBzMnvFejJLrnvRJ0MHPCezVKonveK0EHMye8V6Mkuue9EnQwc8J7NUqie94rQQczJ7xXoyS6570SdDBzwns1SqJ73iv6vskcie55r+j7JnMkuue9ou+bzJHonveKvm8yR6J73iv6vskcie55r+j7JnMkuue9ou+bzJHongMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAClfAAJ+8XE
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100">
@@ -78,8 +81,6 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="200" height="100">
-  <object name="player1" gid="13" x="439" y="224"/>
-  <object name="player2" gid="13" x="498" y="222"/>
   <object name="tramp2" gid="293" x="448" y="609">
    <properties>
     <property name="sprite" value="trampoline.png"/>
@@ -178,12 +179,79 @@
   </object>
   <object type="Trigger" x="1728" y="763" width="865" height="73">
    <properties>
-    <property name="ontrigger" value="global:teleportTo(flag1)"/>
+    <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
   <object name="flag1" x="1588" y="381" width="42" height="33"/>
+  <object type="Text" x="694" y="216" width="182" height="129">
+   <properties>
+    <property name="string" value="You're on your own, good luck!"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2944" y="756" width="511" height="78">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(flag2)"/>
+   </properties>
+  </object>
+  <object type="Toggle" gid="361" x="2887" y="482">
+   <properties>
+    <property name="onpress" value="fallingblocks:setFrozen(true)"/>
+    <property name="onrelease" value="fallingblocks:setFrozen(false)"/>
+   </properties>
+  </object>
+  <object name="flag2" x="2765" y="337" width="51" height="54"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3002" y="433"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3101" y="364"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3188" y="303"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3265" y="242"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3338" y="179"/>
+  <object name="fallingblocks" type="PhysBox" gid="371" x="3399" y="115"/>
+  <object type="Trigger" x="3000" y="595" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(toblock1)"/>
+   </properties>
+  </object>
+  <object name="toblock1" x="3001" y="105" width="23" height="18"/>
+  <object name="block2to" x="3101" y="105" width="23" height="18"/>
+  <object name="block3to" x="3190" y="109" width="23" height="18"/>
+  <object name="block4to" x="3265" y="108" width="23" height="18"/>
+  <object name="block5to" x="3341" y="106" width="23" height="18"/>
+  <object name="block6to" x="3401" y="103" width="23" height="18"/>
+  <object type="Trigger" x="3095" y="597" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(block2to)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="3182" y="597" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(block3to)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="3252" y="597" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(block4to)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="3324" y="597" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(block5to)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="3395" y="595" width="41" height="57">
+   <properties>
+    <property name="filter" value="fallingblocks"/>
+    <property name="ontrigger" value="activator:teleportTo(block6to)"/>
+   </properties>
+  </object>
+  <object name="player1" gid="13" x="2624" y="392"/>
+  <object name="player2" gid="13" x="2676" y="391"/>
  </objectgroup>
- <layer name="SharedCollision" width="200" height="100" opacity="0.48">
+ <layer name="SharedCollision" width="200" height="100" visible="0" opacity="0.48">
   <data encoding="base64" compression="zlib">
    eJzt3EsKwzAQA9BcvdCD9wTTusGONeY9yCobgSUS6Oe6xrwmXXCiGf22D07n+QE1HYeafUDNPqBmH1CzD6jZB9TsA2r2ATX7gJp9QM0+oGYfUEvZR9L3IJOysFfKeX/LsWMfd+5xnpTzTupkUhb2SjnvpE4mZWGvkd9AvR/KcefeCklZyPfERpI6mZSFHlZvJKmTSVnoY+X7VlInk7LQz+hG/vnMIKmTSVnoafZzJKmTSVnoa+ZGkjqZlIXeZv0P469OPn11yAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGT5ANl4auo=
   </data>
