@@ -49,11 +49,13 @@ function Map:generateTileCollision(layername, collisiongroup)
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
-                local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
-                if not self.tiledmap.layers[layername].data[y][x].properties then continue end
-                if colshape == "1" then
-                    tiles[x] = tiles[x] or {}
-                    tiles[x][y] = 1
+
+                if self.tiledmap.layers[layername].data[y][x].properties then
+                    local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
+                    if colshape == "1" then
+                        tiles[x] = tiles[x] or {}
+                        tiles[x][y] = 1
+                    end
                 end
             end
         end

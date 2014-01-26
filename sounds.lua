@@ -1,4 +1,8 @@
 
+local soundLibrary = {}
+
 function playSound(name)
-    love.audio.newSource("assets/music/crap_d1_sped_up.ogg")
+    soundLibrary[name] = soundLibrary[name] or love.audio.newSource("assets/music/" .. name)
+
+    
 end
