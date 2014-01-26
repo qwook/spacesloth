@@ -114,6 +114,15 @@ function love.load()
     input2:bind( "joy_2_axisdown_1", "left" )
     input2:bind( "joy_2_axisup_1", "right" )
 
+    input2:bind( "up", "jump" )
+    input2:bind( "down", "crouch" )
+    input2:bind( "rshift", "L")
+    input2:bind( "/", "R")
+    input2:bind( "r", "select")
+    input2:bind( "t", "start")
+    input2:bind( "left", "left" )
+    input2:bind( "right", "right" )
+
     reset()
 
 end
