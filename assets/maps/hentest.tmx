@@ -142,7 +142,7 @@
   <object type="Platform" x="430" y="106" width="69" height="9"/>
   <object name="player1" gid="291" x="204" y="147"/>
   <object name="player2" gid="291" x="262" y="151"/>
-  <object type="Toggle" gid="301" x="412" y="292">
+  <object name="othertoggle" type="Toggle" gid="301" x="412" y="292">
    <properties>
     <property name="collisiongroup" value="blue"/>
    </properties>
@@ -150,8 +150,8 @@
   <object type="Toggle" gid="301" x="486" y="292">
    <properties>
     <property name="collisiongroup" value="green"/>
-    <property name="onpress" value="physpoop:setFrozen(false)"/>
-    <property name="onrelease" value="physpoop:setFrozen(true)"/>
+    <property name="onpress" value="physpoop:setVisible(false);othertoggle:setVisible(false)"/>
+    <property name="onrelease" value="physpoop:setVisible(true)"/>
    </properties>
   </object>
   <object name="physpoop" type="PhysBox" gid="290" x="391" y="183">

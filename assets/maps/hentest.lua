@@ -1260,7 +1260,7 @@ return {
           properties = {}
         },
         {
-          name = "",
+          name = "othertoggle",
           type = "Toggle",
           shape = "rectangle",
           x = 412,
@@ -1285,8 +1285,8 @@ return {
           visible = true,
           properties = {
             ["collisiongroup"] = "green",
-            ["onpress"] = "physpoop:setFrozen(false)",
-            ["onrelease"] = "physpoop:setFrozen(true)"
+            ["onpress"] = "physpoop:setVisible(false);othertoggle:setVisible(false)",
+            ["onrelease"] = "physpoop:setVisible(true)"
           }
         },
         {

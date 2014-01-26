@@ -62,11 +62,19 @@ local function drawSplitScreen()
             end
 
             for i, object in pairs(map.objects) do
-                if (object.collisiongroup == nil or
-                    object.collisiongroup == "shared" or
-                    object.collisiongroup == "blue") or
-                    (object.visibleonboth == "true") then
+                if object.zindex == -1 then
                     object:draw()
+                end
+            end
+
+            for i, object in pairs(map.objects) do
+                if (object.zindex == 0 or object.zindex == nil) and object.visible ~= false then
+                    if (object.collisiongroup == nil or
+                        object.collisiongroup == "shared" or
+                        object.collisiongroup == "blue") or
+                        (object.visibleonboth == "true") then
+                        object:draw()
+                    end
                 end
             end
             
@@ -102,7 +110,7 @@ local function drawSplitScreen()
             end
 
             for i, object in pairs(map.objects) do
-                if object.zindex == 0 or object.zindex == nil then
+                if (object.zindex == 0 or object.zindex == nil) and object.visible ~= false then
                     if (object.collisiongroup == nil or
                         object.collisiongroup == "shared" or
                         object.collisiongroup == "green") or
