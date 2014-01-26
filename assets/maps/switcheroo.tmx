@@ -55,7 +55,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2sFNwzAUBuCwC4N0lI7SE6m4Agd6YhRGw5agiiC2k9aJQ/t90hPiQOX6r/Ns077rDk9d18XqO1p7DXm8hJ+xQiYfjYdz97aURz9Yq6m69TW8pTyGY0nVa7vhrUIe2zKcg1PI4z38voWxyOOcyaFVJvIYn4NWmcij68K878L877eQSSmP0N8+w/5qt+aYWshksmo/yeVx7bpI7aVb9sucXCalM0Gt9xVeYx/XwKB2P3Xtukhl3bJflqQymVIt9mb9jLue3NqTSR3DOS49z0q9SSbXq5nHf8jkKVO5vEo9Z+zZcgyv9xb+bk4N+0yuvzw+TMtj65nkxN576Rpa+gwRxvbnM3CaMb57y2TJPGIWc+ZeJsvlUSuLmpm0+B/CyLmhWHN7xcR+ku15Iz1wt3Qm7oCme6+USVyXqc+4POaZk0nqeROfkak5lcd8UzO5ZE7lcZlrM0nNaf/rHm6s7uHO+hKlM7A5hfqeQ43tz4++73aWO6fVPp+9VX69WxT3PadEr63dC+RRFvNYa5/5PLi79owat2YelMljW777x+Gnd//u77f+ve2tGZ6bx+6Gne8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgKV8Ac547oU=
+   eJzt2kFO4zAUBuBwlzlIj8JRuiKILbCgK47C0bDRzMiC2E5aJw7t90lPiAWV67/Os03HYTg+DMMQaxzo7SXk8Rx+xgqZvHcezs3bUx5jslZzde1reE95pGPJ1Uu/4W1CHvuSzsEp5PEWft/DWOTxP5Njr0zkMT0HvTKRxzCEeT+E+b/fQya1PEJ/+wj7q8OWY+qhkMmm/aSUx6XrIreX7tkvS0qZ1M4Erd5XeI37uAaSOvyrS9dFLuue/bIml8mc6rE3Gxfc9ZTWnkzaSOe49jyr9SaZXK5lHr8hk4dClfKq9ZypZ8tjeL3X8HdLKu0zpf7y525eHnvPpCT23nPX0NpniDC2H5+B04Lx3Voma+YRs1gy9zJZL49WWbTMpMf/ECbODdVa2itm9pNiz5vogYe1M3EHNN9bo0ziusx9xuWxzJJMcs+b+IzMzak8lpubyTlzKo/zXJpJbk7Hb/dwU3ULd9bnqJ2BzSm09xRqan/+6PtuX2pntNbns9fGr3dt4p7nVOizrXuBPMpiHlvuMZ+Su2vPqJ+2zoMyeezL3/5xTPv29x5/7d/b3pP0zJy7G3a+AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADW8gmXcfEG
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -116,9 +116,9 @@
     <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
-  <object name="LevelEnd" type="Trigger" x="2040" y="951" width="35" height="51">
+  <object name="LevelEnd" type="Trigger" x="2007" y="949" width="35" height="51">
    <properties>
-    <property name="ontrigger" value="global:changeMap(level2)"/>
+    <property name="onbothplayers" value="global:changeMap(level2)"/>
    </properties>
   </object>
   <object type="Trigger" x="2638" y="704" width="195" height="24">
@@ -126,7 +126,7 @@
     <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
-  <object name="teleporter_prop" type="Prop" gid="311" x="2048" y="992">
+  <object name="teleporter_prop" type="Prop" gid="311" x="2016" y="992">
    <properties>
     <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
     <property name="sprite" value="teleporter.png"/>
@@ -134,16 +134,16 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Button" gid="299" x="2080" y="1024">
+  <object type="Button" gid="299" x="2048" y="1024">
    <properties>
-    <property name="collisiongroup" value="green"/>
+    <property name="collisiongroup" value="blue"/>
     <property name="onpress" value="global:swapCollision()"/>
     <property name="onrelease" value="global:swapCollision()"/>
    </properties>
   </object>
-  <object type="Button" gid="299" x="2080" y="1024">
+  <object type="Button" gid="299" x="2048" y="1024">
    <properties>
-    <property name="collisiongroup" value="shared"/>
+    <property name="collisiongroup" value="green"/>
     <property name="onpress" value="global:swapCollision()"/>
     <property name="onrelease" value="global:swapCollision()"/>
    </properties>
@@ -156,7 +156,7 @@
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2OtKwzAYgOHcekXvW/YjMMqWQ5M239bngYDgdGtfc6hbSml7Gqy1vfmaNSL12BrHN4vWY8ZrPpkesex7/K76IEmPh/31rWyix+vrW9VEj5T+UpwmpXt9l/PVQ5QmtR6jv/vVWLlflpSatIwZ15U/wxnPHe9+/hObtFi1vrX2qs09Tcb1PDu1fF+TMTN75NdEb3JkPT/yP6jWfero/tL69xW5ScnoHDrTTxo7D9ytyZk9cotRd2pyVo9ZLbIZTWastb1a9pqoo2a0Set70D63a01K81KPPj1Njsw1PfqNnBUzPeYabVLqcfV+/i1GzyVAP3Oq7sq1x32v0yOWK9cLa1SdexOLHrHs1w9nn7U83wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq/wDdquu3w==
+   eJzt2O1qgzAUgOHcumO779EfQik2Jp5oTuvzQGCwbq2+y4dbSinL02Cu5c3XzJGpx9I4vlm2HiNe88n0yOW1x++sD1L0eHi9vplN9Ni+vllN9Cjlr+RpUrvXdzlfPWRpstcj+ru3xsz9sqbWpGWMuK71M5zx3PHu5z+xSYtZ61trr725p0lcz7NTy/c1iRnZY31N9iZH1vMj/4Nq3aeO7i+tf1+Zm9RE59CZfkrsPHC3Jmf2WFtE3anJWT1GtViNaDJire3VstdkHXuiTVrfg/a5vdekNi/16NPT5Mhc06Nf5Ky40mOsaJNaj6v3828RPZcA/cypuqvXHve9To9crl4rrFF17ksueuSytXY4+8zj+Q4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmOkfabuwYg==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
