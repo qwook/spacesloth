@@ -4,12 +4,11 @@ local camera2_x, camera2_y = 0, 0
 
 local function drawSingleScreen()
 
-
-        for i, object in pairs(map.objects) do
-            if object.isCamera then
-                camera1_x, camera1_y = object:getPosition()
-            end
+    for i, object in pairs(map.objects) do
+        if object.isCamera then
+            camera1_x, camera1_y = object:getPosition()
         end
+    end
 
 
     local offsetx = love.graphics.getWidth()/2
