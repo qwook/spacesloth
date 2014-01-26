@@ -53,7 +53,8 @@ end
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
     -- self.shape = love.physics.newRectangleShape(32, 28)
-    self.shape = love.physics.newCircleShape(14)
+    -- self.shape = love.physics.newCircleShape(14)
+    self.shape = love.physics.newPolygonShape(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -345,6 +346,8 @@ function Cindy:drawPlayer()
 
     self.spritesheet:draw(anim, 3, -16, -18)
     self.spritesheet:draw(self.expression, 2, -16, -18)
+
+    love.graphics.line(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
 end
 
 
