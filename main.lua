@@ -8,6 +8,7 @@ Player = require("player")
 Map = require("map")
 Tile = require("tile")
 Input = require("input")
+Events = require("events")
 
 PhysBox = require("physbox")
 Fonz = require("entities.fonz")
@@ -106,6 +107,8 @@ function love.load()
 
     input = Input:new()
     input2 = Input:new()
+
+    events = Events:new()
 
     -- run love . dvorak for dvorak bindings
     if arg[2] == "dvorak" then
