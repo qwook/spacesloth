@@ -188,7 +188,11 @@
    </properties>
   </object>
   <object type="Platform" x="430" y="106" width="69" height="9"/>
-  <object type="Button" gid="1" x="335" y="295"/>
+  <object type="Button" gid="1" x="335" y="295">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
