@@ -532,8 +532,8 @@ return {
           name = "player1",
           type = "",
           shape = "rectangle",
-          x = 439,
-          y = 224,
+          x = 1530,
+          y = 420,
           width = 0,
           height = 0,
           gid = 13,
@@ -544,8 +544,8 @@ return {
           name = "player2",
           type = "",
           shape = "rectangle",
-          x = 498,
-          y = 222,
+          x = 1561,
+          y = 417,
           width = 0,
           height = 0,
           gid = 13,
@@ -794,7 +794,7 @@ return {
           height = 73,
           visible = true,
           properties = {
-            ["ontrigger"] = "global:teleportTo(flag1)"
+            ["ontrigger"] = "activator:teleportTo(player1)"
           }
         },
         {

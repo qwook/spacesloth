@@ -78,8 +78,8 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="200" height="100">
-  <object name="player1" gid="13" x="439" y="224"/>
-  <object name="player2" gid="13" x="498" y="222"/>
+  <object name="player1" gid="13" x="1530" y="420"/>
+  <object name="player2" gid="13" x="1561" y="417"/>
   <object name="tramp2" gid="293" x="448" y="609">
    <properties>
     <property name="sprite" value="trampoline.png"/>
@@ -178,7 +178,7 @@
   </object>
   <object type="Trigger" x="1728" y="763" width="865" height="73">
    <properties>
-    <property name="ontrigger" value="global:teleportTo(flag1)"/>
+    <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
   <object name="flag1" x="1588" y="381" width="42" height="33"/>
