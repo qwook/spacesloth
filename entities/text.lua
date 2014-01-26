@@ -6,24 +6,24 @@ Text = class("Text", PhysBox)
 function Text:initialize(x, y, w, h)
     self.width = w
     self.height = h
-    self.touching = {}
     PhysBox.initialize(self)
 end
 
 function Text:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
-    self.shape = love.physics.newRectangleShape(self.width, self.height)
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setSensor(true)
-    self.fixture:setUserData(self)
-
-    self.hasPressedLastUpdate = false
-    self.TextDelay = 0
 end
 
 function Text:setPosition(x, y)
-    PhysBox.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
+    self.x = x
+    self.y = y
+    -- PhysBox.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
+end
+
+function Text:getPosition()
+    return self.x, self.y
+end
+
+function Text:getAngle()
+    return 0
 end
 
 function Text:update(dt)
@@ -37,9 +37,17 @@ function Text:draw()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
 
-    love.graphics.setColor(0, 255, 0, 100)
-    love.graphics.rectangle('fill', -self.width/2, -self.height/2, self.width, self.height)
-    love.graphics.rectangle('line', -self.width/2, -self.height/2, self.width, self.height)
+    local font = love.graphics.getFont()
+    local width, lines = font:getWrap(self.string, self.width - 20)
+
+    local height = lines*(font:getHeight())
+
+    love.graphics.setColor(0, 0, 0, 100)
+    love.graphics.rectangle('fill', 0, 0, self.width, height + 20)
+    love.graphics.rectangle('line', 0, 0, self.width, height + 20)
+
+    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.printf(self.string, 10, 10, self.width - 20)
 
     love.graphics.pop()
 end

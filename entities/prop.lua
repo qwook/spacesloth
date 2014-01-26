@@ -13,8 +13,8 @@ function Prop:postSpawn()
     self.spriteheight = tonumber(self.spriteheight)
     self.spritesheet = SpriteSheet:new("assets/sprites/" .. self.sprite, self.spritewidth, self.spriteheight)
 
-    local x, y = self:getPosition()
-    self:setPosition(x + self.spritewidth, y)
+    -- local x, y = self:getPosition()
+    -- self:setPosition(x + self.spritewidth, y)
 end
 
 function Prop:event_loopAnimation(y, xfrom, xto, speed)

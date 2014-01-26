@@ -53,12 +53,14 @@ function Button:update(dt)
             self:trigger(self.onpress, isTouching)
             self.buttonDelay = 0.25
             self.pressed = true
+            playSound("click_hi.wav")
         end
     end
 
     if not isTouching and self.pressed and self.buttonDelay <= 0 then
         self:trigger(self.onrelease, isTouching)
         self.pressed = false
+        playSound("click_lo.wav")
     end
 
     self.hasPressedLastUpdate = isTouching

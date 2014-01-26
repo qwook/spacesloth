@@ -21,6 +21,7 @@ BlueBall = require("entities.blueball")
 Trigger = require("entities.trigger")
 Prop = require("entities.prop")
 TitleScreen = require("entities.titlescreen")
+Text = require("entities.text")
 
 require("update")
 require("draw")

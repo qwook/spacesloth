@@ -157,7 +157,7 @@
     <property name="ontrigger" value="global:changeMap(level2)"/>
    </properties>
   </object>
-  <object name="monster" type="Prop" gid="16" x="1205" y="414">
+  <object name="monster" type="Prop" gid="16" x="1297" y="401">
    <properties>
     <property name="onspawn" value="monster:loopAnimation(0,0,14,1)"/>
     <property name="sprite" value="npc/blueball.png"/>
@@ -165,7 +165,7 @@
     <property name="spritewidth" value="128"/>
    </properties>
   </object>
-  <object name="fonz" type="Prop" gid="16" x="-28" y="559">
+  <object name="fonz" type="Prop" gid="16" x="207" y="567">
    <properties>
     <property name="onspawn" value="fonz:loopAnimation(0,0,7,1)"/>
     <property name="sprite" value="npc/fonz.png"/>
@@ -326,6 +326,29 @@
   <object name="fallingBlocks" type="PhysBox" gid="290" x="913" y="649">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object type="Text" x="304" y="435" width="171" height="69">
+   <properties>
+    <property name="string" value="hey whats up little dudes! welcome to the multidimensional rift!"/>
+   </properties>
+  </object>
+  <object name="fonz" type="Prop" gid="16" x="912" y="409">
+   <properties>
+    <property name="onspawn" value="fonz:loopAnimation(0,0,7,1)"/>
+    <property name="sprite" value="npc/fonz.png"/>
+    <property name="spriteheight" value="256"/>
+    <property name="spritewidth" value="256"/>
+   </properties>
+  </object>
+  <object type="Text" x="631" y="323" width="171" height="69">
+   <properties>
+    <property name="string" value="as you can see, I am here, and I am everywhere. Now jump here, and join me in the cosmos."/>
+   </properties>
+  </object>
+  <object type="Text" x="1075" y="307" width="171" height="69">
+   <properties>
+    <property name="string" value="Players of the same color "/>
    </properties>
   </object>
  </objectgroup>

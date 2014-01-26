@@ -1432,6 +1432,19 @@ return {
           gid = 290,
           visible = true,
           properties = {}
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 244,
+          y = 177,
+          width = 114,
+          height = 59,
+          visible = true,
+          properties = {
+            ["string"] = "Yo what's up? Lorem ipsum dolar set amet!"
+          }
         }
       }
     },

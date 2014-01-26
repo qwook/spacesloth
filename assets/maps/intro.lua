@@ -760,8 +760,8 @@ return {
           name = "fonz",
           type = "Prop",
           shape = "rectangle",
-          x = -28,
-          y = 559,
+          x = 207,
+          y = 567,
           width = 0,
           height = 0,
           gid = 16,
@@ -1204,6 +1204,49 @@ return {
           visible = true,
           properties = {
             ["onspawn"] = "fallingBlocks:setFrozen(true)"
+          }
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 304,
+          y = 435,
+          width = 171,
+          height = 69,
+          visible = true,
+          properties = {
+            ["string"] = "hey whats up little dudes! welcome to the multidimensional rift!"
+          }
+        },
+        {
+          name = "fonz",
+          type = "Prop",
+          shape = "rectangle",
+          x = 903,
+          y = 398,
+          width = 0,
+          height = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["onspawn"] = "fonz:loopAnimation(0,0,7,1)",
+            ["sprite"] = "npc/fonz.png",
+            ["spriteheight"] = "256",
+            ["spritewidth"] = "256"
+          }
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 631,
+          y = 323,
+          width = 171,
+          height = 69,
+          visible = true,
+          properties = {
+            ["string"] = "as you can see, I am here, and I am everywhere. I am one and I am all. You will soon find out that you are also all."
           }
         }
       }
