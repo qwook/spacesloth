@@ -270,6 +270,11 @@
   <object name="boxafter" type="PhysBox" gid="371" x="3397" y="464"/>
   <object name="player2" gid="13" x="529" y="237"/>
   <object name="player1" gid="13" x="477" y="238"/>
+  <object name="MUZAC" x="649" y="128" width="103" height="86">
+   <properties>
+    <property name="onspawn" value="global:playMusic(crap_d1.ogg, 0.1)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

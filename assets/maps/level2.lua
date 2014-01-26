@@ -1231,6 +1231,19 @@ return {
           gid = 13,
           visible = true,
           properties = {}
+        },
+        {
+          name = "MUZAC",
+          type = "",
+          shape = "rectangle",
+          x = 649,
+          y = 128,
+          width = 103,
+          height = 86,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global:playMusic(crap_d1.ogg, 0.1)"
+          }
         }
       }
     },

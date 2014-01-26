@@ -31,8 +31,12 @@ function Events:changeMap(mapname)
 
 end
 
-function Events:playSound(name)
-    playSound(name)
+function Events:playSound(name, volume)
+    playSound(name, tonumber(volume or 1) or 1)
+end
+
+function Events:playMusic(name, volume)
+    playMusic(name, tonumber(volume))
 end
 
 return Events
