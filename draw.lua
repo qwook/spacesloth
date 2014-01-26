@@ -30,7 +30,12 @@ function love.draw()
             player2:draw()
 
             for i, object in pairs(map.objects) do
-                object:draw()
+                if (object.collisiongroup == nil or
+                    object.collisiongroup == "shared" or
+                    object.collisiongroup == "blue") or
+                    (object.visibleonboth) then
+                    object:draw()
+                end
             end
             
         love.graphics.setScissor()
@@ -54,7 +59,12 @@ function love.draw()
             player2:draw()
 
             for i, object in pairs(map.objects) do
-                object:draw()
+                if (object.collisiongroup == nil or
+                    object.collisiongroup == "shared" or
+                    object.collisiongroup == "green") or
+                    (object.visibleonboth) then
+                    object:draw()
+                end
             end
 
         love.graphics.setScissor()

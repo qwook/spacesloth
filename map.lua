@@ -87,6 +87,9 @@ function Map:spawnObjects()
         elseif tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
             local instance = _G[v.type]:new()
             instance:setPosition(v.x + 16, v.y + 16)
+            for prop, val in pairs(v.properties) do
+                instance[prop] = val
+            end
         end
     end
 end

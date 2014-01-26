@@ -11,6 +11,7 @@ Input = require("input")
 
 PhysBox = require("physbox")
 Fonz = require("fonz")
+Button = require("button")
 
 require("update")
 require("draw")

@@ -44,7 +44,7 @@ end
 
 function Player:isOnFloor()
     local x, y = self:getPosition()
-    y = y + 5
+    y = y + 10
 
     for k, contact in pairs(self.contacts) do
         local x1, y1, x2, y2 = contact:getPositions()
@@ -84,6 +84,7 @@ function Player:update(dt)
 
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
+    local ypoop = self.floornx
 
     if self:isOnFloor() then
 
@@ -91,11 +92,12 @@ function Player:update(dt)
             self.body:setLinearVelocity(-200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2 then
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
                 goingUpOrDown = false
             end
-            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2 then
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
                 goingUpOrDown = true
+                ypoop = -ypoop
             end
         end
 
@@ -103,11 +105,12 @@ function Player:update(dt)
             self.body:setLinearVelocity(200, vely)
 
             -- this is for climbing stairs
-            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2 then
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
                 goingUpOrDown = true
             end
-            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2 then
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
                 goingUpOrDown = false
+                ypoop = -ypoop
             end
         end
 
@@ -130,11 +133,11 @@ function Player:update(dt)
             -- up
             if goingUpOrDown == true then
                 -- self.body:applyLinearImpulse(0, -50)
-                self.body:setLinearVelocity(velx, -200)
+                self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
                 -- self.body:applyLinearImpulse(0, 10)
-                self.body:setLinearVelocity(velx, 200)
+                self.body:setLinearVelocity(velx, 200 * -ypoop)
             end
         end
 
@@ -237,8 +240,6 @@ function Player:beginContact(other, contact, isother)
         contact:setFriction(1)
     end
 
-    print('start', other, id)
-
 end
 
 function Player:endContact(other, contact, isother)
@@ -252,8 +253,6 @@ function Player:endContact(other, contact, isother)
 
     local id, id2 = contact:getChildren()
     if isother then id = id2 end -- `isother` means we are the second object
-
-    print('end', other, id)
 
 end
 

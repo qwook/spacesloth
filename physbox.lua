@@ -5,6 +5,8 @@ PhysBox = class("PhysBox", Physical)
 
 function PhysBox:initialize()
     self:initPhysics()
+    self.contacts = {}
+    self.touching = {}
 
     table.insert(map.objects, self)
 end
@@ -56,13 +58,13 @@ function PhysBox:draw()
 end
 
 function PhysBox:beginContact(other, contact)
-    if other.type == "PLAYER" then
-        -- you can make it so it's a button and it activates on touch
-        -- idk
-    end
+    table.insert(self.contacts, contact)
+    table.insert(self.touching, other)
 end
 
 function PhysBox:endContact(other, contact)
+    table.removevalue(self.contacts, contact)
+    table.removeonevalue(self.touching, other)
 end
 
 return PhysBox
