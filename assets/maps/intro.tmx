@@ -126,11 +126,6 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Trigger" gid="12" x="574" y="287">
-   <properties>
-    <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)("/>
-   </properties>
-  </object>
   <object type="Trigger" gid="12" x="768" y="351">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp2:playAnimation(0,1,2,0.5)("/>
@@ -141,7 +136,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp3:playAnimation(0,1,2,0.5)("/>
    </properties>
   </object>
-  <object name="tramp1" type="Prop" gid="293" x="575" y="288">
+  <object name="tramp1" type="Prop" gid="293" x="574" y="285">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -170,6 +165,11 @@
   <object type="Trigger" gid="12" x="2620" y="1117">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp5:playAnimation(0,1,2,0.5)("/>
+   </properties>
+  </object>
+  <object type="Trigger" x="542" y="273" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
  </objectgroup>

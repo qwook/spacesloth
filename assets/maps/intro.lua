@@ -739,20 +739,6 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 574,
-          y = 287,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)("
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
           x = 768,
           y = 351,
           width = 0,
@@ -781,8 +767,8 @@ return {
           name = "tramp1",
           type = "Prop",
           shape = "rectangle",
-          x = 575,
-          y = 288,
+          x = 574,
+          y = 285,
           width = 0,
           height = 0,
           gid = 293,
@@ -851,6 +837,19 @@ return {
           visible = true,
           properties = {
             ["ontrigger"] = "activator:setVelocity(0,-1000);tramp5:playAnimation(0,1,2,0.5)("
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 542,
+          y = 273,
+          width = 64,
+          height = 13,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp1:playAnimation(0,1,2,0.5)"
           }
         }
       }
