@@ -108,24 +108,25 @@ function Map:spawnObjects()
             player2 = Cindy:new()
             player2:setController(input2)
             player2:setPosition(v.x + 16, v.y + 16)
-        else
-            local c = Node
-            if tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
-                c = _G[v.type]
-            end
-
-            local instance = c:new(v.x, v.y, v.width, v.height)
-            instance:setPosition(v.x + 16, v.y + 16)
-            instance.name = v.name
-            instance.brushz = v.x
-            instance.brushy = v.y
-            instance.brushw = v.width
-            instance.brushh = v.height
-            for prop, val in pairs(v.properties) do
-                instance[prop] = val
-            end
-            instance:postSpawn()
         end
+
+        local c = Node
+        if tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
+            c = _G[v.type]
+        end
+
+        local instance = c:new(v.x, v.y, v.width, v.height)
+        instance:setPosition(v.x + 16, v.y + 16)
+        instance.name = v.name
+        instance.brushz = v.x
+        instance.brushy = v.y
+        instance.brushw = v.width
+        instance.brushh = v.height
+        for prop, val in pairs(v.properties) do
+            instance[prop] = val
+        end
+        instance:postSpawn()
+            
     end
 end
 

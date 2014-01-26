@@ -23,6 +23,7 @@ Prop = require("entities.prop")
 
 require("update")
 require("draw")
+require("sounds")
 
 ----------------------------------------------------
 

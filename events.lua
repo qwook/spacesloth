@@ -31,4 +31,8 @@ function Events:changeMap(mapname)
 
 end
 
+function Events:playSound(name)
+    playSound(name)
+end
+
 return Events
