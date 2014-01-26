@@ -101,6 +101,7 @@ function Map:spawnObjects()
             for prop, val in pairs(v.properties) do
                 instance[prop] = val
             end
+            instance:postSpawn()
         end
     end
 end

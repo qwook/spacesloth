@@ -23,6 +23,7 @@ function SpriteSheet:draw(x, y, xoff, yoff)
     yoff = yoff or 0
 
     local quad = self.quads[(x + y * self.tw) + 1]
+    if not quad then return end
 
     love.graphics.draw(self.image, quad, xoff, yoff)
 end

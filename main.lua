@@ -17,6 +17,7 @@ Button = require("entities.button")
 Bull = require("entities.bull")
 BlueBall = require("entities.blueball")
 Trigger = require("entities.trigger")
+Prop = require("entities.prop")
 
 require("update")
 require("draw")

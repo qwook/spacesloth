@@ -1694,13 +1694,29 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 416,
-          y = 209,
-          width = 84,
-          height = 71,
+          x = 420,
+          y = 263,
+          width = 44,
+          height = 20,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:addVelocity(0, -1000)"
+            ["ontrigger"] = "activator:addVelocity(0, -1000);tramp1:playAnimation(0, 0, 2, 0.5)"
+          }
+        },
+        {
+          name = "tramp1",
+          type = "Prop",
+          shape = "rectangle",
+          x = 428,
+          y = 291,
+          width = 0,
+          height = 0,
+          gid = 12,
+          visible = true,
+          properties = {
+            ["sprite"] = "trampoline.png",
+            ["spriteheight"] = "32",
+            ["spritewidth"] = "32"
           }
         }
       }

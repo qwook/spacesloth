@@ -175,9 +175,16 @@
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="416" y="209" width="84" height="71">
+  <object type="Trigger" x="420" y="263" width="44" height="20">
    <properties>
-    <property name="ontrigger" value="activator:addVelocity(0, -1000)"/>
+    <property name="ontrigger" value="activator:addVelocity(0, -1000);tramp1:playAnimation(0, 0, 2, 0.5)"/>
+   </properties>
+  </object>
+  <object name="tramp1" type="Prop" gid="12" x="428" y="291">
+   <properties>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
    </properties>
   </object>
  </objectgroup>

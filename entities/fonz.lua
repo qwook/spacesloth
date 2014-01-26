@@ -1,8 +1,8 @@
 
-Physical = require("physical")
+PhysBox = require("physbox")
 SpriteSheet = require("spritesheet")
 
-Fonz = class("Fonz", Physical)
+Fonz = class("Fonz", PhysBox)
 
 function Fonz:initialize()
     self:initPhysics()

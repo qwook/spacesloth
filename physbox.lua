@@ -13,6 +13,9 @@ function PhysBox:initialize()
     table.insert(map.objects, self)
 end
 
+function PhysBox:postSpawn()
+end
+
 function PhysBox:eval(str, activator)
     local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%.]*)%)")
 
@@ -21,7 +24,7 @@ function PhysBox:eval(str, activator)
     local args = {}
     string.gsub(arg, "[^, ]+", function(a) table.insert(args, a) end)
 
-    local objs
+    local objs = {}
 
     if name == "global" then
         if events[event] then
@@ -60,7 +63,11 @@ end
 function PhysBox:trigger(event, activator)
     local n = tostring(event)
     if n then
-        self:eval(n, activator)
+        local events = {}
+        string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
+        for _, i in pairs(events) do
+            self:eval(i, activator)
+        end
     end
 end
 
