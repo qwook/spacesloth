@@ -15,15 +15,14 @@
 			"a" : "left",
 			"d" : "right",
 			"w" : "jump",
-			" " : "jump",
 			"s" : "crouch"
 		},
 		
 		"joystick" :
 		{
 			"joy_1_3" : "jump",
-			"joy_1_2" : "jump",
-			"joy_1_2" : "crouch",
+			"joy_1_axisdown_2" : "jump",
+			"joy_1_axisup_2" : "crouch",
 			"joy_1_6" : "L",
 			"joy_1_8" : "R",
 			"joy_1_7" : "start",
@@ -50,7 +49,7 @@
 			"up" : "jump",
 			"down" : "crouch",
 			"rshift" : "L",
-			"z" : "R",
+			"/" : "R",
 			"r" : "select",
 			"t" : "start",
 			"left" : "left",
@@ -59,14 +58,14 @@
 		"joystick" :
 		{
 			"joy_2_3" : "jump",
-			"joy_2_2" : "jump",
-			"joy_2_2" : "crouch",
+			"joy_2_axisdown_2" : "jump",
+			"joy_2_axisup_2" : "crouch",
 			"joy_2_6" : "L",
 			"joy_2_8" : "R",
 			"joy_2_5" : "select",
 			"joy_2_7" : "start",
-			"joy_2_axisdown_1" : "left",
-			"joy_2_axisup_1" : "right"
+			"joy_2_axisup_1" : "right",
+			"joy_2_axisdown_1" : "left"
 		}
 	}
 }

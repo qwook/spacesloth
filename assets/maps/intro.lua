@@ -822,7 +822,7 @@ return {
           gid = 16,
           visible = true,
           properties = {
-            ["sprite"] = "BlueBall.png",
+            ["sprite"] = "npc/blueball.png",
             ["spriteheight"] = "128",
             ["spritewidth"] = "128"
           }

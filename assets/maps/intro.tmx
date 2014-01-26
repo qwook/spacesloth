@@ -165,7 +165,7 @@
   </object>
   <object type="Prop" gid="16" x="421" y="190">
    <properties>
-    <property name="sprite" value="BlueBall.png"/>
+    <property name="sprite" value="npc/blueball.png"/>
     <property name="spriteheight" value="128"/>
     <property name="spritewidth" value="128"/>
    </properties>
