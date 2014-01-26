@@ -2,6 +2,7 @@
 Physical = require("physical")
 SpriteSheet = require("spritesheet")
 Particle = require("entities.particle")
+WalkingDust = require("entities.walkingdust")
 
 Player = class('Player', Physical)
 
@@ -89,7 +90,25 @@ function Player:update(dt)
 
     if self:isOnFloor() then
 
-        if self.controller:isKeyDown("left") then
+        if self.nextJump > 0 then
+            self.nextJump = self.nextJump - dt
+        end
+
+        local jumping = false
+
+        if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
+            self.body:setLinearVelocity(velx/10, vely/5)
+            self.body:applyLinearImpulse(0, -325)
+            self.nextJump = 0.1
+            goingUpOrDown = nil
+
+            jumping = true
+
+            local smoke = Particle:new()
+            smoke:setPosition(self:getPosition())
+        end
+
+        if self.controller:isKeyDown("left") and not jumping then
             self.body:setLinearVelocity(-200, vely)
 
             -- this is for climbing stairs
@@ -102,7 +121,7 @@ function Player:update(dt)
             end
         end
 
-        if self.controller:isKeyDown("right") then
+        if self.controller:isKeyDown("right") and not jumping then
             self.body:setLinearVelocity(200, vely)
 
             -- this is for climbing stairs
@@ -113,20 +132,6 @@ function Player:update(dt)
                 goingUpOrDown = false
                 ypoop = -ypoop
             end
-        end
-
-        if self.nextJump > 0 then
-            self.nextJump = self.nextJump - dt
-        end
-
-        if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-            self.body:setLinearVelocity(velx/2, vely/2)
-            self.body:applyLinearImpulse(0, -300)
-            self.nextJump = 0.1
-            goingUpOrDown = nil
-
-            local smoke = Particle:new()
-            smoke:setPosition(self:getPosition())
         end
 
         -- so for climbing stairs, we actually push the player up a bit
@@ -147,12 +152,12 @@ function Player:update(dt)
 
     -- not on floor, we're in the air
     else
-        if self.controller:isKeyDown("left") then
-            self.body:setLinearVelocity(velx - 300*dt, vely)
+        if self.controller:isKeyDown("left") and velx >= 0 then
+            self.body:setLinearVelocity(velx - 600*dt, vely)
         end
 
-        if self.controller:isKeyDown("right") then
-            self.body:setLinearVelocity(velx + 300*dt, vely)
+        if self.controller:isKeyDown("right") and velx <= 0 then
+            self.body:setLinearVelocity(velx + 600*dt, vely)
         end
     end
 
@@ -261,9 +266,11 @@ function Player:endContact(other, contact, isother)
 
 end
 
-function Player:preSolve()
-    -- local smoke = Particle:new()
-    -- smoke:setPosition(self:getPosition())
+function Player:postSolve(f1, f2)
+    -- if self.moving then
+    --     local smoke = WalkingDust:new()
+    --     smoke:setPosition(self:getPosition())
+    -- end
 end
 
 

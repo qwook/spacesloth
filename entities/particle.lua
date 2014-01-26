@@ -6,6 +6,7 @@ Particle = class("Particle", PhysBox)
 function Particle:initialize()
     PhysBox.initialize(self)
 
+    self.zindex = -1
     self.x = 0
     self.y = 0
 
