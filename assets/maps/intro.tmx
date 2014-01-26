@@ -64,7 +64,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2E1OAyEYBmB6HnVv3Nd4jJ7GurfuPYiLbr1NL2AiGCch4+gM/RuKz5N8aZsWGHhDUNYhrB5DCKnWgWO7XoTV1SKEsbr9rvh+9RzbpUrvZ3785qQ1vc3We6zyPOIeeZ358ZtTmkfMQB4nNGce6+wsGjqPnuL3L3GMp944qd3mj8r72cXPH7F9qt1AP/n4h5yJQ33t09+ceeR9lfQX13ybt+vXZs/xS9pO6WufNWoxjzinSf2cI4/7ic/SuW8wD/vjOHNocX+cOo80126s5eLn+VVSy4X90Veax1/rcGhNffbf5l7j/kjnx11WN7He4m/fw9dr+rzKvy89P06Zx9T91t9XQ/3kdwsl/aS2/b+fD3mm0nxr2h8tljzqKnnUVafOI1Qwx0uqdJ6nO5+u+nc/3Z1QV6XneW7uuV5CnWN/7COOs81r7nX673kMjLstqbnXtfU8Sl1faEat5jGky2hZcTb/KY/O1cj/6/I4L3nURR51kUdd1iFs47xfa6ypd/+dFvKo2UNcs/w+ZKwOuS8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYNwn0Cw+eQ==
+   eJzt2D1OwzAYBmDnMEyFHbEXcYyehrIDew/C0JXbcAEkbEQkK0QkTmnjps8jfaJV8E/8yjJ4G8LmMYSQahv4b9dN2KyaEIbq9qfi581zbJcqfZ55+ouT1vQ2W++hyvOIe2Q38/QXpzSPmIE8jmjOPLbZWdR3Hj3F569xjKfOOKndyx+V9/MRv3/G9qk+evrJxz/kTOzra0p/c+aR91XSX1zzfd6uWy8Txy9pO6avKWu0xDziO43q5xR53I+cS+t+gXnYH+WumsvYH8fOI71rO9a6+X1+ldS6sT+6SvP4ax0OrTT3tG+mvnu+P6b2k/IY03bsnNL5cZfVTay3+Lvv4ftn+r7Jn5eeH8fMY+x+6+6rvn7yu4WSflLb7t/Ph8ypdL/VtD+WWPKoq+RRVx07j1DBO55TpfM83fm01b37ae+E2io9z3Nzv+s51Cn2xxRxnH1ec6/TpefRM+6+pOZe16XnUer6TDNaah592ozWFWdzSXm0VgP/r8vjtORRF3nURR512Yawj++9q7Hau/+8ct1nS8ijZg9xzfL7kKE65L4EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgGFfIqpAQQ==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -86,9 +86,11 @@
   <object type="PhysBox" gid="290" x="334" y="174"/>
   <object type="PhysBox" gid="290" x="153" y="27"/>
   <object type="PhysBox" gid="290" x="333" y="28"/>
-  <object x="769" y="321" width="29" height="29"/>
-  <object x="1345" y="322" width="29" height="28"/>
-  <object x="1827" y="323" width="27" height="26"/>
+  <object type="trampoline" x="769" y="321" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
   <object type="Button" gid="291" x="2525" y="321">
    <properties>
     <property name="collisiongroup" value="blue"/>
@@ -118,6 +120,21 @@
   <object type="trigger" gid="293" x="2619" y="1118">
    <properties>
     <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="574" y="255" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="1351" y="317" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+   </properties>
+  </object>
+  <object type="trampoline" x="1829" y="317" width="29" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
    </properties>
   </object>
  </objectgroup>
