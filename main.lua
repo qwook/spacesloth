@@ -2,6 +2,7 @@
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"
+require("libs.json.json")
 class = require("libs.middleclass")
 
 Player = require("player")
@@ -143,51 +144,37 @@ function love.load()
     events = Events:new()
 
     -- run love . dvorak for dvorak bindings
-    if arg[2] == "dvorak" then
-        input:bind( "a", "left" )
-        input:bind( "e", "right" )
-        input:bind( ",", "jump" )
-        input:bind( " ", "jump" )
-        input:bind( "o", "crouch" )
+    bindings_JSON = love.filesystem.read("config.json")
+    bindings_o    = json.decode(bindings_JSON)
+    print2(bindings_o)
+    if arg[2] == "dvorak" then   
+        --bind all the dvorak keys for player 1.
+        for key,action in pairs(bindings_o.player1.dvorak) do
+            input:bind(key, action)
+        end
+        --bind all the dvorak keys for player 2.
+        for key,action in pairs(bindings_o.player2.dvorak) do
+            input2:bind(key, action)
+        end
     else
-        input:bind( "a", "left" )
-        input:bind( "d", "right" )
-        input:bind( "w", "jump" )
-        input:bind( " ", "jump" )
-        input:bind( "s", "crouch" )
+        --bind all the qwerty keys for player 1.
+        for key,action in pairs(bindings_o.player1.qwerty) do
+            print("hoho")
+            input:bind(key, action)
+        end
+        --bind all the qwerty keys for player 2.
+        for key,action in pairs(bindings_o.player2.qwerty) do
+            input2:bind(key, action)
+        end
     end
-
-    -- I honestly grabbed these button names by printing them
-    -- in the eventJoyPressed function in the Input class
-    -- we can make prettier names for them later
-    input:bind( "joy_1_3", "jump" )
-    input:bind( "joy_1_2", "jump" )
-    input:bind( "joy_1_2", "crouch" )
-    input:bind( "joy_1_6", "L")
-    input:bind( "joy_1_8", "R")
-    input:bind( "joy_1_5", "select")
-    input:bind( "joy_1_7", "start")
-    input:bind( "joy_1_axisdown_1", "left" )
-    input:bind( "joy_1_axisup_1", "right" )
-
-    input2:bind( "joy_2_3", "jump" )
-    input2:bind( "joy_2_2", "jump" )
-    input2:bind( "joy_2_2", "crouch" )
-    input2:bind( "joy_2_6", "L")
-    input2:bind( "joy_2_8", "R")
-    input2:bind( "joy_2_5", "select")
-    input2:bind( "joy_2_7", "start")
-    input2:bind( "joy_2_axisdown_1", "left" )
-    input2:bind( "joy_2_axisup_1", "right" )
-
-    input2:bind( "up", "jump" )
-    input2:bind( "down", "crouch" )
-    input2:bind( "rshift", "L")
-    input2:bind( "/", "R")
-    input2:bind( "r", "select")
-    input2:bind( "t", "start")
-    input2:bind( "left", "left" )
-    input2:bind( "right", "right" )
+    --bind all the joystick buttons for player 1.
+    for key,action in pairs(bindings_o.player1.joystick) do
+        input:bind(key, action)
+    end
+    --bind all the joystick buttons for player 2.
+    for key,action in pairs(bindings_o.player2.joystick) do
+        input2:bind(key, action)
+    end
 
     reset()
 
