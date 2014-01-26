@@ -72,33 +72,7 @@
   <object type="PhysBox" gid="290" x="1825" y="256"/>
   <object type="PhysBox" gid="290" x="1824" y="318"/>
   <object type="PhysBox" gid="290" x="1858" y="318"/>
-  <object type="PhysBox" gid="290" x="792" y="272"/>
-  <object type="PhysBox" gid="290" x="827" y="260"/>
-  <object type="PhysBox" gid="290" x="783" y="296"/>
-  <object type="PhysBox" gid="290" x="854" y="308"/>
-  <object type="PhysBox" gid="290" x="872" y="308"/>
-  <object type="PhysBox" gid="290" x="959" y="293"/>
-  <object type="PhysBox" gid="290" x="860" y="251"/>
-  <object type="PhysBox" gid="290" x="797" y="200"/>
-  <object type="PhysBox" gid="290" x="795" y="200"/>
-  <object type="PhysBox" gid="290" x="786" y="215"/>
-  <object type="PhysBox" gid="290" x="800" y="296"/>
-  <object type="PhysBox" gid="290" x="824" y="314"/>
-  <object type="PhysBox" gid="290" x="806" y="323"/>
-  <object type="PhysBox" gid="290" x="780" y="326"/>
-  <object type="PhysBox" gid="290" x="830" y="112"/>
-  <object type="PhysBox" gid="290" x="786" y="158"/>
-  <object type="PhysBox" gid="290" x="836" y="209"/>
-  <object type="PhysBox" gid="290" x="872" y="323"/>
-  <object type="PhysBox" gid="290" x="860" y="338"/>
-  <object type="PhysBox" gid="290" x="905" y="329"/>
-  <object type="PhysBox" gid="290" x="896" y="239"/>
-  <object type="PhysBox" gid="290" x="899" y="263"/>
-  <object type="PhysBox" gid="290" x="833" y="332"/>
-  <object type="PhysBox" gid="290" x="806" y="326"/>
-  <object type="PhysBox" gid="290" x="932" y="335"/>
-  <object type="PhysBox" gid="290" x="905" y="263"/>
-  <object type="PhysBox" gid="290" x="806" y="341"/>
+  <object name="funbox" type="PhysBox" gid="290" x="794" y="148"/>
   <object type="PhysBox" gid="290" x="1365" y="158"/>
   <object type="PhysBox" gid="290" x="1359" y="173"/>
   <object type="PhysBox" gid="290" x="1362" y="197"/>
@@ -153,12 +127,13 @@
   <object type="PhysBox" gid="290" x="1971" y="272"/>
   <object type="PhysBox" gid="290" x="1992" y="302"/>
   <object type="PhysBox" gid="290" x="2007" y="326"/>
-  <object type="Trigger" x="769" y="232" width="284" height="116">
+  <object type="Trigger" x="766" y="324" width="286" height="24">
    <properties>
+    <property name="filter" value="funbox"/>
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
    </properties>
   </object>
-  <object name="point1" gid="117" x="885" y="75"/>
+  <object name="point1" gid="117" x="820" y="24"/>
   <object type="Trigger" x="1140" y="31" width="84" height="71">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
@@ -184,6 +159,37 @@
     <property name="onspawn" value="physpoop:setFrozen(true)"/>
    </properties>
   </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="443" y="164">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="479" y="159">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="543" y="149">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="479" y="203">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="372" y="144">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="funbox" type="PhysBox" gid="290" x="817" y="71"/>
+  <object name="funbox" type="PhysBox" gid="290" x="988" y="83"/>
+  <object name="funbox" type="PhysBox" gid="290" x="998" y="134"/>
+  <object name="funbox" type="PhysBox" gid="290" x="1018" y="176"/>
+  <object name="funbox" type="PhysBox" gid="290" x="825" y="182"/>
+  <object type="TitleScreen" gid="296" x="343" y="187"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

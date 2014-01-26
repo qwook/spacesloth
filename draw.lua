@@ -2,7 +2,39 @@
 local camera1_x, camera1_y = 0, 0
 local camera2_x, camera2_y = 0, 0
 
-function love.draw()
+local function drawSingleScreen()
+
+
+        for i, object in pairs(map.objects) do
+            if object.isCamera then
+                print(object:getPosition())
+                camera1_x, camera1_y = object:getPosition()
+            end
+        end
+
+
+    local offsetx = love.graphics.getWidth()/2
+    local offsety = love.graphics.getHeight()/2
+
+    love.graphics.push()
+        love.graphics.setColor(255, 255, 255)
+        love.graphics.draw(map.background, 0, 0, 0, map.background:getWidth() / love.graphics.getWidth(), map.background:getHeight() / love.graphics.getHeight())
+
+        love.graphics.translate(math.round(-camera1_x+offsetx), math.round(-camera1_y+offsety))
+
+        map:draw("player1")
+
+        for i, object in pairs(map.objects) do
+            object:draw()
+        end
+        
+        player2:draw()
+        player:draw()
+    love.graphics.pop()
+
+end
+
+local function drawSplitScreen()
 
     local offsetx = love.graphics.getWidth()/2
     local offsety = love.graphics.getHeight()/2
@@ -88,6 +120,16 @@ function love.draw()
         love.graphics.setScissor()
 
     love.graphics.pop()
+
+end
+
+function love.draw()
+
+    if singleCamera then
+        drawSingleScreen()
+    else
+        drawSplitScreen()
+    end
 
     if changeMapTime > 0 then
         love.graphics.setColor(255, 255, 255, (1 - changeMapTime)*255)

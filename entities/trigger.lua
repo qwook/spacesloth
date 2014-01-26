@@ -47,7 +47,7 @@ end
 
 function Trigger:beginContact(other, contact, isother)
     onNextUpdate(function()
-        if other.type == "PLAYER" then
+        if (self.filter and self.filter == other.name) or (not self.filter and other.type == "PLAYER") then
             self:trigger(self.ontrigger, other)
         end
     end)

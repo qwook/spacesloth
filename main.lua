@@ -122,12 +122,12 @@ function changeMap(mapname)
     world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
 
+    collisionSwapped = false
+    singleCamera = true
+
     map = Map:new("assets/maps/" .. mapname)
 
-    
     map:spawnObjects()
-
-    collisionSwapped = false
 end
 
 function reset()

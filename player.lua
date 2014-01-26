@@ -57,18 +57,6 @@ function Player:event_applyImpulse(x, y)
     self.body:setAwake(true)
 end
 
-function Player:event_teleportTo(name)
-
-    for k,v in pairs(map.objects) do
-        if v.name == name then
-            -- print(v:getPosition())
-            self:setPosition(v:getPosition())
-            -- self:setPosition(self:getPosition())
-            return
-        end
-    end
-end
-
 function Player:call(name, args)
     if self["event_" .. name] then
         self["event_" .. name](self, unpack(args))

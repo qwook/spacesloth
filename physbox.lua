@@ -10,6 +10,8 @@ function PhysBox:initialize()
 
     self.spritesheet = SpriteSheet:new("assets/sprites/box_generic.png", 32, 32)
 
+    self.type = "PHYSBOX"
+
     table.insert(map.objects, self)
 end
 
@@ -82,6 +84,18 @@ function PhysBox:initPhysics()
 
     self.fixture:setUserData(self)
     self.fixture:setFriction(0.1)
+end
+
+function PhysBox:event_teleportTo(name)
+
+    for k,v in pairs(map.objects) do
+        if v.name == name then
+            -- print(v:getPosition())
+            self:setPosition(v:getPosition())
+            -- self:setPosition(self:getPosition())
+            return
+        end
+    end
 end
 
 function PhysBox:event_setFrozen(frozen)
