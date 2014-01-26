@@ -87,7 +87,7 @@
   <object type="Button" gid="4" x="225" y="328">
    <properties>
     <property name="collisiongroup" value="green"/>
-    <property name="onpress" value="player1:multiplyVelocity(1, -10)"/>
+    <property name="onpress" value="activator:multiplyVelocity(1, -10)"/>
     <property name="visibleonboth" value="false"/>
    </properties>
   </object>

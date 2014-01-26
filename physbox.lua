@@ -13,8 +13,11 @@ function PhysBox:initialize()
     table.insert(map.objects, self)
 end
 
-function PhysBox:eval()
-    local name, event, arg = string.match("test:test(1, 2, 3)", "([0-9A-z]+)%:([0-9A-z]+)%(([^%.]*)%)")
+function PhysBox:eval(str, activator)
+    local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%.]*)%)")
+
+    if not name or not event or not arg then return end
+
     local args = {}
     string.gsub(arg, "[^, ]+", function(a) table.insert(args, a) end)
 
@@ -26,9 +29,11 @@ function PhysBox:eval()
         end
         return
     elseif name == "player1" then
-        objs = {player1}
+        objs = {player}
     elseif name == "player2" then
         objs = {player2}
+    elseif name == "activator" then
+        objs = {activator}
     else
         for k,v in pairs(map.objects) do
             if v.name == name then
@@ -38,8 +43,9 @@ function PhysBox:eval()
     end
 
     for k, obj in pairs(objs) do
+
         if (obj.call) then
-            obj:call(name, args)
+            obj:call(event, args)
         end
     end
 
@@ -51,7 +57,11 @@ function PhysBox:call(name, args)
     end
 end
 
-function PhysBox:trigger()
+function PhysBox:trigger(event, activator)
+    local n = tostring(event)
+    if n then
+        self:eval(n, activator)
+    end
 end
 
 function PhysBox:destroy()

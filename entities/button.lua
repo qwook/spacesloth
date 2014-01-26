@@ -26,6 +26,7 @@ end
 function Button:isTouchingPlayer()
     for k,v in pairs(self.touching) do
         if v.type == "PLAYER" then
+            self:trigger(self.onpress, v)
             return true
         end
     end
