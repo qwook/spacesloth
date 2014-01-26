@@ -84,6 +84,18 @@ function PhysBox:initPhysics()
     self.fixture:setFriction(0.1)
 end
 
+function PhysBox:event_setFrozen(frozen)
+    if frozen == "true" then
+        if self.frozenJoint then return end
+        local x, y = self:getPosition()
+        self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+    elseif frozen == "false" then
+        if not self.frozenJoint then return end
+        self.frozenJoint:destroy()
+        self.frozenJoint = nil
+    end
+end
+
 function PhysBox:setPosition(x, y)
     self.body:setPosition(x, y)
 end

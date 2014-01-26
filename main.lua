@@ -20,6 +20,7 @@ Bull = require("entities.bull")
 BlueBall = require("entities.blueball")
 Trigger = require("entities.trigger")
 Prop = require("entities.prop")
+TitleScreen = require("entities.titlescreen")
 
 require("update")
 require("draw")

@@ -65,7 +65,7 @@
  </layer>
  <layer name="GreenLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztzrENACAMBLEfldEyYhZAghkQUhq7ufYSAOBFJ2sndVvTLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMA/B1qrBH4=
+   eJztzrERABAABMFXkJ6UpkQNmKEFEoLd5NJLAIAbI2kz6bv99QsAAAD8qpbXBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOcWY9oErA==
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
@@ -86,7 +86,7 @@
   <object type="PhysBox" gid="290" x="824" y="314"/>
   <object type="PhysBox" gid="290" x="806" y="323"/>
   <object type="PhysBox" gid="290" x="780" y="326"/>
-  <object type="PhysBox" gid="290" x="803" y="161"/>
+  <object type="PhysBox" gid="290" x="830" y="112"/>
   <object type="PhysBox" gid="290" x="786" y="158"/>
   <object type="PhysBox" gid="290" x="836" y="209"/>
   <object type="PhysBox" gid="290" x="872" y="323"/>
@@ -175,6 +175,13 @@
   <object type="Toggle" gid="301" x="486" y="292">
    <properties>
     <property name="collisiongroup" value="green"/>
+    <property name="onpress" value="physpoop:setFrozen(false)"/>
+    <property name="onrelease" value="physpoop:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="physpoop" type="PhysBox" gid="290" x="391" y="183">
+   <properties>
+    <property name="onspawn" value="physpoop:setFrozen(true)"/>
    </properties>
   </object>
  </objectgroup>

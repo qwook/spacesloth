@@ -73,6 +73,8 @@ function Map:generateTileCollision(layername, collisiongroup)
         local fixture = love.physics.newFixture(body, shape)
         fixture:setUserData(hack)
 
+        self.body = body
+        
     end
 
     for y, row in pairs(collision) do
