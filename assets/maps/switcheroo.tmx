@@ -55,7 +55,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2sFNwzAUBuCwC4N0FEbpiVS9Aof2xCiMhi0BiiC2k9aJQ/t90hPiQGT813m2oe+6/XPXdbH6jtZeQx4v4WuskMl74+HcvS3l0Q/WaqpufQ1vKY/hWFL12m54q5DHtgzn4BzyOIXvtzAWefxksm+ViTzG56BVJvLoujDvuzD/T1vIpJRH6G8fYX+1W3NMLWQyWbWf5PK4dl2k9tIt+2VOLpPSmaDW7xWe8RTXwKB233Xtukhl3bJflqQymVIt9mb9jLue3NqTSR3DOS69z0q9SSbXq5nHf8jkOVO5vEo9Z+zdcgjPews/N6eGfSbXXx4fpuWx9UxyYu+9dA0tfYYIY/vzGTjPGN+9ZbJkHjGLOXMvk+XyqJVFzUxa/A1h5NxQrLm9YmI/yfa8kR64WzoTd0DTnSplEtdl6jMuj3nmZJJ638R3ZGpO5THf1EwumVN5XObaTFJz2v+6hxure7izvkTpDGxOob5jqLH9+cH/u/3IndNqn8/eKj/vFsV9zznRa2v3AnmUxTzW2mceB3fX3lHj1syDMnlsy1f/WK2nk1c6NzvfAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL+QTasO4a
+   eJzt2sFNwzAUBuCwC4N0lI7SE6m4Agd6YhRGw5agiiC2k9aJQ/t90hPiQOX6r/Ns077rDk9d18XqO1p7DXm8hJ+xQiYfjYdz97aURz9Yq6m69TW8pTyGY0nVa7vhrUIe2zKcg1PI4z38voWxyOOcyaFVJvIYn4NWmcij68K878L877eQSSmP0N8+w/5qt+aYWshksmo/yeVx7bpI7aVb9sucXCalM0Gt9xVeYx/XwKB2P3Xtukhl3bJflqQymVIt9mb9jLue3NqTSR3DOS49z0q9SSbXq5nHf8jkKVO5vEo9Z+zZcgyv9xb+bk4N+0yuvzw+TMtj65nkxN576Rpa+gwRxvbnM3CaMb57y2TJPGIWc+ZeJsvlUSuLmpm0+B/CyLmhWHN7xcR+ku15Iz1wt3Qm7oCme6+USVyXqc+4POaZk0nqeROfkak5lcd8UzO5ZE7lcZlrM0nNaf/rHm6s7uHO+hKlM7A5hfqeQ43tz4++73aWO6fVPp+9VX69WxT3PadEr63dC+RRFvNYa5/5PLi79owat2YelMljW777x+Gnd//u77f+ve2tGZ6bx+6Gne8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgKV8Ac547oU=
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -116,7 +116,7 @@
     <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
-  <object name="LevelEnd" type="Trigger" x="2040" y="951" width="32" height="52">
+  <object name="LevelEnd" type="Trigger" x="2040" y="951" width="35" height="51">
    <properties>
     <property name="ontrigger" value="global:changeMap(level2)"/>
    </properties>
@@ -126,10 +126,32 @@
     <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
+  <object name="teleporter_prop" type="Prop" gid="311" x="2048" y="992">
+   <properties>
+    <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
+    <property name="sprite" value="teleporter.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object type="Button" gid="299" x="2080" y="1024">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
+   </properties>
+  </object>
+  <object type="Button" gid="299" x="2080" y="1024">
+   <properties>
+    <property name="collisiongroup" value="shared"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2O1qwjAYgNHcemW7b/FHQETz0aTNqz0HAsKctn2WpN2WUtqeBmttH16zRqQeW+P4ZdF6zHjPN9Mjltcef6sOJOnx8Hp+K5vo8f78VjXRI6X/FKdJ6Vpf5f7qIUqTWo/Rz343Vu6XJaUmLWPGeeVjOOK549Pvf2OTFqvWt9ZetbmnybieZ6eWn2syZmaP/J7oTfas53v+B9W6T+3dX1r/viI3KRmdQ0e6pbH7gas1ObJHbjHqSk2O6jGrRTajyYy1tlfLXhN11Iw2af0O2ud2rUlpXurRp6fJnrmmR7+Re8VMj7lGm5R6nL2f/4rR+xKgnzlVd+ba47rX6RHLmeuFNarOtYlFj1g8T8SiBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwyh1Koa9g
+   eJzt2OtKwzAYgOHcekXvW/YjMMqWQ5M239bngYDgdGtfc6hbSml7Gqy1vfmaNSL12BrHN4vWY8ZrPpkesex7/K76IEmPh/31rWyix+vrW9VEj5T+UpwmpXt9l/PVQ5QmtR6jv/vVWLlflpSatIwZ15U/wxnPHe9+/hObtFi1vrX2qs09Tcb1PDu1fF+TMTN75NdEb3JkPT/yP6jWfero/tL69xW5ScnoHDrTTxo7D9ytyZk9cotRd2pyVo9ZLbIZTWastb1a9pqoo2a0Set70D63a01K81KPPj1Njsw1PfqNnBUzPeYabVLqcfV+/i1GzyVAP3Oq7sq1x32v0yOWK9cLa1SdexOLHrHs1w9nn7U83wEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq/wDdquu3w==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
