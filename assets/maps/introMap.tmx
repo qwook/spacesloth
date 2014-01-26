@@ -52,7 +52,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1t1twjAUBlCPyjQNfYa+d5SOxAKV6qitGkWOcX5t6DnSFSDk68RfjOlCOL2EEPrqArXFHE6X+Hr5fv9e+XL+PXm0RR5t2TKPbnAWpc6jc/z+Lc5xHs3Tj7tmatjnFj9/xvF93RJ9hvOvORNTvY44Y7fMY9hrTr+45h/DceO6Lpx/ztiSXkf8hqzN43Wi15Z59DXeUylTa1gytrRX63lM9bI/1s+7Vx79uZF7Rkv2R+rcuTf/nLGlvY7M42e+xbX02u2PP/eeyzVVeu1T9556TnL/bzJrOPu/0TPmUbrftuq51fXkei3db6X2zuPZSh5tlTzaqr3zCJXv79HqiDx+1b7XR6gj85ij9rrII6/2OqWKcta3fdYfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6voCFCcQhg==
+   eJzt1mFuwiAYBmCO6mlW/+v+e5QdyQssGc22SBqGUGtp3fMkX9QYPlreIg4hHN5CCGMNgd5iDodTfD19v790vpx/Tx7bIo9tWTKPITmLcufRMX7/Huc4TuYZx50Llfa5xs+fcfxY10yfdP5HzsRcrzXO2CXzSHu19Itr/pGOm9Z55vwtY2t6rfEbsoc8xpruqZr5W8bW9pKH/bFEr7TfeG6UntGa/ZE7d+7N3zK2tteaefzMN7vmXrv9cXPvuXykaq/9r3vPPSel/zeFNWz+b/SKedTut6V6LnU9pV5z91utZ+fxaiWPbZU8tlXPziN0vr+91Rp5/Op9r3uoNfNo0Xtd5FHWe51yRT3ru33WHwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPr6ApfmD/0=
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -68,25 +68,28 @@
  <objectgroup name="Objects" width="100" height="100">
   <object name="player1" gid="13" x="213" y="147"/>
   <object name="player2" gid="13" x="274" y="142"/>
-  <object gid="290" x="155" y="89"/>
-  <object gid="290" x="155" y="167"/>
-  <object gid="290" x="337" y="83"/>
-  <object gid="290" x="334" y="174"/>
-  <object gid="290" x="153" y="27"/>
-  <object gid="290" x="333" y="28"/>
-  <object gid="290" x="575" y="287"/>
-  <object gid="290" x="575" y="253"/>
-  <object gid="290" x="541" y="287"/>
-  <object gid="290" x="1342" y="321"/>
-  <object gid="290" x="1374" y="320"/>
-  <object gid="290" x="1342" y="255"/>
-  <object gid="290" x="1825" y="256"/>
-  <object gid="290" x="1824" y="318"/>
-  <object gid="290" x="1858" y="318"/>
+  <object type="PhysBox" gid="290" x="155" y="89"/>
+  <object type="PhysBox" gid="290" x="155" y="167"/>
+  <object type="PhysBox" gid="290" x="337" y="83"/>
+  <object type="PhysBox" gid="290" x="334" y="174"/>
+  <object type="PhysBox" gid="290" x="153" y="27"/>
+  <object type="PhysBox" gid="290" x="333" y="28"/>
+  <object type="PhysBox" gid="290" x="575" y="287"/>
+  <object type="PhysBox" gid="290" x="575" y="253"/>
+  <object type="PhysBox" gid="290" x="541" y="287"/>
+  <object type="PhysBox" gid="290" x="1342" y="321"/>
+  <object type="PhysBox" gid="290" x="1374" y="320"/>
+  <object type="PhysBox" gid="290" x="1342" y="255"/>
+  <object type="PhysBox" gid="290" x="1825" y="256"/>
+  <object type="PhysBox" gid="290" x="1824" y="318"/>
+  <object type="PhysBox" gid="290" x="1858" y="318"/>
+  <object type="PhysBox" gid="290" x="505" y="209"/>
+  <object type="PhysBox" gid="290" x="573" y="176"/>
+  <object type="PhysBox" gid="290" x="541" y="185"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1tEOwiAMBVB+nT/31RgZrMXYkXMSEuNYgVzr1ltr/W1QhzxqkUct8qglm0f/MkbXZ/dd1bmzfvRM2b3ssCOPSL3ZvEydTB6ZvewQWasPPt+pt5LHSq1RHtlzrXz/C/pjft8Jecx+o6v9Eckt+r9fJY/s+Ky3um7m+tW8J/fHbrufH5E+i74bjeY/PY9IX2Vq7trPiXmcSB61yKMWedQij1rkUYs8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOD/XijoUKE=
+   eJzt1ksOgzAMBcBcPTfvtmqbT+1IGDQjZYESTNDDQG+t9bdBHfKoRR61yKOWbB79xxjNr86b1fnn+tF7yu7lhBN5ROqt1mXqZPLI7OWEynns1BrlEbkvecTnZ+v0x/fx6hnd7Y9IbtH3fpU8suOz3u51M/OzdXfuj9NOfz8ifRb9Nxqtv3sekb7K1Dy1nyfm8UTyqEUetcijFnnUIo9a5AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA13sBQfJQIA==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
@@ -101,7 +104,7 @@
  </layer>
  <layer name="Decoration" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1UEOgjAQBdDef8MVXJK493zGoAFNEWuLTM17yWxI2sD/FFIC6Md49A3wRB+x6COW1n2cK9a9Ts0+vYrUR6t99DHTR51IffheTX1cUjq12q/nLCIYM1PST6v3mskt/+E+y2tb0/JMMVv+P4bMvFv3mJzcuVkb2trq5tc+Od+R7ncvez1zSb7/nnGtkrxkfAy5AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADfugLY51fV
+   eJzt2EEOgjAQBdDef8PCC7gkce/5TKMImioCRQZ9L/kbEpoyn2JiSkRy2HoDPNBHLLmPdutNcKePWPQRyxp9nBbc95wl6+xRtD5qraOPnj7mi9bHv3+vstzHOaVjrfX2PIsI2kKm9FPrveYqz7+5ZXhtLDXPFL3h70dTyLv7upSUzs2rUNdYN9/2yfmOtN9O7f8T13rmKfONNuMpDoOsZcq8fnHGe2DuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBcF4w1X0w=
   </data>
  </layer>
 </map>
