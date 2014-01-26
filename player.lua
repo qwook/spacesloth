@@ -262,6 +262,8 @@ function Player:endContact(other, contact, isother)
 end
 
 function Player:preSolve()
+    -- local smoke = Particle:new()
+    -- smoke:setPosition(self:getPosition())
 end
 
 
