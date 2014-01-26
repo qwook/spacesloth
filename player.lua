@@ -25,7 +25,7 @@ function Player:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(10)
+    self.fixture:setFriction(5)
     self.body:setMass(20)
     self.body:setFixedRotation(true)
 

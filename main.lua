@@ -10,6 +10,7 @@ Tile = require("tile")
 Input = require("input")
 
 PhysBox = require("physbox")
+Fonz = require("fonz")
 
 require("update")
 require("draw")
