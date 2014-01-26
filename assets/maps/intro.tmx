@@ -64,7 +64,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2UFOAjEYBtByHnFv3MM5OI3jXt17EBdsvY0XMLE1NmnGQabgOHV4L/kDBNpO+6UpDF0Iu7sQQqou8NvWq7C7WoVwrLL4fPcQHx++ns902YuV1vQmrvexKj+f84h75Hmmy16s2jxiBvKY0Jx5dMVZNHQe3cf3n+IY971xUrvHH6rs5y2+fo/tU70N9FOOf86ZONTXKf3NmUfZV01/cc33Zbt+PZ44fk3bMX2dskZLzCPOaVQ/f5HHduS1ZNsF5mF//M4clrg/ps4jzTWPtVl9P79qarOyP/pq8/hpHc6tsdd+aO4t7o90ftwWdR3rJX72NXw+pte78v3a82PKPMbut/6+GuqnvLdQ009q2//+fM411ebb0v5YYsmjrZJHWzV1HqGBOf6nSud5uueTq3/vJ98TylV7nsulrqbaH4cyqRhnX9bc63TpeQyMu6+pudd16XnUWv/TjJaax5Cc0abhbC4pj+zqyO91efwtebTlEvNomTza0oWwj/N+brG6if//YFryAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJjWB4iIJrI=
+   eJzt2E1OAyEYBmB6HnVv3Nd4jJ7GurfuPYiLbr1NL2AiGCch4+gM/RuKz5N8aZsWGHhDUNYhrB5DCKnWgWO7XoTV1SKEsbr9rvh+9RzbpUrvZ3785qQ1vc3We6zyPOIeeZ358ZtTmkfMQB4nNGce6+wsGjqPnuL3L3GMp944qd3mj8r72cXPH7F9qt1AP/n4h5yJQ33t09+ceeR9lfQX13ybt+vXZs/xS9pO6WufNWoxjzinSf2cI4/7ic/SuW8wD/vjOHNocX+cOo80126s5eLn+VVSy4X90Veax1/rcGhNffbf5l7j/kjnx11WN7He4m/fw9dr+rzKvy89P06Zx9T91t9XQ/3kdwsl/aS2/b+fD3mm0nxr2h8tljzqKnnUVafOI1Qwx0uqdJ6nO5+u+nc/3Z1QV6XneW7uuV5CnWN/7COOs81r7nX673kMjLstqbnXtfU8Sl1faEat5jGky2hZcTb/KY/O1cj/6/I4L3nURR51kUdd1iFs47xfa6ypd/+dFvKo2UNcs/w+ZKwOuS8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYNwn0Cw+eQ==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -99,10 +99,31 @@
     <property name="collisiongroup" value="green"/>
    </properties>
   </object>
+  <object type="Trigger" x="2684" y="803" width="131" height="25">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2468" y="803" width="131" height="25">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2605" y="804" width="75" height="24">
+   <properties>
+    <property name="ontrigger" value="teleportto(next1)"/>
+   </properties>
+  </object>
+  <object name="next1" type="teleportTo" gid="117" x="2622" y="901"/>
+  <object type="trigger" gid="293" x="2619" y="1118">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1lFuhSAUBUC7w27JnfeL9MaIIqCiziTExAeInAc4T9M0h0Jfc2HJtaWvljmVR3/yGMudeeztiyX3j+yvJc+vfafWscR+avXIo6a/vXot/bTk0TKW1ue3tl1r/4Y8fn/+S01/8qhrm2uXcqjtTx51bXPt7s6jtdSMZfQ87tqventDHknMo/QbsuX77gy166pnP73W+hvWx5vIYwxvOj9GFuc5V1K9SB7ni/Mf78VrcvZ53uu8O9tyXq563lPWx135bO0tpXVzbXL71RPPj6vWV24eS+uW9LO1fz0lj6NKM6r5X++tm6028bdl/TTuo+/5VMtc9ub0Sl/MI4l5pOuV6yNXL47t6Ls82XJ9xHm64vzYuvflPNZc+X21Vk8eY/lqHiOXo+/COOQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAcK4/C0u+jQ==
+   eJzt11uOgyAABVBnh7Ol7ny+yBBTlLeo5ySkiQVEbgH72bbtExX6+mSWVFv6aplTefQnj7VcmcfZvphzvWR/zbl/7TO1jiXup1aPPGr6O6vX0k9LHi1jab1/a9tv7Z+Qx+/Pf6npTx51bVPtQg61/cmjrm2q3dV5tJaasayex1X7VW9PyCOI88h9h2x5vxuhdl317KfXWn/C+ngSeazhSefHyuJ5TpVQLyaP8eL5j6/Fn8Ho87zXeTfafl5m3e8u6+OqfI72lty6qTap/eqO58es9ZWax9y6Of0c7V93yaNUbkY1v+uzdXPUJv5uXz+Mu/Q572qfy9mczvTGPII4j/A5c32k6sVjK32WO9uvj3ieZpwfR9fenMc3M9+vvtWTx1remsfKpfRZGGd0fpSpWR8yGadmbq2VcVrmVB79yWMdrXuOPPpqzUIefdXOqSzGKX1XksU8/gsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAWv4AZoLWPA==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
