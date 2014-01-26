@@ -172,6 +172,7 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("left") and not jumping then
+            self.fixture:setFriction(PLAYER_FRICTION)
             if math.abs(velx) < 100 then
                 if self.crouching then
                     self.body:applyLinearImpulse(-MOVING_ACCELERATION/2, 0)
@@ -193,13 +194,12 @@ function Player:update(dt)
             if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
                 goingUpOrDown = true
                 ypoop = -ypoop
+                self.fixture:setFriction(PLAYER_FRICTION_MOVING)
             end
-
-            -- self.fixture:setFriction(PLAYER_FRICTION_MOVING)
         end
 
         if self.controller:isKeyDown("right") and not jumping then
-
+            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
             if math.abs(velx) < 100 then
                 if self.crouching then
                     self.body:applyLinearImpulse(MOVING_ACCELERATION/2, 0)
