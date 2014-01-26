@@ -153,7 +153,7 @@
    <properties>
     <property name="collisiongroup" value="green"/>
     <property name="onpress" value="physpoop:setVisible(false)"/>
-    <property name="onrelease" value="physpoop:setVisible(true)"/>
+    <property name="onrelease" value="physpoop:setVisible(true);global:playSound(thwap.wav)"/>
    </properties>
   </object>
   <object name="physpoop" type="PhysBox" gid="290" x="391" y="183">
