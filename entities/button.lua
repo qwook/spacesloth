@@ -24,7 +24,12 @@ function Button:initPhysics()
 end
 
 function Button:setPosition(x, y)
-    PhysBox.setPosition(self, x+8, y+8)
+    PhysBox.setPosition(self, x+16, y+8)
+end
+
+function Button:getPosition()
+    local x, y = PhysBox.getPosition()
+    return x-16, y-8
 end
 
 function Button:isTouchingPlayer()
