@@ -145,7 +145,11 @@ function reset()
     if arg[2] and DEBUG then 
         map = Map:new(arg[2])
     else
-        map = Map:new("assets/maps/title")
+        if not map then
+            map = Map:new("assets/maps/title")
+        else
+            map = Map:new(map.mapname)
+        end
     end
     
     map:spawnObjects()
