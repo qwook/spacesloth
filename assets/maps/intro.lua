@@ -744,7 +744,7 @@ return {
           type = "Prop",
           shape = "rectangle",
           x = 1297,
-          y = 401,
+          y = 410,
           width = 0,
           height = 0,
           gid = 16,
@@ -778,7 +778,7 @@ return {
           type = "Text",
           shape = "rectangle",
           x = 304,
-          y = 435,
+          y = 488,
           width = 171,
           height = 69,
           visible = true,
@@ -840,6 +840,23 @@ return {
           visible = true,
           properties = {
             ["string"] = "Is your friend stuck? Here's a tip: you can jump on another player!"
+          }
+        },
+        {
+          name = "bull",
+          type = "Prop",
+          shape = "rectangle",
+          x = 1735,
+          y = 426,
+          width = 0,
+          height = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["onspawn"] = "bull:loopAnimation(0,0,9,1)",
+            ["sprite"] = "npc/bull.png",
+            ["spriteheight"] = "64",
+            ["spritewidth"] = "64"
           }
         }
       }
