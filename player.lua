@@ -47,6 +47,11 @@ function Player:event_setVelocity(x, y)
     self.body:setAwake(true)
 end
 
+function Player:event_setFriction(frict)
+    self.body:setFriction(frict)
+    self.body:setAwake(true)
+end
+
 function Player:event_applyImpulse(x, y)
     self.body:applyLinearImpulse(x, y)
     self.body:setAwake(true)
