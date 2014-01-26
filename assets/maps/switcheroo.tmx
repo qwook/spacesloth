@@ -55,32 +55,25 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2kFSwjAUBuB6Fw/CUTgKK4prcQErj+LRTGbE6WiS0tI2Bb5v5g3jQoj5SV9S2zbNbt80Tay2obZjyOM9vMYKmXxWHs7TW1MebWet5urR1/Ca8uiOJVfHesNbhDzWpTsH55DHKfy8hrHI4zeTXa1M5JGeg1qZyKNpwrxvwvxv15BJXx6hv32F/dVmyTHVUMhk0X5SyuPWdZHbS9fslyWlTPrOBFP9XeE9tnENdGpzqVvXRS7rmv2yTy6Ta6rG3qwdcK+ntPZkMo3uHPddz/p6k0xuN2Ue95DJvlClvPp6Turacgjv9xF+b0h1+0ypv7y+XJfH2jMpib137Bqa+wwRxvbvO3AeML5ny2TOPGIWQ+ZeJvPlMVUWU2aSOvfM/T+DxLmht4b2iiv7SbHnJXrgZu5MUn3r0e/5jHWaIJO4V4hrIPedl8cwQzLJ7RfjNTI3x/IY7tpMxvREeYxzaya5OW7/3Ieb4l7cs+g7A5fKHMM4l3tBB8+3ZZWe9Xr0Z7zWKO57zoleqxfUEfNYct/5tuBn3aOl86BMHuvy0z+SPV0/X17q3KyfAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL+AZEYtVu
+   eJzt2sFNwzAUBuCwC4N0FEbpiVS9Aof2xCiMhi0BiiC2k9aJQ/t90hPiQGT813m2oe+6/XPXdbH6jtZeQx4v4WuskMl74+HcvS3l0Q/WaqpufQ1vKY/hWFL12m54q5DHtgzn4BzyOIXvtzAWefxksm+ViTzG56BVJvLoujDvuzD/T1vIpJRH6G8fYX+1W3NMLWQyWbWf5PK4dl2k9tIt+2VOLpPSmaDW7xWe8RTXwKB233Xtukhl3bJflqQymVIt9mb9jLue3NqTSR3DOS69z0q9SSbXq5nHf8jkOVO5vEo9Z+zdcgjPews/N6eGfSbXXx4fpuWx9UxyYu+9dA0tfYYIY/vzGTjPGN+9ZbJkHjGLOXMvk+XyqJVFzUxa/A1h5NxQrLm9YmI/yfa8kR64WzoTd0DTnSplEtdl6jMuj3nmZJJ638R3ZGpO5THf1EwumVN5XObaTFJz2v+6hxure7izvkTpDGxOob5jqLH9+cH/u/3IndNqn8/eKj/vFsV9zznRa2v3AnmUxTzW2mceB3fX3lHj1syDMnlsy1f/WK2nk1c6NzvfAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL+QTasO4a
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2DEKgDAMBdAczaN4LifvYQVXb2UnEbdioIrvQYcOLZ9kCG0EAAAAV1PE1jsDOdbeATiV3gE+Lrt+e/J9f/OkfrWXYz0/X9cSMWRl+6OiftDMXH4Xc/ldivcgAABAk/ufZ93PvTMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQJYDYBEXjQ==
+   eJzt2MENwjAMAMCMxiiMwhy8ugcFlSePdiaMEKgfPlA1NbmToubTyrEbWXIpAAAAzB1LGWrHwDLOtQPgra8dQHJL5++28Pda80v+opb7eL+br0uCvnMq5XCqHcQHkdNd7RjW9KjFFM9pwzVpyRj/3/Rcw5jgLr/8c1++Rj1iDZnO2EJfznTGPtFd/lZrvRMAAFjXfAYa+652PMD2ZZrltSDTLK8FZnkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFDfHb9UKWk=
   </data>
  </layer>
  <layer name="GreenLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2d0JwjAUBtDrJm7QFTqKoziKozmBZgALJg9ifQtIiCbnwKUvpf3g9ufhiwAAAICx3CPOKeLSO8fsyh5u+fjoHWRgqe6c05bfh7yLtUzey9o616y23gH4kDzrTb2+LWX8cwEAAAAA3pZD7wT/p6bz+vL6xzzXxrcZhs7rt+i8oM6+v2wxOlEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmNcTFXZEMA==
+   eJzt2VEKhCAQANA5WkfZo3SUTth6gIL0Yxfan/YjsfI9GPwRGRgdQSMAAADgWd4RY4qYWufRu1KHOY9L60QeLP0357Xm85BrMZTIdRlq59WrtXUC7CR7vapPbynhzgW4j9K/9W0AAADgqlLEWHn979u29+1j/r6uxd8XHPvt82eGOwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+rUBo/VKmg==
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
   <object name="player1" gid="291" x="203" y="175"/>
   <object name="player2" gid="295" x="239" y="176"/>
-  <object type="Button" gid="299" x="1280" y="576">
+  <object type="Button" gid="299" x="1216" y="576">
    <properties>
     <property name="collisiongroup" value="blue"/>
-    <property name="onpress" value="global:swapCollision()"/>
-    <property name="onrelease" value="global:swapCollision()"/>
-   </properties>
-  </object>
-  <object type="Button" gid="299" x="1472" y="448">
-   <properties>
-    <property name="collisiongroup" value="green"/>
     <property name="onpress" value="global:swapCollision()"/>
     <property name="onrelease" value="global:swapCollision()"/>
    </properties>
@@ -92,7 +85,7 @@
     <property name="onrelease" value="global:swapCollision()"/>
    </properties>
   </object>
-  <object type="Button" gid="299" x="2880" y="800">
+  <object type="Button" gid="299" x="2848" y="800">
    <properties>
     <property name="collisiongroup" value="blue"/>
     <property name="onpress" value="global:swapCollision()"/>
@@ -102,36 +95,51 @@
   <object type="Button" gid="299" x="2880" y="896">
    <properties>
     <property name="collisiongroup" value="green"/>
-    <property name="onpress" value="activator:swapCollision()"/>
-    <property name="onrelease" value="activator:swapCollision()"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
    </properties>
   </object>
   <object name="tramp1" gid="292" x="1824" y="480"/>
-  <object name="tramp2" gid="292" x="2560" y="640"/>
   <object type="Trigger" x="1824" y="471" width="38" height="24">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0, -700);tramp1:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object type="Trigger" x="2561" y="631" width="38" height="24">
+  <object type="Trigger" x="1161" y="1103" width="2015" height="230">
    <properties>
-    <property name="ontrigger" value="activator:setVelocity(0, -700);tramp2:playAnimation(0,1,2,0.5)"/>
+    <property name="ontrigger" value="activator:teleportTo(flag1)"/>
+   </properties>
+  </object>
+  <object name="flag1" x="1963" y="217" width="60" height="45"/>
+  <object type="Trigger" x="2758" y="1103" width="2015" height="230">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(flag1)"/>
+   </properties>
+  </object>
+  <object name="LevelEnd" type="Trigger" x="2040" y="951" width="32" height="52">
+   <properties>
+    <property name="ontrigger" value="global:changeMap(level2)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2638" y="704" width="195" height="24">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(flag1)"/>
    </properties>
   </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2NuKwjAUQNH8eofxvwcfAoPaXJrUHO1aEBCsYt2mSd1SStu/wVrbzmPWiNRjaxzfLFqPGcd8Mj1ieezxu+qDJD3uHs9vZRM9Xp/fqiZ6pHRLcZqUvuur7K/uojSp9Rh971dj5XpZUmrSMmacV/4MZ9x37L3+E5u0WHV9a+1Vm3uajOu5d2p5XpMxM3vkY6I3OXI9P/IfVOs6dXR9af19RW5SMjqHzvSTxvYDV2tyZo/cYtSVmpzVY1aLbEaTM/buNS1rTdRRM9pkb63kWevcrjUptdWjT0+TI3NNj34je8VMj7lGm5R6vHs9/xaj+xKgnzlU59oTix6xvPt717jMPIhFj1isH7HoAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACs8gdWeaXM
+   eJzt2O1qwjAYgNHcemW7b/FHQETz0aTNqz0HAsKctn2WpN2WUtqeBmttH16zRqQeW+P4ZdF6zHjPN9Mjltcef6sOJOnx8Hp+K5vo8f78VjXRI6X/FKdJ6Vpf5f7qIUqTWo/Rz343Vu6XJaUmLWPGeeVjOOK549Pvf2OTFqvWt9ZetbmnybieZ6eWn2syZmaP/J7oTfas53v+B9W6T+3dX1r/viI3KRmdQ0e6pbH7gas1ObJHbjHqSk2O6jGrRTajyYy1tlfLXhN11Iw2af0O2ud2rUlpXurRp6fJnrmmR7+Re8VMj7lGm5R6nL2f/4rR+xKgnzlVd+ba47rX6RHLmeuFNarOtYlFj1g8T8SiBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwyh1Koa9g
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2LEKACAIBUB/vT9va2swg0LuwF3ew8UIAAAA6Gm8XoBFFzW389NHTSW/sRnOyQ/y3M1f9PEXfQAAAOT4dwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADQ2QRaDwoV
+   eJzt2LENwCAMBEBWZ/N06VJgIxmHO4ne7xcUjAEAAAD/NKsH4KWLnN3700dOZn/z4xBnf7DuhnvTKWOnWaM6Zew0a9QNGQEAgDr+PoFV3oqz6OMs+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgHoPOMMMmg==
   </data>
  </layer>
  <layer name="GreenCollision" width="100" height="100" opacity="0.28">
   <data encoding="base64" compression="zlib">
-   eJzt2jEKACAMA8B+vT93cXRQsCh6B/lAAg7FCAAAAHhL9nBWhi2qzXSbg1BDt3exRy3vCgAAAAAAu1Tfmd2y1+jqLvaAOaO/EbsDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPypAWpkF7A=
+   eJzt2UEKwCAMBMB8PT/vpUehFQxNdQb2A1nYg0YAAADAXvIO38rQRbU3t81BqOG2veijll0B+Ce7DQAAAHRW/W7h32yO+/SiD3g22vmVAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADOdAFarBm0
   </data>
  </layer>
  <layer name="Decoration" width="100" height="100">
