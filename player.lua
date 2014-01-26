@@ -2,8 +2,7 @@
 DEACCELERATION_SPEED = 600 -- how much you're able to deaccelerate after jumping
 IMPULSE_AFTER_JUMPING = 7.5 -- how much you're able to "nudge" after jumping
 PLAYER_FRICTION = 0.75 -- friction
-PLAYER_FRICTION_MOVING = 0.75 -- friction while moving
-PLAYER_FRICTION_SLIDING = 0.01 -- friction while sliding on a slope
+PLAYER_FRICTION_SLIDING = 0.01 -- friction while sliding
 
 MOVING_ACCELERATION = 20 -- how much it should accelerate
 MOVING_SPEED = 200 -- constant moving speed on ground
@@ -155,8 +154,6 @@ function Player:update(dt)
     local goingUpOrDown = nil
     local ypoop = self.floornx
 
-    -- self.fixture:setFriction(PLAYER_FRICTION)
-
     if self:isOnFloor() then
 
         if self.nextJump > 0 then
@@ -165,9 +162,14 @@ function Player:update(dt)
 
         local jumping = false
 
-        if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-            -- Turn friction back up if the player wants to stop sliding.
+        -- Stop sliding if the player takes control.
+        if self.controller:isKeyDown("jump") or self.controller:isKeyDown("left") or self.controller:isKeyDown("right") then
+            print("turning friction back to normal")
             self.fixture:setFriction(PLAYER_FRICTION)
+            goingUpOrDown = nil
+        end
+
+        if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
             self.body:setLinearVelocity(velx/10, vely/5)
             self.body:applyLinearImpulse(0, -325)
             self.nextJump = 0.1
@@ -180,8 +182,6 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("left") and not jumping then
-            -- Turn friction back up if the player wants to stop sliding.
-            self.fixture:setFriction(PLAYER_FRICTION)
             if math.abs(velx) < 100 then
                 if self.crouching then
                     self.body:applyLinearImpulse(-MOVING_ACCELERATION/2, 0)
@@ -207,8 +207,6 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("right") and not jumping then
-            -- Turn friction back up if the player wants to stop sliding.
-            self.fixture:setFriction(PLAYER_FRICTION)
             if math.abs(velx) < 100 then
                 if self.crouching then
                     self.body:applyLinearImpulse(MOVING_ACCELERATION/2, 0)
@@ -231,8 +229,6 @@ function Player:update(dt)
                 goingUpOrDown = false
                 ypoop = -ypoop
             end
-
-            -- self.fixture:setFriction(PLAYER_FRICTION_MOVING)
         end
 
         -- so for climbing stairs, we actually push the player up a bit
@@ -241,16 +237,23 @@ function Player:update(dt)
         if self.nextJump <= 0 then
             local velx, vely = self.body:getLinearVelocity()
             -- up
+            -- Set low friction for sliding down slopes.
             if goingUpOrDown == true then
+                print("1")
+                -- If the player is on a slope, turn down friction. BECAUSE THAT'S HOW THE WORLD WORKS.
+                self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
                 -- self.body:applyLinearImpulse(0, -50)
                 -- If you're on a slope, turn down friction for tobogganing.
-                self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
                 self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
+                print("2")
+                -- If the player is on a slope, turn down friction. BECAUSE THAT'S HOW THE WORLD WORKS.
+                self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
                 -- self.body:applyLinearImpulse(0, 10)
                 self.body:setLinearVelocity(velx, 200 * -ypoop)
             end
+            goingUpOrDown = nil
         end
 
     -- not on floor, we're in the air
@@ -362,15 +365,10 @@ function Player:beginContact(other, contact, isother)
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
-            
-        if other.type == "PLAYER" then
-            contact:setFriction(1.5)
-        end
-
     else
         -- if it isn't a floor, set the friction to 0
         -- we want to slide down walls, not cling onto them
-        contact:setFriction(0)
+        --contact:setFriction(0)
     end
  
         if other.type == "PLAYER" then
