@@ -168,6 +168,19 @@ return {
       imageheight = 128,
       properties = {},
       tiles = {}
+    },
+    {
+      name = "object_tilemap",
+      firstgid = 351,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../sprites/object_tilemap.png",
+      imagewidth = 128,
+      imageheight = 192,
+      properties = {},
+      tiles = {}
     }
   },
   layers = {
@@ -604,8 +617,8 @@ return {
           name = "tramp1",
           type = "Prop",
           shape = "rectangle",
-          x = 574,
-          y = 605,
+          x = 576,
+          y = 608,
           width = 0,
           height = 0,
           gid = 293,
@@ -620,7 +633,7 @@ return {
           name = "tramp2",
           type = "Prop",
           shape = "rectangle",
-          x = 769,
+          x = 768,
           y = 672,
           width = 0,
           height = 0,
@@ -636,8 +649,8 @@ return {
           name = "tramp4",
           type = "Prop",
           shape = "rectangle",
-          x = 1827,
-          y = 669,
+          x = 1824,
+          y = 672,
           width = 0,
           height = 0,
           gid = 293,
@@ -658,7 +671,7 @@ return {
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
           }
         },
         {
@@ -671,7 +684,7 @@ return {
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
           }
         },
         {
@@ -684,20 +697,20 @@ return {
           height = 15,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
           }
         },
         {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1794,
-          y = 658,
+          x = 1797,
+          y = 657,
           width = 64,
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
           }
         },
         {
@@ -840,6 +853,23 @@ return {
           visible = true,
           properties = {
             ["string"] = "Is your friend stuck? Here's a tip: you can jump on another player!"
+          }
+        },
+        {
+          name = "teleporter_prop",
+          type = "Prop",
+          shape = "rectangle",
+          x = 2623,
+          y = 1150,
+          width = 0,
+          height = 0,
+          gid = 371,
+          visible = true,
+          properties = {
+            ["onspawn"] = "teleporter_prop:loopAnimation(0, 0, 3, 3)",
+            ["sprite"] = "teleporter.png",
+            ["spriteheight"] = "32",
+            ["spritewidth"] = "32"
           }
         }
       }
