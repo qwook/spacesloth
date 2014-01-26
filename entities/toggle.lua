@@ -1,16 +1,16 @@
 
 PhysBox = require("physbox")
 
-Button = class("Button", PhysBox)
+Toggle = class("Toggle", PhysBox)
 
-function Button:initialize()
+function Toggle:initialize()
     PhysBox.initialize(self)
 
-    self.spritesheet1 = SpriteSheet:new("assets/sprites/button_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("assets/sprites/button_green.png", 32, 32)
+    self.spritesheet1 = SpriteSheet:new("assets/sprites/switch_blue.png", 32, 32)
+    self.spritesheet2 = SpriteSheet:new("assets/sprites/switch_green.png", 32, 32)
 end
 
-function Button:initPhysics()
+function Toggle:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newRectangleShape(32, 0.15)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
@@ -19,15 +19,15 @@ function Button:initPhysics()
     self.fixture:setFriction(0.5)
 
     self.hasPressedLastUpdate = false
-    self.buttonDelay = 0
+    self.ToggleDelay = 0
     self.pressed = false
 end
 
-function Button:setPosition(x, y)
-    PhysBox.setPosition(self, x+8, y+8)
+function Toggle:setPosition(x, y)
+    PhysBox.setPosition(self, x+8, y+10)
 end
 
-function Button:isTouchingPlayer()
+function Toggle:isTouchingPlayer()
     for k,v in pairs(self.touching) do
         if v.type == "PLAYER" then
             return v
@@ -36,30 +36,28 @@ function Button:isTouchingPlayer()
     return false
 end
 
-function Button:update(dt)
-    if self.buttonDelay > 0 then
-        self.buttonDelay = self.buttonDelay - dt
+function Toggle:update(dt)
+    if self.ToggleDelay > 0 then
+        self.ToggleDelay = self.ToggleDelay - dt
     end
 
     local isTouching = self:isTouchingPlayer()
 
-    if self.buttonDelay <= 0 then
-        if isTouching and not self.hasPressedLastUpdate then
+    if isTouching and isTouching.controller:wasKeyPressed("crouch") then
+        self:trigger(self.ontoggle, isTouching)
+        self.ToggleDelay = 0.25
+        self.pressed = not self.pressed
+        if self.pressed == true then
             self:trigger(self.onpress, isTouching)
-            self.buttonDelay = 0.25
-            self.pressed = true
+        else
+            self:trigger(self.onrelease, isTouching)
         end
-    end
-
-    if not isTouching and self.pressed and self.buttonDelay <= 0 then
-        self:trigger(self.onrelease, isTouching)
-        self.pressed = false
     end
 
     self.hasPressedLastUpdate = isTouching
 end
 
-function Button:draw()
+function Toggle:draw()
     local x, y = self:getPosition()
     local r = self:getAngle()
 
@@ -70,19 +68,19 @@ function Button:draw()
     love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(1, 0, -16, -16-8)
+            self.spritesheet1:draw(1, 0, -16, -16-10)
         else
-            self.spritesheet2:draw(1, 0, -16, -16-8)
+            self.spritesheet2:draw(1, 0, -16, -16-10)
         end
     else
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(0, 0, -16, -16-8)
+            self.spritesheet1:draw(0, 0, -16, -16-10)
         else
-            self.spritesheet2:draw(0, 0, -16, -16-8)
+            self.spritesheet2:draw(0, 0, -16, -16-10)
         end
     end
 
     love.graphics.pop()
 end
 
-return Button
+return Toggle

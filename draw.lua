@@ -31,9 +31,6 @@ function love.draw()
                 map:draw("player2")
             end
 
-            player:draw()
-            player2:draw()
-
             for i, object in pairs(map.objects) do
                 if (object.collisiongroup == nil or
                     object.collisiongroup == "shared" or
@@ -43,6 +40,9 @@ function love.draw()
                 end
             end
             
+            player2:draw()
+            player:draw()
+
         love.graphics.setScissor()
 
     love.graphics.pop()
@@ -65,9 +65,6 @@ function love.draw()
                 map:draw("player1")
             end
 
-            player:draw()
-            player2:draw()
-
             for i, object in pairs(map.objects) do
                 if object.zindex == -1 then
                     object:draw()
@@ -85,12 +82,14 @@ function love.draw()
                 end
             end
 
+            player:draw()
+            player2:draw()
+
         love.graphics.setScissor()
 
     love.graphics.pop()
 
     if changeMapTime > 0 then
-        print(changeMapTime)
         love.graphics.setColor(255, 255, 255, (1 - changeMapTime)*255)
         love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
     end

@@ -47,6 +47,9 @@
  <tileset firstgid="290" name="generic_box" tilewidth="32" tileheight="32">
   <image source="../sprites/box_generic.png" width="32" height="32"/>
  </tileset>
+ <tileset firstgid="291" name="object_tilemap" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
+ </tileset>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
@@ -66,23 +69,9 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
-  <object name="player1" gid="13" x="213" y="147"/>
-  <object name="player2" gid="13" x="274" y="142"/>
-  <object type="PhysBox" gid="290" x="155" y="89"/>
-  <object type="PhysBox" gid="290" x="155" y="167"/>
-  <object type="PhysBox" gid="290" x="337" y="83"/>
-  <object type="PhysBox" gid="290" x="334" y="174"/>
-  <object type="PhysBox" gid="290" x="153" y="27"/>
-  <object type="PhysBox" gid="290" x="333" y="28"/>
-  <object type="PhysBox" gid="290" x="575" y="287"/>
-  <object type="PhysBox" gid="290" x="575" y="253"/>
-  <object type="PhysBox" gid="290" x="541" y="287"/>
   <object type="PhysBox" gid="290" x="1825" y="256"/>
   <object type="PhysBox" gid="290" x="1824" y="318"/>
   <object type="PhysBox" gid="290" x="1858" y="318"/>
-  <object type="PhysBox" gid="290" x="505" y="209"/>
-  <object type="PhysBox" gid="290" x="573" y="176"/>
-  <object type="PhysBox" gid="290" x="541" y="185"/>
   <object type="PhysBox" gid="290" x="792" y="272"/>
   <object type="PhysBox" gid="290" x="827" y="260"/>
   <object type="PhysBox" gid="290" x="783" y="296"/>
@@ -175,29 +164,17 @@
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="420" y="271" width="44" height="20">
-   <properties>
-    <property name="ontrigger" value="activator:setVelocity(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"/>
-   </properties>
-  </object>
-  <object name="tramp1" type="Prop" gid="12" x="428" y="291">
-   <properties>
-    <property name="sprite" value="trampoline.png"/>
-    <property name="spriteheight" value="32"/>
-    <property name="spritewidth" value="32"/>
-   </properties>
-  </object>
   <object type="Platform" x="430" y="106" width="69" height="9"/>
-  <object type="Button" gid="1" x="335" y="295">
+  <object name="player1" gid="291" x="204" y="147"/>
+  <object name="player2" gid="291" x="262" y="151"/>
+  <object type="Toggle" gid="301" x="412" y="292">
    <properties>
     <property name="collisiongroup" value="blue"/>
-    <property name="onpress" value="global:swapCollision()"/>
    </properties>
   </object>
-  <object type="Button" gid="1" x="649" y="127">
+  <object type="Toggle" gid="301" x="486" y="292">
    <properties>
-    <property name="collisiongroup" value="shared"/>
-    <property name="onpress" value="global:changeMap(intro)"/>
+    <property name="collisiongroup" value="green"/>
    </properties>
   </object>
  </objectgroup>

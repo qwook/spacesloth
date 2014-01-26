@@ -97,6 +97,8 @@ function Player:initPhysics()
     self.facing = 'right'
     self.moving = false
     self.crouching = false
+
+    self.nextDust = 0
 end
 
 function Player:isOnFloor()
@@ -130,6 +132,9 @@ function Player:update(dt)
         self.crouching = false
     end
 
+    if self.nextDust > 0 then
+        self.nextDust = self.nextDust - dt
+    end
 
     self.expression = 0
     if (self.controller:isKeyDown("L")) then self.expression = self.expression + 1 end
@@ -382,11 +387,23 @@ function Player:endContact(other, contact, isother)
 
 end
 
-function Player:postSolve(f1, f2)
-    -- if self.moving then
-    --     local smoke = WalkingDust:new()
-    --     smoke:setPosition(self:getPosition())
-    -- end
+function Player:postSolve(other, contact, nx, ny, isother)
+    if self.moving and self.nextDust <= 0 and self:isOnFloor() then
+        local smoke = WalkingDust:new()
+        local x, y = self:getPosition()
+        local vx, vy = 0, -50
+
+        if self.facing == "left" then
+            vx = 25
+        else
+            vx = -25
+        end
+
+        smoke:setPosition(x+vx*0.70, y + 16)
+        smoke:setVelocity(vx, vy)
+        smoke:setScale(math.length(self.body:getLinearVelocity())/200)
+        self.nextDust = 0.15
+    end
 end
 
 
