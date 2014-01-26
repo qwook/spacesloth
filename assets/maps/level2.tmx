@@ -67,7 +67,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2zFu20AUBNDVeSL1RppUuodPky5VLuCj+GjeFIQFGytQS1L/Z/c9YAAXhrgiZ2AVcinrnE/l9ceplC2prwFDqv1+fan93pL6Gm/R7wOOsOzjWjtef37vydk+GNSyD38D4Dv7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gDb7gLZs+7j3fftnf4++dZbf5TN7neuZ12K9bPu49337Z5+xdZa/5TN7neuZ12I9+3j8LPYxD/t4/Cz2MY+b/4/69nn3a/6U45+NfdhHJstzuX0Orfyqz+bojdiHfWTy77ms2cbyfI7eiH3YRyaP7uP2s9gRO7EP+8ikZx9L1v4tudRr/Ky/e1nxbO3DPjLZso8jPm/Zh31ksnUfe2/EPuwjk1YXe9L6Xsgjud7Zx3Wna2w9y9fO7nGue+878h7slf/VnvsYMO+yT6J73itBBzMnvFejJLrnvRJ0MHPCezVKonveK0EHMye8V6Mkuue9EnQwc8J7NUqie94rQQczJ7xXoyS6570SdDBzwns1SqJ73iv6vskcie55r+j7JnMkuue9ou+bzJHonveKvm8yR6J73iv6vskcie55r+j7JnMkuue9ou+bzJHongMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAClfAAJ+8XE
+   eJztmz1u20AQRqnzxC7cGSmSSvfwUVylS5UL+Cg+WpZ2CDHWkNqf2Z3h6D3gAwIkIFc738PSDjVNeTycppdvp2lqSboGQEhSv1+eU79bkq7xZv05AHqw+HFOHU9/fq/JA35AUBY/OAMArsGPWPxM87ReQyTwIxZPaZ44ogd+xANH9MCPmOCIDvgRFxxpBz9igyNt4Ed8cKQe/LgPcKQO/LgfcKQc/LgvcKQM/Lg/cCQfb37svW8/+j36rbX8mi7RWlfuvX6cptf2u+FILt782HvffvQat9byZ7pEa1259zqfPrrdfL8ZHLkNfpSvxdKPlSOvrfecwZF98KN8LdZ+4Mg4Vt+Punre/ZrfU/9+4keeHzgyhmUu6zlsJe3fW29H8CPfDxzpzzyXHDeW+fR2BD/K/MCRvpT6sX4W6+EJfpT7gSP9qPFjSclZ8pju8z39+8cbXcKPOj9wpA8tfvR43sKPej9wRJ9WP7QdwY82P3BEl9w9z8nWeyElOe/4cVa6R+tapP/T7vm5a4IjOmjOJGDenQZHBuGgg55j7UGTH3PmZ1/e16rHQQc9x9qDZj9wpA0HHfQcaw9U/MCRehx00HOsPVDzA0fqcNBBz7H2QNUPHCnHQQc9x9oDdT/m8B2rfBzMmgz245lzJBsHs3bTGaOY7huO7GM9H/yw3TfOkX2s54Mf9vuGI9s4mI/anA8aF/um7YjGdaxx0I1DdyraZ9FyJF0jBA56fvhORfssrY48fV4jBA56ftRORcrV/tY6EsmNGQc9r411p8JE6kXq+Px7X/HvtojmxoyDntfGvFdR8rUTuPGJg47XxrxTkbLuBG5ccNDz2ph3KlKWPuDG/zjoeW3MOxUpcxdw4xoHPa+NeaciBTdkHPS8NuadOthaPyJ1ADe2cdBz/DD0Azf2cdDzI/txuKxnjxu3cdBz/DDwAzfycNBzHBnsB27k46Dj+DEwuFGGg47jx8DgRhkOOo4fA8K5UYeDjuMIbrjFQb/xAzfc8m8frTuOH7jhEvyIG9xoJ4AfOIIb3VjtqXXHcUQhPFPpgh9xghv64Eec4IY++HH8cG70JYgj5j21Cm70BT+OG9zoj/WMCW54x3rWJD/8vDEe65mT/ODGeKxnTm6Hc8MO69mT28ENW6znT+RwbvjAugdEDm7ExrpfRw3nBoAMbgDogRsAMrgBIIMbADK4ASCDGwAyuAEggxsAMrgBIIMbADK4ASCDGwAyuAEggxsAMrgBIIMbADK4ASCDGwAyuAEggxsAMrgBIIMbADK4ASCDGwAyuOGPvwDhJy4=
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100">
@@ -248,12 +248,18 @@
     <property name="ontrigger" value="activator:teleportTo(block6to)"/>
    </properties>
   </object>
-  <object name="player1" gid="13" x="2624" y="392"/>
-  <object name="player2" gid="13" x="2676" y="391"/>
+  <object name="player1" gid="13" x="441" y="220"/>
+  <object name="player2" gid="13" x="493" y="219"/>
+  <object type="Toggle" gid="361" x="3488" y="480">
+   <properties>
+    <property name="onpress" value="fallingblocks:setFrozen(true)"/>
+    <property name="onrelease" value="fallingblocks:setFrozen(false)"/>
+   </properties>
+  </object>
  </objectgroup>
- <layer name="SharedCollision" width="200" height="100" visible="0" opacity="0.48">
+ <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt3EsKwzAQA9BcvdCD9wTTusGONeY9yCobgSUS6Oe6xrwmXXCiGf22D07n+QE1HYeafUDNPqBmH1CzD6jZB9TsA2r2ATX7gJp9QM0+oGYfUEvZR9L3IJOysFfKeX/LsWMfd+5xnpTzTupkUhb2SjnvpE4mZWGvkd9AvR/KcefeCklZyPfERpI6mZSFHlZvJKmTSVnoY+X7VlInk7LQz+hG/vnMIKmTSVnoafZzJKmTSVnoa+ZGkjqZlIXeZv0P469OPn11yAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGT5ANl4auo=
+   eJzt3FEKgzAQRVG3XujCXcEriUzSMZwD/bJUMV6UMnhdYz5FHzhRxfWtD07n/gGZaxwyfUCmD8j0AZk+INMHZPqATB+Q6QMyfUCmD8j0AVmXPjrNQe6czzQH2luXc//rOP7RR+X3Vv8G63RZH33QUZf10QcdjTz7fjcdx5NtK+iDGTsa0QdvtroRffB2K5+39MEpZhoZ/Q9fH5yk+j6iD05T2Yg+ONHT92bNzFBU7qNynmPnvgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgP5uz+Bw9g==
   </data>
  </layer>
  <layer name="BlueCollision" width="200" height="100" opacity="0.48">
@@ -269,6 +275,11 @@
  <layer name="Decoration" width="200" height="100">
   <data encoding="base64" compression="zlib">
    eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
+  </data>
+ </layer>
+ <layer name="WillCollision" width="200" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6Ban/OJ6FlISAAAAAAAAAAAAAAAgDVXBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgwwPGbggR
   </data>
  </layer>
 </map>

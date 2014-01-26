@@ -154,7 +154,7 @@
   </object>
   <object type="Trigger" x="2596" y="1123" width="84" height="26">
    <properties>
-    <property name="ontrigger" value="global:changeMap(intro)"/>
+    <property name="ontrigger" value="global:changeMap(level2)"/>
    </properties>
   </object>
   <object name="monster" type="Prop" gid="16" x="1205" y="414">
@@ -228,52 +228,102 @@
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="786" y="-12">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="876" y="-18">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="952" y="-31">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1035" y="-37">
-   <properties>
-    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
-   </properties>
-  </object>
   <object name="fallingBlocks" type="PhysBox" gid="290" x="1074" y="8">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="831" y="-107">
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="988" y="618">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="895" y="-88">
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="898" y="566">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="952" y="-120">
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="969" y="573">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1003" y="-127">
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="790" y="649">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="fallingBlocks" type="PhysBox" gid="290" x="1042" y="-114">
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="802" y="598">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="924" y="611">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="1020" y="554">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="924" y="637">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="873" y="624">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="860" y="649">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="993" y="510">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="1013" y="629">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="973" y="635">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="841" y="523">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="794" y="483">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="794" y="523">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="854" y="582">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="834" y="642">
+   <properties>
+    <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="fallingBlocks" type="PhysBox" gid="290" x="913" y="649">
    <properties>
     <property name="onspawn" value="fallingBlocks:setFrozen(true)"/>
    </properties>
