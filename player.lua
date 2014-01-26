@@ -173,9 +173,17 @@ function Player:update(dt)
 
         if self.controller:isKeyDown("left") and not jumping then
             if math.abs(velx) < 100 then
-                self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
+                if self.crouching then
+                    self.body:applyLinearImpulse(-MOVING_ACCELERATION/2, 0)
+                else
+                    self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
+                end
             else
-                self.body:setLinearVelocity(-MOVING_SPEED, vely)
+                if self.crouching then
+                    self.body:setLinearVelocity(-MOVING_SPEED/2, vely)
+                else
+                    self.body:setLinearVelocity(-MOVING_SPEED, vely)
+                end
             end
 
             -- this is for climbing stairs
@@ -193,9 +201,17 @@ function Player:update(dt)
         if self.controller:isKeyDown("right") and not jumping then
 
             if math.abs(velx) < 100 then
-                self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
+                if self.crouching then
+                    self.body:applyLinearImpulse(MOVING_ACCELERATION/2, 0)
+                else
+                    self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
+                end
             else
-                self.body:setLinearVelocity(MOVING_SPEED, vely)
+                if self.crouching then
+                    self.body:setLinearVelocity(MOVING_SPEED/2, vely)
+                else
+                    self.body:setLinearVelocity(MOVING_SPEED, vely)
+                end
             end
 
             -- this is for climbing stairs
