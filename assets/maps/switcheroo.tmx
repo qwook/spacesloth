@@ -102,7 +102,7 @@
   <object name="tramp1" gid="292" x="1824" y="480"/>
   <object type="Trigger" x="1824" y="471" width="38" height="24">
    <properties>
-    <property name="ontrigger" value="activator:setVelocity(0, -700);tramp1:playAnimation(0,1,2,0.5)"/>
+    <property name="ontrigger" value="activator:setVelocity(0, -700);tramp1:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"/>
    </properties>
   </object>
   <object type="Trigger" x="1161" y="1103" width="2015" height="230">

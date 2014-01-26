@@ -599,7 +599,7 @@ return {
           height = 24,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0, -700);tramp1:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0, -700);tramp1:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
           }
         },
         {
@@ -641,14 +641,16 @@ return {
         },
         {
           name = "LevelEnd",
-          type = "",
+          type = "Trigger",
           shape = "rectangle",
           x = 2040,
           y = 951,
           width = 32,
           height = 52,
           visible = true,
-          properties = {}
+          properties = {
+            ["ontrigger"] = "global:changeMap(level2)"
+          }
         },
         {
           name = "",
