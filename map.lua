@@ -15,6 +15,15 @@ function Map:initialize(mapname)
 
     self.background = self:getImageLayer("Background")
 
+    local sharedlayer = self.tiledmap.layers["SharedLayer"]
+    -- sharedlayer.data = {}
+    for y = 1, sharedlayer.height/10 do
+        for x = 1, sharedlayer.width/10 do
+            -- sharedlayer.data[y][x] = nil
+        end
+    end
+    sharedlayer.batches = self.tiledmap:setSpriteBatches(sharedlayer)
+
     self:generateTileCollision("SharedCollision", "shared")
     self:generateTileCollision("GreenCollision", "green")
     self:generateTileCollision("BlueCollision", "blue")

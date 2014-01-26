@@ -1695,12 +1695,12 @@ return {
           type = "Trigger",
           shape = "rectangle",
           x = 420,
-          y = 263,
+          y = 271,
           width = 44,
           height = 20,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:applyImpulse(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"
+            ["ontrigger"] = "activator:setVelocity(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"
           }
         },
         {

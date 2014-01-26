@@ -175,9 +175,9 @@
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="420" y="263" width="44" height="20">
+  <object type="Trigger" x="420" y="271" width="44" height="20">
    <properties>
-    <property name="ontrigger" value="activator:applyImpulse(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"/>
+    <property name="ontrigger" value="activator:setVelocity(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"/>
    </properties>
   </object>
   <object name="tramp1" type="Prop" gid="12" x="428" y="291">
