@@ -41,10 +41,26 @@ function endContact(fixture1, fixture2, contact)
     physical2:endContact(physical1, contact, true)
 end
 
+function preSolve(fixture1, fixture2, contact)
+    local physical1 = fixture1:getUserData()
+    local physical2 = fixture2:getUserData()
+
+    physical1:preSolve(physical2, contact, false)
+    physical2:preSolve(physical1, contact, true)
+end
+
+function postSolve(fixture1, fixture2, contact, normal, tangent)
+    local physical1 = fixture1:getUserData()
+    local physical2 = fixture2:getUserData()
+
+    physical1:postSolve(physical2, contact, normal, tangent, false)
+    physical2:postSolve(physical1, contact, normal, tangent, true)
+end
+
 function reset()
 
     world = love.physics.newWorld()
-    world:setCallbacks(beginContact, endContact)
+    world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setGravity(0, 1000)
 
     map = Map:new("data/map2")

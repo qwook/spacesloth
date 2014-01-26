@@ -1,5 +1,7 @@
 
 STI = require("libs.sti")
+traceTiles = require("mapedgetrace")
+
 Tile = require("tile")
 
 Map = class("Map")
@@ -15,12 +17,38 @@ function Map:initialize(mapname)
 
     local collision = self.tiledmap.collision.data
 
+    local t = Tile:new(1, 1)
+
+    local tiles = {}
+    for y, row in pairs(collision) do
+        for x, tile in pairs(row) do
+            if (tile == 1) then
+                local colshape = self.tiledmap.layers["Collision"].data[y][x].properties.colshape
+                if colshape == "1" then
+                    tiles[x] = tiles[x] or {}
+                    tiles[x][y] = 1
+                end
+            end
+        end
+    end
+
+    self.polylines = traceTiles(tiles, 32, 32)
+    for _, tracedShape in pairs(self.polylines) do
+
+        local shape = love.physics.newChainShape(false, unpack(tracedShape))
+        local body = love.physics.newBody(world, 0, 0, 'static')
+        local fixture = love.physics.newFixture(body, shape)
+        fixture:setUserData(t)
+
+    end
+
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
                 local colshape = self.tiledmap.layers["Collision"].data[y][x].properties.colshape
                 if (colshape == "1") then
-                    self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    -- this is handled by the optimizer
+                    -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 elseif (colshape == "2") then
                     self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 elseif (colshape == "3") then
@@ -80,7 +108,7 @@ function Map:set(x, y, tile)
     self.map[y] = self.map[y] or {}
     self.map[y][x] = tile
 
-    tile:setPosition(x * self.tiledmap.tilewidth, y * self.tiledmap.tileheight)
+    tile:setPosition((x+1/2) * self.tiledmap.tilewidth, (y+1/2) * self.tiledmap.tileheight)
 end
 
 function Map:get(x, y)
@@ -93,7 +121,8 @@ end
 
 function Map:draw()
     love.graphics.push()
-    love.graphics.translate(self.tiledmap.tilewidth/2, self.tiledmap.tileheight/2)
+    -- love.graphics.translate(self.tiledmap.tilewidth/2, self.tiledmap.tileheight/2)
+    love.graphics.translate(self.tiledmap.tilewidth, self.tiledmap.tileheight)
     love.graphics.setColor(255, 255, 255, 255)
     self.tiledmap:drawTileLayer(self.tiledmap.layers["Ground"])
     love.graphics.pop()
@@ -104,6 +133,11 @@ function Map:draw()
     --         tile:draw()
     --     end
     -- end
+
+    for i=1,#self.polylines do
+        love.graphics.line(self.polylines[i])
+    end
+
 end
 
 return Map

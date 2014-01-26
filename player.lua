@@ -20,8 +20,8 @@ end
 
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    self.shape = love.physics.newRectangleShape(32, 28)
-    -- self.shape = love.physics.newCircleShape(16)
+    -- self.shape = love.physics.newRectangleShape(32, 28)
+    self.shape = love.physics.newCircleShape(16)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -29,7 +29,8 @@ function Player:initPhysics()
     self.body:setMass(20)
     self.body:setFixedRotation(true)
 
-    self.floors = {}
+    self.contacts = {}
+
     self.floorangle = 0
     self.floornx = 0
     self.floorny = 0
@@ -42,9 +43,17 @@ end
 
 function Player:isOnFloor()
     local x, y = self:getPosition()
-    local bboxcheck = false
+    y = y + 5
 
-    return #self.floors > 0
+    for k, contact in pairs(self.contacts) do
+        local x1, y1, x2, y2 = contact:getPositions()
+        if (y1 > y and (y2 or y+1) > y) then
+            self.floornx, self.floorny = contact:getNormal()
+            return true
+        end
+    end
+
+    return false
 end
 
 function Player:update(dt)
@@ -77,8 +86,6 @@ function Player:update(dt)
 
     if self:isOnFloor() then
 
-        self.body:applyForce(self.floornx*500, self.floorny*500)
-
         if self.controller:isKeyDown("left") then
             self.body:setLinearVelocity(-200, vely)
 
@@ -103,16 +110,32 @@ function Player:update(dt)
             end
         end
 
+        if self.nextJump > 0 then
+            self.nextJump = self.nextJump - dt
+        end
+
+        if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
+            self.body:setLinearVelocity(velx/2, vely/2)
+            self.body:applyLinearImpulse(0, -500)
+            self.nextJump = 0.1
+            goingUpOrDown = nil
+        end
+
         -- so for climbing stairs, we actually push the player up a bit
         -- when they're going up stairs, and push them down when they're going
         -- down stairs.
+        if self.nextJump <= 0 then
+            local velx, vely = self.body:getLinearVelocity()
             -- up
             if goingUpOrDown == true then
-                self.body:applyLinearImpulse(0, -100)
+                -- self.body:applyLinearImpulse(0, -50)
+                self.body:setLinearVelocity(velx, -200)
             -- down
             elseif goingUpOrDown == false then
-                self.body:applyLinearImpulse(0, 100)
+                -- self.body:applyLinearImpulse(0, 10)
+                self.body:setLinearVelocity(velx, 200)
             end
+        end
 
     -- not on floor, we're in the air
     else
@@ -123,15 +146,6 @@ function Player:update(dt)
         if self.controller:isKeyDown("right") then
             self.body:setLinearVelocity(velx + 300*dt, vely)
         end
-    end
-
-    if self.nextJump > 0 then
-        self.nextJump = self.nextJump - dt
-    end
-
-    if self.controller:isKeyDown("jump") and self:isOnFloor() and self.nextJump <= 0 then
-        self.body:applyLinearImpulse(0, -500)
-        self.nextJump = 0.1
     end
 
     if self.controller:isKeyDown("start") and self.controller:isKeyDown("select") then
@@ -200,22 +214,18 @@ function Player:beginContact(other, contact, isother)
         normy = -normy
     end
 
-    local dot = math.dotproduct(normx, normy, 0, 0, 1, 0)
+    table.insert(self.contacts, contact)
 
     -- detect a floor
     local x1, y1, x2, y2 = contact:getPositions()
 
-    if (y1 > y and (y2 or y+1) > y) and ((math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1)) then        
+    local id, id2 = contact:getChildren()
+    if isother then id = id2 end -- `isother` means we are the second object
+
+    if (y1 > y and (y2 or y+1) > y) then -- and ((math.acos(dot) <= math.pi / 4 + 0.1) or (math.acos(dot) >= math.pi * (3 / 4) - 0.1)) then        
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
-
-        -- self.body:applyLinearImpulse(normx*25, normy*25)
-
-        -- count how many potential floors we are touching
-        if not table.hasvalue(self.floors, other) then
-            table.insert(self.floors, other)
-        end
     else
         -- if it isn't a floor, set the friction to 0
         -- we want to slide down walls, not cling onto them
@@ -226,15 +236,27 @@ function Player:beginContact(other, contact, isother)
         contact:setFriction(1)
     end
 
+    print('start', other, id)
+
 end
 
 function Player:endContact(other, contact, isother)
     local normx, normy = contact:getNormal()
     local cx, cy, cz = math.crossproduct(normx, normy, 0, 0, 1, 0)
 
-    if table.hasvalue(self.floors, other) then
-        table.removevalue(self.floors, other)
-    end
+    table.removevalue(self.contacts, contact)
+
+    local x, y = self:getPosition()
+    local x1, y1, x2, y2 = contact:getPositions()
+
+    local id, id2 = contact:getChildren()
+    if isother then id = id2 end -- `isother` means we are the second object
+
+    print('end', other, id)
+
+end
+
+function Player:preSolve()
 end
 
 
