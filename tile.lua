@@ -56,6 +56,7 @@ function Tile2:initPhysics()
     self.fixture:setUserData(self)
 end
 
+-- Triangle
 Tile3 = class("Tile3", Tile)
 Tile3.static.rampright = true
 
@@ -66,11 +67,12 @@ function Tile3:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, -hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-    self.fixture:setFriction(1.1)
+    self.fixture:setFriction(0.0)
 
     self.fixture:setUserData(self)
 end
 
+-- Triangle
 Tile4 = class("Tile4", Tile)
 Tile4.static.rampright = true
 
@@ -81,11 +83,12 @@ function Tile4:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-    self.fixture:setFriction(1.1)
+    self.fixture:setFriction(0.0)
 
     self.fixture:setUserData(self)
 end
 
+-- Triangle
 Tile5 = class("Tile5", Tile)
 Tile5.static.rampright = true
 
@@ -96,7 +99,7 @@ function Tile5:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, hw, hh, hw, -hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-    self.fixture:setFriction(1.1)
+    self.fixture:setFriction(0.0)
 
     self.fixture:setUserData(self)
 end
