@@ -1,6 +1,10 @@
 
 Events = class("Events")
 
+changeMapTime = 0
+changeMapTimeOut = 0
+changeMapQueue = nil
+
 function Events:swapCollision()
     collisionSwapped = not collisionSwapped
 
@@ -20,17 +24,10 @@ end
 
 function Events:changeMap(mapname)
 
-    world = love.physics.newWorld()
-    world:setCallbacks(beginContact, endContact, preSolve, postSolve)
-    world:setContactFilter(contactFilter)
-    world:setGravity(0, 1000)
+    if changeMapQueue then return end
 
-    map = Map:new("assets/maps/" .. mapname)
-
-    
-    map:spawnObjects()
-
-    collisionSwapped = false
+    changeMapQueue = mapname
+    changeMapTime = 1
 
 end
 

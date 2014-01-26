@@ -40,6 +40,18 @@ function love.update(dt)
     player2:update(dt)
     world:update(dt)
 
+    if changeMapTime > 0 then
+        changeMapTime = changeMapTime - dt
+    elseif changeMapQueue ~= nil then
+        changeMapTimeOut = 1
+        changeMap(changeMapQueue)
+        changeMapQueue = nil
+    end
+
+    if changeMapTimeOut > 0 then
+        changeMapTimeOut = changeMapTimeOut - dt
+    end
+
     for i, object in pairs(map.objects) do
         object:update(dt)
     end

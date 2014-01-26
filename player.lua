@@ -96,6 +96,7 @@ function Player:initPhysics()
 
     self.facing = 'right'
     self.moving = false
+    self.crouching = false
 end
 
 function Player:isOnFloor()
@@ -121,6 +122,12 @@ function Player:update(dt)
         self.facing = 'left'
     elseif self.controller:wasKeyPressed("right")  then
         self.facing = 'right'
+    end
+
+    if self.controller:isKeyDown("crouch") and self:isOnFloor() then
+        self.crouching = true
+    else
+        self.crouching = false
     end
 
 
@@ -275,8 +282,15 @@ function Player:drawPlayer()
         anim = math.floor(love.timer.getTime()*10) % 4
     end
 
-    self.spritesheet:draw(anim, 1, -16, -18)
-    self.spritesheet:draw(self.expression, 0, -16, -18)
+    local offset = 0
+    if self.crouching then
+        anim = 2
+        offset = 6
+    end
+
+
+    self.spritesheet:draw(anim, 1, -16, -18 + offset)
+    self.spritesheet:draw(self.expression, 0, -16, -18 + offset)
 end
 
 function Player:getPosition()
@@ -376,10 +390,16 @@ function Cindy:drawPlayer()
         anim = math.floor(love.timer.getTime()*10) % 4
     end
 
-    self.spritesheet:draw(anim, 3, -16, -18)
-    self.spritesheet:draw(self.expression, 2, -16, -18)
+    local offset = 0
+    if self.crouching then
+        anim = 2
+        offset = 6
+    end
 
-    -- love.graphics.line(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
+
+    self.spritesheet:draw(anim, 3, -16, -18 + offset)
+    self.spritesheet:draw(self.expression, 2, -16, -18 + offset)
+
 end
 
 

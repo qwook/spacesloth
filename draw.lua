@@ -89,4 +89,15 @@ function love.draw()
 
     love.graphics.pop()
 
+    if changeMapTime > 0 then
+        print(changeMapTime)
+        love.graphics.setColor(255, 255, 255, (1 - changeMapTime)*255)
+        love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    end
+
+    if changeMapTimeOut > 0 then
+        love.graphics.setColor(255, 255, 255, changeMapTimeOut*255)
+        love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    end
+
 end
