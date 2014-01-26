@@ -150,7 +150,7 @@
   </object>
   <object name="MUZAC" x="388" y="29" width="87" height="80">
    <properties>
-    <property name="onspawn" value="global.playMusic(crap_d1_sped_up.ogg)"/>
+    <property name="onspawn" value="global.playMusic(crap_d1_sped_up.ogg, 0.1)"/>
    </properties>
   </object>
  </objectgroup>
