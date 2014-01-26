@@ -35,4 +35,8 @@ function Events:playSound(name)
     playSound(name)
 end
 
+function Events:playMusic(name, volume)
+    playSound(name, tonumber(volume))
+end
+
 return Events
