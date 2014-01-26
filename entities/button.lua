@@ -24,12 +24,12 @@ function Button:initPhysics()
 end
 
 function Button:setPosition(x, y)
-    PhysBox.setPosition(self, x+16, y+8)
+    PhysBox.setPosition(self, x+32, y+8)
 end
 
 function Button:getPosition()
-    local x, y = PhysBox.getPosition()
-    return x-16, y-8
+    local x, y = PhysBox.getPosition(self)
+    return x, y-8
 end
 
 function Button:isTouchingPlayer()
@@ -75,15 +75,15 @@ function Button:draw()
     love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(1, 0, -16, -16-8)
+            self.spritesheet1:draw(1, 0, -16, -16)
         else
-            self.spritesheet2:draw(1, 0, -16, -16-8)
+            self.spritesheet2:draw(1, 0, -16, -16)
         end
     else
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(0, 0, -16, -16-8)
+            self.spritesheet1:draw(0, 0, -16, -16)
         else
-            self.spritesheet2:draw(0, 0, -16, -16-8)
+            self.spritesheet2:draw(0, 0, -16, -16)
         end
     end
 
