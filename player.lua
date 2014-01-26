@@ -179,6 +179,7 @@ function Player:update(dt)
             self.nextJump = 0.1
             goingUpOrDown = nil
 
+            playSound("bwop.wav")
             jumping = true
 
             local smoke = Particle:new()

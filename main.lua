@@ -21,6 +21,7 @@ BlueBall = require("entities.blueball")
 Trigger = require("entities.trigger")
 Prop = require("entities.prop")
 TitleScreen = require("entities.titlescreen")
+Text = require("entities.text")
 
 require("update")
 require("draw")
@@ -87,6 +88,10 @@ function contactFilter(fixture1, fixture2)
     physical1.collisiongroup = physical1.collisiongroup or "shared"
     physical2.collisiongroup = physical2.collisiongroup or "shared"
 
+    if physical1.visible == false or physical2.visible == false then
+        return false
+    end
+
     if physical1.type == "PLAYER" and physical2.type == "PLAYER" then
         return true
     end
@@ -136,10 +141,11 @@ function reset()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
-    if arg[2] then 
+
+    if arg[2] and DEBUG then 
         map = Map:new(arg[2])
     else
-        map = Map:new("assets/maps/intro")
+        map = Map:new("assets/maps/title")
     end
     
     map:spawnObjects()

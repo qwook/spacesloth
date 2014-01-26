@@ -49,8 +49,10 @@ function Toggle:update(dt)
         self.pressed = not self.pressed
         if self.pressed == true then
             self:trigger(self.onpress, isTouching)
+            playSound("clack_down.wav")
         else
             self:trigger(self.onrelease, isTouching)
+            playSound("clack_up.wav")
         end
     end
 

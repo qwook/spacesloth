@@ -142,16 +142,18 @@
   <object type="Platform" x="430" y="106" width="69" height="9"/>
   <object name="player1" gid="291" x="204" y="147"/>
   <object name="player2" gid="291" x="262" y="151"/>
-  <object type="Toggle" gid="301" x="412" y="292">
+  <object name="othertoggle" type="Toggle" gid="301" x="412" y="292">
    <properties>
     <property name="collisiongroup" value="blue"/>
+    <property name="onpress" value="physpoop:setFrozen(true)"/>
+    <property name="onrelease" value="physpoop:setFrozen(false)"/>
    </properties>
   </object>
   <object type="Toggle" gid="301" x="486" y="292">
    <properties>
     <property name="collisiongroup" value="green"/>
-    <property name="onpress" value="physpoop:setFrozen(false)"/>
-    <property name="onrelease" value="physpoop:setFrozen(true)"/>
+    <property name="onpress" value="physpoop:setVisible(false)"/>
+    <property name="onrelease" value="physpoop:setVisible(true)"/>
    </properties>
   </object>
   <object name="physpoop" type="PhysBox" gid="290" x="391" y="183">
@@ -189,6 +191,11 @@
   <object name="funbox" type="PhysBox" gid="290" x="998" y="134"/>
   <object name="funbox" type="PhysBox" gid="290" x="1018" y="176"/>
   <object name="funbox" type="PhysBox" gid="290" x="825" y="182"/>
+  <object type="Text" x="244" y="177" width="114" height="59">
+   <properties>
+    <property name="string" value="Yo what's up? Lorem ipsum dolar set amet!"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
