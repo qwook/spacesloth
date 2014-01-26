@@ -3,27 +3,35 @@ STI = require("libs.sti")
 traceTiles = require("mapedgetrace")
 
 Tile = require("tile")
+Physical = require("physical")
 
-Map = class("Map")
+Map = class("Map", Physical)
 
 function Map:initialize(mapname)
     self.map = {}
     self.objects = {}
 
     self.tiledmap = STI.new(mapname)
-    self.tiledmap:createCollisionMap("Collision")
 
     self.background = self:getImageLayer("Background")
 
-    local collision = self.tiledmap.collision.data
+    self:generateTileCollision("SharedCollision", "shared")
+    self:generateTileCollision("GreenCollision", "green")
+    self:generateTileCollision("BlueCollision", "blue")
+end
 
-    local t = Tile:new(1, 1)
+
+-- giant wrapper for the tiled loader
+-- don't worry about it
+function Map:generateTileCollision(layername, collisiongroup)
+    self.tiledmap:createCollisionMap(layername)
+    local collision = self.tiledmap.collision.data
 
     local tiles = {}
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
-                local colshape = self.tiledmap.layers["Collision"].data[y][x].properties.colshape
+                local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
                 if colshape == "1" then
                     tiles[x] = tiles[x] or {}
                     tiles[x][y] = 1
@@ -32,31 +40,34 @@ function Map:initialize(mapname)
         end
     end
 
+    local hack = Physical:new()
+    hack.collisiongroup = collisiongroup
+
     self.polylines = traceTiles(tiles, 32, 32)
     for _, tracedShape in pairs(self.polylines) do
 
         local shape = love.physics.newChainShape(false, unpack(tracedShape))
         local body = love.physics.newBody(world, 0, 0, 'static')
         local fixture = love.physics.newFixture(body, shape)
-        fixture:setUserData(t)
+        fixture:setUserData(hack)
 
     end
 
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
-                local colshape = self.tiledmap.layers["Collision"].data[y][x].properties.colshape
+                local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
                 if (colshape == "1") then
                     -- this is handled by the optimizer
                     -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
                 elseif (colshape == "2") then
-                    self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
                 elseif (colshape == "3") then
-                    self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
                 elseif (colshape == "4") then
-                    self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
                 elseif (colshape == "5") then
-                    self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
                 end
             end
         end
@@ -76,6 +87,9 @@ function Map:spawnObjects()
         elseif tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
             local instance = _G[v.type]:new()
             instance:setPosition(v.x + 16, v.y + 16)
+            for prop, val in pairs(v.properties) do
+                instance[prop] = val
+            end
         end
     end
 end
@@ -119,12 +133,20 @@ function Map:get(x, y)
     return self.map[y][x]
 end
 
-function Map:draw()
+function Map:draw(player)
     love.graphics.push()
     -- love.graphics.translate(self.tiledmap.tilewidth/2, self.tiledmap.tileheight/2)
     love.graphics.translate(self.tiledmap.tilewidth, self.tiledmap.tileheight)
     love.graphics.setColor(255, 255, 255, 255)
-    self.tiledmap:drawTileLayer(self.tiledmap.layers["Ground"])
+
+    if player == "player1" then
+        self.tiledmap:drawTileLayer(self.tiledmap.layers["BlueLayer"])
+    elseif player == "player2" then
+        self.tiledmap:drawTileLayer(self.tiledmap.layers["GreenLayer"])
+    end
+
+    self.tiledmap:drawTileLayer(self.tiledmap.layers["SharedLayer"])
+
     self.tiledmap:drawTileLayer(self.tiledmap.layers["Decoration"])
     love.graphics.pop()
 

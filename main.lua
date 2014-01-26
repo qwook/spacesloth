@@ -8,8 +8,13 @@ Player = require("player")
 Map = require("map")
 Tile = require("tile")
 Input = require("input")
+Events = require("events")
 
 PhysBox = require("physbox")
+Fonz = require("entities.fonz")
+Button = require("entities.button")
+Bull = require("entities.bull")
+BlueBall = require("entities.blueball")
 
 require("update")
 require("draw")
@@ -57,13 +62,40 @@ function postSolve(fixture1, fixture2, contact, normal, tangent)
     physical2:postSolve(physical1, contact, normal, tangent, true)
 end
 
+function contactFilter(fixture1, fixture2)
+    local physical1 = fixture1:getUserData()
+    local physical2 = fixture2:getUserData()
+
+    physical1.collisiongroup = physical1.collisiongroup or "shared"
+    physical2.collisiongroup = physical2.collisiongroup or "shared"
+
+    if physical1.type == "PLAYER" and physical2.type == "PLAYER" then
+        return true
+    end
+
+    if physical1.collisiongroup == "shared" or physical2.collisiongroup == "shared" then
+        return true
+    end
+
+    if physical1.collisiongroup ~= physical2.collisiongroup then
+        return false
+    end
+
+    return true
+end
+
 function reset()
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
+    world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
-
-    map = Map:new("data/map2")
+    if arg[2] then 
+        map = Map:new(arg[2])
+    else
+        map = Map:new("data/introMap")
+    end
+    
     map:spawnObjects()
 
 end
@@ -75,6 +107,8 @@ function love.load()
 
     input = Input:new()
     input2 = Input:new()
+
+    events = Events:new()
 
     -- run love . dvorak for dvorak bindings
     if arg[2] == "dvorak" then
@@ -113,6 +147,15 @@ function love.load()
     input2:bind( "joy_2_7", "start")
     input2:bind( "joy_2_axisdown_1", "left" )
     input2:bind( "joy_2_axisup_1", "right" )
+
+    input2:bind( "up", "jump" )
+    input2:bind( "down", "crouch" )
+    input2:bind( "rshift", "L")
+    input2:bind( "/", "R")
+    input2:bind( "r", "select")
+    input2:bind( "t", "start")
+    input2:bind( "left", "left" )
+    input2:bind( "right", "right" )
 
     reset()
 

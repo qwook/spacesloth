@@ -3,7 +3,9 @@ Physical = require("physical")
 
 Tile = class("Tile", Physical)
 
-function Tile:initialize(w, h)
+function Tile:initialize(w, h, collisiongroup)
+    self.collisiongroup = collisiongroup or "shared"
+
     self.width = w
     self.height = h
     self.type = "TILE"
@@ -49,6 +51,7 @@ function Tile2:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, hh, hw, -hh, hw, hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    self.fixture:setFriction(1)
 
     self.fixture:setUserData(self)
 end
@@ -63,6 +66,7 @@ function Tile3:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, -hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    self.fixture:setFriction(1.1)
 
     self.fixture:setUserData(self)
 end
@@ -77,6 +81,7 @@ function Tile4:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, -hw, hh, hw, hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    self.fixture:setFriction(1.1)
 
     self.fixture:setUserData(self)
 end
@@ -91,6 +96,7 @@ function Tile5:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, -hh, hw, hh, hw, -hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    self.fixture:setFriction(1.1)
 
     self.fixture:setUserData(self)
 end

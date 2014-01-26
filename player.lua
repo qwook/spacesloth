@@ -1,17 +1,44 @@
 
+DEACCELERATION_SPEED = 600 -- how much you're able to deaccelerate after jumping
+IMPULSE_AFTER_JUMPING = 7.5 -- how much you're able to "nudge" after jumping
+PLAYER_FRICTION = 0.75 -- friction
+PLAYER_FRICTION_MOVING = 0.75 -- friction while moving
+
+MOVING_ACCELERATION = 20 -- how much it should accelerate
+MOVING_SPEED = 200 -- constant moving speed on ground
+
+
+
+
 Physical = require("physical")
 SpriteSheet = require("spritesheet")
+Particle = require("entities.particle")
+WalkingDust = require("entities.walkingdust")
 
 Player = class('Player', Physical)
 
 function Player:initialize()
     self.name = "Stewart"
     self.type = "PLAYER"
+    self.collisiongroup = "blue"
 
     self.spritesheet = SpriteSheet:new("data/players.png", 32, 32)
     self.expression = 0
     
     self:initPhysics()
+end
+
+function Player:call(name, args)
+    if self["event_" .. name] then
+        self["event_" .. name](self, unpack(args))
+    end
+end
+
+function Player:event_multiplyVelocity(x, y)
+    local vx, vy = self.body:getLinearVelocity()
+    print(x, y)
+    self.body:setLinearVelocity(vx * tonumber(x), vx * tonumber(y))
+    self.body:setAwake(true)
 end
 
 function Player:setController(input)
@@ -21,11 +48,11 @@ end
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
     -- self.shape = love.physics.newRectangleShape(32, 28)
-    self.shape = love.physics.newCircleShape(16)
+    self.shape = love.physics.newCircleShape(14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(10)
+    self.fixture:setFriction(PLAYER_FRICTION)
     self.body:setMass(20)
     self.body:setFixedRotation(true)
 
@@ -43,7 +70,7 @@ end
 
 function Player:isOnFloor()
     local x, y = self:getPosition()
-    y = y + 5
+    y = y + 6
 
     for k, contact in pairs(self.contacts) do
         local x1, y1, x2, y2 = contact:getPositions()
@@ -83,42 +110,67 @@ function Player:update(dt)
 
     -- true = up, false = down, nil = going straight
     local goingUpOrDown = nil
+    local ypoop = self.floornx
+
+    self.fixture:setFriction(PLAYER_FRICTION)
 
     if self:isOnFloor() then
-
-        if self.controller:isKeyDown("left") then
-            self.body:setLinearVelocity(-200, vely)
-
-            -- this is for climbing stairs
-            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
-                goingUpOrDown = false
-            end
-            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
-                goingUpOrDown = true
-            end
-        end
-
-        if self.controller:isKeyDown("right") then
-            self.body:setLinearVelocity(200, vely)
-
-            -- this is for climbing stairs
-            if self.floorangle > -math.pi and self.floorangle < -math.pi/2 then
-                goingUpOrDown = true
-            end
-            if self.floorangle < 0 and self.floorangle > -math.pi/2 then
-                goingUpOrDown = false
-            end
-        end
 
         if self.nextJump > 0 then
             self.nextJump = self.nextJump - dt
         end
 
+        local jumping = false
+
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-            self.body:setLinearVelocity(velx/2, vely/2)
-            self.body:applyLinearImpulse(0, -500)
+            self.body:setLinearVelocity(velx/10, vely/5)
+            self.body:applyLinearImpulse(0, -325)
             self.nextJump = 0.1
             goingUpOrDown = nil
+
+            jumping = true
+
+            local smoke = Particle:new()
+            smoke:setPosition(self:getPosition())
+        end
+
+        if self.controller:isKeyDown("left") and not jumping then
+            if math.abs(velx) < 100 then
+                self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
+            else
+                self.body:setLinearVelocity(-MOVING_SPEED, vely)
+            end
+
+            -- this is for climbing stairs
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
+                goingUpOrDown = false
+            end
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
+                goingUpOrDown = true
+                ypoop = -ypoop
+            end
+
+            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
+        end
+
+        if self.controller:isKeyDown("right") and not jumping then
+
+            if math.abs(velx) < 100 then
+                self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
+            else
+                self.body:setLinearVelocity(MOVING_SPEED, vely)
+            end
+
+            -- this is for climbing stairs
+            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
+                goingUpOrDown = true
+            end
+            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
+                goingUpOrDown = false
+                ypoop = -ypoop
+            end
+
+            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
         end
 
         -- so for climbing stairs, we actually push the player up a bit
@@ -128,27 +180,36 @@ function Player:update(dt)
             local velx, vely = self.body:getLinearVelocity()
             -- up
             if goingUpOrDown == true then
-                -- self.body:applyLinearImpulse(0, -50)
-                self.body:setLinearVelocity(velx, -200)
+                self.body:applyLinearImpulse(0, -50)
+                self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
-                -- self.body:applyLinearImpulse(0, 10)
-                self.body:setLinearVelocity(velx, 200)
+                self.body:applyLinearImpulse(0, 10)
+                self.body:setLinearVelocity(velx, 200 * -ypoop)
             end
         end
 
     -- not on floor, we're in the air
     else
         if self.controller:isKeyDown("left") then
-            self.body:setLinearVelocity(velx - 300*dt, vely)
+            if velx >= 0 then
+                self.body:setLinearVelocity(velx - DEACCELERATION_SPEED*dt, vely)
+            elseif math.abs(velx) < 250 then
+                self.body:applyLinearImpulse(-IMPULSE_AFTER_JUMPING, 0)
+            end
         end
 
         if self.controller:isKeyDown("right") then
-            self.body:setLinearVelocity(velx + 300*dt, vely)
+            if velx <= 0 then
+                self.body:setLinearVelocity(velx + DEACCELERATION_SPEED*dt, vely)
+            elseif math.abs(velx) < 250 then
+                self.body:applyLinearImpulse(IMPULSE_AFTER_JUMPING, 0)
+            end
         end
     end
 
-    if self.controller:isKeyDown("start") and self.controller:isKeyDown("select") then
+    if (self.controller:isKeyDown("start") and self.controller:wasKeyPressed("select")) or
+        (self.controller:wasKeyPressed("start") and self.controller:isKeyDown("select")) then
         reset() -- this is just a global function that will reset the entire level
     end
 
@@ -226,17 +287,16 @@ function Player:beginContact(other, contact, isother)
         self.floorangle = math.atan2(normy, normx)
         self.floornx = normx
         self.floorny = normy
+            
+        if other.type == "PLAYER" then
+            contact:setFriction(1.5)
+        end
+
     else
         -- if it isn't a floor, set the friction to 0
         -- we want to slide down walls, not cling onto them
         contact:setFriction(0)
     end
-
-    if other.type == "PLAYER" then
-        contact:setFriction(1)
-    end
-
-    print('start', other, id)
 
 end
 
@@ -252,11 +312,13 @@ function Player:endContact(other, contact, isother)
     local id, id2 = contact:getChildren()
     if isother then id = id2 end -- `isother` means we are the second object
 
-    print('end', other, id)
-
 end
 
-function Player:preSolve()
+function Player:postSolve(f1, f2)
+    -- if self.moving then
+    --     local smoke = WalkingDust:new()
+    --     smoke:setPosition(self:getPosition())
+    -- end
 end
 
 
@@ -265,7 +327,8 @@ Cindy = class("Cindy", Player)
 
 function Cindy:initialize()
     Player.initialize(self)
-    
+
+    self.collisiongroup = "green"
     self.name = "Cindy"
 end
 
