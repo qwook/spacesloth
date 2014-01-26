@@ -18,20 +18,20 @@ function Map:initialize(mapname)
     local tw = self.tiledmap.tilewidth
     local th = self.tiledmap.tileheight
 
-    local sharedlayer = self.tiledmap.layers["SharedLayer"]
+    -- local sharedlayer = self.tiledmap.layers["SharedLayer"]
 
-    for _, v in pairs(self:getObjectsLayer("Objects")) do
-        if v.type == "Platform" then
-            for y = math.ceil(v.y/th), math.ceil((v.y+v.height)/th) do
-                for x = math.ceil(v.x/tw), math.ceil((v.x+v.width)/tw) do
+    -- for _, v in pairs(self:getObjectsLayer("Objects")) do
+    --     if v.type == "Platform" then
+    --         for y = math.ceil(v.y/th), math.ceil((v.y+v.height)/th) do
+    --             for x = math.ceil(v.x/tw), math.ceil((v.x+v.width)/tw) do
                     
-                    sharedlayer.data[y][x] = nil
-                end
-            end
-        end
-    end
+    --                 sharedlayer.data[y][x] = nil
+    --             end
+    --         end
+    --     end
+    -- end
 
-    sharedlayer.batches = self.tiledmap:setSpriteBatches(sharedlayer)
+    -- sharedlayer.batches = self.tiledmap:setSpriteBatches(sharedlayer)
 
     self:generateTileCollision("SharedCollision", "shared")
     self:generateTileCollision("GreenCollision", "green")
@@ -50,6 +50,7 @@ function Map:generateTileCollision(layername, collisiongroup)
         for x, tile in pairs(row) do
             if (tile == 1) then
                 local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
+                if not self.tiledmap.layers[layername].data[y][x].properties then continue end
                 if colshape == "1" then
                     tiles[x] = tiles[x] or {}
                     tiles[x][y] = 1

@@ -151,6 +151,9 @@ function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setBackgroundColor(134, 200, 255)
 
+    -- music = love.audio.newSource("assets/music/crap_d1_sped_up.ogg")
+    -- love.audio.play(music)
+
     input = Input:new()
     input2 = Input:new()
 
