@@ -562,7 +562,7 @@ return {
           height = 231,
           visible = true,
           properties = {
-            ["ontrigger"] = "teleportTo(player1)"
+            ["ontrigger"] = "activator:teleportTo(player1)"
           }
         }
       }

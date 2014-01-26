@@ -82,7 +82,7 @@
   <object name="player2" gid="13" x="274" y="142"/>
   <object type="Trigger" x="1727" y="505" width="329" height="231">
    <properties>
-    <property name="ontrigger" value="teleportTo(player1)"/>
+    <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
  </objectgroup>
