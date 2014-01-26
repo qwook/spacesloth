@@ -18,4 +18,20 @@ function Events:swapCollision()
     player2.fixture:setFilterData(categories, mask, group)
 end
 
+function Events:changeMap(mapname)
+
+    world = love.physics.newWorld()
+    world:setCallbacks(beginContact, endContact, preSolve, postSolve)
+    world:setContactFilter(contactFilter)
+    world:setGravity(0, 1000)
+
+    map = Map:new("assets/maps/" .. mapname)
+
+    
+    map:spawnObjects()
+
+    collisionSwapped = false
+
+end
+
 return Events

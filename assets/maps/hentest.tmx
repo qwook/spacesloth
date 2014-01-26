@@ -193,6 +193,12 @@
     <property name="collisiongroup" value="green"/>
    </properties>
   </object>
+  <object type="Button" gid="1" x="377" y="295">
+   <properties>
+    <property name="collisiongroup" value="shared"/>
+    <property name="onpress" value="global:changeMap(intro)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

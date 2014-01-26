@@ -1743,6 +1743,21 @@ return {
           properties = {
             ["collisiongroup"] = "green"
           }
+        },
+        {
+          name = "",
+          type = "Button",
+          shape = "rectangle",
+          x = 377,
+          y = 295,
+          width = 0,
+          height = 0,
+          gid = 1,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "shared",
+            ["onpress"] = "global:changeMap(intro)"
+          }
         }
       }
     },

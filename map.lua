@@ -24,7 +24,7 @@ function Map:initialize(mapname)
         if v.type == "Platform" then
             for y = math.ceil(v.y/th), math.ceil((v.y+v.height)/th) do
                 for x = math.ceil(v.x/tw), math.ceil((v.x+v.width)/tw) do
-                    print(x, y)
+                    
                     sharedlayer.data[y][x] = nil
                 end
             end

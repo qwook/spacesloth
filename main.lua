@@ -92,8 +92,6 @@ function contactFilter(fixture1, fixture2)
         return true
     end
 
-    print('hey', physical1, physical2)
-
     -- there is probably a more elegant way to make this logic
     -- i'm just so tired
     if physical1.type == "TILE" or physical2.type == "TILE" then
@@ -146,7 +144,7 @@ function love.load()
     -- run love . dvorak for dvorak bindings
     bindings_JSON = love.filesystem.read("config.json")
     bindings_o    = json.decode(bindings_JSON)
-    print2(bindings_o)
+    
     if arg[2] == "dvorak" then   
         --bind all the dvorak keys for player 1.
         for key,action in pairs(bindings_o.player1.dvorak) do
@@ -159,7 +157,6 @@ function love.load()
     else
         --bind all the qwerty keys for player 1.
         for key,action in pairs(bindings_o.player1.qwerty) do
-            print("hoho")
             input:bind(key, action)
         end
         --bind all the qwerty keys for player 2.
