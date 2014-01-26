@@ -7,6 +7,8 @@ function PhysBox:initialize()
     self:initPhysics()
     self.contacts = {}
     self.touching = {}
+    self.visible = true
+    self.frozen = false
 
     self.spritesheet = SpriteSheet:new("assets/sprites/box_generic.png", 32, 32)
 
@@ -101,13 +103,35 @@ end
 function PhysBox:event_setFrozen(frozen)
     if not self.body then return end
     if frozen == "true" then
-        if self.frozenJoint then return end
+        self.frozen = true
+        if self.frozenJoint or not self.visible then return end
         local x, y = self:getPosition()
         self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
     elseif frozen == "false" then
-        if not self.frozenJoint then return end
+        self.frozen = false
+        if not self.frozenJoint or not self.visible then return end
         self.frozenJoint:destroy()
         self.frozenJoint = nil
+    end
+end
+
+function PhysBox:event_setVisible(visible)
+    if visible == "true" then
+        if not self.frozen then
+            if self.frozenJoint then
+                self.frozenJoint:destroy()
+                self.frozenJoint = nil
+            end
+        end
+        self.visible = true
+    elseif visible == "false" then
+        if self.visible then
+            if not self.frozenJoint then
+                local x, y = self:getPosition()
+                self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+            end
+        end
+        self.visible = false
     end
 end
 

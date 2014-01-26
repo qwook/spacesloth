@@ -99,6 +99,11 @@
     <property name="onbothplayers" value="global:changeMap(intro)"/>
    </properties>
   </object>
+  <object type="Text" x="2484" y="957" width="124" height="43">
+   <properties>
+    <property name="string" value="Both touch the teleporter to start!"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

@@ -13,8 +13,8 @@ function Prop:postSpawn()
     self.spriteheight = tonumber(self.spriteheight)
     self.spritesheet = SpriteSheet:new("assets/sprites/" .. self.sprite, self.spritewidth, self.spriteheight)
 
-    local x, y = self:getPosition()
-    self:setPosition(x + self.spritewidth, y)
+    -- local x, y = self:getPosition()
+    -- self:setPosition(x + self.spritewidth, y)
 end
 
 function Prop:event_loopAnimation(y, xfrom, xto, speed)
@@ -66,9 +66,9 @@ function Prop:draw()
         end
 
         local s = (self.xto - self.xfrom) + 1
-        self.spritesheet:draw(self.xfrom + (math.floor(t*s) % s), self.animy, -self.spritewidth/2, -self.spriteheight/2)
+        self.spritesheet:draw(self.xfrom + (math.floor(t*s) % s), self.animy, -self.spritewidth/2 + 32, -self.spriteheight/2)
     else
-        self.spritesheet:draw(0, 0, -self.spritewidth/2, -self.spriteheight/2)
+        self.spritesheet:draw(0, 0, -self.spritewidth/2 + 32, -self.spriteheight/2)
     end
 
     love.graphics.pop()

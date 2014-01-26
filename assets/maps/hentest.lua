@@ -1260,7 +1260,7 @@ return {
           properties = {}
         },
         {
-          name = "",
+          name = "othertoggle",
           type = "Toggle",
           shape = "rectangle",
           x = 412,
@@ -1270,7 +1270,9 @@ return {
           gid = 301,
           visible = true,
           properties = {
-            ["collisiongroup"] = "blue"
+            ["collisiongroup"] = "blue",
+            ["onpress"] = "physpoop:setFrozen(true)",
+            ["onrelease"] = "physpoop:setFrozen(false)"
           }
         },
         {
@@ -1285,8 +1287,8 @@ return {
           visible = true,
           properties = {
             ["collisiongroup"] = "green",
-            ["onpress"] = "physpoop:setFrozen(false)",
-            ["onrelease"] = "physpoop:setFrozen(true)"
+            ["onpress"] = "physpoop:setVisible(false)",
+            ["onrelease"] = "physpoop:setVisible(true);global:playSound(thwap.wav)"
           }
         },
         {
@@ -1432,6 +1434,36 @@ return {
           gid = 290,
           visible = true,
           properties = {}
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 244,
+          y = 177,
+          width = 114,
+          height = 59,
+          visible = true,
+          properties = {
+            ["string"] = "Yo what's up? Lorem ipsum dolar set amet!"
+          }
+        },
+        {
+          name = "teleporter_prop",
+          type = "Prop",
+          shape = "rectangle",
+          x = 563,
+          y = 265,
+          width = 0,
+          height = 0,
+          gid = 311,
+          visible = true,
+          properties = {
+            ["onspawn"] = "teleporter_prop:loopAnimation(0, 0, 3, 3)",
+            ["sprite"] = "teleporter.png",
+            ["spriteheight"] = "32",
+            ["spritewidth"] = "32"
+          }
         }
       }
     },

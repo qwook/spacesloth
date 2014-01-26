@@ -630,6 +630,19 @@ return {
           properties = {
             ["onbothplayers"] = "global:changeMap(intro)"
           }
+        },
+        {
+          name = "",
+          type = "Text",
+          shape = "rectangle",
+          x = 2484,
+          y = 957,
+          width = 124,
+          height = 43,
+          visible = true,
+          properties = {
+            ["string"] = "Both touch the teleporter to start!"
+          }
         }
       }
     },
