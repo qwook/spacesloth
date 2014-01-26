@@ -17,7 +17,7 @@ end
 
 function BlueBall:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    self.shape = love.physics.newRectangleShape(32, 32)
+    self.shape = love.physics.newRectangleShape(64, 64)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
