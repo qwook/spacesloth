@@ -78,18 +78,20 @@ function Map:generateTileCollision(layername, collisiongroup)
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
-                local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
-                if (colshape == "1") then
-                    -- this is handled by the optimizer
-                    -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
-                elseif (colshape == "2") then
-                    self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
-                elseif (colshape == "3") then
-                    self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
-                elseif (colshape == "4") then
-                    self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
-                elseif (colshape == "5") then
-                    self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                if self.tiledmap.layers[layername].data[y][x].properties then
+                    local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
+                    if (colshape == "1") then
+                        -- this is handled by the optimizer
+                        -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                    elseif (colshape == "2") then
+                        self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    elseif (colshape == "3") then
+                        self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    elseif (colshape == "4") then
+                        self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    elseif (colshape == "5") then
+                        self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    end
                 end
             end
         end
