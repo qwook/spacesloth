@@ -109,7 +109,7 @@ function reset()
     if arg[2] then 
         map = Map:new(arg[2])
     else
-        map = Map:new("data/introMap")
+        map = Map:new("assets/maps/introMap")
     end
     
     map:spawnObjects()

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tilemap2" tilewidth="32" tileheight="32">
-  <image source="tilemap2.png" width="256" height="512"/>
+  <image source="../sprites/tilemap2.png" width="256" height="512"/>
   <terraintypes>
    <terrain name="testterrain" tile="-1"/>
   </terraintypes>
   <tile id="5" terrain="0,0,0,0"/>
  </tileset>
  <tileset firstgid="129" name="collision" tilewidth="32" tileheight="32">
-  <image source="collision.gif" width="160" height="32"/>
+  <image source="../sprites/collision.gif" width="160" height="32"/>
   <tile id="0">
    <properties>
     <property name="colshape" value="1"/>
@@ -36,19 +36,19 @@
   </tile>
  </tileset>
  <tileset firstgid="134" name="OrangeA" tilewidth="32" tileheight="32">
-  <image source="../sandbox_shared/Sprite_Art/Tiles_1_A.png" width="416" height="128"/>
+  <image source="../sprites/Tiles_1_A_orange.png" width="416" height="128"/>
  </tileset>
  <tileset firstgid="186" name="Tiles_1_A_blue" tilewidth="32" tileheight="32">
-  <image source="../assets/Tiles_1_A_blue.png" width="416" height="128"/>
+  <image source="../sprites/Tiles_1_A_blue.png" width="416" height="128"/>
  </tileset>
  <tileset firstgid="238" name="Tiles_1_A_green" tilewidth="32" tileheight="32">
-  <image source="../assets/Tiles_1_A_green.png" width="416" height="128"/>
+  <image source="../sprites/Tiles_1_A_green.png" width="416" height="128"/>
  </tileset>
  <tileset firstgid="290" name="generic_box" tilewidth="32" tileheight="32">
-  <image source="../assets/box_generic.png" width="32" height="32"/>
+  <image source="../sprites/box_generic.png" width="32" height="32"/>
  </tileset>
  <imagelayer name="Background" width="100" height="100">
-  <image source="../assets/bgConcept1_big.png"/>
+  <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
