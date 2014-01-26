@@ -8,6 +8,8 @@ function PhysBox:initialize()
     self.contacts = {}
     self.touching = {}
 
+    self.spritesheet = SpriteSheet:new("assets/box_generic.png", 32, 32)
+
     table.insert(map.objects, self)
 end
 
@@ -51,8 +53,9 @@ function PhysBox:draw()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
 
-    love.graphics.setColor(0, 255, 0)
-    love.graphics.rectangle('fill', -16, -16, 32, 32)
+    love.graphics.setColor(255, 255, 255)
+    -- love.graphics.rectangle('fill', -16, -16, 32, 32)
+    self.spritesheet:draw(0, 0, -16, -16)
 
     love.graphics.pop()
 end

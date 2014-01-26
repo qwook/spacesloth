@@ -18,12 +18,12 @@ function love.draw()
     love.graphics.push()
         love.graphics.setScissor(0, 0, love.graphics.getWidth(), love.graphics.getHeight()/2)
 
-        love.graphics.translate(0, math.floor(-love.graphics.getHeight()/4))
+        love.graphics.translate(0, math.round(-love.graphics.getHeight()/4))
 
         love.graphics.setColor(255, 255, 255)
         love.graphics.draw(map.background, -camera1_x/50, -camera1_y/40, 0, bg_ratio, bg_ratio)
 
-        love.graphics.translate(math.floor(-camera1_x+offsetx), math.floor(-camera1_y+offsety))
+        love.graphics.translate(math.round(-camera1_x+offsetx), math.round(-camera1_y+offsety))
 
             map:draw("player1")
             player:draw()
@@ -59,11 +59,19 @@ function love.draw()
             player2:draw()
 
             for i, object in pairs(map.objects) do
-                if (object.collisiongroup == nil or
-                    object.collisiongroup == "shared" or
-                    object.collisiongroup == "green") or
-                    (object.visibleonboth == "true") then
+                if object.zindex == -1 then
                     object:draw()
+                end
+            end
+
+            for i, object in pairs(map.objects) do
+                if object.zindex == 0 or object.zindex == nil then
+                    if (object.collisiongroup == nil or
+                        object.collisiongroup == "shared" or
+                        object.collisiongroup == "green") or
+                        (object.visibleonboth == "true") then
+                        object:draw()
+                    end
                 end
             end
 
