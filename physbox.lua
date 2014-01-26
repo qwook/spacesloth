@@ -99,6 +99,7 @@ function PhysBox:event_teleportTo(name)
 end
 
 function PhysBox:event_setFrozen(frozen)
+    if not self.body then return end
     if frozen == "true" then
         if self.frozenJoint then return end
         local x, y = self:getPosition()

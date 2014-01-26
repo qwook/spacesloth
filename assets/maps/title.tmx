@@ -67,7 +67,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2bFtwkAUgOHzJvTQQIVSEBoWYIKMQsUCLJBRGCWj5B2OFRQJCs722cr3Sa/G9vm34UgJAAAAAAAAAAAAAAAAAAD4a9Wk07JJqZtzem3WTfqscPg8EWuyiLU5vTLL5nfiHvm34vw/tnH+l1Q279GHRqYjtxFrsoi1OZXMtm3kq/b51JL7KG0jT25MI9PQtZHv7dI+LkkfffWR5/DzPW2nk9HFNV/k70OxBrfnvj7K9d1HN/ldopHx7O7eGVt99GaoPjQynkdt6KPckH1oZHjP2tBHuVWTrudUPnENH84xOnmLRoaabm96E/dD7evZ2bTHdNsfjWNcDDXH9jP2jybWpnjiHtnXvp68bh3vwPhNes17A1PYP8v7R4f2d/J+/Y+fvUzHVBrRBlNVuxFtMHW1GtEGczF2I9pgbsZqRBvM1X0jy4FGG8xZbuTZfzM9TG7jWvs8AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgzr4BSqd4Mg==
+   eJzt2cFt4kAUgOHnTrjDhZzQHrJc0kAqSCmcaCANpJA9cN0uKIEGVto3IU6iJGa1DMa28n3SOyAlAnv8M2AiAAAAAAAAAAAAAAAAAACAjxZNbOZNRDvbOG+WTTwN8PI5IddklmuzOWfmzdvkNfJt5fE/rPL4H6NufmYfGhmP0kauySzXZlMzq2Mj+6GPZyilj9o2ypTGNDIObRvl2q7t4zH0cak+yty9fE671cnV5Tmflc9DuQbP7/v6qHfpPtope4lGruf23Z6x0sfF9NWHRq6nqw191OuzD43071Qb+qi3aGK3jfrJc9g599nJj2ykr2nvTd/k9TD0+WzdHF/T8/3RfI2zvub++Bzrrsm1qZ68RtZDn0/Ot8w9ML+T7sq9gTHcPyv3j+6O35PXy2/83st4jKURbTBW/2rkV8TD74indvLxp7/pcsj//ROxbycf7794fm0wakPtI9pgKroaedkDXufwH/vHqb1HG0zNtfYRbTBV7xuZ9zTaYMpKI6d+m7nAlDZ2Qx8nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABM2V8AY5VG
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100" visible="0">
@@ -84,22 +84,35 @@
   <object name="player1" gid="13" x="533" y="467"/>
   <object name="player2" gid="13" x="594" y="462"/>
   <object type="TitleScreen" gid="4" x="2542" y="838"/>
-  <object name="player1" gid="351" x="2075" y="744"/>
-  <object name="player2" gid="355" x="2984" y="747"/>
+  <object name="player2" gid="351" x="2273" y="521"/>
+  <object name="player1" gid="355" x="2754" y="524"/>
+  <object name="teleporter_prop" type="Prop" gid="371" x="2528" y="1057">
+   <properties>
+    <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
+    <property name="sprite" value="teleporter.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2510" y="1003" width="66" height="54">
+   <properties>
+    <property name="onbothplayers" value="global:changeMap(intro)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2sEKwjAQRdH8uuKHuypK6ahFOnmBcyD7WcyltnEMAAAAAAAAAOBXt90BjukDavqAmj6gpg+o6QNq+oCaPqCmD6jt7wrPnMeEeWEVGoHPZjbyz7PvygPvZv3eStzFxJnI0N1I4i4mzkSOzkYSdzFxJrJ0NZK4i4kzcU7Hu2hHI2nfz+5DH7x824Wrv+8k3cNsbeiDTcouzG7Ec4MjSfcDsxrRBqvobkQbrKarEW2wqqsb0Qar8x8rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVvUE0Fhc7Q==
+   eJzt29EKgkAQBVB/vejDw4coxKi23LkT54DvF2Yu1qrLAgAAAAAAAAC867S5gH36Ac917sf2Pphy8T86zzMxe2ImxnWeZ2L2xEyM6zzPxOyJmRjXeZ6J2RMzMa7zPBOzJ2ZiXOd5JmZPzMS4b84xLwV5HyXuYmImalR3JHEXEzNRp7IjibuYmIlaVb+3EncxMRMZZnckcRcTM5FjZkcSdzExE1lmdSRxFxMz8ZkZ76rO6Ej1+dnWedEP7l7twtHvf6c8h1nduqEf3KTsQnVH3DfYk/T9UFVHdIMuZndEN+hmVkd0g66O7ohu0N0vz7Bn/YcCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA1RWCk2X/
   </data>
  </layer>
- <layer name="BlueCollision" width="200" height="100" visible="0" opacity="0.48">
+ <layer name="BlueCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
+   eJzt1TENAAAIBLG3jnMMsDIQ2uQ0XAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAv9UQAGzyHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgigaWAwUL
   </data>
  </layer>
- <layer name="GreenCollision" width="200" height="100" visible="0" opacity="0.28">
+ <layer name="GreenCollision" width="200" height="100" opacity="0.28">
   <data encoding="base64" compression="zlib">
-   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
+   eJzt1bENAAAIw7C+zuc8wMRaW8oNSQAAAAAAAAAAAAAAAAAAAAAAAAAAAACArzkCoIMHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANFpYDBQs=
   </data>
  </layer>
  <layer name="Decoration" width="200" height="100" visible="0">

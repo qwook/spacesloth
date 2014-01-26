@@ -264,7 +264,7 @@ function Map:setSpriteBatches(layer)
                         if tile.sy < 0 then ty = ty + th end
                         if tile.r > 0 then tx = tx + tw end
                         if tile.r < 0 then ty = ty + th end
-                        
+
                         batch:add(tile.quad, tx, ty, tile.r, tile.sx, tile.sy)
                     elseif self.orientation == "isometric" then
                         local tx = (x - y) * (tw / 2) + layer.x + tile.offset.x

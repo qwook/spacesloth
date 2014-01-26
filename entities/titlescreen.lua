@@ -11,6 +11,7 @@ function TitleScreen:initialize()
     self.life = 0
 
     self.image = love.graphics.newImage("assets/sprites/bako.png")
+    self.image:setFilter('linear', 'linear')
 end
 
 function TitleScreen:initPhysics()
@@ -40,7 +41,7 @@ function TitleScreen:draw()
     local bounce = math.outBounce(self.life, 0, 1, 1)
 
     local x, y = self:getPosition()
-    love.graphics.draw(self.image, x-self.image:getWidth()/2, y-self.image:getHeight()/2 + bounce*400 - 400)
+    love.graphics.draw(self.image, x-self.image:getWidth()/2 * 0.75, y-self.image:getHeight()/2 + bounce*400 - 400, 0, 0.75)
     -- love.graphics.draw(self.image, -self.image:getWidth()/2, -self.image:getHeight()/2)
 end
 
