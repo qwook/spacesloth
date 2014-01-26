@@ -22,9 +22,11 @@ function Player:initialize()
     self.type = "PLAYER"
     self.collisiongroup = "blue"
 
-    self.spritesheet = SpriteSheet:new("data/players.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("assets/sprites/players.png", 32, 32)
     self.expression = 0
-    
+   
+    self.isother = false
+
     self:initPhysics()
 end
 
@@ -53,7 +55,8 @@ end
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
     -- self.shape = love.physics.newRectangleShape(32, 28)
-    self.shape = love.physics.newCircleShape(14)
+    -- self.shape = love.physics.newCircleShape(14)
+    self.shape = love.physics.newPolygonShape(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -117,7 +120,7 @@ function Player:update(dt)
     local goingUpOrDown = nil
     local ypoop = self.floornx
 
-    self.fixture:setFriction(PLAYER_FRICTION)
+    -- self.fixture:setFriction(PLAYER_FRICTION)
 
     if self:isOnFloor() then
 
@@ -155,7 +158,7 @@ function Player:update(dt)
                 ypoop = -ypoop
             end
 
-            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
+            -- self.fixture:setFriction(PLAYER_FRICTION_MOVING)
         end
 
         if self.controller:isKeyDown("right") and not jumping then
@@ -175,7 +178,7 @@ function Player:update(dt)
                 ypoop = -ypoop
             end
 
-            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
+            -- self.fixture:setFriction(PLAYER_FRICTION_MOVING)
         end
 
         -- so for climbing stairs, we actually push the player up a bit
@@ -185,11 +188,11 @@ function Player:update(dt)
             local velx, vely = self.body:getLinearVelocity()
             -- up
             if goingUpOrDown == true then
-                self.body:applyLinearImpulse(0, -50)
+                -- self.body:applyLinearImpulse(0, -50)
                 self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
-                self.body:applyLinearImpulse(0, 10)
+                -- self.body:applyLinearImpulse(0, 10)
                 self.body:setLinearVelocity(velx, 200 * -ypoop)
             end
         end
@@ -272,8 +275,12 @@ end
 
 -- the player hit something
 function Player:beginContact(other, contact, isother)
+    self.isother = isother
+
     local x, y = self:getPosition()
     local normx, normy = contact:getNormal()
+
+    y = y + 6
 
     if isother == false then
         normx = -normx
@@ -302,6 +309,10 @@ function Player:beginContact(other, contact, isother)
         -- we want to slide down walls, not cling onto them
         contact:setFriction(0)
     end
+ 
+        if other.type == "PLAYER" then
+            contact:setFriction(1.5)
+        end
 
 end
 
@@ -345,6 +356,8 @@ function Cindy:drawPlayer()
 
     self.spritesheet:draw(anim, 3, -16, -18)
     self.spritesheet:draw(self.expression, 2, -16, -18)
+
+    -- love.graphics.line(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
 end
 
 

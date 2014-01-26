@@ -7,7 +7,7 @@ function WalkingDust:initialize()
     Particle.initialize(self)
 
     self.lifetime = 0.5
-    self.spritesheet = SpriteSheet:new("assets/dust2.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("assets/sprites/dust2.png", 32, 32)
 end
 
 function WalkingDust:draw()
