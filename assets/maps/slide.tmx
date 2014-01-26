@@ -80,10 +80,15 @@
  <objectgroup name="Objects" width="100" height="100">
   <object name="player1" gid="13" x="213" y="147"/>
   <object name="player2" gid="13" x="274" y="142"/>
+  <object type="Trigger" x="1727" y="505" width="329" height="231">
+   <properties>
+    <property name="ontrigger" value="teleportTo(player1)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1zEKwEAIAEG/7s/ThjQhHIQtZsAPuI3uzOxt+MfO+971aNGjRY8WPVr0aNGjRY8WPVqeP8qXAQCAopMb170LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAFasAYsg==
+   eJzt1tEKgyAAhlFf3bEH39UgAs2msT86B7wLC79QaymlbgY59MiiRxY9suiRRY8semTRI4seWerEeP/he2nTJI8meexfmTTJo0me0SavE8+OzHNXM3fc/ei9o7fO3zWcPXu28zzd0RqM9jzbZN9y5FueYPUajDRp7U16XLPn9Zr0zgk91mj967+cV8xbdRbrsc7Vdz0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAPGTlMxw==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
@@ -98,7 +103,7 @@
  </layer>
  <layer name="Decoration" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2DEKhDAUBNDcv7HwApaCvedbgrsSQVwsJMPuezBNIPDJEAIphSRj7wE40EeW2sfcewh2+siijyz6yKKPLPrIoo88tY+1lKn3HGzmk9zpZ3lmrL9Vz394p137FnfqGe37MZzkat8n8Iv8J2YZmwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwF0veNYhxg==
+   eJzt2MFqwjAcwOH03XYWvU4Q38iDL9Cj4H1nH23J1owsiE6brRl8H/yplLSE/BDBEOjJcekN8I0efUk9Tktvgi969EWPvujRFz36okdf9OhP6vEWwvjs86uh3V747FHPI33OQZOW0vkfpinv3Zu6mSZtlL8fhytz67k82yHs831dlhd7jJrM1/L/RE3mOxbTwpwm+v2OZ5vo8Xd2Q7jE2ccZ44Ti+nE/rXmZejza5TW+o+1uqf20SW6xntavfceaiuc75s/3mtQtMk3aKpuks90M16/lmnoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4H94Bhqk+fA==
   </data>
  </layer>
 </map>

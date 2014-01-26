@@ -40,8 +40,8 @@
 			"down" : "crouch",
 			"rshift" : "L",
 			"/" : "R",
-			"r" : "select",
-			"t" : "start",
+			"p" : "select",
+			"y" : "start",
 			"left" : "left",
 			"right" : "right"
 		},
@@ -51,8 +51,8 @@
 			"down" : "crouch",
 			"rshift" : "L",
 			"z" : "R",
-			"p" : "select",
-			"y" : "start",
+			"r" : "select",
+			"t" : "start",
 			"left" : "left",
 			"right" : "right"
 		},
