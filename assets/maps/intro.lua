@@ -635,7 +635,9 @@ return {
           gid = 291,
           visible = true,
           properties = {
-            ["collisiongroup"] = "blue"
+            ["collisiongroup"] = "blue",
+            ["onpress"] = "global:swapCollision()",
+            ["onrelease"] = "global:swapCollision()"
           }
         },
         {
@@ -649,43 +651,19 @@ return {
           gid = 291,
           visible = true,
           properties = {
-            ["collisiongroup"] = "green"
+            ["collisiongroup"] = "green",
+            ["onpress"] = "global:swapCollision()",
+            ["onrelease"] = "global:swapCollision()"
           }
         },
         {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 2684,
+          x = 2596,
           y = 803,
-          width = 131,
-          height = 25,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000)"
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 2468,
-          y = 803,
-          width = 131,
-          height = 25,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000)"
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 2605,
-          y = 804,
-          width = 75,
-          height = 24,
+          width = 87,
+          height = 27,
           visible = true,
           properties = {
             ["ontrigger"] = "teleportto(next1)"
@@ -707,8 +685,8 @@ return {
           name = "tramp5",
           type = "Prop",
           shape = "rectangle",
-          x = 2621,
-          y = 1120,
+          x = 2625,
+          y = 1119,
           width = 0,
           height = 0,
           gid = 293,
@@ -736,34 +714,6 @@ return {
           }
         },
         {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 768,
-          y = 351,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp2:playAnimation(0,1,2,0.5)("
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 1345,
-          y = 350,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp3:playAnimation(0,1,2,0.5)("
-          }
-        },
-        {
           name = "tramp1",
           type = "Prop",
           shape = "rectangle",
@@ -783,7 +733,7 @@ return {
           name = "tramp2",
           type = "Prop",
           shape = "rectangle",
-          x = 768,
+          x = 769,
           y = 352,
           width = 0,
           height = 0,
@@ -799,8 +749,8 @@ return {
           name = "tramp4",
           type = "Prop",
           shape = "rectangle",
-          x = 1825,
-          y = 351,
+          x = 1827,
+          y = 349,
           width = 0,
           height = 0,
           gid = 293,
@@ -815,41 +765,91 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1825,
-          y = 350,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp4:playAnimation(0,1,2,0.5)("
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 2620,
-          y = 1117,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-1000);tramp5:playAnimation(0,1,2,0.5)("
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
           x = 542,
           y = 273,
           width = 64,
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-500);tramp1:playAnimation(0,1,2,0.5)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 769,
+          y = 337,
+          width = 64,
+          height = 13,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1346,
+          y = 336,
+          width = 64,
+          height = 13,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-500);tramp3:playAnimation(0,1,2,0.5)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1827,
+          y = 336,
+          width = 64,
+          height = 13,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 2609,
+          y = 1104,
+          width = 64,
+          height = 13,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp5:playAnimation(0,1,2,0.5)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 2686,
+          y = 803,
+          width = 126,
+          height = 29,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-750);"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 2466,
+          y = 802,
+          width = 126,
+          height = 29,
+          visible = true,
+          properties = {
+            ["ontrigger"] = "activator:setVelocity(0,-750);"
           }
         }
       }
