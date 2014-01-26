@@ -736,7 +736,7 @@ return {
           height = 26,
           visible = true,
           properties = {
-            ["ontrigger"] = "global:changeMap(intro)"
+            ["ontrigger"] = "global:changeMap(switcheroo)"
           }
         },
         {

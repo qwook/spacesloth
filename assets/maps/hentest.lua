@@ -1288,7 +1288,7 @@ return {
           properties = {
             ["collisiongroup"] = "green",
             ["onpress"] = "physpoop:setVisible(false)",
-            ["onrelease"] = "physpoop:setVisible(true)"
+            ["onrelease"] = "physpoop:setVisible(true);global:playSound(thwap.wav)"
           }
         },
         {

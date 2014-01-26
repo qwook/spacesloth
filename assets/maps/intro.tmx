@@ -154,7 +154,7 @@
   </object>
   <object type="Trigger" x="2596" y="1123" width="84" height="26">
    <properties>
-    <property name="ontrigger" value="global:changeMap(intro)"/>
+    <property name="ontrigger" value="global:changeMap(switcheroo)"/>
    </properties>
   </object>
   <object name="monster" type="Prop" gid="16" x="1297" y="401">
