@@ -21,7 +21,6 @@ function WalkingDust:draw()
 
     love.graphics.setColor(141, 143, 166)
     self.spritesheet:draw(math.floor((0.5 - self.lifetime)/0.5*5)%5, 0, -16, -16)
-    print(math.floor((0.5 - self.lifetime)/0.5*5)%5)
 
     love.graphics.pop()
 end

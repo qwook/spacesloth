@@ -37,7 +37,6 @@ function Particle:update(dt)
     if self.lifetime < 0 then
         self:destroy()
     end
-    print(self.lifetime)
 end
 
 function Particle:draw()
@@ -51,7 +50,6 @@ function Particle:draw()
 
     love.graphics.setColor(141, 143, 166)
     self.spritesheet:draw(math.floor((0.5 - self.lifetime)/0.5*6)%6, 0, -16, -16)
-    print(math.floor((0.5 - self.lifetime)/0.5*6)%6)
 
     love.graphics.pop()
 end

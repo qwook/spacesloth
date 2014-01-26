@@ -13,6 +13,47 @@ function PhysBox:initialize()
     table.insert(map.objects, self)
 end
 
+function PhysBox:eval()
+    local name, event, arg = string.match("test:test(1, 2, 3)", "([0-9A-z]+)%:([0-9A-z]+)%(([^%.]*)%)")
+    local args = {}
+    string.gsub(arg, "[^, ]+", function(a) table.insert(args, a) end)
+
+    local objs
+
+    if name == "global" then
+        if events[event] then
+            events[event](events[event], unpack(args))
+        end
+        return
+    elseif name == "player1" then
+        objs = {player1}
+    elseif name == "player2" then
+        objs = {player2}
+    else
+        for k,v in pairs(map.objects) do
+            if v.name == name then
+                table.insert(objs, v)
+            end
+        end
+    end
+
+    for k, obj in pairs(objs) do
+        if (obj.call) then
+            obj:call(name, args)
+        end
+    end
+
+end
+
+function PhysBox:call(name, args)
+    if self["event_" .. name] then
+        self["event_" .. name](self, unpack(args))
+    end
+end
+
+function PhysBox:trigger()
+end
+
 function PhysBox:destroy()
     table.removevalue(map.objects, self)
 end
@@ -23,7 +64,7 @@ function PhysBox:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(0.5)
+    self.fixture:setFriction(0.1)
 end
 
 function PhysBox:setPosition(x, y)
