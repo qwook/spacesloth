@@ -3,6 +3,7 @@ DEACCELERATION_SPEED = 600 -- how much you're able to deaccelerate after jumping
 IMPULSE_AFTER_JUMPING = 7.5 -- how much you're able to "nudge" after jumping
 PLAYER_FRICTION = 0.75 -- friction
 PLAYER_FRICTION_MOVING = 0.75 -- friction while moving
+PLAYER_FRICTION_SLIDING = 0.01 -- friction while sliding on a slope
 
 MOVING_ACCELERATION = 20 -- how much it should accelerate
 MOVING_SPEED = 200 -- constant moving speed on ground
@@ -165,6 +166,8 @@ function Player:update(dt)
         local jumping = false
 
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
+            -- Turn friction back up if the player wants to stop sliding.
+            self.fixture:setFriction(PLAYER_FRICTION)
             self.body:setLinearVelocity(velx/10, vely/5)
             self.body:applyLinearImpulse(0, -325)
             self.nextJump = 0.1
@@ -177,6 +180,7 @@ function Player:update(dt)
         end
 
         if self.controller:isKeyDown("left") and not jumping then
+            -- Turn friction back up if the player wants to stop sliding.
             self.fixture:setFriction(PLAYER_FRICTION)
             if math.abs(velx) < 100 then
                 if self.crouching then
@@ -199,12 +203,12 @@ function Player:update(dt)
             if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
                 goingUpOrDown = true
                 ypoop = -ypoop
-                self.fixture:setFriction(PLAYER_FRICTION_MOVING)
             end
         end
 
         if self.controller:isKeyDown("right") and not jumping then
-            self.fixture:setFriction(PLAYER_FRICTION_MOVING)
+            -- Turn friction back up if the player wants to stop sliding.
+            self.fixture:setFriction(PLAYER_FRICTION)
             if math.abs(velx) < 100 then
                 if self.crouching then
                     self.body:applyLinearImpulse(MOVING_ACCELERATION/2, 0)
@@ -239,6 +243,8 @@ function Player:update(dt)
             -- up
             if goingUpOrDown == true then
                 -- self.body:applyLinearImpulse(0, -50)
+                -- If you're on a slope, turn down friction for tobogganing.
+                self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
                 self.body:setLinearVelocity(velx, 200 * ypoop)
             -- down
             elseif goingUpOrDown == false then
