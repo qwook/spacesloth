@@ -20,6 +20,7 @@ function Button:initPhysics()
 
     self.hasPressedLastUpdate = false
     self.buttonDelay = 0
+    self.pressed = false
 end
 
 function Button:setPosition(x, y)
@@ -42,9 +43,17 @@ function Button:update(dt)
 
     local isTouching = self:isTouchingPlayer()
 
-    if isTouching and not self.hasPressedLastUpdate and self.buttonDelay <= 0 then
-        self:trigger(self.onpress, isTouching)
-        self.buttonDelay = 0.25
+    if self.buttonDelay <= 0 then
+        if isTouching and not self.hasPressedLastUpdate then
+            self:trigger(self.onpress, isTouching)
+            self.buttonDelay = 0.25
+            self.pressed = true
+        end
+    end
+
+    if not isTouching and self.pressed and self.buttonDelay <= 0 then
+        self:trigger(self.onrelease, isTouching)
+        self.pressed = false
     end
 
     self.hasPressedLastUpdate = isTouching
@@ -59,7 +68,7 @@ function Button:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(255, 255, 255)
-    if self:isTouchingPlayer() then
+    if self.pressed then
         if self.collisiongroup == "blue" then
             self.spritesheet1:draw(1, 0, -16, -16-8)
         else

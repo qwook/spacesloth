@@ -64,7 +64,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2EFOwzAQhWHnMKxa9hX7VBwjpyHdU/Y9CItsuU0vgMQMwtJgQh0nTZ24/yeNaBVsJ364pm6da16cc1qtw7VtK9dsKuditfsped28SjstfZ359oujc7oz8x0rm4eskVPm2y9Oah6SAXnMKGcerdmL+vajg1x/kzEOwTja7nihbD9nef8p7bXOPf3Y8afsiX19jekvZx62r5T+ZM472y6s48jxU9oO6WvMHJWYhzzToH5ukcd+4L14+wLzYH2ke6juY33MnYc+qx+rrv7uXylVV6yPUGoel+Zhaum967oZ++x2fYztR/MY0nboPen+8WTqUepdfvfDff/U9429nrp/zJnH0PUWrqu+fuzZQko/2jb8/3nKPaWutyWtjxKLPJZV5LGsmjsPt4BnXFPpfq5nPr7Csx9/JuQrdT+3cj/rGuoW62MMGaezlXue7j2PnnG7lMo9r6XnkWq70oz898tLZa0ljz4+o3rmbGLzmTLfMWvOw9tEvq9PnU8+r37LOZ8l7h9zr/fY+rinPK79+TkGeSxL61wnz31aYvmz///+PsNrJeSxZM8yZ/Y8JFZTzksAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ9wV1uDVV
+   eJzt2DFOwzAYBlD3MEzAjthbcYyehrIDOwdh6MqtsBGWrBBI3LRNat6TflEUYsf+5Dp4F8L2MYSQahc4tptV2F6vQhiqu++Kn7fP8b5U6fPMj9+cNKd3xXwPVZlHXCNvMz9+c2rziBnI44TmzGNX7EV9+9FTvP4a+3jq9JPue/mjxu5r3f6n7Il9bR3S3px5lG3VtBfnfF/e162XA/uvuXdMW4fMUYt5xDGNaucceWxGPku2aTAP6+M4Y2hxfZw6jzTW3Nd69XP/qqn1yvroqs3jr3mYWmOf/bexL3F9pP3jvqjbWO/xbz/C18/0+7a8Xrt/nDKPseutu6762inPFmraSfd235+nPFNtvktaHy2WPJZV8lhWnTqPsIAxXlKl/Tyd+eTqnv3kM6Fctft5ae6xXkKdY30cIvazL2vuefrvefT0u6+puee19Txq3VxoRq3m0SdntK7IpvZdsWZu+mrsWUF2yXlk1wP/r0+d0ynv+/9pfWRjx+D76jyG1of947zksSy7EPZx3G9LrLSfX8V5K6vUvdZCHkv2EOesPA8ZqinnJQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM+wRgESlB
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -74,7 +74,7 @@
  </layer>
  <layer name="GreenLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2MEJwCAQBMAtNaVZog0Eoh2IIBdhBpb77mc/lwAAO3ryvEkbt1V3gdvNLa2muisAAADn+LcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAXHwwEGro=
+   eJzt2DEKwCAQBMB9ap7mE/MBQS3SWxgMZgYWrlquueYSADjfnVw1KSN9Lis7V/XBnz33OZPduwIAAPAe/xYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL6iAR6pINQ=
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
@@ -86,55 +86,94 @@
   <object type="PhysBox" gid="290" x="334" y="174"/>
   <object type="PhysBox" gid="290" x="153" y="27"/>
   <object type="PhysBox" gid="290" x="333" y="28"/>
-  <object type="Trigger" x="769" y="321" width="29" height="29">
-   <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
-   </properties>
-  </object>
   <object type="Button" gid="291" x="2525" y="321">
    <properties>
     <property name="collisiongroup" value="blue"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
    </properties>
   </object>
   <object type="Button" gid="291" x="2717" y="483">
    <properties>
     <property name="collisiongroup" value="green"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
    </properties>
   </object>
-  <object type="Trigger" x="2684" y="803" width="131" height="25">
-   <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
-   </properties>
-  </object>
-  <object type="Trigger" x="2468" y="803" width="131" height="25">
-   <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
-   </properties>
-  </object>
-  <object type="Trigger" x="2605" y="804" width="75" height="24">
+  <object type="Trigger" x="2596" y="803" width="87" height="27">
    <properties>
     <property name="ontrigger" value="teleportto(next1)"/>
    </properties>
   </object>
   <object name="next1" type="teleportTo" gid="117" x="2622" y="901"/>
-  <object type="Trigger" gid="293" x="2619" y="1118">
+  <object name="tramp5" type="Prop" gid="293" x="2625" y="1119">
    <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-1000)"/>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Trigger" x="574" y="255" width="29" height="29">
+  <object name="tramp3" type="Prop" gid="293" x="1347" y="352">
    <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Trigger" x="1351" y="318" width="29" height="29">
+  <object name="tramp1" type="Prop" gid="293" x="574" y="285">
    <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object type="Trigger" x="1829" y="318" width="29" height="29">
+  <object name="tramp2" type="Prop" gid="293" x="769" y="352">
    <properties>
-    <property name="ontrigger" value="activator:addVelocity(0,-500)"/>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="tramp4" type="Prop" gid="293" x="1827" y="349">
+   <properties>
+    <property name="sprite" value="trampoline.png"/>
+    <property name="spriteheight" value="32"/>
+    <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="542" y="273" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="769" y="337" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1346" y="336" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-500);tramp3:playAnimation(0,1,2,0.5)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1827" y="336" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2609" y="1104" width="64" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);tramp5:playAnimation(0,1,2,0.5)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2686" y="803" width="126" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="2466" y="802" width="126" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:setVelocity(0,-750);"/>
    </properties>
   </object>
  </objectgroup>

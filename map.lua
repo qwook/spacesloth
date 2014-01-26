@@ -15,6 +15,24 @@ function Map:initialize(mapname)
 
     self.background = self:getImageLayer("Background")
 
+    local tw = self.tiledmap.tilewidth
+    local th = self.tiledmap.tileheight
+
+    local sharedlayer = self.tiledmap.layers["SharedLayer"]
+
+    for _, v in pairs(self:getObjectsLayer("Objects")) do
+        if v.type == "Platform" then
+            for y = math.ceil(v.y/th), math.ceil((v.y+v.height)/th) do
+                for x = math.ceil(v.x/tw), math.ceil((v.x+v.width)/tw) do
+                    print(x, y)
+                    sharedlayer.data[y][x] = nil
+                end
+            end
+        end
+    end
+
+    sharedlayer.batches = self.tiledmap:setSpriteBatches(sharedlayer)
+
     self:generateTileCollision("SharedCollision", "shared")
     self:generateTileCollision("GreenCollision", "green")
     self:generateTileCollision("BlueCollision", "blue")

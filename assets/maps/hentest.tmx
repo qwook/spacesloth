@@ -52,7 +52,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1WFuwiAYBmCO6mlW/9f99ygeyQssGc2yjBjW0UoLnc+TfFFj+KC8IkMIp7cQwlRDoLWYw2mMr+PX+2vj5bw8efRFHn2pmceQ3EW5++gcv3+Pc5wf5pnGXWYq7XOPnz/i+KnumT7p/M/ciblee9yxNfNIey3pF/f8lo57rMvK+ZeMLem1x3/IEfIYV86/ZGxpL3k4HzV6OR915s3dYaW1du3Ox4+/fpfPVOnaf3v2VzwfW+ZRet5q9ay1nrlea89bqa3z+G8lj75KHn3V1nmExs93tNojj2+tn/UItWceS7TeF3nMa71PuaKc/e2f/QcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIC2PgG2PAO9
+   eJzt1WFuwiAYBmCO6mlW97vu/46yI3mBJaMxy4hhHUVa2vk8yRc1hg/KKzKEcHoJIUw1BHqLOZzG+Dre3r93Xs7Tk8e+1OTxmhRttTwfQ3IX5e6jc/z+Lc5xvptnGneZqbTPNX7+jOOnumb6pPM/cifmem1xx7bMI+21pF/c84903H1dKudfMrak1xb/6UfIY6ycf8nY0l7ycD5a9HI+2sybu8NKq3btzsePv36Xj1Tp2n979mc8H2vmUXreWvVstZ65XrXnrdTaefy3kse+Sh77qrXzCJ2f72i1RR7fej/rEWrLPJbovS/ymNd7n3JFOfu7f/YfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+voCvsEFWA==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -175,9 +175,9 @@
     <property name="ontrigger" value="activator:teleportTo(point1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="420" y="263" width="44" height="20">
+  <object type="Trigger" x="420" y="271" width="44" height="20">
    <properties>
-    <property name="ontrigger" value="activator:applyImpulse(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"/>
+    <property name="ontrigger" value="activator:setVelocity(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"/>
    </properties>
   </object>
   <object name="tramp1" type="Prop" gid="12" x="428" y="291">
@@ -187,6 +187,8 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
+  <object type="Platform" x="430" y="106" width="69" height="9"/>
+  <object type="Button" gid="1" x="335" y="295"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
