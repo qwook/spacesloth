@@ -125,7 +125,13 @@ function Map:draw()
     love.graphics.translate(self.tiledmap.tilewidth, self.tiledmap.tileheight)
     love.graphics.setColor(255, 255, 255, 255)
     self.tiledmap:drawTileLayer(self.tiledmap.layers["Ground"])
+    self.tiledmap:drawTileLayer(self.tiledmap.layers["Decoration"])
     love.graphics.pop()
+
+
+
+    -- debug drawings:
+
     -- self.tiledmap:drawCollisionMap()
 
     -- for y, row in pairs(self.map) do
@@ -134,9 +140,9 @@ function Map:draw()
     --     end
     -- end
 
-    for i=1,#self.polylines do
-        love.graphics.line(self.polylines[i])
-    end
+    -- for i=1,#self.polylines do
+    --     love.graphics.line(self.polylines[i])
+    -- end
 
 end
 
