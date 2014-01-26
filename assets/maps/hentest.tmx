@@ -190,10 +190,11 @@
   <object type="Platform" x="430" y="106" width="69" height="9"/>
   <object type="Button" gid="1" x="335" y="295">
    <properties>
-    <property name="collisiongroup" value="green"/>
+    <property name="collisiongroup" value="blue"/>
+    <property name="onpress" value="global:swapCollision()"/>
    </properties>
   </object>
-  <object type="Button" gid="1" x="377" y="295">
+  <object type="Button" gid="1" x="649" y="127">
    <properties>
     <property name="collisiongroup" value="shared"/>
     <property name="onpress" value="global:changeMap(intro)"/>
