@@ -89,8 +89,12 @@ function reset()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
-
-    map = Map:new("data/map2")
+    if arg[2] then 
+        map = Map:new(arg[2])
+    else
+        map = Map:new("data/introMap")
+    end
+    
     map:spawnObjects()
 
 end
