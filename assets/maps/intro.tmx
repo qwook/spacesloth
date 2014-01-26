@@ -64,7 +64,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2E1KAzEYBuD0MK7UvbiveIyexrq37j1Kj2YCBkIcnUnHdqbxeeCDSpn8vcRMsw9h9xJCSLUP/LW7TdjdbkIYq4evip93b/G5VOnzwsPvTlrTh2K9x6rMI+6Rj4WH353WPGIG8jijJfPYF2fR0Hn0Gr9/j328Vv2k5w6/1NRzre5/zpk41NYp7S2ZR9lWS3txzY/lc3UdTuy/5dkpbZ2yRj3mEec0qZ1L5PE0cSzZU4d52B9/M4ce98e580hzzX1tN9/Pr5babuyPWmsev63D3Jo69p/mvsb9kc6Px6Luq7HFv3fl963nxznzmLrf6n011E55t9DSTnq2fn+eM6bWfNe0P3oseayr5LGuOnceYQVzvKZK53m688lV3/3kO6Fcred5aem5XkNdYn+cIvZzLGvpdfrveQz0e2yppde19zxa3V1pRr3mMSRntG3IpvVdsWVthmrqXUF2zXlktyO/1+eu6Zz3/f+0P7Kpc/D/6jLG9ofz47LksS77EI5x3h9rrHSe38R1K6tUf9dDHmv2HNesvA8Zqzn3JQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACM+wTF5iVg
+   eJzt2E1OwzAQhmHnMKxa9hX7Vhwjp2DJknRP2fcoORpjCUuDCY0naWLHfR9ppKIq/vtknLpzrv1wzvnqHO5t37h21zg3Voefks/tpzzny3/OPPzq+DU9qPUeK52H7JFr5uFXx5qHZEAeC8qZR6fOoqHz6Czff0kf56gf/9zlRqWea3H/c87EobamtJczD92WpT1Z814/F9dlYv+WZ1PamrJGNeYhc0pqZ408ToljCU4V5sH+uM8catwfS+fh5xr6OjZ/zy9LHRv2R8yax611mFupY/9v7iXuD39+vKh6jsYmf7f6e+v5sWQeqfst3ldD7ei7BUs7/tn4/XnOmKz5lrQ/aizyKKvIo6xaOg9XwBy3VP4893c+oeK7n3AnFMp6nmu557qFWmN/TCH99Lpyr9Oj5zHQb2+p3Otaex5W+41mVGseQ0JGR0M21ndFy9oMVepdQbDlPILdyO/1uWs6533/kfZHkDoH/l+tY2x/cH6sizzK0jnXy7yvJZY/z59k3XRp8Xc15FGyV1kzfR8yVnPuSwAAAAAAwLrecg8Av7znHgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANiMb+DZJlQ=
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -176,10 +176,22 @@
     <property name="ontrigger" value="activator:setVelocity(0,-750);"/>
    </properties>
   </object>
+  <object type="Button" gid="291" x="2758" y="1122">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="onpress" value="global:swapCollision()"/>
+    <property name="onrelease" value="global:swapCollision()"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="3134" y="1192" width="34" height="22">
+   <properties>
+    <property name="ontrigger" value="global:changeMap(intro)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt11uOgyAABVBnh7Ol7ny+yBBTlLeo5ySkiQVEbgH72bbtExX6+mSWVFv6aplTefQnj7VcmcfZvphzvWR/zbl/7TO1jiXup1aPPGr6O6vX0k9LHi1jab1/a9tv7Z+Qx+/Pf6npTx51bVPtQg61/cmjrm2q3dV5tJaasayex1X7VW9PyCOI88h9h2x5vxuhdl317KfXWn/C+ngSeazhSefHyuJ5TpVQLyaP8eL5j6/Fn8Ho87zXeTfafl5m3e8u6+OqfI72lty6qTap/eqO58es9ZWax9y6Of0c7V93yaNUbkY1v+uzdXPUJv5uXz+Mu/Q572qfy9mczvTGPII4j/A5c32k6sVjK32WO9uvj3ieZpwfR9fenMc3M9+vvtWTx1remsfKpfRZGGd0fpSpWR8yGadmbq2VcVrmVB79yWMdrXuOPPpqzUIefdXOqSzGKX1XksU8/gsCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAWv4AZoLWPA==
+   eJzt112OgyAYBVBnh7OlJl34PJEhRpRfRT0nIU0soHL7of0sy/KJGn19MltqLH21rKk8+pPHXK7M42hfzDlesr/mnL/2nlqvJZ6nVo88auY76tcyT0seLdfSev7WsVvjn5DH789/q5lPHnVjU+NCDrXzyaNubGrc1Xm0tpprmT2Pq/ar3p6QRxDnkfsO2fJ+N0JtXfWcp1etP6E+nkQec3jS82Nm8TqnWugXk8d48frHx+LPYPTzvNfzbrT1upx1vrvUx1X57O0tuX1TY1L71R2fH2fVV2odc/vmzLO3f90lj1K5GdX8ro/qZm9M/N26f7ju0vu8q3UuR2t6pjfmEcR5hM8z6yPVL7620nu5s3V9xOt0xvNj79ib89hy5vvVVj95zOWteczcSu+FcUbnR5ma+pDJODVrq5bGGblm8ignj3mM3lPkUaZlvUKW30Hzv1FtfcTjvks6E3mUK30X2uqbykQebVreX7cykce11pnI43pxJvKYh//nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADM7A/7bOP4
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">

@@ -37,7 +37,7 @@ function love.draw()
             for i, object in pairs(map.objects) do
                 if (object.collisiongroup == nil or
                     object.collisiongroup == "shared" or
-                    object.collisiongroup == "blue" and not collisionSwapped) or
+                    object.collisiongroup == "blue") or
                     (object.visibleonboth == "true") then
                     object:draw()
                 end

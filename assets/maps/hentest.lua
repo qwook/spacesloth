@@ -1741,15 +1741,16 @@ return {
           gid = 1,
           visible = true,
           properties = {
-            ["collisiongroup"] = "green"
+            ["collisiongroup"] = "blue",
+            ["onpress"] = "global:swapCollision()"
           }
         },
         {
           name = "",
           type = "Button",
           shape = "rectangle",
-          x = 377,
-          y = 295,
+          x = 649,
+          y = 127,
           width = 0,
           height = 0,
           gid = 1,
