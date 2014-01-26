@@ -10,8 +10,10 @@ Tile = require("tile")
 Input = require("input")
 
 PhysBox = require("physbox")
-Fonz = require("fonz")
-Button = require("button")
+Fonz = require("entities.fonz")
+Button = require("entities.button")
+Bull = require("entities.bull")
+BlueBall = require("entities.blueball")
 
 require("update")
 require("draw")

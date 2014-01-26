@@ -1,6 +1,7 @@
 
 Physical = require("physical")
 SpriteSheet = require("spritesheet")
+Particle = require("entities.particle")
 
 Player = class('Player', Physical)
 
@@ -22,7 +23,7 @@ end
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
     -- self.shape = love.physics.newRectangleShape(32, 28)
-    self.shape = love.physics.newCircleShape(16)
+    self.shape = love.physics.newCircleShape(14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -44,7 +45,7 @@ end
 
 function Player:isOnFloor()
     local x, y = self:getPosition()
-    y = y + 10
+    y = y + 6
 
     for k, contact in pairs(self.contacts) do
         local x1, y1, x2, y2 = contact:getPositions()
@@ -123,6 +124,9 @@ function Player:update(dt)
             self.body:applyLinearImpulse(0, -500)
             self.nextJump = 0.1
             goingUpOrDown = nil
+
+            local smoke = Particle:new()
+            smoke:setPosition(self:getPosition())
         end
 
         -- so for climbing stairs, we actually push the player up a bit
@@ -152,7 +156,8 @@ function Player:update(dt)
         end
     end
 
-    if self.controller:isKeyDown("start") and self.controller:isKeyDown("select") then
+    if (self.controller:isKeyDown("start") and self.controller:wasKeyPressed("select")) or
+        (self.controller:wasKeyPressed("start") and self.controller:isKeyDown("select")) then
         reset() -- this is just a global function that will reset the entire level
     end
 

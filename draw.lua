@@ -33,7 +33,7 @@ function love.draw()
                 if (object.collisiongroup == nil or
                     object.collisiongroup == "shared" or
                     object.collisiongroup == "blue") or
-                    (object.visibleonboth) then
+                    (object.visibleonboth == "true") then
                     object:draw()
                 end
             end
@@ -62,7 +62,7 @@ function love.draw()
                 if (object.collisiongroup == nil or
                     object.collisiongroup == "shared" or
                     object.collisiongroup == "green") or
-                    (object.visibleonboth) then
+                    (object.visibleonboth == "true") then
                     object:draw()
                 end
             end
