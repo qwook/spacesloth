@@ -11,10 +11,12 @@ Input = require("input")
 Events = require("events")
 
 PhysBox = require("physbox")
+Node = require("entities.node")
 Fonz = require("entities.fonz")
 Button = require("entities.button")
 Bull = require("entities.bull")
 BlueBall = require("entities.blueball")
+Trigger = require("entities.trigger")
 
 require("update")
 require("draw")
@@ -109,7 +111,7 @@ function reset()
     if arg[2] then 
         map = Map:new(arg[2])
     else
-        map = Map:new("assets/maps/introMap")
+        map = Map:new("assets/maps/intro")
     end
     
     map:spawnObjects()
