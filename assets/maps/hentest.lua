@@ -116,6 +116,19 @@ return {
       imageheight = 32,
       properties = {},
       tiles = {}
+    },
+    {
+      name = "object_tilemap",
+      firstgid = 291,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../sprites/object_tilemap.png",
+      imagewidth = 128,
+      imageheight = 192,
+      properties = {},
+      tiles = {}
     }
   },
   layers = {
@@ -477,138 +490,6 @@ return {
       properties = {},
       objects = {
         {
-          name = "player1",
-          type = "",
-          shape = "rectangle",
-          x = 213,
-          y = 147,
-          width = 0,
-          height = 0,
-          gid = 13,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "player2",
-          type = "",
-          shape = "rectangle",
-          x = 274,
-          y = 142,
-          width = 0,
-          height = 0,
-          gid = 13,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 155,
-          y = 89,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 155,
-          y = 167,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 337,
-          y = 83,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 334,
-          y = 174,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 153,
-          y = 27,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 333,
-          y = 28,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 575,
-          y = 287,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 575,
-          y = 253,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 541,
-          y = 287,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
           name = "",
           type = "PhysBox",
           shape = "rectangle",
@@ -638,42 +519,6 @@ return {
           shape = "rectangle",
           x = 1858,
           y = 318,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 505,
-          y = 209,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 573,
-          y = 176,
-          width = 0,
-          height = 0,
-          gid = 290,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 541,
-          y = 185,
           width = 0,
           height = 0,
           gid = 290,
@@ -1692,35 +1537,6 @@ return {
         },
         {
           name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 420,
-          y = 271,
-          width = 44,
-          height = 20,
-          visible = true,
-          properties = {
-            ["ontrigger"] = "activator:setVelocity(0, -500);tramp1:playAnimation(0, 1, 2, 0.5)"
-          }
-        },
-        {
-          name = "tramp1",
-          type = "Prop",
-          shape = "rectangle",
-          x = 428,
-          y = 291,
-          width = 0,
-          height = 0,
-          gid = 12,
-          visible = true,
-          properties = {
-            ["sprite"] = "trampoline.png",
-            ["spriteheight"] = "32",
-            ["spritewidth"] = "32"
-          }
-        },
-        {
-          name = "",
           type = "Platform",
           shape = "rectangle",
           x = 430,
@@ -1731,33 +1547,55 @@ return {
           properties = {}
         },
         {
-          name = "",
-          type = "Button",
+          name = "player1",
+          type = "",
           shape = "rectangle",
-          x = 335,
-          y = 295,
+          x = 204,
+          y = 147,
           width = 0,
           height = 0,
-          gid = 1,
+          gid = 291,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 262,
+          y = 151,
+          width = 0,
+          height = 0,
+          gid = 291,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "Toggle",
+          shape = "rectangle",
+          x = 412,
+          y = 292,
+          width = 0,
+          height = 0,
+          gid = 301,
           visible = true,
           properties = {
-            ["collisiongroup"] = "blue",
-            ["onpress"] = "global:swapCollision()"
+            ["collisiongroup"] = "blue"
           }
         },
         {
           name = "",
-          type = "Button",
+          type = "Toggle",
           shape = "rectangle",
-          x = 649,
-          y = 127,
+          x = 486,
+          y = 292,
           width = 0,
           height = 0,
-          gid = 1,
+          gid = 301,
           visible = true,
           properties = {
-            ["collisiongroup"] = "shared",
-            ["onpress"] = "global:changeMap(intro)"
+            ["collisiongroup"] = "green"
           }
         }
       }
