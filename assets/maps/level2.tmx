@@ -67,7 +67,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100">
@@ -252,10 +252,24 @@
   <object name="player2" gid="13" x="493" y="219"/>
   <object type="Toggle" gid="361" x="3488" y="480">
    <properties>
-    <property name="onpress" value="fallingblocks:setFrozen(true)"/>
-    <property name="onrelease" value="fallingblocks:setFrozen(false)"/>
+    <property name="onpress" value="boxafter:setVisible(true);fallingBlocks:setVisible(false)"/>
+    <property name="onrelease" value="boxafter:setVisible(false);fallingBlocks:setVisible(true)"/>
    </properties>
   </object>
+  <object name="boxafter" type="PhysBox" gid="371" x="2944" y="513">
+   <properties>
+    <property name="onspawn" value="boxafter:setVisible(false)"/>
+   </properties>
+  </object>
+  <object name="boxafter" type="PhysBox" gid="371" x="3005" y="484"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3055" y="513"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3104" y="482"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3164" y="509"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3226" y="473"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3269" y="514"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3311" y="462"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3357" y="506"/>
+  <object name="boxafter" type="PhysBox" gid="371" x="3397" y="464"/>
  </objectgroup>
  <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
@@ -275,11 +289,6 @@
  <layer name="Decoration" width="200" height="100">
   <data encoding="base64" compression="zlib">
    eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
-  </data>
- </layer>
- <layer name="WillCollision" width="200" height="100">
-  <data encoding="base64" compression="zlib">
-   eJztwzENAAAMA6Ban/OJ6FlISAAAAAAAAAAAAAAAgDVXBgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgwwPGbggR
   </data>
  </layer>
 </map>
