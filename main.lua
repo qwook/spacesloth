@@ -160,6 +160,8 @@ end
 
 function love.load()
 
+    love.mouse.setVisible(false)
+
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setBackgroundColor(134, 200, 255)
 

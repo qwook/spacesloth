@@ -41,7 +41,7 @@ function TitleScreen:draw()
     local bounce = math.outBounce(self.life, 0, 1, 1)
 
     local x, y = self:getPosition()
-    love.graphics.draw(self.image, x-self.image:getWidth()/2 * 0.75, y-self.image:getHeight()/2 + bounce*400 - 400, 0, 0.75)
+    love.graphics.draw(self.image, x-self.image:getWidth()/2 * 1, y-self.image:getHeight()/2 + bounce*500 - 600, 0, 1)
     -- love.graphics.draw(self.image, -self.image:getWidth()/2, -self.image:getHeight()/2)
 end
 
