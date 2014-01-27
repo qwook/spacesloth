@@ -885,7 +885,7 @@ return {
           height = 63,
           visible = true,
           properties = {
-            ["onspawn"] = "global:playMusic(crap_d1.ogg, 0.1)"
+            ["onspawn"] = "global:playMusic(crap2_d1.ogg, 0.1)"
           }
         }
       }

@@ -219,7 +219,7 @@
   </object>
   <object name="muzak" x="48" y="236" width="66" height="63">
    <properties>
-    <property name="onspawn" value="global:playMusic(crap_d1.ogg, 0.1)"/>
+    <property name="onspawn" value="global:playMusic(crap2_d1.ogg, 0.1)"/>
    </properties>
   </object>
  </objectgroup>
