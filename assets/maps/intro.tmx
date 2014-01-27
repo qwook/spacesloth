@@ -59,9 +59,6 @@
  <tileset firstgid="299" name="orange2" tilewidth="32" tileheight="32">
   <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
  </tileset>
- <tileset firstgid="351" name="object_tilemap" tilewidth="32" tileheight="32">
-  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
- </tileset>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
@@ -160,7 +157,7 @@
     <property name="ontrigger" value="global:changeMap(switcheroo)"/>
    </properties>
   </object>
-  <object name="monster" type="Prop" gid="16" x="1297" y="401">
+  <object name="monster" type="Prop" gid="16" x="1297" y="410">
    <properties>
     <property name="onspawn" value="monster:loopAnimation(0,0,14,1)"/>
     <property name="sprite" value="npc/blueball.png"/>
@@ -176,7 +173,7 @@
     <property name="spritewidth" value="256"/>
    </properties>
   </object>
-  <object type="Text" x="307" y="474" width="171" height="69">
+  <object type="Text" x="304" y="488" width="171" height="69">
    <properties>
     <property name="string" value="hey whats up little dudes! welcome to the multidimensional rift!"/>
    </properties>
@@ -210,6 +207,14 @@
     <property name="sprite" value="teleporter.png"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
+   </properties>
+  </object>
+  <object name="bull" type="Prop" gid="16" x="1735" y="426">
+   <properties>
+    <property name="onspawn" value="bull:loopAnimation(0,0,9,1)"/>
+    <property name="sprite" value="npc/bull.png"/>
+    <property name="spriteheight" value="64"/>
+    <property name="spritewidth" value="64"/>
    </properties>
   </object>
  </objectgroup>
