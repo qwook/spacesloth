@@ -22,5 +22,6 @@ end
 function playMusic(name, volume)
     musicLibrary[name] = musicLibrary[name] or love.audio.newSource("assets/music/" .. name)
     musicLibrary[name]:setVolume(volume)
+    musicLibrary[name]:setLooping(true)
     musicLibrary[name]:play()
 end
