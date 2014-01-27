@@ -20,6 +20,7 @@ function cacheMusic(name)
 end
 
 function playMusic(name, volume)
+    for name, source in pairs(musicLibrary) do source:stop() end
     musicLibrary[name] = musicLibrary[name] or love.audio.newSource("assets/music/" .. name)
     musicLibrary[name]:setVolume(volume)
     musicLibrary[name]:setLooping(true)

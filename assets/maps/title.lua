@@ -643,6 +643,19 @@ return {
           properties = {
             ["string"] = "Both touch the teleporter to start!"
           }
+        },
+        {
+          name = "muzak",
+          type = "",
+          shape = "rectangle",
+          x = 1963,
+          y = 439,
+          width = 66,
+          height = 63,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global:playMusic(crap_d1.ogg, 0.1)"
+          }
         }
       }
     },

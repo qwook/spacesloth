@@ -104,6 +104,11 @@
     <property name="string" value="Both touch the teleporter to start!"/>
    </properties>
   </object>
+  <object name="muzak" x="1963" y="439" width="66" height="63">
+   <properties>
+    <property name="onspawn" value="global:playMusic(crap_d1.ogg, 0.1)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
