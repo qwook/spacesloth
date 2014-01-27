@@ -7,7 +7,9 @@
 			"e" : "right",
 			"," : "jump",
 			" " : "jump",
-			"o" : "crouch"
+			"o" : "crouch",
+			"'" : ":|",
+			"." : ":/"
 		},
 
 		"qwerty" :
@@ -16,7 +18,9 @@
 			"d" : "right",
 			"w" : "jump",
 			"s" : "crouch",
-			"p" : "select"
+			"p" : "select",
+			"q" : ":|",
+			"e" : ":/"
 		},
 		
 		"joystick" :
@@ -24,8 +28,8 @@
 			"joy_1_3" : "jump",
 			"joy_1_axisdown_2" : "jump",
 			"joy_1_axisup_2" : "crouch",
-			"joy_1_6" : "L",
-			"joy_1_8" : "R",
+			"joy_1_6" : ":|",
+			"joy_1_8" : ":/",
 			"joy_1_7" : "start",
 			"joy_1_5" : "select",
 			"joy_1_axisup_1" : "right",
@@ -38,8 +42,8 @@
 		{
 			"up" : "jump",
 			"down" : "crouch",
-			"rshift" : "L",
-			"/" : "R",
+			"rshift" : ":|",
+			"z" : ":/",
 			"p" : "select",
 			"y" : "start",
 			"left" : "left",
@@ -49,8 +53,8 @@
 		{
 			"up" : "jump",
 			"down" : "crouch",
-			"rshift" : "L",
-			"/" : "R",
+			"rshift" : ":/",
+			"/" : ":|",
 			"r" : "select",
 			"t" : "start",
 			"left" : "left",
@@ -61,8 +65,8 @@
 			"joy_2_3" : "jump",
 			"joy_2_axisdown_2" : "jump",
 			"joy_2_axisup_2" : "crouch",
-			"joy_2_6" : "L",
-			"joy_2_8" : "R",
+			"joy_2_6" : ":|",
+			"joy_2_8" : ":/",
 			"joy_2_5" : "select",
 			"joy_2_7" : "start",
 			"joy_2_axisup_1" : "right",

@@ -142,8 +142,8 @@ function Player:update(dt)
     end
 
     self.expression = 0
-    if (self.controller:isKeyDown("L")) then self.expression = self.expression + 1 end
-    if (self.controller:isKeyDown("R")) then self.expression = self.expression + 2 end
+    if (self.controller:isKeyDown(":|")) then self.expression = self.expression + 1 end
+    if (self.controller:isKeyDown(":/")) then self.expression = self.expression + 2 end
 
     -- handle physics --
 

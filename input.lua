@@ -1,7 +1,11 @@
 
+require("libs.json.json")
 bit = require("bit")
 
 Input = class("Input")
+
+-- This will be checked when keyBindings are loaded in from config.JSON.
+keyBoardLayout = "qwerty"
 
 IN_KEYS = {
     ["attack"] = bit.lshift(1, 1);
@@ -9,8 +13,8 @@ IN_KEYS = {
     ["left"]   = bit.lshift(1, 3);
     ["right"]  = bit.lshift(1, 4);
     ["crouch"] = bit.lshift(1, 5);
-    ["L"]      = bit.lshift(1, 6);
-    ["R"]      = bit.lshift(1, 7);
+    [":|"]     = bit.lshift(1, 6);
+    [":/"]     = bit.lshift(1, 7);
     ["select"] = bit.lshift(1, 8);
     ["start"]  = bit.lshift(1, 9);
 }
@@ -20,6 +24,40 @@ function Input:initialize()
     self.keyCodes = 0
     self._keyCodes = 0
     self.lastKeyCodes = 0
+end
+
+function Input:loadKeyBindings()
+    -- run love . dvorak for dvorak bindings
+    bindings_JSON = love.filesystem.read("config.json")
+    bindings_o    = json.decode(bindings_JSON)
+    
+    if keyBoardLayout == "dvorak" then   
+        --bind all the dvorak keys for player 1.
+        for key,action in pairs(bindings_o.player1.dvorak) do
+            input:bind(key, action)
+        end
+        --bind all the dvorak keys for player 2.
+        for key,action in pairs(bindings_o.player2.dvorak) do
+            input2:bind(key, action)
+        end
+    else
+        --bind all the qwerty keys for player 1.
+        for key,action in pairs(bindings_o.player1.qwerty) do
+            input:bind(key, action)
+        end
+        --bind all the qwerty keys for player 2.
+        for key,action in pairs(bindings_o.player2.qwerty) do
+            input2:bind(key, action)
+        end
+    end
+    --bind all the joystick buttons for player 1.
+    for key,action in pairs(bindings_o.player1.joystick) do
+        input:bind(key, action)
+    end
+    --bind all the joystick buttons for player 2.
+    for key,action in pairs(bindings_o.player2.joystick) do
+        input2:bind(key, action)
+    end
 end
 
 -- usage: input:isKeyDown("attack") == true

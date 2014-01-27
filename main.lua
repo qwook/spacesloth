@@ -2,7 +2,6 @@
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"
-require("libs.json.json")
 class = require("libs.middleclass")
 
 Player = require("player")
@@ -175,41 +174,12 @@ function love.load()
 
     input = Input:new()
     input2 = Input:new()
+    if arg[2] == "dvorak" then
+        keyBoardLayout = "dvorak"
+    end
+    Input:loadKeyBindings()
 
     events = Events:new()
-
-    -- run love . dvorak for dvorak bindings
-    bindings_JSON = love.filesystem.read("config.json")
-    bindings_o    = json.decode(bindings_JSON)
-    
-    if arg[2] == "dvorak" then   
-        --bind all the dvorak keys for player 1.
-        for key,action in pairs(bindings_o.player1.dvorak) do
-            input:bind(key, action)
-        end
-        --bind all the dvorak keys for player 2.
-        for key,action in pairs(bindings_o.player2.dvorak) do
-            input2:bind(key, action)
-        end
-    else
-        --bind all the qwerty keys for player 1.
-        for key,action in pairs(bindings_o.player1.qwerty) do
-            input:bind(key, action)
-        end
-        --bind all the qwerty keys for player 2.
-        for key,action in pairs(bindings_o.player2.qwerty) do
-            input2:bind(key, action)
-        end
-    end
-    --bind all the joystick buttons for player 1.
-    for key,action in pairs(bindings_o.player1.joystick) do
-        input:bind(key, action)
-    end
-    --bind all the joystick buttons for player 2.
-    for key,action in pairs(bindings_o.player2.joystick) do
-        input2:bind(key, action)
-    end
-
     reset()
 
 end
