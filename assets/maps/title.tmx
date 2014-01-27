@@ -67,7 +67,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt2TFOAkEUgOG3N6HHRitigTRewBN4FCovYGXHQSxsvQVH8AImvhFXjboYGZZd4vclryDRsOzsz8ASAQAAAAAAAAAAAAAAAAAAfHXSxHLaRLRzE7vNaROrAQ6fLXJNJrk2y11m2nxMXiP/Vr7+61m+/tuom4vsQyPjUdrINZnk2ixrZrZpZD306xlK6aO2jTKlMY2MQ9tGubZr+7gNfeyrjzKXb5/T5jo5uDznk/J5KNfg9X1fH/X23Uc7ZS/RyOHMP+0ZM33sTV99aORwutrQR70++9BI/7a1oY96J0083ET95DnsnKvs5Dwb6Wvae9NneT0MfT5bZ5tjer0/msc46WuuNs+x6Jpcm+rJa2Qx9Plkd6e5B+Z30odyb2AM98/K/aPLzffkxV2+dwx9PDCWRrTBWP3WyH3E9WPEqp18/O1vujzl/z5HrNvJx+sfnl8bjNpQ+4g2OBZdjbztAe/z9If9Y9veow2OzaH2EW1wrD43Mu1ptMExK41s+21mD6MNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACo9AJW45ee
+   eJzt2cFt4kAUgOHnTrjDhZzQHrJc0kAqSCmcaCANpJA9cN0uKIEGVto3IU6iJGa1DMa28n3SOyAlAnv8M2AiAAAAAAAAAAAAAAAAAACAjxZNbOZNRDvbOG+WTTwN8PI5IddklmuzOWfmzdvkNfJt5fE/rPL4H6NufmYfGhmP0kauySzXZlMzq2Mj+6GPZyilj9o2ypTGNDIObRvl2q7t4zH0cak+yty9fE671cnV5Tmflc9DuQbP7/v6qHfpPtope4lGruf23Z6x0sfF9NWHRq6nqw191OuzD43071Qb+qi3aGK3jfrJc9g599nJj2ykr2nvTd/k9TD0+WzdHF/T8/3RfI2zvub++Bzrrsm1qZ68RtZDn0/Ot8w9ML+T7sq9gTHcPyv3j+6O35PXy2/83st4jKURbTBW/2rkV8TD74indvLxp7/pcsj//ROxbycf7794fm0wakPtI9pgKroaedkDXufwH/vHqb1HG0zNtfYRbTBV7xuZ9zTaYMpKI6d+m7nAlDZ2Qx8nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABM2V8AY5VG
   </data>
  </layer>
  <layer name="BlueLayer" width="200" height="100" visible="0">
@@ -83,7 +83,7 @@
  <objectgroup name="Objects" width="200" height="100">
   <object name="player1" gid="13" x="533" y="467"/>
   <object name="player2" gid="13" x="594" y="462"/>
-  <object type="TitleScreen" gid="4" x="2538" y="764"/>
+  <object type="TitleScreen" gid="4" x="2542" y="838"/>
   <object name="player2" gid="351" x="2273" y="521"/>
   <object name="player1" gid="355" x="2754" y="524"/>
   <object name="teleporter_prop" type="Prop" gid="371" x="2528" y="1057">
@@ -104,7 +104,7 @@
     <property name="string" value="Both touch the teleporter to start!"/>
    </properties>
   </object>
-  <object name="muzak" x="1963" y="439" width="66" height="63">
+  <object name="MUZAC" x="522" y="210" width="90" height="77">
    <properties>
     <property name="onspawn" value="global:playMusic(crap_d1.ogg, 0.1)"/>
    </properties>
