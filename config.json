@@ -15,7 +15,8 @@
 			"a" : "left",
 			"d" : "right",
 			"w" : "jump",
-			"s" : "crouch"
+			"s" : "crouch",
+			"p" : "select"
 		},
 		
 		"joystick" :

@@ -149,6 +149,11 @@ function love.draw()
         love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
     end
 
+    if pausing then
+        love.graphics.setColor(0, 0, 0, 100)
+        love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+    end
+
     -- local w, h = 100, 100
 
     -- local vertices = {}

@@ -256,11 +256,6 @@ function Player:update(dt)
         end
     end
 
-    if (self.controller:isKeyDown("start") and self.controller:wasKeyPressed("select")) or
-        (self.controller:wasKeyPressed("start") and self.controller:isKeyDown("select")) then
-        reset() -- this is just a global function that will reset the entire level
-    end
-
 end
 
 function Player:draw()
