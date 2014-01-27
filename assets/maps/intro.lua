@@ -874,6 +874,19 @@ return {
             ["spriteheight"] = "64",
             ["spritewidth"] = "64"
           }
+        },
+        {
+          name = "muzak",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 236,
+          width = 66,
+          height = 63,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global:playMusic(crap_d1.ogg, 0.1)"
+          }
         }
       }
     },

@@ -201,7 +201,7 @@
     <property name="string" value="Is your friend stuck? Here's a tip: you can jump on another player!"/>
    </properties>
   </object>
-  <object name="teleporter_prop" type="Prop" gid="371" x="2623" y="1150">
+  <object name="teleporter_prop" type="Prop" x="2623" y="1150">
    <properties>
     <property name="onspawn" value="teleporter_prop:loopAnimation(0, 0, 3, 3)"/>
     <property name="sprite" value="teleporter.png"/>
@@ -215,6 +215,11 @@
     <property name="sprite" value="npc/bull.png"/>
     <property name="spriteheight" value="64"/>
     <property name="spritewidth" value="64"/>
+   </properties>
+  </object>
+  <object name="muzak" x="48" y="236" width="66" height="63">
+   <properties>
+    <property name="onspawn" value="global:playMusic(crap_d1.ogg, 0.1)"/>
    </properties>
   </object>
  </objectgroup>
