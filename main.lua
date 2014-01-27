@@ -40,6 +40,11 @@ end
 
 ----------------------------------------------------
 
+pausing = false
+
+----------------------------------------------------
+
+
 -- replace with tiled later
 local tempmap = {
     {1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0};
@@ -145,7 +150,11 @@ function reset()
     if arg[2] and DEBUG then 
         map = Map:new(arg[2])
     else
-        map = Map:new("assets/maps/title")
+        if not map then
+            map = Map:new("assets/maps/title")
+        else
+            map = Map:new(map.mapname)
+        end
     end
     
     map:spawnObjects()
@@ -155,6 +164,8 @@ function reset()
 end
 
 function love.load()
+
+    love.mouse.setVisible(false)
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setBackgroundColor(134, 200, 255)
@@ -204,6 +215,10 @@ function love.load()
 end
 
 function love.keypressed(key, isrepeat)
+    if key == "escape" then
+        love.event.quit()
+    end
+
     if not isrepeat then
         input:eventKeyPressed(key)
         input2:eventKeyPressed(key)

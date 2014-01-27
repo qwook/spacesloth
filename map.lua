@@ -8,6 +8,7 @@ Physical = require("physical")
 Map = class("Map", Physical)
 
 function Map:initialize(mapname)
+    self.mapname = mapname
     self.map = {}
     self.objects = {}
 

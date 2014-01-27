@@ -168,19 +168,6 @@ return {
       imageheight = 128,
       properties = {},
       tiles = {}
-    },
-    {
-      name = "object_tilemap",
-      firstgid = 351,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "../sprites/object_tilemap.png",
-      imagewidth = 128,
-      imageheight = 192,
-      properties = {},
-      tiles = {}
     }
   },
   layers = {
@@ -617,8 +604,8 @@ return {
           name = "tramp1",
           type = "Prop",
           shape = "rectangle",
-          x = 576,
-          y = 608,
+          x = 574,
+          y = 605,
           width = 0,
           height = 0,
           gid = 293,
@@ -633,7 +620,7 @@ return {
           name = "tramp2",
           type = "Prop",
           shape = "rectangle",
-          x = 768,
+          x = 769,
           y = 672,
           width = 0,
           height = 0,
@@ -649,8 +636,8 @@ return {
           name = "tramp4",
           type = "Prop",
           shape = "rectangle",
-          x = 1824,
-          y = 672,
+          x = 1827,
+          y = 669,
           width = 0,
           height = 0,
           gid = 293,
@@ -671,7 +658,7 @@ return {
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp1:playAnimation(0,1,2,0.5)"
           }
         },
         {
@@ -684,7 +671,7 @@ return {
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp2:playAnimation(0,1,2,0.5)"
           }
         },
         {
@@ -697,20 +684,20 @@ return {
           height = 15,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp3:playAnimation(0,1,2,0.5)"
           }
         },
         {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1797,
-          y = 657,
+          x = 1794,
+          y = 658,
           width = 64,
           height = 13,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5);global:playSound(thwap.wav)"
+            ["ontrigger"] = "activator:setVelocity(0,-750);tramp4:playAnimation(0,1,2,0.5)"
           }
         },
         {
@@ -757,7 +744,7 @@ return {
           type = "Prop",
           shape = "rectangle",
           x = 1297,
-          y = 401,
+          y = 410,
           width = 0,
           height = 0,
           gid = 16,
@@ -791,7 +778,7 @@ return {
           type = "Text",
           shape = "rectangle",
           x = 304,
-          y = 435,
+          y = 488,
           width = 171,
           height = 69,
           visible = true,
@@ -863,7 +850,6 @@ return {
           y = 1150,
           width = 0,
           height = 0,
-          gid = 371,
           visible = true,
           properties = {
             ["onspawn"] = "teleporter_prop:loopAnimation(0, 0, 3, 3)",
@@ -873,16 +859,33 @@ return {
           }
         },
         {
-          name = "MUZAC",
-          type = "",
+          name = "bull",
+          type = "Prop",
           shape = "rectangle",
-          x = 117,
-          y = 40,
-          width = 63,
-          height = 60,
+          x = 1735,
+          y = 426,
+          width = 0,
+          height = 0,
+          gid = 16,
           visible = true,
           properties = {
-            ["onspawn"] = "global:playMusic(crap2_d1.ogg)"
+            ["onspawn"] = "bull:loopAnimation(0,0,9,1)",
+            ["sprite"] = "npc/bull.png",
+            ["spriteheight"] = "64",
+            ["spritewidth"] = "64"
+          }
+        },
+        {
+          name = "muzak",
+          type = "",
+          shape = "rectangle",
+          x = 48,
+          y = 236,
+          width = 66,
+          height = 63,
+          visible = true,
+          properties = {
+            ["onspawn"] = "global:playMusic(crap_d1.ogg, 0.1)"
           }
         }
       }

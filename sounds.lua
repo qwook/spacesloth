@@ -7,7 +7,7 @@ end
 
 function playSound(name, volume)
     soundLibrary[name] = soundLibrary[name] or love.audio.newSource("assets/sounds/" .. name)
-    soundLibrary[name]:setVolume(volume)
+    soundLibrary[name]:setVolume(volume or 1)
     soundLibrary[name]:play()
 end
 
