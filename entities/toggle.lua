@@ -6,8 +6,8 @@ Toggle = class("Toggle", PhysBox)
 function Toggle:initialize()
     PhysBox.initialize(self)
 
-    self.spritesheet1 = SpriteSheet:new("assets/sprites/switch_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("assets/sprites/switch_green.png", 32, 32)
+    self.spritesheet1 = SpriteSheet:new("sprites/switch_blue.png", 32, 32)
+    self.spritesheet2 = SpriteSheet:new("sprites/switch_green.png", 32, 32)
 end
 
 function Toggle:initPhysics()

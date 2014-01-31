@@ -6,8 +6,8 @@ Button = class("Button", PhysBox)
 function Button:initialize()
     PhysBox.initialize(self)
 
-    self.spritesheet1 = SpriteSheet:new("assets/sprites/button_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("assets/sprites/button_green.png", 32, 32)
+    self.spritesheet1 = SpriteSheet:new("sprites/button_blue.png", 32, 32)
+    self.spritesheet2 = SpriteSheet:new("sprites/button_green.png", 32, 32)
 end
 
 function Button:initPhysics()

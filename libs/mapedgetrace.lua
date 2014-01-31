@@ -25,6 +25,8 @@ local function traceTiles(tiles,w,h)
     local polylines = {}
     local polylinesCount = 0
     
+    print2(tiles)
+
     for x,row in pairs(tiles) do
         for y,value in pairs(row) do
             if (not get(tiles,x-1,y)) then --left

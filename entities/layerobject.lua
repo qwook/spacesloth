@@ -1,7 +1,4 @@
 
--- This is an empty entity. It's created when the map editor
--- Doesn't supply
-
 PhysBox = require("entities.physbox")
 
 Node = class("Node", PhysBox)

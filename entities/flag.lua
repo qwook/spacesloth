@@ -6,8 +6,8 @@ Flag = class("Flag", PhysBox)
 function Flag:initialize()
     PhysBox.initialize(self)
 
-    self.spritesheet1 = SpriteSheet:new("assets/sprites/Flag_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("assets/sprites/Flag_green.png", 32, 32)
+    self.spritesheet1 = SpriteSheet:new("sprites/Flag_blue.png", 32, 32)
+    self.spritesheet2 = SpriteSheet:new("sprites/Flag_green.png", 32, 32)
 end
 
 function Flag:initPhysics()

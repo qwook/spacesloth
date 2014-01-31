@@ -1,3 +1,5 @@
+-------------------------------
+-- Cache, load, and play sounds
 
 local soundLibrary = {}
 
@@ -11,9 +13,10 @@ function playSound(name, volume)
     soundLibrary[name]:play()
 end
 
+------------------------------
+-- Cache, load, and play music
 
 local musicLibrary = {}
-
 
 function cacheMusic(name)
     musicLibrary[name] = musicLibrary[name] or love.audio.newSource("assets/music/" .. name)

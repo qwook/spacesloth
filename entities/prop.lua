@@ -11,7 +11,7 @@ function Prop:postSpawn()
     self.animlife = 0
     self.spritewidth = tonumber(self.spritewidth)
     self.spriteheight = tonumber(self.spriteheight)
-    self.spritesheet = SpriteSheet:new("assets/sprites/" .. self.sprite, self.spritewidth, self.spriteheight)
+    self.spritesheet = SpriteSheet:new("sprites/" .. self.sprite, self.spritewidth, self.spriteheight)
 
     -- local x, y = self:getPosition()
     -- self:setPosition(x + self.spritewidth, y)

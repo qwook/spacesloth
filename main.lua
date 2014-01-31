@@ -27,6 +27,7 @@ Fonz =          require("entities.npc.fonz")
 require("core.update")
 require("core.draw")
 require("core.sounds")
+require("core.cache")
 
 ----------------------------------------------------
 
@@ -181,30 +182,4 @@ function love.load()
     events = Events:new()
     reset()
 
-end
-
-function love.keypressed(key, isrepeat)
-    if key == "escape" then
-        love.event.quit()
-    end
-
-    if not isrepeat then
-        input:eventKeyPressed(key)
-        input2:eventKeyPressed(key)
-    end
-end
-
-function love.keyreleased(key)
-    input:eventKeyReleased(key)
-    input2:eventKeyReleased(key)
-end
-
-function love.joystickpressed( joystick, button )
-    input:eventJoyPressed(joystick:getID() .. "_" .. button)
-    input2:eventJoyPressed(joystick:getID() .. "_" .. button)
-end
-
-function love.joystickreleased( joystick, button )
-    input:eventJoyReleased(joystick:getID() .. "_" .. button)
-    input2:eventJoyReleased(joystick:getID() .. "_" .. button)
 end

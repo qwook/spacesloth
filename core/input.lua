@@ -119,7 +119,6 @@ function Input:eventKeyReleased(key)
 end
 
 function Input:eventJoyPressed(key)
-    print("joy_" .. key)
     local in_key = self.binds["joy_" .. key]
 
     if in_key == nil then return end
@@ -137,6 +136,66 @@ end
 
 function Input:bind(key, in_key)
     self.binds[key] = in_key
+end
+
+
+function love.keypressed(key, isrepeat)
+    if key == "escape" then
+        love.event.quit()
+    end
+
+    if not isrepeat then
+        input:eventKeyPressed(key)
+        input2:eventKeyPressed(key)
+    end
+end
+
+function love.keyreleased(key)
+    input:eventKeyReleased(key)
+    input2:eventKeyReleased(key)
+end
+
+function love.joystickpressed( joystick, button )
+    input:eventJoyPressed(joystick:getID() .. "_" .. button)
+    input2:eventJoyPressed(joystick:getID() .. "_" .. button)
+end
+
+function love.joystickreleased( joystick, button )
+    input:eventJoyReleased(joystick:getID() .. "_" .. button)
+    input2:eventJoyReleased(joystick:getID() .. "_" .. button)
+end
+
+lastAxes = {}
+
+function joystickUpdate(dt)
+
+    local joysticks = love.joystick.getJoysticks()
+
+    -- ipairs is like pairs but for arrays
+    for _, joystick in ipairs(joysticks) do
+        for i = 1, joystick:getAxisCount() do
+            local axis = joystick:getAxis(i)
+            local lastAxes = lastAxes[joystick:getID() .. "_" .. i] or 0
+            if (axis > 0) and (lastAxes <= 0) then
+                input:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+            elseif (axis < 0) and (lastAxes >= 0) then
+                input:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+            elseif (axis == 0) and (lastAxes ~= 0) then
+                input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
+                input2:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
+            end
+            lastAxes[joystick:getID() .. "_" .. i] = axis
+        end
+    end
+
 end
 
 return Input

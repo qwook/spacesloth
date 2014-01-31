@@ -88,7 +88,7 @@
 			"right" : "right",
 			"down"  : "crouch",
 			"k" 	: "jump",
-			"," 	: "crouch",
+			"," 	: "crouch"
 		}
 	}
 }

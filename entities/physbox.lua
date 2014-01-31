@@ -10,7 +10,7 @@ function PhysBox:initialize()
     self.visible = true
     self.frozen = false
 
-    self.spritesheet = SpriteSheet:new("assets/sprites/box_generic.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("sprites/box_generic.png", 32, 32)
 
     self.type = "PHYSBOX"
 
@@ -50,7 +50,6 @@ function PhysBox:eval(str, activator)
     end
 
     for k, obj in pairs(objs) do
-
         if (obj.call) then
             obj:call(event, args)
         end

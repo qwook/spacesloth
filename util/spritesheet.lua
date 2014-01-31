@@ -2,7 +2,7 @@
 SpriteSheet = class("SpriteSheet")
 
 function SpriteSheet:initialize(img, w, h)
-    self.image = love.graphics.newImage(img)
+    self.image = loadImage(img)
     self.w = w
     self.h = h
 

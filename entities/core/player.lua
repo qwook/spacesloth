@@ -19,7 +19,7 @@ function Player:initialize()
     self.type = "PLAYER"
     self.collisiongroup = "blue"
 
-    self.spritesheet = SpriteSheet:new("assets/sprites/players.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
     self.expression = 0
    
     self.isother = false
