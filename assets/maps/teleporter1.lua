@@ -644,7 +644,7 @@ return {
           height = 55,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:teleportTo(t3)"
+            ["ontrigger"] = "activator:teleportTo(t3);activator:setVelocity(0,0)"
           }
         },
         {
@@ -668,8 +668,8 @@ return {
           name = "t3",
           type = "",
           shape = "rectangle",
-          x = 639,
-          y = 963,
+          x = 668,
+          y = 943,
           width = 41,
           height = 32,
           visible = true,

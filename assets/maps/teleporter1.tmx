@@ -106,7 +106,7 @@
   </object>
   <object type="Trigger" x="995" y="546" width="24" height="55">
    <properties>
-    <property name="ontrigger" value="activator:teleportTo(t3)"/>
+    <property name="ontrigger" value="activator:teleportTo(t3);activator:setVelocity(0,0)"/>
    </properties>
   </object>
   <object name="tele" type="Prop" gid="195" x="993" y="577">
@@ -117,7 +117,7 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="t3" x="639" y="963" width="41" height="32"/>
+  <object name="t3" x="668" y="943" width="41" height="32"/>
   <object type="Trigger" x="635" y="1013" width="40" height="13">
    <properties>
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp1:playAnimation(0,1,2,0.5)"/>
