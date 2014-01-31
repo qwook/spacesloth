@@ -34,7 +34,6 @@ function Map:generateTileCollision(layername, collisiongroup)
     for y, row in pairs(collision) do
         for x, tile in pairs(row) do
             if (tile == 1) then
-                print2(self.tiledmap.layers[layername].data[y][x])
                 if self.tiledmap.layers[layername].data[y][x].properties then
                     local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
                     if colshape == "1" then
