@@ -11,8 +11,10 @@ Events =        require("core.events")
 Player =        require("entities.core.player")
 Map =           require("entities.core.map")
 Node =          require("entities.core.node")
+Camera =        require("entities.camera")
 TitleScreen =   require("entities.core.titlescreen")
 Text =          require("entities.core.text")
+Timer =          require("entities.timer")
 
 PhysBox =       require("entities.physbox")
 Button =        require("entities.button")
@@ -131,6 +133,10 @@ function contactFilter(fixture1, fixture2)
 end
 
 function changeMap(mapname)
+    if world then
+        world:destroy()
+    end
+
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setContactFilter(contactFilter)
@@ -145,6 +151,9 @@ function changeMap(mapname)
 end
 
 function reset()
+    if world then
+        world:destroy()
+    end
 
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)

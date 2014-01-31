@@ -13,6 +13,8 @@ function love.update(dt)
     input:update(dt)
     input2:update(dt)
 
+    cameraLife = cameraLife - dt
+
     if input:wasKeyPressed("select") or input2:wasKeyPressed("select") then
         pausing = not pausing
     end

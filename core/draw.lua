@@ -8,11 +8,13 @@ local camera2_x, camera2_y = 0, 0
 local CAM_MAX_HORIZONTAL = 100
 local CAM_MAX_VERTICAL = 100
 
+cameraLife = 0
+
 local function drawSingleScreen()
 
     for i, object in pairs(map.objects) do
         if object.isCamera then
-            camera1_x, camera1_y = object:getPosition()
+            camera1_x, camera1_y = object:getCameraPosition()
         end
     end
 
@@ -57,16 +59,35 @@ local function drawSplitScreen()
     local p1x, p1y = player:getPosition()
     local p2x, p2y = player2:getPosition()
 
-    local dT = love.timer.getDelta()
+    local goal1x, goal1y = p1x, p1y
+    local goal2x, goal2y = p2x, p2y
 
-    camera1_x, camera1_y = MoveCamera2D(camera1_x, camera1_y, p1x, p1y, dT);
-    camera2_x, camera2_y = MoveCamera2D(camera2_x, camera2_y, p2x, p2y, dT);
+    local timestepScale = 1
 
-    camera1_x = math.clamp(camera1_x, p1x - CAM_MAX_HORIZONTAL, p1x + CAM_MAX_HORIZONTAL)
-    camera1_y = math.clamp(camera1_y, p1y - CAM_MAX_VERTICAL, p1y + CAM_MAX_VERTICAL)
+    -- custom camera object
+    for i, object in pairs(map.objects) do
+        if object.isCamera and object.activated then
+            goal1x, goal1y = object:getCameraPosition()
+            goal2x, goal2y = object:getCameraPosition()
+            timestepScale = 0.25
+            cameraLife = 1 -- keep refreshing the camera life everytime we draw
+            -- so that when we dont have a camera, we just ease ourself back in.
+        end
+    end
 
-    camera2_x = math.clamp(camera2_x, p2x - CAM_MAX_HORIZONTAL, p2x + CAM_MAX_HORIZONTAL)
-    camera2_y = math.clamp(camera2_y, p2y - CAM_MAX_VERTICAL, p2y + CAM_MAX_VERTICAL)
+    local dT = love.timer.getDelta() * timestepScale
+
+    camera1_x, camera1_y = MoveCamera2D(camera1_x, camera1_y, goal1x, goal1y, dT);
+    camera2_x, camera2_y = MoveCamera2D(camera2_x, camera2_y, goal2x, goal2y, dT);
+
+    -- make it so if the player goes faster the the camera
+    -- we snap the camera.
+    if cameraLife <= 0 then
+        camera1_x = math.clamp(camera1_x, p1x - CAM_MAX_HORIZONTAL, p1x + CAM_MAX_HORIZONTAL)
+        camera1_y = math.clamp(camera1_y, p1y - CAM_MAX_VERTICAL, p1y + CAM_MAX_VERTICAL)
+        camera2_x = math.clamp(camera2_x, p2x - CAM_MAX_HORIZONTAL, p2x + CAM_MAX_HORIZONTAL)
+        camera2_y = math.clamp(camera2_y, p2y - CAM_MAX_VERTICAL, p2y + CAM_MAX_VERTICAL)
+    end
 
     local bg_ratio = love.graphics.getHeight()/map.background:getHeight()
 

@@ -26,7 +26,8 @@ function TitleScreen:getPosition()
     return self.x, self.y
 end
 
-function TitleScreen:isTouchingPlayer()
+function TitleScreen:getCameraPosition(x, y)
+    return self.x, self.y
 end
 
 function TitleScreen:update(dt)

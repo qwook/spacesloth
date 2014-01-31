@@ -23,10 +23,12 @@ end
 
 function PhysBox:eval(str, activator)
     local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%)]*)%)")
+
+    if not name then print("[map syntax error] no name") return end
+    if not event then print("[map syntax error] no event") return end
+
     name = string.lower(name)
     event = string.lower(event)
-
-    if not name or not event or not arg then return end
 
     local args = {}
     string.gsub(arg, "[^, ]+", function(a) table.insert(args, a) end)
@@ -38,6 +40,8 @@ function PhysBox:eval(str, activator)
             events[event](events[event], unpack(args))
         end
         return
+    elseif name == "self" then
+        objs = {self}
     elseif name == "player1" then
         objs = {player}
     elseif name == "player2" then
@@ -52,6 +56,10 @@ function PhysBox:eval(str, activator)
         end
     end
 
+    if #objs == 0 then
+        print("[map warning] no such object named: " .. name)
+    end
+
     for k, obj in pairs(objs) do
         if (obj.call) then
             obj:call(event, args)
@@ -61,13 +69,15 @@ function PhysBox:eval(str, activator)
 end
 
 function PhysBox:call(name, args)
-    if self["event_" .. name] then
-        self["event_" .. name](self, unpack(args))
+    if self["event_" .. name:lower()] then
+        self["event_" .. name:lower()](self, unpack(args))
+    else
+        print("[map warning] no such event named: " .. name)
     end
 end
 
 function PhysBox:trigger(event, activator)
-    local n = self[string.lower(event)]
+    local n = self[event:lower()]
     if n then
         local events = {}
         string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
@@ -79,6 +89,16 @@ end
 
 function PhysBox:destroy()
     table.removevalue(map.objects, self)
+
+    if self.fixture then
+        self.fixture:destroy()
+    end
+    if self.body then
+        self.body:destroy()
+    end
+    self.body = nil
+    self.fixture = nil
+    self.shape = nil
 end
 
 function PhysBox:initPhysics()
@@ -94,6 +114,10 @@ function PhysBox:initPhysics()
 
     self.fixture:setUserData(self)
     self.fixture:setFriction(0.1)
+end
+
+function PhysBox:event_destroy()
+    self:destroy()
 end
 
 function PhysBox:event_teleportto(name)
@@ -134,7 +158,7 @@ function PhysBox:event_setvisible(visible)
         self.visible = true
     elseif visible == "false" then
         if self.visible then
-            if not self.frozenJoint then
+            if not self.frozenJoint and self.body then
                 local x, y = self:getPosition()
                 self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
             end

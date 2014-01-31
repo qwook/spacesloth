@@ -1905,7 +1905,7 @@ return {
           height = 71,
           visible = true,
           properties = {
-            ["ontrigger"] = "activator:teleportTo(point1)"
+            ["ontrigger"] = "camera1:setActivated(true);dialogue1:type();self:destroy();timer1:start()"
           }
         },
         {
@@ -2196,6 +2196,47 @@ return {
           height = 119,
           visible = true,
           properties = {}
+        },
+        {
+          name = "camera1",
+          type = "Camera",
+          shape = "rectangle",
+          x = 699,
+          y = 72,
+          width = 0,
+          height = 0,
+          gid = 4,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "dialogue1",
+          type = "Text",
+          shape = "rectangle",
+          x = 621,
+          y = 21,
+          width = 114,
+          height = 59,
+          visible = true,
+          properties = {
+            ["onspawn"] = "dialogue1:setVisible(false)",
+            ["string"] = "Well this could be some cool hint dialogue thing"
+          }
+        },
+        {
+          name = "timer1",
+          type = "Timer",
+          shape = "rectangle",
+          x = 665,
+          y = 69,
+          width = 0,
+          height = 0,
+          gid = 116,
+          visible = true,
+          properties = {
+            ["onEnd"] = "camera1:setActivated(false);self:destroy()",
+            ["time"] = "4"
+          }
         }
       }
     }

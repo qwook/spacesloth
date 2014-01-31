@@ -71,6 +71,21 @@ end
 
 function Trigger:endContact(other, contact, isother)
     table.removeonevalue( self.touching, other )
+    if (self.filter and self.filter == other.name) or (not self.filter and other.type == "PLAYER") then
+        self:trigger("ontriggerend", other)
+        local pls = {}
+        for k,v in pairs(self.touching) do
+            if v.type == "PLAYER" then
+                pls[v] = true
+            end
+        end
+
+        local plcount = 0
+        for k, v in pairs(pls) do plcount = plcount + 1 end
+        if plcount == 0 then
+            self:trigger("onbothplayersend", other)
+        end
+    end
 end
 
 return Trigger

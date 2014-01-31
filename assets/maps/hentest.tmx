@@ -166,7 +166,7 @@
   <object name="point1" gid="117" x="820" y="24"/>
   <object type="Trigger" x="517" y="211" width="84" height="71">
    <properties>
-    <property name="ontrigger" value="activator:teleportTo(point1)"/>
+    <property name="ontrigger" value="camera1:setActivated(true);dialogue1:type();self:destroy();timer1:start()"/>
    </properties>
   </object>
   <object type="Platform" x="430" y="106" width="69" height="9"/>
@@ -243,5 +243,18 @@
   <object name="fuckery" type="PhysBox" x="174" y="37" width="120" height="72"/>
   <object name="fuckery" type="PhysBox" x="497" y="2" width="31" height="43"/>
   <object name="fuckery" type="PhysBox" x="553" y="-7" width="31" height="119"/>
+  <object name="camera1" type="Camera" gid="4" x="699" y="72"/>
+  <object name="dialogue1" type="Text" x="621" y="21" width="114" height="59">
+   <properties>
+    <property name="onspawn" value="dialogue1:setVisible(false)"/>
+    <property name="string" value="Well this could be some cool hint dialogue thing"/>
+   </properties>
+  </object>
+  <object name="timer1" type="Timer" gid="116" x="665" y="69">
+   <properties>
+    <property name="onEnd" value="camera1:setActivated(false);self:destroy()"/>
+    <property name="time" value="4"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

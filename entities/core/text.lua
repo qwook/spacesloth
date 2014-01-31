@@ -5,8 +5,20 @@ Text = class("Text", PhysBox)
 
 function Text:initialize(x, y, w, h)
     PhysBox.initialize(self)
+    self.string = ""
     self.width = w
     self.height = h
+    self.typing = false
+    self.typeprogr = 0
+    self.nexttype = 0
+end
+
+function Text:event_type()
+    self:event_setvisible("true")
+
+    self.typing = true
+    self.typeprogr = 0
+    self.nexttype = 0.05
 end
 
 function Text:initPhysics()
@@ -27,6 +39,13 @@ function Text:getAngle()
 end
 
 function Text:update(dt)
+    if self.typing and self.typeprogr <= self.string:len() then
+        self.nexttype = self.nexttype - dt
+        if (self.nexttype <= 0) then
+            self.nexttype = 0.05
+            self.typeprogr = self.typeprogr + 1
+        end
+    end
 end
 
 function Text:draw()
@@ -47,7 +66,7 @@ function Text:draw()
     love.graphics.rectangle('line', 0, 0, self.width, height + 20)
 
     love.graphics.setColor(255, 255, 255, 255)
-    love.graphics.printf(self.string, 10, 10, self.width - 20)
+    love.graphics.printf(self.string:sub(0, self.typeprogr), 10, 10, self.width - 20)
 
     love.graphics.pop()
 end
