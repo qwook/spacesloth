@@ -87,6 +87,9 @@ function Text:drawSquiggle(w, h)
     love.graphics.setColor(0, 0, 0)
     love.graphics.polygon('fill', vertices)
 
+    -- revert the randomseed back.
+    math.randomseed(love.timer.getTime())
+
 end
 
 function Text:draw()

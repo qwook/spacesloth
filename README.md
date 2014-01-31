@@ -1,6 +1,8 @@
 #Map API
+
 ---
 ##Global
+This is a special object that can be accessed with the name "global". You cannot spawn it and you cannot access it's properties, but you can call methods on it.
 #####Methods
 `swapCollision(  )`  
 `changeMap( string )`  
@@ -9,9 +11,6 @@
 
 ##Player
 #####Methods
-`swapCollision(  )`  
-`changeMap( string )`  
-`playSound( name[, volume]) )`  
 `multiplyVelocity( x, y )`  
 `addVelocity( x, y )`  
 `setVelocity( x, y )`  
