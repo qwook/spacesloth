@@ -5,7 +5,6 @@ SpriteSheet = require("util.spritesheet")
 Bull = class("Bull", Physical)
 
 function Bull:initialize()
-    self:initPhysics()
     self.spritesheet = SpriteSheet:new("assets/Bull.png", 256, 256)
 
     table.insert(map.objects, self)

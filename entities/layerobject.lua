@@ -7,6 +7,11 @@ function LayerObject:initialize()
     PhysBox.initialize(self)
 end
 
+function LayerObject:postSpawn()
+    print(self.collision)
+    print(self.display)
+end
+
 function LayerObject:initPhysics()
 end
 

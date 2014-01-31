@@ -4,9 +4,9 @@ PhysBox = require("entities.physbox")
 Text = class("Text", PhysBox)
 
 function Text:initialize(x, y, w, h)
+    PhysBox.initialize(self)
     self.width = w
     self.height = h
-    PhysBox.initialize(self)
 end
 
 function Text:initPhysics()

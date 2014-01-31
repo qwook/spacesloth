@@ -85,7 +85,7 @@ function Map:generateTileCollision(layername, collisiongroup)
 end
 
 function Map:spawnObjects()
-    for _, v in pairs(self:getObjectsLayer("Objects")) do
+    for _, v in ipairs(self:getObjectsLayer("Objects")) do
         -- spawnpoint for player 1
         if v.name == "player1" then
             player = Player:new()
@@ -108,7 +108,6 @@ function Map:spawnObjects()
         end
 
         local instance = c:new(v.x, v.y, v.width, v.height)
-        instance:setPosition(v.x + 16, v.y + 16)
         instance.name = v.name
         instance.brushz = v.x
         instance.brushy = v.y
@@ -117,9 +116,10 @@ function Map:spawnObjects()
         for prop, val in pairs(v.properties) do
             instance[prop] = val
         end
+        instance:initPhysics()
+        instance:setPosition(v.x + 16, v.y + 16)
         instance:postSpawn()
         instance:trigger("onspawn")
-            
     end
 end
 

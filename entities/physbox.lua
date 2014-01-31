@@ -4,12 +4,13 @@ Physical = require("entities.core.physical")
 PhysBox = class("PhysBox", Physical)
 
 function PhysBox:initialize()
-    self:initPhysics()
     self.contacts = {}
     self.touching = {}
     self.visible = true
     self.frozen = false
 
+    self.width = 32
+    self.height = 32
     self.spritesheet = SpriteSheet:new("sprites/box_generic.png", 32, 32)
 
     self.type = "PHYSBOX"
@@ -82,7 +83,13 @@ end
 
 function PhysBox:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    self.shape = love.physics.newRectangleShape(32, 32)
+    if self.brushw > 0 and self.brushh > 0 then
+        self.width = self.brushw
+        self.height = self.brushh
+        self.shape = love.physics.newRectangleShape(self.brushw, self.brushh)
+    else
+        self.shape = love.physics.newRectangleShape(32, 32)
+    end
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -164,8 +171,8 @@ function PhysBox:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(255, 255, 255)
-    -- love.graphics.rectangle('fill', -16, -16, 32, 32)
-    self.spritesheet:draw(0, 0, -16, -16)
+    -- love.graphics.rectangle('fill', -self.width/2, -self.height/2, 32, 32)
+    self.spritesheet:draw(0, 0, -self.width/2, -self.height/2, 0, self.width/32, self.height/32)
 
     love.graphics.pop()
 end

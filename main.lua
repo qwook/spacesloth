@@ -19,6 +19,7 @@ Button =        require("entities.button")
 Toggle =        require("entities.toggle")
 Trigger =       require("entities.trigger")
 Prop =          require("entities.prop")
+LayerObject =   require("entities.layerobject")
 
 Bull =          require("entities.npc.bull")
 BlueBall =      require("entities.npc.blueball")
@@ -59,6 +60,7 @@ local tempmap = {
 function beginContact(fixture1, fixture2, contact)
     local physical1 = fixture1:getUserData()
     local physical2 = fixture2:getUserData()
+
 
     physical1:beginContact(physical2, contact, false)
     physical2:beginContact(physical1, contact, true)

@@ -68,6 +68,36 @@
    eJztzrERABAABMFXkJ6UpkQNmKEFEoLd5NJLAIAbI2kz6bv99QsAAAD8qpbXBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOcWY9oErA==
   </data>
  </layer>
+ <layer name="SharedCollision" width="100" height="100" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEOgCAQRUGuzs1tLVSU3cRfzCRWyqp5Icwxxjxd5NAjix5Z9MhS7TEvrrv7q3VPc768f/efqt/SoaPHzrzVc5U5lR6Vb+mgx3qdHnp0rdej5s25+uXc1SOLHll291XnnK69fp5HDj2y6JFFjyx6ZNEjix4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8Dte9LFg==
+  </data>
+ </layer>
+ <layer name="BlueCollision" width="100" height="100" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJztw7ENAAAIA6C+7ueu3dwNJCQAwGUqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8NsC+pMBhA==
+  </data>
+ </layer>
+ <layer name="GreenCollision" width="100" height="100" opacity="0.28">
+  <data encoding="base64" compression="zlib">
+   eJztzKENAAAMw7C+vs/Hh4cqWwpNAgD95vT9BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHos1yIDiA==
+  </data>
+ </layer>
+ <layer name="Decoration" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEOgjAQBdDef8PCC7gkce/5TKMImioCRQZ9L/kbEpoyn2JiSkRy2HoDPNBHLLmPdutNcKePWPQRyxp9nBbc95wl6+xRtD5qraOPnj7mi9bHv3+vstzHOaVjrfX2PIsI2kKm9FPrveYqz7+5ZXhtLDXPFL3h70dTyLv7upSUzs2rUNdYN9/2yfmOtN9O7f8T13rmKfONNuMpDoOsZcq8fnHGe2DuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBcF4w1X0w=
+  </data>
+ </layer>
+ <layer name="custom_dlayer" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzkERACAMBLGTirQKqQFcgQuGTvLZ7yb8qpO1k7qt1y8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMcBAgD4g==
+  </data>
+ </layer>
+ <layer name="custom_clayer" width="100" height="100" opacity="0.33">
+  <data encoding="base64" compression="zlib">
+   eJztw7EJAAAIA7C+7ueuPcBFSCAJX00FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODGAjl2AYQ=
+  </data>
+ </layer>
  <objectgroup name="Objects" width="100" height="100">
   <object type="PhysBox" gid="290" x="1825" y="256"/>
   <object type="PhysBox" gid="290" x="1824" y="318"/>
@@ -204,25 +234,14 @@
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
+  <object name="poops" type="LayerObject" gid="16" x="381" y="60">
+   <properties>
+    <property name="collision" value="custom_clayer"/>
+    <property name="display" value="custom_dlayer"/>
+   </properties>
+  </object>
+  <object name="fuckery" type="PhysBox" x="174" y="37" width="120" height="72"/>
+  <object name="fuckery" type="PhysBox" x="497" y="2" width="31" height="43"/>
+  <object name="fuckery" type="PhysBox" x="553" y="-7" width="31" height="119"/>
  </objectgroup>
- <layer name="SharedCollision" width="100" height="100" opacity="0.48">
-  <data encoding="base64" compression="zlib">
-   eJzt1TEOgCAQRUGuzs1tLVSU3cRfzCRWyqp5Icwxxjxd5NAjix5Z9MhS7TEvrrv7q3VPc768f/efqt/SoaPHzrzVc5U5lR6Vb+mgx3qdHnp0rdej5s25+uXc1SOLHll291XnnK69fp5HDj2y6JFFjyx6ZNEjix4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8Dte9LFg==
-  </data>
- </layer>
- <layer name="BlueCollision" width="100" height="100" opacity="0.48">
-  <data encoding="base64" compression="zlib">
-   eJztw7ENAAAIA6C+7ueu3dwNJCQAwGUqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8NsC+pMBhA==
-  </data>
- </layer>
- <layer name="GreenCollision" width="100" height="100" opacity="0.28">
-  <data encoding="base64" compression="zlib">
-   eJztzKENAAAMw7C+vs/Hh4cqWwpNAgD95vT9BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHos1yIDiA==
-  </data>
- </layer>
- <layer name="Decoration" width="100" height="100">
-  <data encoding="base64" compression="zlib">
-   eJzt2EEOgjAQBdDef8PCC7gkce/5TKMImioCRQZ9L/kbEpoyn2JiSkRy2HoDPNBHLLmPdutNcKePWPQRyxp9nBbc95wl6+xRtD5qraOPnj7mi9bHv3+vstzHOaVjrfX2PIsI2kKm9FPrveYqz7+5ZXhtLDXPFL3h70dTyLv7upSUzs2rUNdYN9/2yfmOtN9O7f8T13rmKfONNuMpDoOsZcq8fnHGe2DuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBcF4w1X0w=
-  </data>
- </layer>
 </map>

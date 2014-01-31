@@ -4,10 +4,10 @@ PhysBox = require("entities.physbox")
 Trigger = class("Trigger", PhysBox)
 
 function Trigger:initialize(x, y, w, h)
+    PhysBox.initialize(self)
     self.width = w
     self.height = h
     self.touching = {}
-    PhysBox.initialize(self)
 end
 
 function Trigger:initPhysics()

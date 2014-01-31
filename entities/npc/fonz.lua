@@ -5,7 +5,6 @@ SpriteSheet = require("util.spritesheet")
 Fonz = class("Fonz", PhysBox)
 
 function Fonz:initialize()
-    self:initPhysics()
     self.spritesheet = SpriteSheet:new("assets/fonz.png", 256, 256)
 
     table.insert(map.objects, self)

@@ -18,14 +18,14 @@ function SpriteSheet:initialize(img, w, h)
     end
 end
 
-function SpriteSheet:draw(x, y, xoff, yoff)
+function SpriteSheet:draw(x, y, xoff, yoff, r, sx, sy)
     xoff = xoff or 0
     yoff = yoff or 0
 
     local quad = self.quads[(x + y * self.tw) + 1]
     if not quad then return end
 
-    love.graphics.draw(self.image, quad, xoff, yoff)
+    love.graphics.draw(self.image, quad, xoff, yoff, r, sx, sy)
 end
 
 return SpriteSheet
