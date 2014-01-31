@@ -209,7 +209,7 @@
   <object type="Trigger" x="3000" y="595" width="41" height="57">
    <properties>
     <property name="filter" value="fallingblocks"/>
-    <property name="ontrigger" value="activator:teleportTo(toblock1);activator:setVelocity(0,1)"/>
+    <property name="ontrigger" value="activator:teleportTo(toblock1);fallingblocks:setVelocity(0,1)"/>
    </properties>
   </object>
   <object name="toblock1" x="3001" y="105" width="23" height="18"/>
@@ -221,7 +221,7 @@
   <object type="Trigger" x="3095" y="597" width="41" height="57">
    <properties>
     <property name="filter" value="fallingblocks"/>
-    <property name="ontrigger" value="activator:teleportTo(block2to);activator:setVelocity(0,0)"/>
+    <property name="ontrigger" value="activator:teleportTo(block2to);fallingblocks:setVelocity(0,0)"/>
    </properties>
   </object>
   <object type="Trigger" x="3182" y="597" width="41" height="57">
@@ -245,7 +245,7 @@
   <object type="Trigger" x="3395" y="595" width="41" height="57">
    <properties>
     <property name="filter" value="fallingblocks"/>
-    <property name="ontrigger" value="activator:teleportTo(block6to);activator:setVelocity(0,0)"/>
+    <property name="ontrigger" value="activator:teleportTo(block6to);fallingBlocks:setVelocity(0,0)"/>
    </properties>
   </object>
   <object type="Toggle" gid="361" x="3488" y="480">
