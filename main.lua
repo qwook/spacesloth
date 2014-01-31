@@ -2,29 +2,31 @@
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"
-class = require("libs.middleclass")
 
-Player = require("player")
-Map = require("map")
-Tile = require("tile")
-Input = require("input")
-Events = require("events")
+class =         require("libs.middleclass")
 
-PhysBox = require("physbox")
-Node = require("entities.node")
-Fonz = require("entities.fonz")
-Button = require("entities.button")
-Toggle = require("entities.toggle")
-Bull = require("entities.bull")
-BlueBall = require("entities.blueball")
-Trigger = require("entities.trigger")
-Prop = require("entities.prop")
-TitleScreen = require("entities.titlescreen")
-Text = require("entities.text")
+Input =         require("core.input")
+Events =        require("core.events")
 
-require("update")
-require("draw")
-require("sounds")
+Player =        require("entities.core.player")
+Map =           require("entities.core.map")
+Node =          require("entities.core.node")
+TitleScreen =   require("entities.core.titlescreen")
+Text =          require("entities.core.text")
+
+PhysBox =       require("entities.physbox")
+Button =        require("entities.button")
+Toggle =        require("entities.toggle")
+Trigger =       require("entities.trigger")
+Prop =          require("entities.prop")
+
+Bull =          require("entities.npc.bull")
+BlueBall =      require("entities.npc.blueball")
+Fonz =          require("entities.npc.fonz")
+
+require("core.update")
+require("core.draw")
+require("core.sounds")
 
 ----------------------------------------------------
 
@@ -168,9 +170,6 @@ function love.load()
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
     love.graphics.setBackgroundColor(134, 200, 255)
-
-    -- music = love.audio.newSource("assets/music/crap_d1_sped_up.ogg")
-    -- love.audio.play(music)
 
     input = Input:new()
     input2 = Input:new()

@@ -1,9 +1,9 @@
 
-STI = require("libs.sti")
-traceTiles = require("mapedgetrace")
+STI =           require("libs.sti")
+traceTiles =    require("libs.mapedgetrace")
 
-Tile = require("tile")
-Physical = require("physical")
+Tile =          require("entities.core.tile")
+Physical =      require("entities.core.physical")
 
 Map = class("Map", Physical)
 

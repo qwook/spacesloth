@@ -1,6 +1,6 @@
 
-Physical = require("physical")
-SpriteSheet = require("spritesheet")
+Physical = require("entities.core.physical")
+SpriteSheet = require("util.spritesheet")
 
 BlueBall = class("BlueBall", Physical)
 

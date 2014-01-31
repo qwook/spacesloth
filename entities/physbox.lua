@@ -1,5 +1,5 @@
 
-Physical = require("physical")
+Physical = require("entities.core.physical")
 
 PhysBox = class("PhysBox", Physical)
 

@@ -79,3 +79,6 @@ function love.update(dt)
         table.remove(updateList, 1)
     end
 end
+
+function updateJoystickDetection()
+end
