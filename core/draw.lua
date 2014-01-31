@@ -198,39 +198,4 @@ function love.draw()
         love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
     end
 
-    -- local w, h = 100, 100
-
-    -- local vertices = {}
-    -- for y = 1, h/10 do
-    --     table.insert(vertices, 0    + math.random(-2, 2))
-    --     table.insert(vertices, y*10 + math.random(-2, 2))
-    -- end
-
-    -- --
-    -- for x = 1, w/10 do
-    --     if (x == w/10) then
-    --         table.insert(vertices, (x+1)*10 + math.random(-2, 2))
-    --         table.insert(vertices, (h+10)    + math.random(-2, 2))
-    --     else
-    --         table.insert(vertices, x*10 + math.random(-2, 2))
-    --         table.insert(vertices, h    + math.random(-2, 2))
-    --     end
-    -- end
-
-    -- --
-    -- for y = 1, h/10 do
-    --     y = h/10 - y
-    --     table.insert(vertices, w    + math.random(-2, 2))
-    --     table.insert(vertices, y*10 + math.random(-2, 2))
-    -- end
-
-    -- for x = 1, w/10 do
-    --     x = w/10 - x
-    --     table.insert(vertices, x*10 + math.random(-2, 2))
-    --     table.insert(vertices, 0    + math.random(-2, 2))
-    -- end
-
-    -- love.graphics.setColor(0, 0, 0)
-    -- love.graphics.polygon('fill', vertices)
-
 end

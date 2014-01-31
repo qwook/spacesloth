@@ -34,7 +34,6 @@ end
 function Timer:update(dt)
     if self.timeLife > 0 then
         self.timeLife = self.timeLife - dt
-        print(self.timeLife)
         if self.timeLife <= 0 then
             self:trigger("onend")
         end

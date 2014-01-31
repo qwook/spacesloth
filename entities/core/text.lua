@@ -48,6 +48,47 @@ function Text:update(dt)
     end
 end
 
+function Text:drawSquiggle(w, h)
+
+    local squiggleSpeed = 20
+
+    math.randomseed(math.floor(love.timer.getTime()*squiggleSpeed)/squiggleSpeed)
+
+    local vertices = {}
+    for y = 1, h/10 do
+        table.insert(vertices, 0    + math.random(-2, 2))
+        table.insert(vertices, y*10 + math.random(-2, 2))
+    end
+
+    --
+    for x = 1, w/10 do
+        if (x == w/10) then
+            table.insert(vertices, (x+1)*10 + math.random(-2, 2))
+            table.insert(vertices, (h+10)    + math.random(-2, 2))
+        else
+            table.insert(vertices, x*10 + math.random(-2, 2))
+            table.insert(vertices, h    + math.random(-2, 2))
+        end
+    end
+
+    --
+    for y = 1, h/10 do
+        y = h/10 - y
+        table.insert(vertices, w    + math.random(-2, 2))
+        table.insert(vertices, y*10 + math.random(-2, 2))
+    end
+
+    for x = 1, w/10 do
+        x = w/10 - x
+        table.insert(vertices, x*10 + math.random(-2, 2))
+        table.insert(vertices, 0    + math.random(-2, 2))
+    end
+
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.polygon('fill', vertices)
+
+end
+
 function Text:draw()
     local x, y = self:getPosition()
     local r = self:getAngle()
@@ -62,8 +103,10 @@ function Text:draw()
     local height = lines*(font:getHeight())
 
     love.graphics.setColor(0, 0, 0, 100)
-    love.graphics.rectangle('fill', 0, 0, self.width, height + 20)
-    love.graphics.rectangle('line', 0, 0, self.width, height + 20)
+    -- love.graphics.rectangle('fill', 0, 0, self.width, height + 20)
+    -- love.graphics.rectangle('line', 0, 0, self.width, height + 20)
+
+    self:drawSquiggle(self.width, height + 20)
 
     love.graphics.setColor(255, 255, 255, 255)
     love.graphics.printf(self.string:sub(0, self.typeprogr), 10, 10, self.width - 20)
