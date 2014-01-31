@@ -1,5 +1,5 @@
 
-Particle = require("entities.particle")
+Particle = require("entities.core.particle")
 
 WalkingDust = class("Particle", Particle)
 

@@ -7,13 +7,10 @@ PLAYER_FRICTION_SLIDING = 0.01 -- friction while sliding
 MOVING_ACCELERATION = 20 -- how much it should accelerate
 MOVING_SPEED = 200 -- constant moving speed on ground
 
-
-
-
-Physical = require("physical")
-SpriteSheet = require("spritesheet")
-Particle = require("entities.particle")
-WalkingDust = require("entities.walkingdust")
+Physical =      require("entities.core.physical")
+SpriteSheet =   require("util.spritesheet")
+Particle =      require("entities.core.particle")
+WalkingDust =   require("entities.particles.walkingdust")
 
 Player = class('Player', Physical)
 
