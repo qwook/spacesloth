@@ -5,6 +5,9 @@ local Break = 2.0
 local camera1_x, camera1_y = 0, 0
 local camera2_x, camera2_y = 0, 0
 
+local CAM_MAX_HORIZONTAL = 100
+local CAM_MAX_VERTICAL = 100
+
 local function drawSingleScreen()
 
     for i, object in pairs(map.objects) do
@@ -58,6 +61,12 @@ local function drawSplitScreen()
 
     camera1_x, camera1_y = MoveCamera2D(camera1_x, camera1_y, p1x, p1y, dT);
     camera2_x, camera2_y = MoveCamera2D(camera2_x, camera2_y, p2x, p2y, dT);
+
+    camera1_x = math.clamp(camera1_x, p1x - CAM_MAX_HORIZONTAL, p1x + CAM_MAX_HORIZONTAL)
+    camera1_y = math.clamp(camera1_y, p1y - CAM_MAX_VERTICAL, p1y + CAM_MAX_VERTICAL)
+
+    camera2_x = math.clamp(camera2_x, p2x - CAM_MAX_HORIZONTAL, p2x + CAM_MAX_HORIZONTAL)
+    camera2_y = math.clamp(camera2_y, p2y - CAM_MAX_VERTICAL, p2y + CAM_MAX_VERTICAL)
 
     local bg_ratio = love.graphics.getHeight()/map.background:getHeight()
 
