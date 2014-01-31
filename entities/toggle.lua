@@ -1,5 +1,5 @@
 
-PhysBox = require("physbox")
+PhysBox = require("entities.physbox")
 
 Toggle = class("Toggle", PhysBox)
 

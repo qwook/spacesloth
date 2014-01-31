@@ -1,5 +1,5 @@
 
-require("libs.json.json")
+require("libs.json")
 bit = require("bit")
 
 Input = class("Input")

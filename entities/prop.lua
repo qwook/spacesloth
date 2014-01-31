@@ -1,5 +1,5 @@
 
-PhysBox = require("physbox")
+PhysBox = require("entities.physbox")
 
 Prop = class("Prop", PhysBox)
 
