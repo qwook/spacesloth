@@ -42,7 +42,9 @@
 			"s" : "right",
 			"d" : "crouch",
 			"f" : "jump",
-			"c" : "crouch"	
+			"c" : "crouch",
+			"g"	: ":/",
+			"h"	: ":|"
 		}
 	},
 	"player2" :
@@ -88,7 +90,11 @@
 			"right" : "right",
 			"down"  : "crouch",
 			"k" 	: "jump",
-			"," 	: "crouch"
+			"," 	: "crouch",
+			"l"		: ":/",
+			";"		: ":|",
+			"1"		: "start",
+			"2"		: "select"
 		}
 	}
 }
