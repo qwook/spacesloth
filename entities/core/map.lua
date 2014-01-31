@@ -118,7 +118,7 @@ function Map:spawnObjects()
             instance[prop] = val
         end
         instance:postSpawn()
-        instance:trigger(instance.onspawn)
+        instance:trigger("onspawn")
             
     end
 end

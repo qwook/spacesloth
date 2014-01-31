@@ -44,14 +44,14 @@ function Toggle:update(dt)
     local isTouching = self:isTouchingPlayer()
 
     if isTouching and isTouching.controller:wasKeyPressed("crouch") then
-        self:trigger(self.ontoggle, isTouching)
+        self:trigger("ontoggle", isTouching)
         self.ToggleDelay = 0.25
         self.pressed = not self.pressed
         if self.pressed == true then
-            self:trigger(self.onpress, isTouching)
+            self:trigger("onpress", isTouching)
             playSound("clack_down.wav")
         else
-            self:trigger(self.onrelease, isTouching)
+            self:trigger("onrelease", isTouching)
             playSound("clack_up.wav")
         end
     end

@@ -22,6 +22,8 @@ end
 
 function PhysBox:eval(str, activator)
     local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%)]*)%)")
+    name = string.lower(name)
+    event = string.lower(event)
 
     if not name or not event or not arg then return end
 
@@ -64,7 +66,7 @@ function PhysBox:call(name, args)
 end
 
 function PhysBox:trigger(event, activator)
-    local n = tostring(event)
+    local n = self[string.lower(event)]
     if n then
         local events = {}
         string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
@@ -87,7 +89,7 @@ function PhysBox:initPhysics()
     self.fixture:setFriction(0.1)
 end
 
-function PhysBox:event_teleportTo(name)
+function PhysBox:event_teleportto(name)
 
     for k,v in pairs(map.objects) do
         if v.name == name then
@@ -99,7 +101,7 @@ function PhysBox:event_teleportTo(name)
     end
 end
 
-function PhysBox:event_setFrozen(frozen)
+function PhysBox:event_setfrozen(frozen)
     if not self.body then return end
     if frozen == "true" then
         self.frozen = true
@@ -114,7 +116,7 @@ function PhysBox:event_setFrozen(frozen)
     end
 end
 
-function PhysBox:event_setVisible(visible)
+function PhysBox:event_setvisible(visible)
     if visible == "true" then
         if not self.frozen then
             if self.frozenJoint then

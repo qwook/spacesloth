@@ -27,34 +27,34 @@ function Player:initialize()
     self:initPhysics()
 end
 
-function Player:event_multiplyVelocity(x, y)
+function Player:event_multiplyvelocity(x, y)
     local vx, vy = self.body:getLinearVelocity()
     self.body:setLinearVelocity(vx * tonumber(x), vy * tonumber(y))
     self.body:setAwake(true)
 end
 
-function Player:event_addVelocity(x, y)
+function Player:event_addvelocity(x, y)
     local vx, vy = self.body:getLinearVelocity()
     self.body:setLinearVelocity(vx + tonumber(x), vy + tonumber(y))
     self.body:setAwake(true)
 end
 
-function Player:event_setVelocity(x, y)
+function Player:event_setvelocity(x, y)
     self.body:setLinearVelocity(tonumber(x), tonumber(y))
     self.body:setAwake(true)
 end
 
-function Player:event_setFriction(frict)
+function Player:event_setfriction(frict)
     self.body:setFriction(frict)
     self.body:setAwake(true)
 end
 
-function Player:event_applyImpulse(x, y)
+function Player:event_applyimpulse(x, y)
     self.body:applyLinearImpulse(x, y)
     self.body:setAwake(true)
 end
 
-function Player:event_teleportTo(name)
+function Player:event_teleportto(name)
 
     for k,v in pairs(map.objects) do
         if v.name == name then

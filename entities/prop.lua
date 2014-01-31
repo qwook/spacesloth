@@ -17,7 +17,7 @@ function Prop:postSpawn()
     -- self:setPosition(x + self.spritewidth, y)
 end
 
-function Prop:event_loopAnimation(y, xfrom, xto, speed)
+function Prop:event_loopanimation(y, xfrom, xto, speed)
     self.animspeed = speed
     self.animlife = 0
     self.animy = tonumber(y)
@@ -26,7 +26,7 @@ function Prop:event_loopAnimation(y, xfrom, xto, speed)
     self.loop = true
 end
 
-function Prop:event_playAnimation(y, xfrom, xto, duration)
+function Prop:event_playanimation(y, xfrom, xto, duration)
     self.animlife = tonumber(duration)
     self.animduration = tonumber(duration)
     self.animy = tonumber(y)

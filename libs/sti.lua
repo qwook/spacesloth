@@ -192,9 +192,9 @@ function Map:setTileData(layer)
                 if tile then
                     map[y][x] = tile
                 else
-                    local _31 = bit.status(gid, 31)
-                    local _30 = bit.status(gid, 30)
-                    local _29 = bit.status(gid, 29)
+                    local flipped_horiz = bit.status(gid, 31)
+                    local flipped_verti = bit.status(gid, 30)
+                    local flipped_diag = bit.status(gid, 29)
                     local realgid = bit.band(gid, bit.bnot(bit.bor(2^31, 2^30, 2^29)))
                     local tile = self.tiles[realgid]
                     local data = {
@@ -208,21 +208,24 @@ function Map:setTileData(layer)
                         r           = tile.r,
                     }
 
-                    if _31 then
-                        if _29 then
+                    if flipped_horiz then
+                        if flipped_diag then
                             data.r = math.rad(90)
-                        elseif _30 then
+                        elseif flipped_verti then
                             data.sx = -1
                             data.sy = -1
                         else
                             data.sx = -1
                         end
-                    elseif _30 then
-                        if _29 then
+                    elseif flipped_verti then
+                        if flipped_diag then
                             data.r = math.rad(-90)
                         else
                             data.sy = -1
                         end
+                    elseif flipped_diag then
+                        data.r = math.rad(90)
+                        data.sy = -1
                     end
 
                     self.tiles[gid] = data

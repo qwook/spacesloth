@@ -36,14 +36,14 @@ function Flag:update(dt)
 
     if self.FlagDelay <= 0 then
         if isTouching and not self.hasPressedLastUpdate then
-            self:trigger(self.onpress, isTouching)
+            self:trigger("onpress", isTouching)
             self.FlagDelay = 0.25
             self.pressed = true
         end
     end
 
     if not isTouching and self.pressed and self.FlagDelay <= 0 then
-        self:trigger(self.onrelease, isTouching)
+        self:trigger("onrelease", isTouching)
         self.pressed = false
     end
 

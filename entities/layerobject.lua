@@ -1,31 +1,31 @@
 
 PhysBox = require("entities.physbox")
 
-Node = class("Node", PhysBox)
+LayerObject = class("LayerObject", PhysBox)
 
-function Node:initialize()
+function LayerObject:initialize()
     PhysBox.initialize(self)
 end
 
-function Node:initPhysics()
+function LayerObject:initPhysics()
 end
 
-function Node:setPosition(x, y)
+function LayerObject:setPosition(x, y)
     self.x = x
     self.y = y
 end
 
-function Node:getPosition()
+function LayerObject:getPosition()
     return self.x, self.y
 end
 
-function Node:isTouchingPlayer()
+function LayerObject:isTouchingPlayer()
 end
 
-function Node:update(dt)
+function LayerObject:update(dt)
 end
 
-function Node:draw()
+function LayerObject:draw()
 end
 
-return Node
+return LayerObject

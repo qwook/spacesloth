@@ -50,7 +50,7 @@ function Trigger:beginContact(other, contact, isother)
     table.insert( self.touching, other )
     onNextUpdate(function()
         if (self.filter and self.filter == other.name) or (not self.filter and other.type == "PLAYER") then
-            self:trigger(self.ontrigger, other)
+            self:trigger("ontrigger", other)
             local pls = {}
             for k,v in pairs(self.touching) do
                 if v.type == "PLAYER" then
@@ -63,7 +63,7 @@ function Trigger:beginContact(other, contact, isother)
             for k, v in pairs(pls) do plcount = plcount + 1 end
 
             if plcount >= 2 then
-                self:trigger(self.onbothplayers, other)
+                self:trigger("onbothplayers", other)
             end
         end
     end)
