@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="200" height="100" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32">
   <image source="../sprites/collision.gif" width="160" height="32"/>
   <tile id="0">
@@ -49,36 +49,31 @@
  <tileset firstgid="119" name="orange2" tilewidth="32" tileheight="32">
   <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
  </tileset>
- <imagelayer name="Background" width="100" height="100">
+ <imagelayer name="Background" width="200" height="100">
   <image source="../backgrounds/bgConcept1_big.png"/>
  </imagelayer>
- <layer name="SharedLayer" width="100" height="100">
+ <layer name="SharedLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1TFOxDAQQNEclVtQpaOj2htwVILQSrDEEDsznh/xv+QiReRkXjHLYmZmZmZmI710nJF39t63dnqw0oOVHqz0YKUHKz1Y6cFKD1Z6sNKDlR6s9GClBys9WOnBSg9WerDSg5UerLI9rC89WOnBSg9WerDSg5UerPRgpQcrPVjpwUoPVnqw0oOVHqz0YKUHKz1Y6cFKD1Z6sNKDlR6s9GClBys9WOnBytmy0oNVj8e6LG81X/l/6vF43Tw0ya3HQ5P8ej00yW3EQ5O8Rj00yemMhybxnfXQJLYID03iivLQJKZID03OF+2hybkyPDQZL8tDk7EyPTTpL9tDk75meGhyvFkemhxrpocmfzfbQ5Pfq/DQpF2Vhyb7VXpo8rNqD02+V21RabLOvOxg1Q5VJuvnfbiqDSpM7hbbfU+Z94xUPf/ZJl8t9Kg1ebTQo85kz0KPGhPq7m5VPfNME/LublU97ywT+u5uVT3rDJMr7O5W1XOONrnK7m5VPeNIk6tbfHT/z8dn8rlt53nn3C42+8weZ2ZmZmZmdqR3MtLKUA==
+   eJzt1zFuwzAQRUEfNbdI5S5dKt8gR42BwEBi+MeQRXJFaQZgoYKgin3Fnk4AAAAAAPDXx4Lzyp1H92EW+oBMH5DpAzJ9QKYPyPQBmT4g0wdk+oBMH5DpAzJ9QKYPyPQBmT4g0wdk+oBMH5DpA7LefcDM9AGZPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiAz65DpA7IlfZxPp6+av4QaS/r4vPahEY5kSR8a4WiW9qERjuSVPjTCUbzah0Y4gjV9aIS9W9uHRtizFn1ohL1q1YdG2KOWfWiEvWndh0bYkx59aIS96NWHRtiDnn1ohNn17kMjzGxEHxphVqP60AgzGtmHRpjN6D40wkwq+tAIs6jqQyPMoLIPjbB11X1ohC2rbqOykfPIx5hSdRdVjZx/3oN/VTdR0citjet7bz3fYX7VPYxu5Hcb+uCZ6hZGNnLfhj54prqDUY08akMfPFPdwIhG7OKsUd1Az0bs4qxVPf+9GrGL00L17PdoxC5OK9Vz37oRuzgtVc98y0a0QWu3ubv/3vK5XM/7g3PRAht1P8MAAAAAAEf3DfUnylA=
   </data>
  </layer>
- <layer name="BlueLayer" width="100" height="100">
+ <layer name="BlueLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
- <layer name="GreenLayer" width="100" height="100">
+ <layer name="GreenLayer" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
- <objectgroup name="Objects" width="100" height="100">
-  <object type="Trigger" x="1512" y="1052" width="1320" height="42">
-   <properties>
-    <property name="ontrigger" value="activator:teleportTo(player1)"/>
-   </properties>
-  </object>
+ <objectgroup name="Objects" width="200" height="100">
   <object type="Trigger" x="-593" y="327" width="1320" height="42">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="2725" y="2740" width="1320" height="42">
+  <object type="Trigger" x="2439" y="2959" width="2572" height="9">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
@@ -86,24 +81,24 @@
   <object name="player1" gid="110" x="833" y="163"/>
   <object name="player2" gid="110" x="1356" y="152"/>
  </objectgroup>
- <layer name="SharedCollision" width="100" height="100" opacity="0.48">
+ <layer name="SharedCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt21FKw0AUQNFEXKhLcykuzQoiUiKMQ5peknNgPvoRGnp58766LAAAwIz1H2fmma3n+dvo73Tf41Hfc3V6tOjRokeLHi16tOjRokeLHi16tBzY42PiscvRo0WPFj1a9Gh5ZI/fDfQYo0eLHi179Lh9fhs5+7zxuR01H4zRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo0WPFj1a9GjRo2W2x+28j5z93/jcZnrwfHq0fPV4ffZL8ON7Z2gSsS6alKyLJiX3PTTp0aTFnLS4u1rskzZNWsxJi7urxT5p06TFnLS4u1rskzZNWsxJi7urxT5p06TFnLS4u1rskzZNWsxJi7urxT5p06TFnLS4u1rskzZNWsxJy8jd9XLc61ze1n9Qtg7H0wMA4Dw+AQi0J6g=
+   eJzt3UFqwlAUQNGkdKFdWpfSpVXBQZXc8htiTOg58AcOghl4ef+NnCYAAAAAALg3/+GseWbpeTiL0d/tYx/P+h44En1A0wc0fUDTBzR9QNMHNH1A0wc0fUDbsY+vFY/BS+kDmj6g6QOaPqA9s4+fTeiDM9IHNH1A26KPy+ePkbPNG8N+9pofcEb6gKYPaPqApg9o+oCmD2j6gKYPaPqApg9o+oCmD2j6gKYPaPqApg9o+oCmD2j6gKYPaPqApg9o+oCmD2j6gLa2j8v5HDnbvzHsZ00fwD19QLv28f7ql4CDuu0cGoEF86QRKPOkESiPfWgEfqcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYINHctaPYRGKcRaOYItJG71tt+rwOHsvQfJEsH/jt9AAAAAABn8A24LCeo
   </data>
  </layer>
- <layer name="BlueCollision" width="100" height="100" opacity="0.48">
+ <layer name="BlueCollision" width="200" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
- <layer name="GreenCollision" width="100" height="100" opacity="0.28">
+ <layer name="GreenCollision" width="200" height="100" opacity="0.28">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
- <layer name="Decoration" width="100" height="100">
+ <layer name="Decoration" width="200" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztwYEAAAAAw6D5Ux/gClUBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAbOI8AAQ==
   </data>
  </layer>
 </map>
