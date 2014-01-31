@@ -1,3 +1,6 @@
+local Feathering = 4.0
+local Attraction = 4.0
+local Break = 2.0
 
 local camera1_x, camera1_y = 0, 0
 local camera2_x, camera2_y = 0, 0
@@ -34,6 +37,15 @@ local function drawSingleScreen()
 
 end
 
+local function MoveCamera2D(present_x, present_y, target_x, target_y, dT)
+    local dist = math.sqrt(math.pow(target_x - present_x, 2) + math.pow(target_y - present_y, 2))
+    local attr = Attraction / (dist + Attraction)
+    local br = Break / (dist + Break)
+    local alpha = Feathering * dT + attr - br -- MAGIC
+    return math.lerp(present_x, present_y, target_x, target_y, alpha)
+end
+
+
 local function drawSplitScreen()
 
     local offsetx = love.graphics.getWidth()/2
@@ -42,8 +54,10 @@ local function drawSplitScreen()
     local p1x, p1y = player:getPosition()
     local p2x, p2y = player2:getPosition()
 
-    camera1_x, camera1_y = math.lerp(camera1_x, camera1_y, p1x, p1y, 0.15)
-    camera2_x, camera2_y = math.lerp(camera2_x, camera2_y, p2x, p2y, 0.15)
+    local dT = love.timer.getDelta()
+
+    camera1_x, camera1_y = MoveCamera2D(camera1_x, camera1_y, p1x, p1y, dT);
+    camera2_x, camera2_y = MoveCamera2D(camera2_x, camera2_y, p2x, p2y, dT);
 
     local bg_ratio = love.graphics.getHeight()/map.background:getHeight()
 
