@@ -112,7 +112,12 @@ function Text:draw()
     self:drawSquiggle(self.width, height + 20)
 
     love.graphics.setColor(255, 255, 255, 255)
-    love.graphics.printf(self.string:sub(0, self.typeprogr), 10, 10, self.width - 20)
+
+    if self.typing then
+        love.graphics.printf(self.string:sub(0, self.typeprogr), 10, 10, self.width - 20)
+    else
+        love.graphics.printf(self.string, 10, 10, self.width - 20)
+    end
 
     love.graphics.pop()
 end
