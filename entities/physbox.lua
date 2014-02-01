@@ -132,6 +132,7 @@ function PhysBox:event_teleportto(name)
     end
 end
 
+-- when you freeze a box, you basically weld it to the world
 function PhysBox:event_setfrozen(frozen)
     if not self.body then return end
     if frozen == "true" then
@@ -165,6 +166,12 @@ function PhysBox:event_setvisible(visible)
         end
         self.visible = false
     end
+    player:forceCollisionRecalculation()
+    player2:forceCollisionRecalculation()
+end
+
+function PhysBox:event_setvelocity(x, y)
+    self.body:setLinearVelocity(tonumber(x), tonumber(y))
 end
 
 function PhysBox:setPosition(x, y)

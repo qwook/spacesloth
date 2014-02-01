@@ -19,7 +19,8 @@ function Player:initialize()
     self.type = "PLAYER"
     self.collisiongroup = "blue"
 
-    self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
+    -- self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("sprites/player_walk.png", 32, 32)
     self.expression = 0
    
     self.isother = false
@@ -281,9 +282,10 @@ function Player:draw()
 end
 
 function Player:drawPlayer()
-    local anim = 0
+    local anim = 5
     if self.moving then
-        anim = math.floor(love.timer.getTime()*10) % 4
+        -- anim = math.floor(love.timer.getTime()*10) % 4
+        -- anim = math.floor(love.timer.getTime()*20) % 6
     end
 
     local offset = 0
@@ -293,8 +295,9 @@ function Player:drawPlayer()
     end
 
 
-    self.spritesheet:draw(anim, 1, -16, -18 + offset)
-    self.spritesheet:draw(self.expression, 0, -16, -18 + offset)
+    -- self.spritesheet:draw(anim, 1, -16, -18 + offset)
+    self.spritesheet:draw(anim, 0, -16, -18 + offset)
+    -- self.spritesheet:draw(self.expression, 0, -16, -18 + offset)
 end
 
 function Player:getPosition()
@@ -311,6 +314,18 @@ end
 
 function Player:setAngle(r)
     self.body:setAngle(r)
+end
+
+-- So if we disable a the collision for an object
+-- The player might still float on a "ghost" version of the object
+-- This forces the player to recalculate the collision
+-- It's very hacky but it works.
+function Player:forceCollisionRecalculation()
+    local categories, mask, group = self.fixture:getFilterData()
+
+    self.fixture:setFilterData(1, 0, 0)
+    self.fixture:setFilterData(2, 0, 0)
+    self.fixture:setFilterData(categories, mask, group)
 end
 
 -- the player hit something
@@ -396,9 +411,10 @@ function Cindy:initialize()
 end
 
 function Cindy:drawPlayer()
-    local anim = 0
+    local anim = 5
     if self.moving then
-        anim = math.floor(love.timer.getTime()*10) % 4
+        -- anim = math.floor(love.timer.getTime()*10) % 4
+        anim = math.floor(love.timer.getTime()*20) % 6
     end
 
     local offset = 0
@@ -408,8 +424,9 @@ function Cindy:drawPlayer()
     end
 
 
-    self.spritesheet:draw(anim, 3, -16, -18 + offset)
-    self.spritesheet:draw(self.expression, 2, -16, -18 + offset)
+    -- self.spritesheet:draw(anim, 3, -16, -18 + offset)
+    self.spritesheet:draw(anim, 0, -16, -18 + offset)
+    -- self.spritesheet:draw(self.expression, 2, -16, -18 + offset)
 
 end
 

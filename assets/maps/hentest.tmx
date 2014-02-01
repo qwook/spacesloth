@@ -79,7 +79,7 @@
  </layer>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1TEOgCAQRUGuzs1tLVSU3cRfzCRWyqp5Icwxxjxd5NAjix5Z9MhS7TEvrrv7q3VPc768f/efqt/SoaPHzrzVc5U5lR6Vb+mgx3qdHnp0rdej5s25+uXc1SOLHll291XnnK69fp5HDj2y6JFFjyx6ZNEjix4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8Dte9LFg==
+   eJzt1TEKwCAQRUGv7s3TWgSS7C7kFzNgp4vwEPdaax+LHHpk0SOLHlm6PfbNqp6bnFPRvcuEiR6VeU/7OnM6PTp3maDH8zk99Jg6r0fPm3/1y7+rRxY9slTf1eScqbd+ziOHHln0yKJHFj2y6JFFDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD43wWQAUmT
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
@@ -169,7 +169,7 @@
   <object type="Trigger" x="766" y="324" width="286" height="24">
    <properties>
     <property name="filter" value="funbox"/>
-    <property name="ontrigger" value="activator:teleportTo(point1)"/>
+    <property name="ontrigger" value="activator:teleportTo(point1);activator:setVelocity(0,0)"/>
    </properties>
   </object>
   <object name="point1" gid="117" x="820" y="24"/>
