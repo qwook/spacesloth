@@ -83,7 +83,6 @@ function Player:initPhysics()
     self.shape = love.physics.newPolygonShape(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
-
     self.fixture:setUserData(self)
     self.fixture:setFriction(PLAYER_FRICTION)
     self.body:setLinearDamping(0)
