@@ -32,12 +32,13 @@ local function drawSingleScreen()
 
         map:draw("player1")
 
+        player2:draw()
+        player:draw()
+        
         for i, object in pairs(map.objects) do
             object:draw()
         end
         
-        player2:draw()
-        player:draw()
     love.graphics.pop()
 
 end
@@ -112,6 +113,9 @@ local function drawSplitScreen()
                     object:draw()
                 end
             end
+            
+            player2:draw()
+            player:draw()
 
             for i, object in pairs(map.objects) do
                 if (object.zindex == 0 or object.zindex == nil) and object.visible ~= false then
@@ -123,9 +127,6 @@ local function drawSplitScreen()
                     end
                 end
             end
-            
-            player2:draw()
-            player:draw()
 
         love.graphics.setScissor()
 
@@ -155,6 +156,9 @@ local function drawSplitScreen()
                 end
             end
 
+            player:draw()
+            player2:draw()
+
             for i, object in pairs(map.objects) do
                 if (object.zindex == 0 or object.zindex == nil) and object.visible ~= false then
                     if (object.collisiongroup == nil or
@@ -165,9 +169,6 @@ local function drawSplitScreen()
                     end
                 end
             end
-
-            player:draw()
-            player2:draw()
 
         love.graphics.setScissor()
 

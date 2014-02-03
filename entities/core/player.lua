@@ -11,6 +11,7 @@ Physical =      require("entities.core.physical")
 SpriteSheet =   require("util.spritesheet")
 Particle =      require("entities.core.particle")
 WalkingDust =   require("entities.particles.walkingdust")
+DebugArrow =    require("entities.particles.debugarrow")
 
 Player = class('Player', Physical)
 
@@ -383,8 +384,37 @@ function Player:beginContact(other, contact, isother)
 
     if not other.solid then return end
 
+    local normalVisual = DebugArrow:new()
+
     local x, y = self:getPosition()
     local normx, normy = contact:getNormal()
+
+    local velx, vely = self.body:getLinearVelocity()
+
+    local smoke = DebugArrow:new()
+    smoke:setPosition(x, y)
+
+    -- "Conservation of Energy"
+    ------------------------------------------------------
+
+    local ang = math.atan2(normy, normx)
+    local tanx = math.cos(ang + math.pi/2)
+    local tany = math.sin(ang + math.pi/2)
+    local dot = math.dotproduct(velx, vely, 0, tanx, tany, 0)
+    if dot < 0 then
+        tanx = -tanx
+        tany = -tany
+    end
+
+    local velmag = math.length(velx, vely)
+    velmag = velmag
+
+    smoke:setAim(tanx*40, tany*40)
+
+    -- CONSERVE ALL THE ENERGIES!
+    self.body:setLinearVelocity(tanx*velmag, tany*velmag)
+
+    ------------------------------------------------------
 
     y = y + 6
 

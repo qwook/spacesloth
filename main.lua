@@ -16,7 +16,7 @@ Node =          require("entities.core.node")
 Camera =        require("entities.camera")
 TitleScreen =   require("entities.core.titlescreen")
 Text =          require("entities.core.text")
-Timer =          require("entities.timer")
+Timer =         require("entities.timer")
 
 PhysBox =       require("entities.physbox")
 Button =        require("entities.button")

@@ -1540,8 +1540,8 @@ return {
           name = "player1",
           type = "",
           shape = "rectangle",
-          x = 1115,
-          y = 94,
+          x = 634,
+          y = 42,
           width = 0,
           height = 0,
           gid = 291,
@@ -1552,8 +1552,8 @@ return {
           name = "player2",
           type = "",
           shape = "rectangle",
-          x = 1173,
-          y = 98,
+          x = 692,
+          y = 46,
           width = 0,
           height = 0,
           gid = 291,
@@ -1925,14 +1925,14 @@ return {
           name = "uh fuk nah",
           type = "Trampoline",
           shape = "rectangle",
-          x = 1303,
-          y = 131,
+          x = 652,
+          y = 129,
           width = 0,
           height = 0,
           gid = 290,
           visible = true,
           properties = {
-            ["goal"] = "goal"
+            ["goal"] = "goal3"
           }
         },
         {
@@ -1993,7 +1993,7 @@ return {
           name = "goal3",
           type = "",
           shape = "rectangle",
-          x = 2112,
+          x = 2079,
           y = 128,
           width = 0,
           height = 0,
