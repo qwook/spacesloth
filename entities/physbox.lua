@@ -103,6 +103,7 @@ end
 
 function PhysBox:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
+    
     if self.brushw > 0 and self.brushh > 0 then
         self.width = self.brushw
         self.height = self.brushh
@@ -113,7 +114,8 @@ function PhysBox:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(0.1)
+    self.fixture:setFriction(self.friction or 0.1)
+    self.body:setMass(self.mass or 1)
 end
 
 function PhysBox:event_destroy()
@@ -130,6 +132,12 @@ function PhysBox:event_teleportto(name)
             return
         end
     end
+end
+
+
+function PhysBox:event_setgravity(gravity)
+    if not self.body then return end
+    self.body:setGravityScale(tonumber(gravity))
 end
 
 -- when you freeze a box, you basically weld it to the world

@@ -19,8 +19,8 @@ function Player:initialize()
     self.type = "PLAYER"
     self.collisiongroup = "blue"
 
-    -- self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
-    self.spritesheet = SpriteSheet:new("sprites/player_walk.png", 32, 32)
+    self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
+    -- self.spritesheet = SpriteSheet:new("sprites/player_walk.png", 32, 32)
     self.expression = 0
    
     self.isother = false
@@ -79,14 +79,13 @@ end
 
 function Player:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    -- self.shape = love.physics.newRectangleShape(32, 28)
-    -- self.shape = love.physics.newCircleShape(14)
     self.shape = love.physics.newPolygonShape(-14, -14, -14, 0, 14*math.cos(math.pi*(3/4)), 14*math.sin(math.pi*(3/4)), 0, 14, 14*math.cos(math.pi/4), 14*math.sin(math.pi/4), 14, 0, 14, -14)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
 
     self.fixture:setUserData(self)
     self.fixture:setFriction(PLAYER_FRICTION)
+    self.body:setLinearDamping(0)
     self.body:setMass(20)
     self.body:setFixedRotation(true)
 
@@ -282,9 +281,10 @@ function Player:draw()
 end
 
 function Player:drawPlayer()
-    local anim = 5
+    -- local anim = 5
+    local anim = 0
     if self.moving then
-        -- anim = math.floor(love.timer.getTime()*10) % 4
+        anim = math.floor(love.timer.getTime()*10) % 4
         -- anim = math.floor(love.timer.getTime()*20) % 6
     end
 
@@ -295,9 +295,17 @@ function Player:drawPlayer()
     end
 
 
-    -- self.spritesheet:draw(anim, 1, -16, -18 + offset)
-    self.spritesheet:draw(anim, 0, -16, -18 + offset)
-    -- self.spritesheet:draw(self.expression, 0, -16, -18 + offset)
+    self.spritesheet:draw(anim, 1, -16, -18 + offset)
+    -- self.spritesheet:draw(anim, 0, -16, -18 + offset)
+    self.spritesheet:draw(self.expression, 0, -16, -18 + offset)
+end
+
+function Player:getVelocity()
+    return self.body:getLinearVelocity()
+end
+
+function Player:setVelocity(x, y)
+    self.body:setLinearVelocity(x, y)
 end
 
 function Player:getPosition()
@@ -411,10 +419,11 @@ function Cindy:initialize()
 end
 
 function Cindy:drawPlayer()
-    local anim = 5
+    -- local anim = 5
+    local anim = 0
     if self.moving then
-        -- anim = math.floor(love.timer.getTime()*10) % 4
-        anim = math.floor(love.timer.getTime()*20) % 6
+        anim = math.floor(love.timer.getTime()*10) % 4
+        -- anim = math.floor(love.timer.getTime()*20) % 6
     end
 
     local offset = 0
@@ -424,9 +433,9 @@ function Cindy:drawPlayer()
     end
 
 
-    -- self.spritesheet:draw(anim, 3, -16, -18 + offset)
-    self.spritesheet:draw(anim, 0, -16, -18 + offset)
-    -- self.spritesheet:draw(self.expression, 2, -16, -18 + offset)
+    self.spritesheet:draw(anim, 3, -16, -18 + offset)
+    -- self.spritesheet:draw(anim, 0, -16, -18 + offset)
+    self.spritesheet:draw(self.expression, 2, -16, -18 + offset)
 
 end
 

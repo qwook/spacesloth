@@ -1931,20 +1931,6 @@ return {
           height = 0,
           gid = 290,
           visible = true,
-          properties = {
-            ["goal"] = "goal"
-          }
-        },
-        {
-          name = "goal",
-          type = "",
-          shape = "rectangle",
-          x = 1655,
-          y = 97,
-          width = 0,
-          height = 0,
-          gid = 4,
-          visible = true,
           properties = {}
         }
       }

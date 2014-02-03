@@ -3,6 +3,8 @@ require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"
 
+GRAVITY =       1000
+
 class =         require("libs.middleclass")
 
 Input =         require("core.input")
@@ -22,6 +24,7 @@ Toggle =        require("entities.toggle")
 Trigger =       require("entities.trigger")
 Prop =          require("entities.prop")
 LayerObject =   require("entities.layerobject")
+Trampoline =    require("entities.Trampoline")
 
 Bull =          require("entities.npc.bull")
 BlueBall =      require("entities.npc.blueball")
@@ -140,7 +143,7 @@ function changeMap(mapname)
     world = love.physics.newWorld()
     world:setCallbacks(beginContact, endContact, preSolve, postSolve)
     world:setContactFilter(contactFilter)
-    world:setGravity(0, 1000)
+    world:setGravity(0, GRAVITY)
 
     collisionSwapped = false
     singleCamera = false

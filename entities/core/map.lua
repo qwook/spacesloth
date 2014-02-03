@@ -24,7 +24,6 @@ function Map:initialize(mapname)
     self:generateTileCollision("BlueCollision", "blue")
 end
 
-
 -- giant wrapper for the tiled loader
 -- don't worry about it
 function Map:generateTileCollision(layername, collisiongroup)
@@ -85,6 +84,7 @@ function Map:generateTileCollision(layername, collisiongroup)
 end
 
 function Map:spawnObjects()
+    local spawned = {}
     for _, v in ipairs(self:getObjectsLayer("Objects")) do
         -- spawnpoint for player 1
         if v.name == "player1" then
@@ -119,8 +119,24 @@ function Map:spawnObjects()
         instance:initPhysics()
         instance:setPosition(v.x + 16, v.y + 16)
         instance:postSpawn()
-        instance:trigger("onspawn")
+        table.insert(spawned, instance)
     end
+
+    for k,v in pairs(spawned) do
+        v:trigger("onspawn")
+    end
+end
+
+function Map:findObjectsByName(name)
+    local objs = {}
+
+    for k,v in pairs(self.objects) do
+        if v.name == name then
+            table.insert(objs, v)
+        end
+    end
+
+    return objs
 end
 
 function Map:getImageLayer(layername)
