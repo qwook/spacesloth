@@ -44,9 +44,17 @@ end
 
 function Trampoline:touchedPlayer(player)
 
-    player:setVelocity(0, -0)
+    -- we'll touch this later:
+    -- local vel = 1200 -- Higher vel gives higher apex and more range. Lower clears low ceilings.
 
+    -- stop the player in his tracks
+    player:setVelocity(0, 0)
+
+    -- start the animation
     self.anim = 1
+
+    -- wait 0.12 seconds, then shoot the player
+    -- using a javascript style timer :V
     setTimeout(function()
         -- no goal set
         if not self.goal then return end
@@ -64,15 +72,46 @@ function Trampoline:touchedPlayer(player)
 
         xGoalPos = xGoalPos + 32 -- slight adjustment
 
-        dx = xGoalPos - xPlayerPos
-        dy = yGoalPos - yPlayerPos
-        print("dx: " .. dx .. " dy: " .. dy)
-        local vel = math.sqrt((math.pow(dx, 2)*GRAVITY)/(2*(dx+dy)))
-        print(vel)
-        if vel == vel then
-            player:setVelocity(vel, -vel)
-            player:stopJump()
-            playSound("thwap.wav")
+        local dx = xGoalPos - xPlayerPos
+        local dy = yPlayerPos - yGoalPos -- Account for funky coordinate systems.
+        local theta, vx, vy -- vx and vy are the x and y components of the projectile velocity.
+
+        -- Root is [÷/-]1. Sometimes two parabolas are possible, root selects which one is to be used.
+        -- root = -1 will launch the projectile such that it hits the target before the apex, if possible.
+        local root = 1
+        -- The discriminant determines if the shot is even possible.
+
+        local vel = self.vel or 0
+        local discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
+        
+        -- if the lame map editor didn't set a velocity, do some guesswork
+        -- and then cache a possible velocity.
+        if discriminant <= 0 then
+            for i = 1, 150 do
+                vel = i * 10
+                self.vel = vel
+                discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
+                if discriminant > 0 then
+                    break
+                end
+                print(vel, self.vel)
+            end
+        end
+        
+        if discriminant > 0 then
+            -- Find the angle of launch.
+            theta = math.atan((vel*vel + root*math.sqrt(discriminant))/(GRAVITY*dx))
+            -- Divide the velocity into x and y components.
+            vx = vel*math.cos(theta)
+            vy = vel*math.sin(theta)
+            print("theta: " .. math.deg(theta) .. " vx: ".. vx .. " vy: " .. vy)
+        
+            -- Sanity check to avoid feeding a nil value into the physics engine.
+            if vx == vx and vy == vy then
+                player:setVelocity(vx, -vy)
+                player:stopJump()
+                playSound("thwap.wav")
+            end
         end
     end,
     0.12)
