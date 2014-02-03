@@ -91,6 +91,10 @@ function Trampoline:touchedPlayer(player)
                 vel = i * 10
                 self.vel = vel
                 discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
+                -- 1 + GRAVITY*(GRAVITY*dx*dx) = math.pow(vel, 4) - (GRAVITY*2*dy)*vel*vel
+                -- = vel^4 - (GRAVITY*2*dy)*vel^2
+                -- = vel^2( vel^2 - (GRAVITY*2*dy) )
+
                 if discriminant > 0 then
                     break
                 end

@@ -10,7 +10,7 @@
  <tile id="2" terrain="1,1,0,1"/>
  <tile id="3" terrain="0,0,0,1"/>
  <tile id="4" terrain="0,0,1,0"/>
- <tile id="5" terrain="1,1,1,1"/>
+ <tile id="5" terrain="0,0,0,0"/>
  <tile id="30" terrain="1,0,1,0"/>
  <tile id="31" terrain="0,0,0,0"/>
  <tile id="32" terrain="0,1,0,1"/>
