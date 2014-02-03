@@ -392,7 +392,7 @@ function Player:beginContact(other, contact, isother)
     -- "Conservation of Energy"
     ------------------------------------------------------
 
-    if false then
+    if SLIDE then
             
         local velx, vely = self.body:getLinearVelocity()
 

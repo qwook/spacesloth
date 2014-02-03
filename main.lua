@@ -46,6 +46,10 @@ if arguments["debug"] then
     DEBUG = true
 end
 
+if arguments["slide"] then
+    SLIDE = true
+end
+
 ----------------------------------------------------
 
 pausing = false
