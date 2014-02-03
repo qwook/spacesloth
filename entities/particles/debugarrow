@@ -1,0 +1,34 @@
+
+Particle = require("entities.core.particle")
+
+DebugArrow = class("Particle", Particle)
+
+function DebugArrow:initialize()
+    Particle.initialize(self)
+
+    self.scale = 1
+    self.lifetime = 0.5
+end
+
+function DebugArrow:setAim(x, y)
+    self.xAim = x
+    self.yAim = y
+end
+
+function DebugArrow:update(dt)
+    Particle.update(self, dt)
+end
+
+function DebugArrow:draw()
+    local x, y = self:getPosition()
+
+    love.graphics.push()
+    love.graphics.translate(x, y)
+
+    love.graphics.setColor(0, 255, 0, (0.5 - self.lifetime)/0.5 * 255)
+    love.graphics.line(0, 0, self.xAim, self.yAim)
+
+    love.graphics.pop()
+end
+
+return DebugArrow

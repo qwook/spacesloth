@@ -46,6 +46,7 @@ function Map:generateTileCollision(layername, collisiongroup)
 
     local hack = Physical:new()
     hack.collisiongroup = collisiongroup
+    hack.solid = true
     hack.type = "TILE"
 
     self.polylines = traceTiles(tiles, 32, 32)
@@ -55,6 +56,7 @@ function Map:generateTileCollision(layername, collisiongroup)
         local body = love.physics.newBody(world, 0, 0, 'static')
         local fixture = love.physics.newFixture(body, shape)
         fixture:setUserData(hack)
+        fixture:setFriction(0.5)
 
         self.body = body
         

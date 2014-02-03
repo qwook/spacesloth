@@ -7,6 +7,7 @@ function Trigger:initialize(x, y, w, h)
     PhysBox.initialize(self)
     self.width = w
     self.height = h
+    self.solid = false
     self.touching = {}
 end
 

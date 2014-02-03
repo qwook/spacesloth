@@ -8,6 +8,7 @@ function PhysBox:initialize()
     self.touching = {}
     self.visible = true
     self.frozen = false
+    self.solid = true
 
     self.width = 32
     self.height = 32

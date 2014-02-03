@@ -19,3 +19,15 @@ function table.removevalue(tbl, val)
         end
     end
 end
+
+function table.clear(tbl)
+    for k,v in pairs(tbl) do
+        tbl[k] = nil
+    end
+end
+
+function table.copyto(from, to)
+    for k,v in pairs(from) do
+        to[k] = from[k]
+    end
+end

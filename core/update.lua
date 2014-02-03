@@ -4,7 +4,23 @@ function onNextUpdate(cb)
     table.insert(updateList, cb)
 end
 
+local timeouts = {}
+function setTimeout(cb, delay)
+    table.insert(timeouts, {cb = cb, delay = love.timer.getTime() + delay})
+end
+
 function love.update(dt)
+
+    local tmp = {}
+    for k,v in pairs(timeouts) do
+        if (love.timer.getTime() > v.delay) then
+            v.cb()
+        else
+            table.insert(tmp, v)
+        end
+    end
+    table.clear(timeouts)
+    table.copyto(tmp, timeouts)
 
     -- update joystick axes detection
     -- its stupid we can do better
