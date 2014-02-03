@@ -5,6 +5,7 @@ Tile = class("Tile", Physical)
 
 function Tile:initialize(w, h, collisiongroup)
     self.collisiongroup = collisiongroup or "shared"
+    self.solid = true
 
     self.width = w
     self.height = h
@@ -51,7 +52,7 @@ function Tile2:initPhysics()
     self.body = love.physics.newBody(world, 0, 0, 'static')
     self.shape = love.physics.newPolygonShape(-hw, hh, hw, -hh, hw, hh)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-    self.fixture:setFriction(1)
+    self.fixture:setFriction(0.0)
 
     self.fixture:setUserData(self)
 end

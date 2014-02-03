@@ -64,7 +64,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt11FygjAUBVBZl63tNtrqOrS7L87oyLyBEiAOj/Z8nB/GJJCbl8R9s9u93Ly23lnVR+vz5ivB+/x38shFHrmcW2+V8tg3j7NoynkU20VL+tnimXivkaV5dGttSn+xXbSkny3WvDxykUce1z33JI80ut9wbH4/V8ecGnnUzKM2eayTx6F53Jm7Sust1lVJP9d7bLzf9vVzHGmT7X5cI49jwZxOzfIZY5a0Wbueuv8H13D9/rE1MZbZ3Ewz5rF2JiVrduw3S+oz5vqdII9a+9bWZagNeeSrjfuedbmpvXcdOn1fnjjOkvfKlMVQNnG+DgPPx+Z/6Fv71kDpGDVk2p+m1kx3XuPzaM5aO/eMMZRJzHtudlvLY219mfTt83F9lOYjj3mZTK29ofqNOclje9kCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB/zw9G5Dwd
+   eJzt2F1SgzAUBtCyrmp1G2q7DuvuhRk6Ze5AE346JHoezgvThJAvN4Qem8PhpffaemdXH63P3lcB4/nv5FEWeZTlu/W2UR7H5v4umvM+iu2i2M8xcX3JGEpyq5G1eQxrbU5/sV0U+5ka71g/NdZ8bXl0NX1t/cijiDzm9FNbHt2ee5FHMYbPcG4ev1dTLo08tsxja/LYJ49Tcz8zD+XWW6yrnH66c2w83471c060Ke18vEUe54w5nZvlM+6Z02bvehp+D+6he/7UmkhltjTTEvPYO5OcNZv6zZr6jLnGb5qa963alVAb8iivNm571rW39d51GvR9feJ91oyrpCymsonzdZq4npr/qWcdWwO599hCSfvT3JoZzmu8Hi1Za/E/wkdnjJj30uxqy2NvY5mM7fNxfeTmI49lmcytvan6jTnJo75sAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAv+cXO5Y9Bw==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -274,6 +274,26 @@
     <property name="goal" value="goal"/>
    </properties>
   </object>
-  <object name="goal" gid="4" x="1655" y="97"/>
+  <object name="goal" gid="4" x="1473" y="126"/>
+  <object name="uh fuk nah" type="Trampoline" gid="290" x="1652" y="131">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="goal" value="goal2"/>
+   </properties>
+  </object>
+  <object name="goal2" gid="4" x="1948" y="131"/>
+  <object name="uh fuk nah" type="Trampoline" gid="290" x="1638" y="130">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+    <property name="goal" value="goal3"/>
+   </properties>
+  </object>
+  <object name="goal3" gid="4" x="2112" y="128"/>
+  <object name="uh fuk nah" type="Trampoline" gid="290" x="1481" y="127">
+   <properties>
+    <property name="goal" value="goal5"/>
+   </properties>
+  </object>
+  <object name="goal5" gid="4" x="1640" y="118"/>
  </objectgroup>
 </map>

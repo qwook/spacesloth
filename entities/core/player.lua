@@ -18,6 +18,7 @@ function Player:initialize()
     self.name = "Stewart"
     self.type = "PLAYER"
     self.collisiongroup = "blue"
+    self.solid = true
 
     self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
     -- self.spritesheet = SpriteSheet:new("sprites/player_walk.png", 32, 32)
@@ -119,6 +120,9 @@ function Player:isOnFloor()
     return false
 end
 
+function Player:stopJump()
+end
+
 function Player:update(dt)
 
     -- handle animation --
@@ -153,106 +157,144 @@ function Player:update(dt)
         self.moving = false
     end
 
-    -- true = up, false = down, nil = going straight
-    local goingUpOrDown = nil
-    local ypoop = self.floornx
-
-    if self.crouching then
-        self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
-    else
-        self.fixture:setFriction(PLAYER_FRICTION)
+    if self.nextJump > 0 then
+        self.nextJump = self.nextJump - dt
     end
 
     if self:isOnFloor() then
-
-        if self.nextJump > 0 then
-            self.nextJump = self.nextJump - dt
+        if self.controller:isKeyDown("right") then
+            if velx < 250 then
+                self.body:applyForce(1000, 0)
+            end
+        elseif self.controller:isKeyDown("left") then
+            if velx > -250 then
+                self.body:applyForce(-1000, 0)
+            end
         end
-
-        local jumping = false
-
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-            self.body:setLinearVelocity(velx/10, vely/5)
-            self.body:applyLinearImpulse(0, -400)
             self.nextJump = 0.1
-            goingUpOrDown = nil
 
+            self.body:applyLinearImpulse(-velx*0.25, -350-vely)
             playSound("bwop.wav")
-            jumping = true
-
             local smoke = Particle:new()
             smoke:setPosition(self:getPosition())
         end
+    else -- henry: okay so this code is basically the same as when we're on the floot
+        -- with the exception that we can jump
+        -- should we make it less redundant or something
 
-        if self.controller:isKeyDown("left") and not jumping then
-            if math.abs(velx) < 100 then
-                self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
-            else
-                self.body:setLinearVelocity(-MOVING_SPEED, vely)
-            end
-
-            -- this is for climbing stairs
-            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
-                goingUpOrDown = false
-            end
-            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
-                goingUpOrDown = true
-                ypoop = -ypoop
-            end
-        end
-
-        if self.controller:isKeyDown("right") and not jumping then
-            if math.abs(velx) < 100 then
-                self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
-            else
-                self.body:setLinearVelocity(MOVING_SPEED, vely)
-            end
-
-            -- this is for climbing stairs
-            if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
-                goingUpOrDown = true
-            end
-            if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
-                goingUpOrDown = false
-                ypoop = -ypoop
-            end
-        end
-
-        -- so for climbing stairs, we actually push the player up a bit
-        -- when they're going up stairs, and push them down when they're going
-        -- down stairs.
-        if self.nextJump <= 0 then
-            local velx, vely = self.body:getLinearVelocity()
-            -- up
-            if goingUpOrDown == true then
-                -- self.body:applyLinearImpulse(0, -50)
-                self.body:setLinearVelocity(velx, 200 * ypoop)
-            -- down
-            elseif goingUpOrDown == false then
-                -- self.body:applyLinearImpulse(0, 10)
-                self.body:setLinearVelocity(velx, 200 * -ypoop)
-            end
-            goingUpOrDown = nil
-        end
-
-    -- not on floor, we're in the air
-    else
-        if self.controller:isKeyDown("left") then
-            if velx >= 0 then
-                self.body:setLinearVelocity(velx - DEACCELERATION_SPEED*dt, vely)
-            elseif math.abs(velx) < 250 then
-                self.body:applyLinearImpulse(-IMPULSE_AFTER_JUMPING, 0)
-            end
-        end
-
+        -- we go slower in the air
         if self.controller:isKeyDown("right") then
-            if velx <= 0 then
-                self.body:setLinearVelocity(velx + DEACCELERATION_SPEED*dt, vely)
-            elseif math.abs(velx) < 250 then
-                self.body:applyLinearImpulse(IMPULSE_AFTER_JUMPING, 0)
+            if velx < 200 then
+                self.body:applyForce(250, 0)
+            end
+        elseif self.controller:isKeyDown("left") then
+            if velx > -200 then
+                self.body:applyForce(-250, 0)
             end
         end
     end
+
+    -- -- true = up, false = down, nil = going straight
+    -- local goingUpOrDown = nil
+    -- local ypoop = self.floornx
+
+    -- if self.crouching then
+    --     self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
+    -- else
+    --     self.fixture:setFriction(PLAYER_FRICTION)
+    -- end
+
+    -- if self:isOnFloor() then
+
+    --     if self.nextJump > 0 then
+    --         self.nextJump = self.nextJump - dt
+    --     end
+
+    --     local jumping = false
+
+    --     if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
+    --         self.body:setLinearVelocity(velx/10, vely/5)
+    --         self.body:applyLinearImpulse(0, -400)
+    --         self.nextJump = 0.1
+    --         goingUpOrDown = nil
+
+    --         playSound("bwop.wav")
+    --         jumping = true
+
+    --         local smoke = Particle:new()
+    --         smoke:setPosition(self:getPosition())
+    --     end
+
+    --     if self.controller:isKeyDown("left") and not jumping then
+    --         if math.abs(velx) < 100 then
+    --             self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
+    --         else
+    --             self.body:setLinearVelocity(-MOVING_SPEED, vely)
+    --         end
+
+    --         -- this is for climbing stairs
+    --         if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
+    --             goingUpOrDown = false
+    --         end
+    --         if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
+    --             goingUpOrDown = true
+    --             ypoop = -ypoop
+    --         end
+    --     end
+
+    --     if self.controller:isKeyDown("right") and not jumping then
+    --         if math.abs(velx) < 100 then
+    --             self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
+    --         else
+    --             self.body:setLinearVelocity(MOVING_SPEED, vely)
+    --         end
+
+    --         -- this is for climbing stairs
+    --         if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
+    --             goingUpOrDown = true
+    --         end
+    --         if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
+    --             goingUpOrDown = false
+    --             ypoop = -ypoop
+    --         end
+    --     end
+
+    --     -- so for climbing stairs, we actually push the player up a bit
+    --     -- when they're going up stairs, and push them down when they're going
+    --     -- down stairs.
+    --     if self.nextJump <= 0 then
+    --         local velx, vely = self.body:getLinearVelocity()
+    --         -- up
+    --         if goingUpOrDown == true then
+    --             -- self.body:applyLinearImpulse(0, -50)
+    --             self.body:setLinearVelocity(velx, 200 * ypoop)
+    --         -- down
+    --         elseif goingUpOrDown == false then
+    --             -- self.body:applyLinearImpulse(0, 10)
+    --             self.body:setLinearVelocity(velx, 200 * -ypoop)
+    --         end
+    --         goingUpOrDown = nil
+    --     end
+
+    -- -- not on floor, we're in the air
+    -- else
+    --     if self.controller:isKeyDown("left") then
+    --         if velx >= 0 then
+    --             self.body:setLinearVelocity(velx - DEACCELERATION_SPEED*dt, vely)
+    --         elseif math.abs(velx) < 250 then
+    --             self.body:applyLinearImpulse(-IMPULSE_AFTER_JUMPING, 0)
+    --         end
+    --     end
+
+    --     if self.controller:isKeyDown("right") then
+    --         if velx <= 0 then
+    --             self.body:setLinearVelocity(velx + DEACCELERATION_SPEED*dt, vely)
+    --         elseif math.abs(velx) < 250 then
+    --             self.body:applyLinearImpulse(IMPULSE_AFTER_JUMPING, 0)
+    --         end
+    --     end
+    -- end
 
 end
 
@@ -340,6 +382,8 @@ end
 function Player:beginContact(other, contact, isother)
     self.isother = isother
 
+    if not other.solid then return end
+
     local x, y = self:getPosition()
     local normx, normy = contact:getNormal()
 
@@ -367,10 +411,10 @@ function Player:beginContact(other, contact, isother)
         -- we want to slide down walls, not cling onto them
         --contact:setFriction(0)
     end
- 
-        if other.type == "PLAYER" then
-            contact:setFriction(1.5)
-        end
+
+    if other.type == "PLAYER" then
+        contact:setFriction(1.5)
+    end
 
 end
 
