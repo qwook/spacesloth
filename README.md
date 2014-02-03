@@ -4,19 +4,22 @@
 ##Global
 This is a special object that can be accessed with the name "global". You cannot spawn it and you cannot access it's properties, but you can call methods on it.
 #####Methods
-`swapCollision(  )`  
-`changeMap( string )`  
-`playSound( name[, volume]) )`  
-`playSound( name, music )`  
+`global:swapCollision(  )`  
+`global:changeMap( string )`  
+`global:playMusic( name, volume) )`  
+`global:playSound( name[, volume] )`
 
 ##Player
 #####Methods
-`multiplyVelocity( x, y )`  
-`addVelocity( x, y )`  
-`setVelocity( x, y )`  
-`applyImpulse( x, y )`  
-`setFriction( number )` 
-`teleportTo( object )`  
+`activator:multiplyVelocity( x, y )`  
+`activator:addVelocity( x, y )`  
+`activator:setVelocity( x, y )`  
+`activator:applyImpulse( x, y )`  
+`activator:setFriction( number )` 
+`activator:teleportTo( object )`  
+
+##Self
+You can use the `self` keyword.
 
 ##Everything Else
 #####Events:
@@ -37,7 +40,7 @@ Everything is secretly derived from it for no good reason.
 `onSpawn`
 #####Methods
 `setVelocity( number, number, number )`  
-`setVisible( boolean )`  
+`setVisible( boolean )`
 `setFrozen( boolean )`  
 `teleportTo( object )`  
 `teleportTo( object )`  
@@ -83,8 +86,18 @@ Draws a text.
 `string` : `the text you want to put here`
 #####Methods
 `type( )` types out the text you put in
+`setString( string )` useful for dialogue
 
 ##Trampoline
 #####Attributes:
-`power` : `how much power it should push the player by`
-`goal` : `name of a goal. it could be anything`
+`power` : `how much power it should push the player by`  
+`goal` : `name of a goal. it could be anything`  
+
+#Prop
+#####Attributes:
+`sprite` : `sprite relative to the sprite folder`   
+`spritewidth` : `sprite width`  
+`spriteheight` : `sprite height`  
+#####Methods
+`loopAnimation( y, xfrom, xto, speed )`  
+`playAnimation( y, xfrom, xto, duration )`

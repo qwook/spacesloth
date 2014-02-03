@@ -57,10 +57,10 @@ function Trampoline:touchedPlayer(player)
     -- using a javascript style timer :V
     setTimeout(function()
         -- no goal set
-        if not self.goal then return end
+        if not self:getProperty("goal") then return end
 
         -- find the goal object
-        local goals, goal = map:findObjectsByName(self.goal)
+        local goals, goal = map:findObjectsByName(self:getProperty("goal"))
         if goals[1] == nil then
             return
         else
@@ -81,7 +81,7 @@ function Trampoline:touchedPlayer(player)
         local root = 1
         -- The discriminant determines if the shot is even possible.
 
-        local vel = self.power or 0
+        local vel = self:getProperty("power") or 0
         local discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
         
         -- if the lame map editor didn't set a velocity, 
@@ -97,7 +97,7 @@ function Trampoline:touchedPlayer(player)
             -- Divide the velocity into x and y components.
             vx = vel*math.cos(theta)
             vy = vel*math.sin(theta)
-            print("theta: " .. math.deg(theta) .. " vx: ".. vx .. " vy: " .. vy)
+            -- print("theta: " .. math.deg(theta) .. " vx: ".. vx .. " vy: " .. vy)
         
             -- Sanity check to avoid feeding a nil value into the physics engine.
             if vx == vx and vy == vy then
@@ -126,10 +126,6 @@ function Trampoline:draw()
     love.graphics.push()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
-
-    -- love.graphics.setColor(0, 255, 0, 100)
-    -- love.graphics.rectangle('fill', 0, 0, 32, 16)
-    -- love.graphics.rectangle('line', 0, 0, 32, 16)
 
     love.graphics.setColor(255, 255, 255)
     -- self.spritesheet:draw(anim, 0, 0, -16, 0, 1, 1)

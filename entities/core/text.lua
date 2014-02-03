@@ -13,6 +13,10 @@ function Text:initialize(x, y, w, h)
     self.nexttype = 0
 end
 
+function Text:event_setstring(string)
+    self:setProperty("string", string)
+end
+
 function Text:event_type()
     self:event_setvisible("true")
 
@@ -39,7 +43,7 @@ function Text:getAngle()
 end
 
 function Text:update(dt)
-    if self.typing and self.typeprogr <= self.string:len() then
+    if self.typing and self.typeprogr <= self:getProperty("string"):len() then
         self.nexttype = self.nexttype - dt
         if (self.nexttype <= 0) then
             self.nexttype = 0.05
@@ -95,13 +99,14 @@ end
 function Text:draw()
     local x, y = self:getPosition()
     local r = self:getAngle()
+    local string = self:getProperty("string")
 
     love.graphics.push()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
 
     local font = love.graphics.getFont()
-    local width, lines = font:getWrap(self.string, self.width - 20)
+    local width, lines = font:getWrap(string, self.width - 20)
 
     local height = lines*(font:getHeight())
 
@@ -114,9 +119,9 @@ function Text:draw()
     love.graphics.setColor(255, 255, 255, 255)
 
     if self.typing then
-        love.graphics.printf(self.string:sub(0, self.typeprogr), 10, 10, self.width - 20)
+        love.graphics.printf(string:sub(0, self.typeprogr), 10, 10, self.width - 20)
     else
-        love.graphics.printf(self.string, 10, 10, self.width - 20)
+        love.graphics.printf(string, 10, 10, self.width - 20)
     end
 
     love.graphics.pop()

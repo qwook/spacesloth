@@ -50,7 +50,8 @@ end
 function Trigger:beginContact(other, contact, isother)
     table.insert( self.touching, other )
     onNextUpdate(function()
-        if (self.filter and self.filter == other.name) or (not self.filter and other.type == "PLAYER") then
+        local filter = self:getProperty("filter")
+        if (filter and filter == other.name) or (not filter and other.type == "PLAYER") then
             self:trigger("ontrigger", other)
             local pls = {}
             for k,v in pairs(self.touching) do
@@ -72,7 +73,8 @@ end
 
 function Trigger:endContact(other, contact, isother)
     table.removeonevalue( self.touching, other )
-    if (self.filter and self.filter == other.name) or (not self.filter and other.type == "PLAYER") then
+    local filter = self:getProperty("filter")
+    if (filter and filter == other.name) or (not filter and other.type == "PLAYER") then
         self:trigger("ontriggerend", other)
         local pls = {}
         for k,v in pairs(self.touching) do

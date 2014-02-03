@@ -116,7 +116,7 @@ function Map:spawnObjects()
         instance.brushw = v.width
         instance.brushh = v.height
         for prop, val in pairs(v.properties) do
-            instance[prop:lower()] = val
+            instance:setProperty(prop, val)
         end
         instance:initPhysics()
         instance:setPosition(v.x + 16, v.y + 16)

@@ -13,7 +13,7 @@ function Timer:initialize()
 end
 
 function Timer:event_start()
-    self.timeLife = tonumber(self.time) or 0
+    self.timeLife = tonumber(self:getProperty("time")) or 0
 end
 
 function Timer:initPhysics()

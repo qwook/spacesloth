@@ -6,6 +6,7 @@ PhysBox = class("PhysBox", Physical)
 function PhysBox:initialize()
     self.contacts = {}
     self.touching = {}
+    self.properties = {}
     self.visible = true
     self.frozen = false
     self.solid = true
@@ -20,6 +21,7 @@ function PhysBox:initialize()
 end
 
 function PhysBox:postSpawn()
+    self.collisiongroup = self:getProperty("collisiongroup")
 end
 
 function PhysBox:eval(str, activator)
@@ -69,6 +71,18 @@ function PhysBox:eval(str, activator)
 
 end
 
+function PhysBox:setProperty(name, value)
+    self.properties[name:lower()] = value
+end
+
+function PhysBox:getProperty(name)
+    for k,v in pairs(self.properties) do
+        if k:lower() == name:lower() then
+            return v
+        end
+    end
+end
+
 function PhysBox:call(name, args)
     if self["event_" .. name:lower()] then
         self["event_" .. name:lower()](self, unpack(args))
@@ -78,7 +92,7 @@ function PhysBox:call(name, args)
 end
 
 function PhysBox:trigger(event, activator)
-    local n = self[event:lower()]
+    local n = self:getProperty(event)
     if n then
         local events = {}
         string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
