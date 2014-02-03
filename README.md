@@ -31,6 +31,8 @@ This is a special object that can be accessed with the name "global". You cannot
 ##PhysBox
 A box that's used for testing and stuff.
 Everything is secretly derived from it for no good reason.
+#####Attributes:
+`collisiongroup` : `shared / blue / green`
 #####Events:
 `onSpawn`
 #####Methods
@@ -81,3 +83,8 @@ Draws a text.
 `string` : `the text you want to put here`
 #####Methods
 `type( )` types out the text you put in
+
+##Trampoline
+#####Attributes:
+`power` : `how much power it should push the player by`
+`goal` : `name of a goal. it could be anything`

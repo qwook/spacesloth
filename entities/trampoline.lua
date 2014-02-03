@@ -81,25 +81,14 @@ function Trampoline:touchedPlayer(player)
         local root = 1
         -- The discriminant determines if the shot is even possible.
 
-        local vel = self.vel or 0
+        local vel = self.power or 0
         local discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
         
-        -- if the lame map editor didn't set a velocity, do some guesswork
-        -- and then cache a possible velocity.
+        -- if the lame map editor didn't set a velocity, 
+        -- calculate a velocity that will give a good discriminant
         if discriminant <= 0 then
-            for i = 1, 150 do
-                vel = i * 10
-                self.vel = vel
+                vel = math.sqrt(math.sqrt(math.pow((GRAVITY*2*dy), 2) + 4*(1 + GRAVITY*(GRAVITY*dx*dx))) + (GRAVITY*2*dy)) / math.sqrt(2)
                 discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
-                -- 1 + GRAVITY*(GRAVITY*dx*dx) = math.pow(vel, 4) - (GRAVITY*2*dy)*vel*vel
-                -- = vel^4 - (GRAVITY*2*dy)*vel^2
-                -- = vel^2( vel^2 - (GRAVITY*2*dy) )
-
-                if discriminant > 0 then
-                    break
-                end
-                print(vel, self.vel)
-            end
         end
         
         if discriminant > 0 then
