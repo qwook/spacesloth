@@ -39,7 +39,7 @@ Everything is secretly derived from it for no good reason.
 #####Events:
 `onSpawn`
 #####Methods
-`setVelocity( number, number, number )`  
+`setVelocity( x, y )`  
 `setVisible( boolean )`
 `setFrozen( boolean )`  
 `teleportTo( object )`  
