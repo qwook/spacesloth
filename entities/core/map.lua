@@ -132,7 +132,7 @@ function Map:spawnObjects()
         if instance.fixture and instance.body then
             instance.fixture:setFriction(instance:getProperty("friction") or 0.1)
             instance.body:setMass(instance:getProperty("mass") or 1)
-            instance.body:setFixedRotation(instance:getProperty("disablerotation") == true)
+            instance.body:setFixedRotation(instance:getProperty("disablerotation") == "true")
         end
 
         instance:postSpawn()

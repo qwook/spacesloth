@@ -327,6 +327,7 @@ return {
           visible = true,
           properties = {
             ["collisiongroup"] = "blue",
+            ["disablerotation"] = "true",
             ["frozen"] = "false",
             ["mass"] = "100000",
             ["onspawn"] = "self:setGravity(0)"
