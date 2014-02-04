@@ -171,19 +171,13 @@
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
-  <object type="Slider" x="1451" y="1416" width="32" height="35">
-   <properties>
-    <property name="angle" value="0"/>
-    <property name="object" value="moving1"/>
-   </properties>
-  </object>
   <object type="Trigger" x="1566" y="1324" width="10" height="89">
    <properties>
     <property name="filter" value="moving1"/>
     <property name="ontrigger" value="moving1:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1280" y="1318" width="10" height="87">
+  <object type="Trigger" x="1318" y="1322" width="10" height="87">
    <properties>
     <property name="filter" value="moving1"/>
     <property name="ontrigger" value="moving1:setVelocity(100,0)"/>
@@ -203,8 +197,8 @@
    </properties>
   </object>
   <object name="spawn1" x="1061" y="193" width="36" height="30"/>
-  <object name="player2" gid="110" x="1736" y="1325"/>
-  <object name="player1" gid="110" x="1655" y="1315"/>
+  <object name="player2" gid="110" x="333" y="341"/>
+  <object name="player1" gid="110" x="252" y="331"/>
   <object type="Trigger" x="1358" y="1210" width="10" height="89">
    <properties>
     <property name="filter" value="moving2"/>
@@ -223,15 +217,24 @@
    </properties>
   </object>
   <object name="spwn" x="1755" y="1226" width="45" height="33"/>
-  <object name="moving1" type="PhysBox" x="1426" y="1366" width="116" height="35">
-   <properties>
-    <property name="onspawn" value="moving1:setVelocity(100,0);"/>
-   </properties>
-  </object>
   <object type="Slider" x="1128" y="1310" width="32" height="35">
    <properties>
     <property name="angle" value="0"/>
     <property name="object" value="moving2"/>
+   </properties>
+  </object>
+  <object name="moving1" type="PhysBox" x="1325" y="1366" width="111" height="33">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="frozen" value="false"/>
+    <property name="mass" value="0"/>
+    <property name="onspawn" value="self:setGravity(0);moving1:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="1465" y="1397">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="moving1"/>
    </properties>
   </object>
  </objectgroup>

@@ -808,20 +808,6 @@ return {
         },
         {
           name = "",
-          type = "Slider",
-          shape = "rectangle",
-          x = 1451,
-          y = 1416,
-          width = 32,
-          height = 35,
-          visible = true,
-          properties = {
-            ["angle"] = "0",
-            ["object"] = "moving1"
-          }
-        },
-        {
-          name = "",
           type = "Trigger",
           shape = "rectangle",
           x = 1566,
@@ -838,8 +824,8 @@ return {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1280,
-          y = 1318,
+          x = 1318,
+          y = 1322,
           width = 10,
           height = 87,
           visible = true,
@@ -905,8 +891,8 @@ return {
           name = "player2",
           type = "",
           shape = "rectangle",
-          x = 1736,
-          y = 1325,
+          x = 333,
+          y = 341,
           width = 0,
           height = 0,
           gid = 110,
@@ -917,8 +903,8 @@ return {
           name = "player1",
           type = "",
           shape = "rectangle",
-          x = 1655,
-          y = 1315,
+          x = 252,
+          y = 331,
           width = 0,
           height = 0,
           gid = 110,
@@ -978,19 +964,6 @@ return {
           properties = {}
         },
         {
-          name = "moving1",
-          type = "PhysBox",
-          shape = "rectangle",
-          x = 1426,
-          y = 1366,
-          width = 116,
-          height = 35,
-          visible = true,
-          properties = {
-            ["onspawn"] = "moving1:setVelocity(100,0);"
-          }
-        },
-        {
           name = "",
           type = "Slider",
           shape = "rectangle",
@@ -1002,6 +975,37 @@ return {
           properties = {
             ["angle"] = "0",
             ["object"] = "moving2"
+          }
+        },
+        {
+          name = "moving1",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 1325,
+          y = 1366,
+          width = 111,
+          height = 33,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["frozen"] = "false",
+            ["mass"] = "0",
+            ["onspawn"] = "self:setGravity(0);moving1:setVelocity(100,0)"
+          }
+        },
+        {
+          name = "",
+          type = "Slider",
+          shape = "rectangle",
+          x = 1465,
+          y = 1397,
+          width = 0,
+          height = 0,
+          gid = 851,
+          visible = true,
+          properties = {
+            ["angle"] = "0",
+            ["object"] = "moving1"
           }
         }
       }
