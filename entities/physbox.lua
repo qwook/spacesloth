@@ -43,6 +43,21 @@ local function blit(dst, src, dx, dy, sx, sy, sw, sh)
     end)
 end
 
+function PhysBox:initPhysics()
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'dynamic')
+    
+    if self.brushw > 0 and self.brushh > 0 then
+        self.width = self.brushw
+        self.height = self.brushh
+        self.shape = love.physics.newRectangleShape(self.brushw, self.brushh)
+    else
+        self.shape = love.physics.newRectangleShape(32, 32)
+    end
+    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+
+    self.fixture:setUserData(self)
+end
+
 function PhysBox:postSpawn()
     -- yeah me neither
     local x, y = self:getPosition()
@@ -169,21 +184,6 @@ function PhysBox:destroy()
     self.shape = nil
 end
 
-function PhysBox:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'dynamic')
-    
-    if self.brushw > 0 and self.brushh > 0 then
-        self.width = self.brushw
-        self.height = self.brushh
-        self.shape = love.physics.newRectangleShape(self.brushw, self.brushh)
-    else
-        self.shape = love.physics.newRectangleShape(32, 32)
-    end
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setUserData(self)
-end
-
 function PhysBox:event_setcolor(r, g, b, a)
     self.color = {r = tonumber(r), g = tonumber(g), b = tonumber(b), a = tonumber(a)}
 end
@@ -259,12 +259,15 @@ function PhysBox:event_setvelocity(x, y)
 end
 
 function PhysBox:setPosition(x, y)
-    if self.frozen then
-        self:event_setfrozen("false")
-        self.body:setPosition(x, y)
-        self:event_setfrozen("true")
-    else
-        self.body:setPosition(x, y)
+    local hadFrozenJoint = false
+    if self.frozenJoint then
+        hadFrozenJoint = true
+        self.frozenJoint:destroy()
+    end
+    self.body:setPosition(x, y)
+    if hadFrozenJoint then
+        local x, y = self:getPosition()
+        self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
     end
 end
 
