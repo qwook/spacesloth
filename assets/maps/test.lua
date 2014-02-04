@@ -320,15 +320,15 @@ return {
           name = "dipshit",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1113,
-          y = 619,
+          x = 957,
+          y = 628,
           width = 111,
           height = 33,
           visible = true,
           properties = {
             ["collisiongroup"] = "blue",
-            ["frozen"] = "false",
-            ["mass"] = "0",
+            ["friction"] = "1",
+            ["mass"] = "200",
             ["onspawn"] = "self:setGravity(0)"
           }
         },
@@ -360,8 +360,8 @@ return {
           name = "",
           type = "Trampoline",
           shape = "rectangle",
-          x = 1293,
-          y = 958,
+          x = 1370,
+          y = 961,
           width = 0,
           height = 0,
           gid = 671,
@@ -375,8 +375,8 @@ return {
           name = "goal",
           type = "",
           shape = "rectangle",
-          x = 1404,
-          y = 537,
+          x = 1202,
+          y = 583,
           width = 0,
           height = 0,
           gid = 666,
@@ -416,13 +416,131 @@ return {
           name = "shaker",
           type = "Trigger",
           shape = "rectangle",
-          x = 1103,
-          y = 552,
+          x = 948,
+          y = 551,
           width = 27,
           height = 121,
           visible = true,
           properties = {
             ["filter"] = "dipshit",
+            ["onTrigger"] = "activator:setVelocity(100, 0)"
+          }
+        },
+        {
+          name = "dipshit1",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 721,
+          y = 782,
+          width = 111,
+          height = 33,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["mass"] = "200",
+            ["onspawn"] = "self:setGravity(0)"
+          }
+        },
+        {
+          name = "shaker",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 712,
+          y = 705,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit1",
+            ["onTrigger"] = "activator:setVelocity(100, 0)"
+          }
+        },
+        {
+          name = "mover",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1139,
+          y = 706,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit1",
+            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+          }
+        },
+        {
+          name = "",
+          type = "Slider",
+          shape = "rectangle",
+          x = 1098,
+          y = 804,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["angle"] = "0",
+            ["object"] = "dipshit1"
+          }
+        },
+        {
+          name = "dipshit2",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 681,
+          y = 942,
+          width = 111,
+          height = 33,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["mass"] = "200",
+            ["onspawn"] = "self:setGravity(0)"
+          }
+        },
+        {
+          name = "",
+          type = "Slider",
+          shape = "rectangle",
+          x = 1058,
+          y = 964,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["angle"] = "0",
+            ["object"] = "dipshit2"
+          }
+        },
+        {
+          name = "mover",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1099,
+          y = 866,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit2",
+            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+          }
+        },
+        {
+          name = "shaker",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 672,
+          y = 865,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit2",
             ["onTrigger"] = "activator:setVelocity(100, 0)"
           }
         }

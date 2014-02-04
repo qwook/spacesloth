@@ -9,6 +9,11 @@ function setTimeout(cb, delay)
     table.insert(timeouts, {cb = cb, delay = love.timer.getTime() + delay})
 end
 
+function clearUpdates()
+    table.clear(timeouts)
+    table.clear(updateList)
+end
+
 function love.update(dt)
 
     local tmp = {}

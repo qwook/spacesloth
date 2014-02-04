@@ -43,23 +43,23 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
-  <object name="dipshit" type="PhysBox" x="1113" y="619" width="111" height="33">
+  <object name="dipshit" type="PhysBox" x="957" y="628" width="111" height="33">
    <properties>
     <property name="collisiongroup" value="blue"/>
-    <property name="frozen" value="false"/>
-    <property name="mass" value="0"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="200"/>
     <property name="onspawn" value="self:setGravity(0)"/>
    </properties>
   </object>
   <object name="player2" gid="666" x="1188" y="619"/>
   <object name="player1" gid="670" x="1232" y="618"/>
-  <object type="Trampoline" gid="671" x="1293" y="958">
+  <object type="Trampoline" gid="671" x="1370" y="961">
    <properties>
     <property name="goal" value="goal"/>
     <property name="power" value="1000"/>
    </properties>
   </object>
-  <object name="goal" gid="666" x="1404" y="537"/>
+  <object name="goal" gid="666" x="1202" y="583"/>
   <object type="Slider" gid="686" x="1298" y="651">
    <properties>
     <property name="angle" value="0"/>
@@ -72,9 +72,61 @@
     <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
    </properties>
   </object>
-  <object name="shaker" type="Trigger" x="1103" y="552" width="27" height="121">
+  <object name="shaker" type="Trigger" x="948" y="551" width="27" height="121">
    <properties>
     <property name="filter" value="dipshit"/>
+    <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
+   </properties>
+  </object>
+  <object name="dipshit1" type="PhysBox" x="721" y="782" width="111" height="33">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="200"/>
+    <property name="onspawn" value="self:setGravity(0)"/>
+   </properties>
+  </object>
+  <object name="shaker" type="Trigger" x="712" y="705" width="27" height="121">
+   <properties>
+    <property name="filter" value="dipshit1"/>
+    <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
+   </properties>
+  </object>
+  <object name="mover" type="Trigger" x="1139" y="706" width="27" height="121">
+   <properties>
+    <property name="filter" value="dipshit1"/>
+    <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="686" x="1098" y="804">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="dipshit1"/>
+   </properties>
+  </object>
+  <object name="dipshit2" type="PhysBox" x="681" y="942" width="111" height="33">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="200"/>
+    <property name="onspawn" value="self:setGravity(0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="686" x="1058" y="964">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="dipshit2"/>
+   </properties>
+  </object>
+  <object name="mover" type="Trigger" x="1099" y="866" width="27" height="121">
+   <properties>
+    <property name="filter" value="dipshit2"/>
+    <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
+   </properties>
+  </object>
+  <object name="shaker" type="Trigger" x="672" y="865" width="27" height="121">
+   <properties>
+    <property name="filter" value="dipshit2"/>
     <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
    </properties>
   </object>

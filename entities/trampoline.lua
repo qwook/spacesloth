@@ -74,6 +74,13 @@ function Trampoline:touchedPlayer(player)
         local xPlayerPos, yPlayerPos = player:getPosition()
         local xGoalPos, yGoalPos = goal:getPosition()
 
+        local flipped = false
+        if (xGoalPos < xPlayerPos) then
+            flipped = true
+            xGoalPos = 2*xPlayerPos - xGoalPos
+            xGoalPos = (xGoalPos - xPlayerPos)
+        end
+
         xGoalPos = xGoalPos + 32 -- slight adjustment
 
         local dx = xGoalPos - xPlayerPos
