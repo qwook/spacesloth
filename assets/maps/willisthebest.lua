@@ -816,7 +816,8 @@ return {
           height = 35,
           visible = true,
           properties = {
-            ["mass"] = "100000",
+            ["disableRotation"] = "true",
+            ["mass"] = "1000000",
             ["onspawn"] = "moving1:setVelocity(100,0);moving1:setGravity(0)"
           }
         },
