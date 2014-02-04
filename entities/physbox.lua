@@ -141,6 +141,8 @@ end
 
 function PhysBox:event_setcollisiongroup(group)
     self.collisiongroup = group
+    player:forceCollisionRecalculation()
+    player2:forceCollisionRecalculation()
 end
 
 function PhysBox:event_destroy()
