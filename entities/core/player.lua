@@ -392,8 +392,8 @@ function Player:beginContact(other, contact, isother)
     -- "Conservation of Energy"
     ------------------------------------------------------
 
-    if SLIDE then
-            
+    if SLIDE or math.length(self.body:getLinearVelocity()) > 600 then
+
         local velx, vely = self.body:getLinearVelocity()
 
         local smoke = DebugArrow:new()

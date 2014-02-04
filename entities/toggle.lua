@@ -23,6 +23,9 @@ function Toggle:initPhysics()
     self.pressed = false
 end
 
+function Toggle:postSpawn()
+end
+
 function Toggle:setPosition(x, y)
     PhysBox.setPosition(self, x+8, y+10)
 end

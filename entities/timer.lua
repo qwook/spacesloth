@@ -12,6 +12,9 @@ function Timer:initialize()
     self.timeLife = 0
 end
 
+function Timer:postSpawn()
+end
+
 function Timer:event_start()
     self.timeLife = tonumber(self:getProperty("time")) or 0
 end

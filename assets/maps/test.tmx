@@ -28,30 +28,38 @@
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="6" name="henstile" tilewidth="32" tileheight="32">
-  <image source="../sprites/henstile.gif" width="983" height="730"/>
-  <terraintypes>
-   <terrain name="rock" tile="31"/>
-   <terrain name="clear" tile="34"/>
-  </terraintypes>
-  <tile id="0" terrain="1,1,1,0"/>
-  <tile id="1" terrain="1,1,0,0"/>
-  <tile id="2" terrain="1,1,0,1"/>
-  <tile id="3" terrain="0,0,0,1"/>
-  <tile id="4" terrain="0,0,1,0"/>
-  <tile id="5" terrain="1,1,1,1"/>
-  <tile id="30" terrain="1,0,1,0"/>
-  <tile id="31" terrain="0,0,0,0"/>
-  <tile id="32" terrain="0,1,0,1"/>
-  <tile id="33" terrain="0,1,0,0"/>
-  <tile id="34" terrain="1,0,0,0"/>
-  <tile id="60" terrain="1,0,1,1"/>
-  <tile id="61" terrain="0,0,1,1"/>
-  <tile id="62" terrain="0,1,1,1"/>
+ <tileset firstgid="6" source="hentiles.tsx"/>
+ <tileset firstgid="666" name="object_tilemap" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
  </tileset>
- <layer name="Tile Layer 1" width="100" height="100">
+ <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1UsKwjAUQNGM6qfb0Oo6tPtfkykYDCGtDvoDz+DMUijv8pI2hNACAAAAAAAAADCpiQ7RcQf/QgiX6Bp1P3Yr6bhNj3Su9O075ulR7sNdj9V75A3G5q/Hcpps7l0Yv5MGp+isx6Ly+ec9htk/31KDW6jvjB7zyHejnHc+46md0WM+U3PWYz89hruqz849wufOqr0hesxjmPOzoq+cTe1qb4ge27Qr9yK9+bV+rN/EXmwvb6LHPqR3xz0FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/+0FpQ++cg==
+   eJzt11FygjAUBdB8tbVuQ8V12O5/TSWVjCkTDEzFpsP5OOMHDIO5ee+RfQhhDwAAAAAAAHx76b0O3hp4n6079I6DTiZ/Ls8jOjXwTlsmj+dLM6LUi5bmce9ZzJPWvLTW4zy6cJvvpTl/CGbNM/MoOU3cr7c9Po9L772SR14zZ3msmkd+fSl5LBfnb9rTtTx24Vor8fdjcK92zJDl5vT71LO6IbupeZFLmX028B//i7w2dpW1G5/TS/PiOPNZ1Ne41utrMyTvYbL4fR6lc0Uur6PxzFAPjzH+lk17vDajz8GMWDuTfI9fws/vp1JOamLdTKbWNr+Wcoq5OFu0I84dZ4t2pDrRrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDbvgAvdsPO
   </data>
  </layer>
+ <layer name="SharedCollision" width="100" height="100" opacity="0.38">
+  <data encoding="base64" compression="zlib">
+   eJzt1jEKgDAQRcF4/0uLhSBBNFGyu8UMCILdf4ppDQAAAAAAADht3UWuvocmufSoRY94T1vrEW+2h0Zr6VGLHrW87apHnJFd9YjztUf/jP9m3nPfx3ozm+qx3ujZyf8jhh713O2qQ66Rs9X1XotaNKlFDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCwA+sCAMM=
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="100" height="100">
+  <object type="PhysBox" x="1287" y="676" width="111" height="33">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="frozen" value="true"/>
+   </properties>
+  </object>
+  <object name="player2" gid="666" x="1188" y="619"/>
+  <object name="player1" gid="670" x="1232" y="618"/>
+  <object type="Trampoline" gid="671" x="1293" y="958">
+   <properties>
+    <property name="goal" value="goal"/>
+    <property name="power" value="1000"/>
+   </properties>
+  </object>
+  <object name="goal" gid="666" x="1404" y="537"/>
+ </objectgroup>
+ <imagelayer name="Background" width="100" height="100">
+  <image source="../backgrounds/bgConcept1_big.jpg"/>
+ </imagelayer>
 </map>

@@ -27,6 +27,11 @@ end
 -- giant wrapper for the tiled loader
 -- don't worry about it
 function Map:generateTileCollision(layername, collisiongroup)
+
+    if not self.tiledmap.layers[layername] then
+        return
+    end
+
     local collision = self.tiledmap:getCollisionMap(layername).data
 
     local tiles = {}
@@ -92,12 +97,13 @@ function Map:spawnObjects()
         if v.name == "player1" then
             player = Player:new()
             player:setController(input)
-            player:setPosition(v.x + 16, v.y + 16)
+            -- tiled positional data being janky
+            player:setPosition(v.x + 32 + 16, v.y + 32)
         -- spawnpoint for player 2
         elseif v.name == "player2" then
             player2 = Cindy:new()
             player2:setController(input2)
-            player2:setPosition(v.x + 16, v.y + 16)
+            player2:setPosition(v.x + 32 + 16, v.y + 32)
         end
 
         -- so this determines the class by the Type
@@ -118,6 +124,8 @@ function Map:spawnObjects()
         for prop, val in pairs(v.properties) do
             instance:setProperty(prop, val)
         end
+        instance.collisiongroup = instance:getProperty("collisiongroup")
+        instance:event_setfrozen(instance:getProperty("frozen"))
         instance:initPhysics()
         instance:setPosition(v.x + 16, v.y + 16)
         instance:postSpawn()
@@ -173,6 +181,7 @@ function Map:get(x, y)
 end
 
 function Map:drawLayer(layerName)
+    if not self.tiledmap.layers[layerName] then return end
     self.tiledmap:drawTileLayer(self.tiledmap.layers[layerName])
 end
 
@@ -189,7 +198,7 @@ function Map:draw(player)
 
     self:drawLayer("SharedLayer")
 
-    self.tiledmap:drawTileLayer(self.tiledmap.layers["Decoration"])
+    self:drawLayer("Decoration")
     love.graphics.pop()
 
     -- debug drawings:

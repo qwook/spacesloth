@@ -23,6 +23,9 @@ function Trampoline:initPhysics()
     self.anim = 0
 end
 
+function Trampoline:postSpawn()
+end
+
 function Trampoline:update(dt)
     if self.anim > 0 then
         self.anim = self.anim - dt*3
@@ -129,7 +132,7 @@ function Trampoline:draw()
 
     love.graphics.setColor(255, 255, 255)
     -- self.spritesheet:draw(anim, 0, 0, -16, 0, 1, 1)
-    self.spritesheet:draw(anim, 0, 32, -16, 0, -1, 1)
+    self.spritesheet:draw(anim, 0, 32, -32, 0, -1, 1)
 
     love.graphics.pop()
 end

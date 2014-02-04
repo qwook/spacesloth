@@ -4,6 +4,7 @@ Physical = require("entities.core.physical")
 PhysBox = class("PhysBox", Physical)
 
 function PhysBox:initialize()
+    self.name = "noname"
     self.contacts = {}
     self.touching = {}
     self.properties = {}
@@ -21,14 +22,16 @@ function PhysBox:initialize()
 end
 
 function PhysBox:postSpawn()
-    self.collisiongroup = self:getProperty("collisiongroup")
+    -- yeah me neither
+    local x, y = self:getPosition()
+    self:setPosition(x + self.width/2 + 16, y + self.height/2 + 16)
 end
 
 function PhysBox:eval(str, activator)
     local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%)]*)%)")
 
-    if not name then print("[map syntax error] no name") return end
-    if not event then print("[map syntax error] no event") return end
+    if not name then print("[map syntax error: " .. self.name .. "] no name") return end
+    if not event then print("[map syntax error: " .. self.name .. "] no event") return end
 
     name = string.lower(name)
     event = string.lower(event)
@@ -60,7 +63,7 @@ function PhysBox:eval(str, activator)
     end
 
     if #objs == 0 then
-        print("[map warning] no such object named: " .. name)
+        print("[map warning: " .. self.name .. "] no such object named: " .. name)
     end
 
     for k, obj in pairs(objs) do
@@ -87,7 +90,7 @@ function PhysBox:call(name, args)
     if self["event_" .. name:lower()] then
         self["event_" .. name:lower()](self, unpack(args))
     else
-        print("[map warning] no such event named: " .. name)
+        print("[map warning: " .. self.name .. "] no such event named: " .. name)
     end
 end
 
@@ -131,6 +134,10 @@ function PhysBox:initPhysics()
     self.fixture:setUserData(self)
     self.fixture:setFriction(self.friction or 0.1)
     self.body:setMass(self.mass or 1)
+end
+
+function PhysBox:event_setcollisiongroup(group)
+    self.collisiongroup = group
 end
 
 function PhysBox:event_destroy()
@@ -198,7 +205,13 @@ function PhysBox:event_setvelocity(x, y)
 end
 
 function PhysBox:setPosition(x, y)
-    self.body:setPosition(x, y)
+    if self.frozen then
+        self:event_setfrozen("false")
+        self.body:setPosition(x, y)
+        self:event_setfrozen("true")
+    else
+        self.body:setPosition(x, y)
+    end
 end
 
 function PhysBox:getPosition()
