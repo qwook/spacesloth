@@ -953,59 +953,62 @@ return {
           }
         },
         {
+          name = "mover",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1268,
+          y = 1294,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit2",
+            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+          }
+        },
+        {
           name = "",
           type = "Slider",
           shape = "rectangle",
-          x = 1176,
-          y = 1398,
+          x = 1227,
+          y = 1392,
           width = 0,
           height = 0,
           gid = 851,
           visible = true,
           properties = {
             ["angle"] = "0",
-            ["object"] = "moving2"
+            ["object"] = "dipshit2"
           }
         },
         {
-          name = "",
+          name = "shaker",
           type = "Trigger",
           shape = "rectangle",
-          x = 1029,
-          y = 1323,
-          width = 10,
-          height = 87,
+          x = 1034,
+          y = 1299,
+          width = 27,
+          height = 121,
           visible = true,
           properties = {
-            ["filter"] = "moving2",
-            ["ontrigger"] = "moving2:setVelocity(100,0)"
+            ["filter"] = "dipshit2",
+            ["onTrigger"] = "activator:setVelocity(100, 0)"
           }
         },
         {
-          name = "moving2",
+          name = "dipshit2",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1036,
-          y = 1367,
+          x = 1043,
+          y = 1376,
           width = 111,
           height = 33,
           visible = true,
           properties = {
-            ["mass"] = "1000"
-          }
-        },
-        {
-          name = "",
-          type = "Trigger",
-          shape = "rectangle",
-          x = 1277,
-          y = 1325,
-          width = 10,
-          height = 89,
-          visible = true,
-          properties = {
-            ["filter"] = "moving2",
-            ["ontrigger"] = "moving2:setVelocity(-100,0)"
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["mass"] = "200",
+            ["onspawn"] = "self:setGravity(0)"
           }
         }
       }

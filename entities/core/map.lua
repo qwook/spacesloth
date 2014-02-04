@@ -135,11 +135,11 @@ function Map:spawnObjects()
             instance.body:setFixedRotation(instance:getProperty("disablerotation") == "true")
         end
 
-        instance:postSpawn()
         table.insert(spawned, instance)
     end
 
     for k,v in pairs(spawned) do
+        v:postSpawn()
         v:trigger("onspawn")
     end
 end

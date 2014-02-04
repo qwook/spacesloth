@@ -216,27 +216,30 @@
     <property name="ontrigger" value="activator:teleportTo(spwn)"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="1176" y="1398">
+  <object name="mover" type="Trigger" x="1268" y="1294" width="27" height="121">
+   <properties>
+    <property name="filter" value="dipshit2"/>
+    <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="1227" y="1392">
    <properties>
     <property name="angle" value="0"/>
-    <property name="object" value="moving2"/>
+    <property name="object" value="dipshit2"/>
    </properties>
   </object>
-  <object type="Trigger" x="1029" y="1323" width="10" height="87">
+  <object name="shaker" type="Trigger" x="1034" y="1299" width="27" height="121">
    <properties>
-    <property name="filter" value="moving2"/>
-    <property name="ontrigger" value="moving2:setVelocity(100,0)"/>
+    <property name="filter" value="dipshit2"/>
+    <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
    </properties>
   </object>
-  <object name="moving2" type="PhysBox" x="1036" y="1367" width="111" height="33">
+  <object name="dipshit2" type="PhysBox" x="1043" y="1376" width="111" height="33">
    <properties>
-    <property name="mass" value="1000"/>
-   </properties>
-  </object>
-  <object type="Trigger" x="1277" y="1325" width="10" height="89">
-   <properties>
-    <property name="filter" value="moving2"/>
-    <property name="ontrigger" value="moving2:setVelocity(-100,0)"/>
+    <property name="collisiongroup" value="blue"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="200"/>
+    <property name="onspawn" value="self:setGravity(0)"/>
    </properties>
   </object>
  </objectgroup>
