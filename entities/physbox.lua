@@ -132,8 +132,6 @@ function PhysBox:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(self.friction or 0.1)
-    self.body:setMass(self.mass or 1)
 end
 
 function PhysBox:event_setcollisiongroup(group)

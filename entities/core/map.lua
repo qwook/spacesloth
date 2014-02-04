@@ -124,10 +124,16 @@ function Map:spawnObjects()
         for prop, val in pairs(v.properties) do
             instance:setProperty(prop, val)
         end
-        instance.collisiongroup = instance:getProperty("collisiongroup")
-        instance:event_setfrozen(instance:getProperty("frozen"))
         instance:initPhysics()
         instance:setPosition(v.x + 16, v.y + 16)
+        instance.collisiongroup = instance:getProperty("collisiongroup")
+        instance:event_setfrozen(instance:getProperty("frozen"))
+
+        if instance.fixture and instance.body then
+            instance.fixture:setFriction(instance:getProperty("friction") or 0.1)
+            instance.body:setMass(instance:getProperty("mass") or 1)
+        end
+
         instance:postSpawn()
         table.insert(spawned, instance)
     end

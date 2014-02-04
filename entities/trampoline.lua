@@ -38,11 +38,11 @@ end
 -- other strange factors also occur, idk.
 function Trampoline:getPosition()
     local x, y = PhysBox.getPosition(self)
-    return x-16, y
+    return x-32, y
 end
 
 function Trampoline:setPosition(x, y)
-    PhysBox.setPosition(self, x+16, y)
+    PhysBox.setPosition(self, x+32, y)
 end
 
 function Trampoline:touchedPlayer(player)
@@ -131,8 +131,8 @@ function Trampoline:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(255, 255, 255)
-    -- self.spritesheet:draw(anim, 0, 0, -16, 0, 1, 1)
-    self.spritesheet:draw(anim, 0, 32, -32, 0, -1, 1)
+    -- self.spritesheet:draw(anim, 0, 16, -16, 0, 1, 1)
+    self.spritesheet:draw(anim, 0, 32+16, -16, 0, -1, 1)
 
     love.graphics.pop()
 end
