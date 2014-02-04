@@ -7,7 +7,7 @@ function cacheImage(name)
     imageLibrary[name] = imageLibrary[name] or love.graphics.newImage("assets/" .. name)
 end
 
-function loadImage(name, volume)
+function loadImage(name)
     imageLibrary[name] = imageLibrary[name] or love.graphics.newImage("assets/" .. name)
     return imageLibrary[name]
 end
