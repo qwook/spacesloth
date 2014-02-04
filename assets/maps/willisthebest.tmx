@@ -78,7 +78,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -178,7 +178,7 @@
     <property name="ontrigger" value="moving1:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1318" y="1322" width="10" height="87">
+  <object type="Trigger" x="1319" y="1369" width="10" height="44">
    <properties>
     <property name="filter" value="moving1"/>
     <property name="ontrigger" value="moving1:setVelocity(100,0)"/>
@@ -200,7 +200,8 @@
   <object name="spwn" x="1755" y="1226" width="45" height="33"/>
   <object name="moving1" type="PhysBox" x="1325" y="1366" width="111" height="33">
    <properties>
-    <property name="mass" value="1000"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
    </properties>
   </object>
   <object type="Slider" gid="851" x="1465" y="1397">
@@ -209,43 +210,144 @@
     <property name="object" value="moving1"/>
    </properties>
   </object>
-  <object name="player2" gid="110" x="2276" y="246"/>
-  <object name="player1" gid="110" x="2195" y="236"/>
-  <object type="Trigger" x="82" y="1589" width="1551" height="13">
+  <object type="Trigger" x="187" y="1586" width="1551" height="13">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(spwn)"/>
    </properties>
   </object>
-  <object name="mover" type="Trigger" x="1268" y="1294" width="27" height="121">
-   <properties>
-    <property name="filter" value="dipshit2"/>
-    <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
-   </properties>
-  </object>
-  <object type="Slider" gid="851" x="1227" y="1392">
+  <object type="Slider" gid="851" x="1064" y="1285">
    <properties>
     <property name="angle" value="0"/>
-    <property name="object" value="dipshit2"/>
+    <property name="object" value="moving3"/>
    </properties>
   </object>
-  <object name="shaker" type="Trigger" x="1034" y="1299" width="27" height="121">
+  <object type="Trigger" x="917" y="1210" width="10" height="87">
    <properties>
-    <property name="filter" value="dipshit2"/>
-    <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
+    <property name="filter" value="moving3"/>
+    <property name="ontrigger" value="moving3:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object name="dipshit2" type="PhysBox" x="1043" y="1376" width="111" height="33">
+  <object name="moving3" type="PhysBox" x="922" y="1254" width="111" height="33">
    <properties>
-    <property name="collisiongroup" value="blue"/>
     <property name="friction" value="1"/>
-    <property name="mass" value="200"/>
-    <property name="onspawn" value="self:setGravity(0)"/>
+    <property name="mass" value="10000"/>
    </properties>
   </object>
+  <object type="Trigger" x="1165" y="1212" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving3"/>
+    <property name="ontrigger" value="moving3:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="559" y="1210" width="10" height="87">
+   <properties>
+    <property name="filter" value="moving4"/>
+    <property name="ontrigger" value="moving4:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="807" y="1212" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving4"/>
+    <property name="ontrigger" value="moving4:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="moving4" type="PhysBox" x="702" y="1257" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="706" y="1285">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="object" value="moving4"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1073" y="1273" width="10" height="87">
+   <properties>
+    <property name="filter" value="moving5"/>
+    <property name="ontrigger" value="moving5:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="1220" y="1348">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="object" value="moving5"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1321" y="1275" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving5"/>
+    <property name="ontrigger" value="moving5:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="moving5" type="PhysBox" x="1216" y="1320" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="343" y="1290" width="10" height="87">
+   <properties>
+    <property name="filter" value="movingbitch"/>
+    <property name="ontrigger" value="movingbitch:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="490" y="1365">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="movingbitch"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="591" y="1292" width="10" height="89">
+   <properties>
+    <property name="filter" value="movingbitch"/>
+    <property name="ontrigger" value="movingbitch:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="movingbitch" type="PhysBox" x="348" y="1334" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object name="movingboy" type="PhysBox" x="343" y="1226" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="199" y="1184" width="10" height="87">
+   <properties>
+    <property name="filter" value="movingboy"/>
+    <property name="ontrigger" value="movingboy:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="346" y="1259">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="movingboy"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="447" y="1186" width="10" height="89">
+   <properties>
+    <property name="filter" value="movingboy"/>
+    <property name="ontrigger" value="movingboy:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object type="Trampoline" gid="836" x="706" y="2238">
+   <properties>
+    <property name="goal" value="holeinone"/>
+    <property name="power" value="500"/>
+   </properties>
+  </object>
+  <object name="player1" gid="110" x="45" y="943"/>
+  <object name="player2" gid="110" x="126" y="953"/>
+  <object name="holeinone" x="949" y="1983" width="28" height="28"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlApLfYDnifpDxO0yCsVSAm25bP1DnCnS5pE0iVNIumSJpH0DS6axNK6Sffm+bagZRM9prVqUrNHlzHW+NzSfRof8xZNjtAjZ47WTVqsV0t6lMyVO1o2adHjK+Udn37777X36dUxf1eTmuvK1kVp8sjRenyk2WvX/3DPuI7bFjPPE01WMj4vrvbSZMn1zJrjlakWgz00ifSf82pfnrUY7KFJFLXOI03qmXOvM4cm9TxrkkOTeqaaLKFJHX2Pc2mLQW6TSNc4EdRsMchswo3xWlVLRhNG1mjSH+9T93fu/Y7+9Xlim0vt38Fe1Gwyp8VAj8dqNMlpkQrmOYqSJrkt0oI5jmhJkyUthmdkvJbTpKDFSY/55jQpbKFHpmdNKrTQY4GpJjVazHkP0yaeOWrR2KiJFgHcNNEiiGsTLbZFizi0iEOLukqe72pxrws4juzo3z8aPWKxNgEAAAAAAAAAAAAAAAAAAAAAAAAAcEQ/DOJq8Q==
+   eJzt2wFOwjAUgOE3g/f0KB6Fo3A0h2ZSuhb62lf6yv4vaaJE7bbfdkJQBJjLafQB4M4iNPFkEZp4sghNPFkbXGjiy+gmy4vnm8HIJvRIG9XEsseiGD1+busxxdd8RJMj9NDMMbrJiP2qpkfLXNoxssmIHp+iuz7r13/3PqZn1/xVTSz3ldl5aZJztB4fUrx3/Q+eM/YRtihcJzTpJF4XV+/SpObvmZ7jmVSLzTs08XTPeXYsj1ps3qGJF1briCZ2Sp7rlKCJnUdNNGhiJ9WkhlUTT/fZEdYe59YWG22T1HxH7mHZYqNssnPwHs37VIqiyc6Re1z1aLJe76/lb+39jvXzc+JrLqk5j97jyrJJSYsNPfIsmmhaSGYeety0NNG2kMwc9LhX06SmxfYaWYwee5omDS2+6FGupEljC3ooPWpi0IIeFVJNLFrkvocezyVec+zSQoQepaImXVqI0EMjaNKlhcitxxJ9jLRrk14tROjRQ20LEXpYa2khQg9LrS1E6BFqeX3XosV2DOGxhI/NZHE4as8jPJ/wsZnMeMwp9PDlnXrMtjflziM8n/AxvB49fKGHL6ke8fu5Zhszixvw3uuxwgY0GW9b4zTxIdx34ybs768XXyvNuqjthrza3/GWtYS8ln2ntgnyWu8FNU2QZ3F/1jZBnkUPbRPkWfXQNEGeZY+wCepY99A0Ya3s9ehRep3psUcPX+jhCz18oYcvo3qcMv8/B3uWawgAAAAAAAAAAAAAAAAAAAAAcAw/37h2vg==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">

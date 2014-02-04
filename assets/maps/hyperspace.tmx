@@ -99,6 +99,7 @@
   </object>
   <object type="Text" x="70" y="39" width="120" height="89">
    <properties>
+    <property name="onspawn" value="self:type()"/>
     <property name="string" value="PREPARE TO BE BLASTED IN TO HYPERDRIVE"/>
    </properties>
   </object>
