@@ -94,8 +94,8 @@
  <objectgroup name="Objects" width="100" height="100">
   <object name="goal1" x="864" y="241" width="34" height="33"/>
   <object name="goal2" x="863" y="505" width="29" height="32"/>
-  <object name="player1" gid="110" x="249" y="265"/>
-  <object name="player2" gid="110" x="323" y="268"/>
+  <object name="player1" gid="110" x="268" y="295"/>
+  <object name="player2" gid="110" x="349" y="305"/>
   <object type="Trampoline" gid="110" x="416" y="416">
    <properties>
     <property name="collisionGroup" value="green"/>
@@ -182,10 +182,28 @@
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
+  <object name="moving1" type="PhysBox" x="1428" y="1362" width="116" height="35">
+   <properties>
+    <property name="onspawn" value="moving1:setVelocity(5,-100);setGravity(0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1564" y="1228" width="10" height="187">
+   <properties>
+    <property name="filter" value="moving1"/>
+    <property name="ontrigger" value="moving1:setVelocity(-5,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1209" y="1221" width="7" height="195">
+   <properties>
+    <property name="filter" value="moving1"/>
+    <property name="ontrigger" value="moving1:setVelocity(5,0)"/>
+   </properties>
+  </object>
+  <object gid="832" x="1984" y="611"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt19FtwjAUQFG7onsySkdhFEZr8gESiKpxYscvzjnS+0AK2PhKIaQEx3LpvQFe5KRJJDlpEklOmkQyNbhrEkvvJnnn9Y6gZxM9PuvVpGaPXDAtPnfrnt7PvEeTM/QoWaN3kx73qzU9tqxVOj2b9OjxncrOZ7r+p/We/jvzvZrUvK8cXZQmfzlbj9nCJs/xn7E9TeIZpcma55mWs8UITSL95tTYywhNRqNJPJrEo0k8msRT2iTSM86oCpuwg4Im7GA67+t01rfHTK9vH655NqOdJS0e9GirpMVMi3ZKW8z0aGNNi6+kRwsbWlz1qGtjCz0qqtBCj0pqtFjyHpbRIhYtYtEiFi2ORYs4tIhDizi0eJUDzpmd/ftHo0cs7k0AAAAAAAAAAAAAAAAAAAAAAAAAAJzRL/V6abY=
+   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlBbKPYDnifpDxO0yCsVSAm25bP1DnCnS5pE0iVNIumSJpH0DS6axNK6Sffm+bagZRM9prVqUrNHVzDW+Nyl+zQ+5i2aHKFHyRytm7RYr+b0WDJX6WjZpEWPr1R2fPrtv9fep1fH/F1Naq4rWxelySNH6/GRsteu/+GecR23LTLPE01WMj4vrvbSZM71zJrjlakWgz00ifSf82pfnrUY7KFJFLXOI03qybnXyaFJPc+alNCknqkmc2hSR9/jvLTFoLRJpGucCGq2GBQ24cZ4raqloAkjazTpj/ep+zv3fkf/+jyxzaX272AvajbJaTHQ47EaTUpapAXzHMWSJqUt0ow5jmhOkzkthmdkvFbSZEGLkx75cposbKFHoWdNKrTQY4apJjVa5LyHaRPPHLVobNREiwBummgRxLWJFtuiRRxaxKFFHFrc6wKOIzv6949Gj1isTQAAAAAAAAAAAAAAAAAAAAAAAAAAHNEPACNq7g==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
