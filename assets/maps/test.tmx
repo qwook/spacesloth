@@ -46,7 +46,9 @@
   <object type="PhysBox" x="1287" y="676" width="111" height="33">
    <properties>
     <property name="collisiongroup" value="blue"/>
-    <property name="frozen" value="true"/>
+    <property name="frozen" value="false"/>
+    <property name="mass" value="100000"/>
+    <property name="onspawn" value="self:setGravity(0)"/>
    </properties>
   </object>
   <object name="player2" gid="666" x="1188" y="619"/>
