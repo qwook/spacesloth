@@ -32,14 +32,14 @@
  <tileset firstgid="666" name="object_tilemap" tilewidth="32" tileheight="32">
   <image source="../sprites/object_tilemap.png" width="128" height="192"/>
  </tileset>
- <layer name="SharedLayer" width="100" height="100">
+ <layer name="SharedLayer" width="100" height="100" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzt11FygjAUBdB8tbVuQ8V12O5/TSWVjCkTDEzFpsP5OOMHDIO5ee+RfQhhDwAAAAAAAHx76b0O3hp4n6079I6DTiZ/Ls8jOjXwTlsmj+dLM6LUi5bmce9ZzJPWvLTW4zy6cJvvpTl/CGbNM/MoOU3cr7c9Po9L772SR14zZ3msmkd+fSl5LBfnb9rTtTx24Vor8fdjcK92zJDl5vT71LO6IbupeZFLmX028B//i7w2dpW1G5/TS/PiOPNZ1Ne41utrMyTvYbL4fR6lc0Uur6PxzFAPjzH+lk17vDajz8GMWDuTfI9fws/vp1JOamLdTKbWNr+Wcoq5OFu0I84dZ4t2pDrRrwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGDbvgAvdsPO
+   eJzt11FOg0AQBuB9QrHXAMs51IN4Es8uaDdONoWF2BoMH8n31EDo/Lsz7CmldAIAAAAAAAC+NKOHi8cdvM/RdaP+4iyTP5NW5DF53sG7HoE89uE9Lc+HrXk0C8+insVHUevyKvM4h/yu5dgls+YWWcyt/Xz1C+J9XeV5rMtirn4vo6dKHnHPDPLYpJnJYql+Zc9aSx5103p/Dbbk0abvvdKG+5f2jhmy3Zp+n3vWVN8hzc+LKGf2toP/+F806afft5Xalef0a/OiX/ks6jWu9fraDIk9TBa/z+PauSKK+6icGfbDbfRFbfMar83oIZkR95JndVzj8Rssfk+V2cnhfpnM1Tb+lnOacnG22I9p7jhb7EfeJ/oVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHNsn/AbH3Q==
   </data>
  </layer>
  <layer name="SharedCollision" width="100" height="100" opacity="0.38">
   <data encoding="base64" compression="zlib">
-   eJzt1jEKgDAQRcF4/0uLhSBBNFGyu8UMCILdf4ppDQAAAAAAADht3UWuvocmufSoRY94T1vrEW+2h0Zr6VGLHrW87apHnJFd9YjztUf/jP9m3nPfx3ozm+qx3ujZyf8jhh713O2qQ66Rs9X1XotaNKlFDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOCwA+sCAMM=
+   eJzt1kkKgDAQRcHW+x9aXAgSgsYh6SyqQBDc/aeYCAAAAAAAAOCwFBe5yh6a5NJjLnqMtcb11nqMU7Zo7aHR/44WEXpkO7eI0CNTbb+7XfXo582ueozztkf5jO+evOe+j/6ebKpHf61nJ/+PMfSYT21XHXK1nK3O91rMRZO56AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsNsz6ANQ=
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
