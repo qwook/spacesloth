@@ -1215,30 +1215,6 @@ return {
           }
         },
         {
-          name = "player1",
-          type = "",
-          shape = "rectangle",
-          x = 109,
-          y = 1039,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "player2",
-          type = "",
-          shape = "rectangle",
-          x = 190,
-          y = 1049,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
           name = "",
           type = "Trigger",
           shape = "rectangle",
@@ -1398,7 +1374,7 @@ return {
           name = "",
           type = "Toggle",
           shape = "rectangle",
-          x = 146,
+          x = 166,
           y = 1317,
           width = 0,
           height = 0,
@@ -1479,6 +1455,30 @@ return {
           properties = {
             ["string"] = "FUCK YOU"
           }
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 406,
+          y = 383,
+          width = 0,
+          height = 0,
+          gid = 110,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player1",
+          type = "",
+          shape = "rectangle",
+          x = 325,
+          y = 373,
+          width = 0,
+          height = 0,
+          gid = 110,
+          visible = true,
+          properties = {}
         }
       }
     },
