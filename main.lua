@@ -149,7 +149,6 @@ function contactFilter(fixture1, fixture2)
 end
 
 function changeMap(mapname)
-    clearUpdates()
 
     if world then
         world:destroy()
@@ -163,13 +162,14 @@ function changeMap(mapname)
     collisionSwapped = false
     singleCamera = false
 
+    clearUpdates()
+
     map = Map:new("assets/maps/" .. mapname)
 
     map:spawnObjects()
 end
 
 function reset()
-    clearUpdates()
 
     if world then
         world:destroy()
@@ -190,10 +190,11 @@ function reset()
         end
     end
     
-    map:spawnObjects()
-
     collisionSwapped = false
     singleCamera = false
+    
+    clearUpdates()
+    map:spawnObjects()
 end
 
 function love.load()

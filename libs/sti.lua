@@ -287,6 +287,11 @@ function Map:setSpriteBatches(layer)
                     if tile.sy  < 0 then ty = ty + th end
                     if tile.r   > 0 then tx = tx + tw end
                     if tile.r   < 0 then ty = ty + th end
+
+                    if tile.sy < 0 and tile.r > 0 then
+                        tx = tx - tw
+                        ty = ty - tw
+                    end
                 elseif self.orientation == "isometric" then
                     tx = (x - y) * (tw / 2) + tile.offset.x
                     ty = (x + y) * (th / 2) + tile.offset.y

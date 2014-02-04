@@ -71,18 +71,74 @@ function Map:generateTileCollision(layername, collisiongroup)
         for x, tile in pairs(row) do
             if (tile == 1) then
                 if self.tiledmap.layers[layername].data[y][x].properties then
-                    local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
-                    if (colshape == "1") then
-                        -- this is handled by the optimizer, just kept in incase STI is stupid
-                        -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
-                    elseif (colshape == "2") then
-                        self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
-                    elseif (colshape == "3") then
-                        self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    local data = self.tiledmap.layers[layername].data[y][x]
+                    local colshape = data.properties.colshape
+
+                    -- this is the worst thing i've ever written in my entire life
+
+                    local ang = -1
+
+                    if (colshape == "2") then
+                        ang = 0
                     elseif (colshape == "4") then
-                        self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        ang = 1
+                    elseif (colshape == "3") then
+                        ang = 2
                     elseif (colshape == "5") then
-                        self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        ang = 3
+                    end
+
+                    if data.r == math.rad(90) then
+                        ang = ang + 1
+                    elseif data.r == math.rad(-90) then
+                        ang = ang - 1
+                    end
+
+                    ang = ang % 4
+
+                    if data.sx == -1 then
+                        if ang == 0 then
+                            ang = 2
+                        elseif ang == 2 then
+                            ang = 0
+                        elseif ang == 1 then
+                            ang = 3
+                        elseif ang == 3 then
+                            ang = 1
+                        end
+                    end
+
+                    ang = ang % 4
+
+                    -- if data.sy == -1 then
+                    --     if ang == 0 then
+                    --         ang = 3
+                    --     elseif ang == 3 then
+                    --         ang = 0
+                    --     elseif ang == 1 then
+                    --         ang = 2
+                    --     elseif ang == 2 then
+                    --         ang = 1
+                    --     end
+                    -- end
+
+                    ang = ang % 4
+
+                    print(colshape)
+
+                    if (colshape ~= "1") then
+                        if (ang == -1) then
+                            -- this is handled by the optimizer, just kept in incase STI is stupid
+                            -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                        elseif (ang == 0) then
+                            self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 2) then --
+                            self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 1) then --
+                            self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 3) then
+                            self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        end
                     end
                 end
             end
