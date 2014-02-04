@@ -23,6 +23,9 @@ function Trampoline:initPhysics()
     self.anim = 0
 end
 
+function Trampoline:fixSpawnPosition()
+end
+
 function Trampoline:postSpawn()
     -- no goal set
     if not self:getProperty("goal") then return end

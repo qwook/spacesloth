@@ -17,6 +17,9 @@ function Camera:initialize()
     self.activated = false
 end
 
+function Camera:fixSpawnPosition()
+end
+
 function Camera:postSpawn()
 end
 

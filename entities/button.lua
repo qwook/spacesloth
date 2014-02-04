@@ -24,17 +24,12 @@ function Button:initPhysics()
     self.pressed = false
 end
 
+function Button:fixSpawnPosition()
+    local x, y = self:getPosition()
+    self:setPosition(x+32, y+12)
+end
+
 function Button:postSpawn()
-end
-
-function Button:setPosition(x, y)
-    PhysBox.setPosition(self, x+32, y+12)
-end
-
-function Button:getPosition()
-    local x, y = PhysBox.getPosition(self)
-    -- return x-32, y-8
-    return x, y
 end
 
 function Button:isTouchingPlayer()

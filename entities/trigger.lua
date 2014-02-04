@@ -23,6 +23,9 @@ function Trigger:initPhysics()
     self.TriggerDelay = 0
 end
 
+function Trigger:fixSpawnPosition()
+end
+
 function Trigger:postSpawn()
 end
 

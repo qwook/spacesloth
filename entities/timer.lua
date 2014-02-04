@@ -12,6 +12,9 @@ function Timer:initialize()
     self.timeLife = 0
 end
 
+function Timer:fixSpawnPosition()
+end
+
 function Timer:postSpawn()
 end
 

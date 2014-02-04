@@ -204,7 +204,7 @@
     <property name="mass" value="10000"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="1529" y="1493">
+  <object type="Slider" gid="851" x="1405" y="1497">
    <properties>
     <property name="angle" value="0"/>
     <property name="object" value="moving1"/>
@@ -215,7 +215,7 @@
     <property name="ontrigger" value="activator:teleportTo(spwn)"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="1128" y="1381">
+  <object type="Slider" gid="851" x="1008" y="1382">
    <properties>
     <property name="angle" value="0"/>
     <property name="object" value="moving3"/>
@@ -233,7 +233,7 @@
     <property name="mass" value="10000"/>
    </properties>
   </object>
-  <object type="Trigger" x="1229" y="1308" width="10" height="89">
+  <object type="Trigger" x="1230" y="1279" width="10" height="89">
    <properties>
     <property name="filter" value="moving3"/>
     <property name="ontrigger" value="moving3:setVelocity(-100,0)"/>
@@ -263,13 +263,13 @@
     <property name="object" value="moving4"/>
    </properties>
   </object>
-  <object type="Trigger" x="1137" y="1369" width="10" height="87">
+  <object type="Trigger" x="1137" y="1378" width="10" height="87">
    <properties>
     <property name="filter" value="moving5"/>
     <property name="ontrigger" value="moving5:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="1284" y="1444">
+  <object type="Slider" gid="851" x="1322" y="1448">
    <properties>
     <property name="angle" value="180"/>
     <property name="object" value="moving5"/>
@@ -281,7 +281,7 @@
     <property name="ontrigger" value="moving5:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object name="moving5" type="PhysBox" x="1280" y="1416" width="111" height="33">
+  <object name="moving5" type="PhysBox" x="1279" y="1413" width="111" height="33">
    <properties>
     <property name="friction" value="1"/>
     <property name="mass" value="10000"/>
@@ -325,11 +325,11 @@
   </object>
   <object type="Slider" gid="851" x="410" y="1355">
    <properties>
-    <property name="angle" value="0"/>
+    <property name="angle" value="180"/>
     <property name="object" value="movingboy"/>
    </properties>
   </object>
-  <object type="Trigger" x="511" y="1282" width="10" height="89">
+  <object type="Trigger" x="512" y="1282" width="10" height="89">
    <properties>
     <property name="filter" value="movingboy"/>
     <property name="ontrigger" value="movingboy:setVelocity(-100,0)"/>
@@ -395,7 +395,7 @@
     <property name="string" value="When you crouch, you fly."/>
    </properties>
   </object>
-  <object type="Toggle" gid="839" x="166" y="1317">
+  <object type="Toggle" gid="839" x="145" y="1314">
    <properties>
     <property name="collisiongroup" value="green"/>
     <property name="onPress" value="loopout:setcollisiongroup(green);loopout:setcolor(0,255,0)"/>
@@ -431,8 +431,8 @@
     <property name="string" value="FUCK YOU"/>
    </properties>
   </object>
-  <object name="player2" gid="110" x="406" y="383"/>
-  <object name="player1" gid="110" x="325" y="373"/>
+  <object name="player2" gid="110" x="686" y="1174"/>
+  <object name="player1" gid="110" x="605" y="1164"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

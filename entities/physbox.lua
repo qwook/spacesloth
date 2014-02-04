@@ -56,13 +56,7 @@ function PhysBox:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-end
-
-function PhysBox:postSpawn()
-    -- yeah me neither
-    local x, y = self:getPosition()
-    self:setPosition(x + self.width/2 + 16, y + self.height/2 + 16)
-
+    
     -- generate a randomized box thing
     local data = love.image.newImageData(self.width, self.height)
 
@@ -90,6 +84,15 @@ function PhysBox:postSpawn()
     blit(data, self.image, 0, self.height-32, 0, 32*2, 32, 32)
     self.generatedbox = love.graphics.newImage(data)
 
+end
+
+-- tiled wrongly offsets stuff
+function PhysBox:fixSpawnPosition()
+    local x, y = self:getPosition()
+    self:setPosition(x + self.width/2 + 16, y + self.height/2 + 16)
+end
+
+function PhysBox:postSpawn()
 end
 
 function PhysBox:eval(str, activator)

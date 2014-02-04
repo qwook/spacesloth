@@ -10,6 +10,9 @@ function Slider:initialize()
     PhysBox.initialize(self)
 end
 
+function Slider:fixSpawnPosition()
+end
+
 function Slider:postSpawn()
     local objs = map:findObjectsByName(self:getProperty("object"))
     local obj = objs[1]

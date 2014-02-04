@@ -7,6 +7,9 @@ function Prop:initialize()
     PhysBox.initialize(self)
 end
 
+function Prop:fixSpawnPosition()
+end
+
 function Prop:postSpawn()
     self.animlife = 0
     self.spritewidth = tonumber(self:getProperty("spritewidth"))

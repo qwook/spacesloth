@@ -189,6 +189,8 @@ function Map:spawnObjects()
             instance.body:setFixedRotation(instance:getProperty("disablerotation") == "true")
         end
 
+        instance:fixSpawnPosition()
+
         table.insert(spawned, instance)
     end
 
