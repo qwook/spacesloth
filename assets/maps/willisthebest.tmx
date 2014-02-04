@@ -78,7 +78,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -92,160 +92,351 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
-  <object name="goal1" x="864" y="241" width="34" height="33"/>
-  <object name="goal2" x="863" y="505" width="29" height="32"/>
-  <object name="muzak" x="66" y="44" width="57" height="58">
+  <object name="goal1" x="928" y="337" width="34" height="33"/>
+  <object name="goal2" x="927" y="601" width="29" height="32"/>
+  <object name="muzak" x="130" y="140" width="57" height="58">
    <properties>
     <property name="onspawn" value="global:playMusic(stolen.ogg,0.01)"/>
    </properties>
    <ellipse/>
   </object>
-  <object name="teleporter1" type="Trigger" x="1143" y="355" width="368" height="29">
+  <object name="teleporter1" type="Trigger" x="1207" y="451" width="368" height="29">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(spawn1)"/>
    </properties>
   </object>
-  <object name="fallingblock" type="PhysBox" gid="110" x="1216" y="284">
+  <object name="fallingblock" type="PhysBox" gid="110" x="1280" y="380">
    <properties>
     <property name="onspawn" value="fallingblock:setVelocity(0,10)"/>
    </properties>
   </object>
-  <object name="fallingblock" type="PhysBox" gid="110" x="1309" y="285"/>
-  <object name="fallingblock" type="PhysBox" gid="110" x="1416" y="282"/>
-  <object type="Trigger" x="1384" y="348" width="109" height="10">
+  <object name="fallingblock" type="PhysBox" gid="110" x="1373" y="381"/>
+  <object name="fallingblock" type="PhysBox" gid="110" x="1480" y="378"/>
+  <object type="Trigger" x="1448" y="444" width="109" height="10">
    <properties>
     <property name="filter" value="fallingblock"/>
     <property name="ontrigger" value="activator:teleportTo(boxspawn3);fallingblock:setVelocity(0,10)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1276" y="347" width="101" height="10">
+  <object type="Trigger" x="1340" y="443" width="101" height="10">
    <properties>
     <property name="filter" value="fallingblock"/>
     <property name="ontrigger" value="activator:teleportTo(boxspawn2);fallingblock:setVelocity(0,10)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1176" y="346" width="95" height="17">
+  <object type="Trigger" x="1240" y="442" width="95" height="17">
    <properties>
     <property name="filter" value="fallingblock"/>
     <property name="ontrigger" value="activator:teleportTo(boxspawn1);fallingblock:setVelocity(0,10)"/>
    </properties>
   </object>
-  <object name="boxspawn2" x="1317" y="102" width="21" height="19"/>
-  <object name="boxspawn1" x="1211" y="103" width="21" height="19"/>
-  <object name="boxspawn3" x="1419" y="105" width="22" height="19"/>
-  <object type="Toggle" gid="845" x="1312" y="546">
+  <object name="boxspawn2" x="1381" y="198" width="21" height="19"/>
+  <object name="boxspawn1" x="1275" y="199" width="21" height="19"/>
+  <object name="boxspawn3" x="1483" y="201" width="22" height="19"/>
+  <object type="Toggle" gid="845" x="1376" y="642">
    <properties>
     <property name="onpress" value="fallingblock:setFrozen(true)"/>
     <property name="onrelease" value="fallingblock:setFrozen(false)"/>
    </properties>
   </object>
-  <object name="triggaone" type="Trigger" x="1218" y="418" width="27" height="125">
+  <object name="triggaone" type="Trigger" x="1282" y="514" width="27" height="125">
    <properties>
     <property name="ontrigger" value="wallone:setVisible(true);triggaone:destroy()"/>
    </properties>
   </object>
-  <object name="wallone" type="PhysBox" x="1122" y="416" width="32" height="122">
+  <object name="wallone" type="PhysBox" x="1186" y="512" width="32" height="122">
    <properties>
     <property name="onspawn" value="wallone:setVisible(false); wallone:setFrozen(true)"/>
    </properties>
   </object>
-  <object name="wallone" type="PhysBox" x="1492" y="417" width="31" height="124"/>
-  <object name="trigger2" type="Trigger" x="1537" y="152" width="30" height="135">
+  <object name="wallone" type="PhysBox" x="1556" y="514" width="31" height="124"/>
+  <object name="trigger2" type="Trigger" x="1601" y="248" width="30" height="135">
    <properties>
     <property name="ontrigger" value="wallone:setVisible(false);trigger2:destroy()"/>
    </properties>
   </object>
-  <object type="Trampoline" gid="832" x="1854" y="546">
+  <object type="Trampoline" gid="832" x="1918" y="642">
    <properties>
     <property name="goal" value="part2"/>
     <property name="power" value="1000"/>
    </properties>
   </object>
-  <object name="part2" x="2010" y="250" width="40" height="33"/>
-  <object type="Trampoline" gid="832" x="1788" y="288">
+  <object name="part2" x="2074" y="346" width="40" height="33"/>
+  <object type="Trampoline" gid="832" x="1852" y="384">
    <properties>
     <property name="goal" value="part2"/>
    </properties>
   </object>
-  <object type="Trigger" x="325" y="684" width="629" height="27">
+  <object type="Trigger" x="389" y="780" width="629" height="27">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1566" y="1324" width="10" height="89">
+  <object type="Trigger" x="1630" y="1420" width="10" height="89">
    <properties>
     <property name="filter" value="moving1"/>
     <property name="ontrigger" value="moving1:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object type="Trigger" x="1318" y="1322" width="10" height="87">
+  <object type="Trigger" x="1383" y="1465" width="10" height="44">
    <properties>
     <property name="filter" value="moving1"/>
     <property name="ontrigger" value="moving1:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object type="Trampoline" gid="832" x="415" y="416">
+  <object type="Trampoline" gid="832" x="479" y="512">
    <properties>
     <property name="collisionGroup" value="green"/>
     <property name="goal" value="goal2"/>
    </properties>
   </object>
-  <object type="Trampoline" gid="832" x="415" y="416">
+  <object type="Trampoline" gid="832" x="479" y="512">
    <properties>
     <property name="collisionGroup" value="blue"/>
     <property name="goal" value="goal1"/>
    </properties>
   </object>
-  <object name="spawn1" x="1061" y="193" width="36" height="30"/>
-  <object name="spwn" x="1755" y="1226" width="45" height="33"/>
-  <object name="moving1" type="PhysBox" x="1325" y="1366" width="111" height="33">
+  <object name="spawn1" x="1125" y="289" width="36" height="30"/>
+  <object name="spwn" x="1819" y="1322" width="45" height="33"/>
+  <object name="moving1" type="PhysBox" x="1389" y="1462" width="111" height="33">
    <properties>
-    <property name="mass" value="1000"/>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="1465" y="1397">
+  <object type="Slider" gid="851" x="1529" y="1493">
    <properties>
     <property name="angle" value="0"/>
     <property name="object" value="moving1"/>
    </properties>
   </object>
-  <object name="player2" gid="110" x="335" y="414"/>
-  <object name="player1" gid="110" x="254" y="404"/>
-  <object type="Trigger" x="82" y="1589" width="1551" height="13">
+  <object type="Trigger" x="251" y="1682" width="1551" height="13">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(spwn)"/>
    </properties>
   </object>
-  <object name="mover" type="Trigger" x="1268" y="1294" width="27" height="121">
-   <properties>
-    <property name="filter" value="dipshit2"/>
-    <property name="onTrigger" value="activator:setVelocity(-100, 0)"/>
-   </properties>
-  </object>
-  <object type="Slider" gid="851" x="1227" y="1392">
+  <object type="Slider" gid="851" x="1128" y="1381">
    <properties>
     <property name="angle" value="0"/>
-    <property name="object" value="dipshit2"/>
+    <property name="object" value="moving3"/>
    </properties>
   </object>
-  <object name="shaker" type="Trigger" x="1034" y="1299" width="27" height="121">
+  <object type="Trigger" x="981" y="1306" width="10" height="87">
    <properties>
-    <property name="filter" value="dipshit2"/>
-    <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
+    <property name="filter" value="moving3"/>
+    <property name="ontrigger" value="moving3:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object name="dipshit2" type="PhysBox" x="1043" y="1376" width="111" height="33">
+  <object name="moving3" type="PhysBox" x="986" y="1350" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1229" y="1308" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving3"/>
+    <property name="ontrigger" value="moving3:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="623" y="1306" width="10" height="87">
+   <properties>
+    <property name="filter" value="moving4"/>
+    <property name="ontrigger" value="moving4:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="871" y="1308" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving4"/>
+    <property name="ontrigger" value="moving4:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="moving4" type="PhysBox" x="766" y="1353" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="770" y="1381">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="object" value="moving4"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1137" y="1369" width="10" height="87">
+   <properties>
+    <property name="filter" value="moving5"/>
+    <property name="ontrigger" value="moving5:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="1284" y="1444">
+   <properties>
+    <property name="angle" value="180"/>
+    <property name="object" value="moving5"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1385" y="1371" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving5"/>
+    <property name="ontrigger" value="moving5:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="moving5" type="PhysBox" x="1280" y="1416" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="407" y="1386" width="10" height="87">
+   <properties>
+    <property name="filter" value="movingbitch"/>
+    <property name="ontrigger" value="movingbitch:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="554" y="1461">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="movingbitch"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="655" y="1388" width="10" height="89">
+   <properties>
+    <property name="filter" value="movingbitch"/>
+    <property name="ontrigger" value="movingbitch:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object name="movingbitch" type="PhysBox" x="412" y="1430" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object name="movingboy" type="PhysBox" x="407" y="1322" width="111" height="33">
+   <properties>
+    <property name="friction" value="1"/>
+    <property name="mass" value="10000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="263" y="1280" width="10" height="87">
+   <properties>
+    <property name="filter" value="movingboy"/>
+    <property name="ontrigger" value="movingboy:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="410" y="1355">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="movingboy"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="511" y="1282" width="10" height="89">
+   <properties>
+    <property name="filter" value="movingboy"/>
+    <property name="ontrigger" value="movingboy:setVelocity(-100,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="86" y="1718" width="56" height="40">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,500)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="219" y="1843" width="53" height="55">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="572" y="1944" width="89" height="64">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,500)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="977" y="2152" width="79" height="30">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-5000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1016" y="2303" width="38" height="30">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="418" y="1842" width="53" height="55">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="774" y="1729" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,4000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="662" y="1726" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="546" y="1728" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="414" y="1728" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="331" y="1728" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Text" x="107" y="1160" width="138" height="95">
+   <properties>
+    <property name="string" value="When you crouch, you fly."/>
+   </properties>
+  </object>
+  <object type="Toggle" gid="839" x="166" y="1317">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+    <property name="onPress" value="loopout:setcollisiongroup(green);loopout:setcolor(0,255,0)"/>
+    <property name="onRelease" value="loopout:setcollisiongroup(shared);loopout:setcolor(255,0,0)"/>
+   </properties>
+  </object>
+  <object type="Text" x="317" y="38" width="109" height="36">
+   <properties>
+    <property name="string" value="touch the butt"/>
+   </properties>
+  </object>
+  <object name="loopout" type="PhysBox" x="196" y="1320" width="22" height="31">
+   <properties>
+    <property name="collisiongroup" value="shared"/>
+    <property name="onspawn" value="self:setVisible(true);self:setFrozen(true);self:setcolor(255,0,0)"/>
+   </properties>
+  </object>
+  <object name="loopout" type="PhysBox" x="101" y="1318" width="22" height="31">
+   <properties>
+    <property name="collisiongroup" value="shared"/>
+    <property name="onspawn" value="self:setVisible(true);self:setFrozen(true);self:setcolor(255,0,0)"/>
+   </properties>
+  </object>
+  <object type="Toggle" gid="839" x="352" y="133">
    <properties>
     <property name="collisiongroup" value="blue"/>
-    <property name="friction" value="1"/>
-    <property name="mass" value="200"/>
-    <property name="onspawn" value="self:setGravity(0)"/>
+    <property name="onPress" value="loopout:setcollisiongroup(blue);loopout:setcolor(0,0,255)"/>
+    <property name="onRelease" value="loopout:setcollisiongroup(shared);loopout:setcolor(255,0,0)"/>
    </properties>
   </object>
+  <object type="Text" x="696" y="43" width="95" height="76">
+   <properties>
+    <property name="string" value="FUCK YOU"/>
+   </properties>
+  </object>
+  <object name="player2" gid="110" x="406" y="383"/>
+  <object name="player1" gid="110" x="325" y="373"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlApLfYDnifpDxO0yCsVSAm25bP1DnCnS5pE0iVNIumSJpH0DS6axNK6Sffm+bagZRM9prVqUrNHlzHW+NzSfRof8xZNjtAjZ47WTVqsV0t6lMyVO1o2adHjK+Udn37777X36dUxf1eTmuvK1kVp8sjRenyk2WvX/3DPuI7bFjPPE01WMj4vrvbSZMn1zJrjlakWgz00ifSf82pfnrUY7KFJFLXOI03qmXOvM4cm9TxrkkOTeqaaLKFJHX2Pc2mLQW6TSNc4EdRsMchswo3xWlVLRhNG1mjSH+9T93fu/Y7+9Xlim0vt38Fe1Gwyp8VAj8dqNMlpkQrmOYqSJrkt0oI5jmhJkyUthmdkvJbTpKDFSY/55jQpbKFHpmdNKrTQY4GpJjVazHkP0yaeOWrR2KiJFgHcNNEiiGsTLbZFizi0iEOLukqe72pxrws4juzo3z8aPWKxNgEAAAAAAAAAAAAAAAAAAAAAAAAAcEQ/DOJq8Q==
+   eJzt3AFO4zAQQNEpy96zR9mj9CgcjWSD2zR1khl7JrHp/5IlkIAMfiTQiPYiIpeDF623tmd/Ao9B6x2xP3jow6Ot9vaH3x+PPg84Bh76xtmjTTQeNJV+niJN8NA3P8ejTPDQNxh8RZvgYSvaBA97kSZ4lBVlcqRH1N/ENV/TMtNyzyNM8LAdI9qkxetViUfNsawr0qRFj79i25/h4/9Fz7S3514mGg+v60rvHWGCh74PUV+77stq8m57WtrcQnmeFJngsd/yvBiLMjnao+Tvmci1V84iFWFyhkcr7c2yZZHyNmlpf47O6zzyNHlnjzHNYx1NXibv7jG2ZWLJwwSPqZxJSbUmeEwNHrdai5TVZH48PHwtUkaTe3i8Xqu8Mpjcw2MqwmTY7+tlOvf+r+H9W+ZjvubHxOORp4nGIoXHeh4mFgtZHAeP12pMrBYieGgqMSmxSPfIUnisZzGpsLjioU9jUmmBh7EtEwcLPArKmXhYLD8HD32Ze46uFiJ4WFuYuFqI5O+r0HYzE1cLkddrIo/ddY0m3hYieERmtRDBI6oSCxE8Iiq1EMEjV+m9xLEai9yxe/e4NLhK55fM273V48zz8Gir3+jRy7Vpb37JvE3Hhkdb4dFWWx7L/+fqbfXYcv5k4H3Pd3icdM29Rqb1uc3v5JEMokw0M+BxnMnHtG57M+CxbRK9X3g8WvteLOdFqdveDHjYV8255DUDHj4mnjPgUW/iPQMedSYRM+BRbhI1Q68WYxF7oTWJnKHXoq4V1tcYwmMqysNigsejSA/tvuDxCI+2+o0ePYdHW+HRVmd7/DznC4+foj3OWD139t5h8dzZ+4fFc2fvIR7Pnb2HOJwX+0dERERERERERERERERERETUX98qiHsU
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
@@ -260,7 +451,7 @@
  </layer>
  <layer name="Decoration" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJzt18ENgkAQBVA6sAGrsQFbsC7DgZttWJqLsoEYOer8xPeSyULCYcPk78AwAAAAAAAAAAAAAAAAAAAAAGlura5LkUM/suhHhn5etfVevBUGuUhzHczzRPqRwfduFn3Ioh9Z2nl1Wb53p+q9sJKTDP4Hs8hFlj4/zJA8slJv+z9ohtTby4Szq8Z2fmyrZ2Vcrm+vdZqfH6s2S+/Hsw+9L/pRZ9wpAPiGc5v/p7Zuatq75zeOrSeHts41v/9+/X7P78hHpk/5qN3Rf5KPTO95kI9a+pHBeQUAAAAAAAAAAAAAqwdnY0dn
   </data>
  </layer>
 </map>
