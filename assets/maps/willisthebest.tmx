@@ -171,11 +171,10 @@
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
-  <object name="moving1" type="PhysBox" x="1428" y="1362" width="116" height="35">
+  <object type="Slider" x="1451" y="1416" width="32" height="35">
    <properties>
-    <property name="disableRotation" value="true"/>
-    <property name="mass" value="1000000"/>
-    <property name="onspawn" value="moving1:setVelocity(100,0);moving1:setGravity(0)"/>
+    <property name="angle" value="0"/>
+    <property name="object" value="moving1"/>
    </properties>
   </object>
   <object type="Trigger" x="1566" y="1324" width="10" height="89">
@@ -218,16 +217,27 @@
     <property name="ontrigger" value="moving2:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object name="moving2" type="PhysBox" x="1220" y="1248" width="116" height="35">
+  <object name="moving2" type="PhysBox" x="1123" y="1240" width="116" height="35">
    <properties>
-    <property name="mass" value="100000"/>
-    <property name="onspawn" value="moving2:setVelocity(-100,0);moving2:setGravity(0)"/>
+    <property name="onspawn" value="moving2:setVelocity(-100,0);"/>
+   </properties>
+  </object>
+  <object name="spwn" x="1755" y="1226" width="45" height="33"/>
+  <object name="moving1" type="PhysBox" x="1426" y="1366" width="116" height="35">
+   <properties>
+    <property name="onspawn" value="moving1:setVelocity(100,0);"/>
+   </properties>
+  </object>
+  <object type="Slider" x="1128" y="1310" width="32" height="35">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="moving2"/>
    </properties>
   </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlBbKPYDnifpDxO0yCsVSAm25bP1DnCnS5pE0iVNIumSJpH0DS6axNK6Sffm+bagZRM9prVqUrNHVzDW+Nyl+zQ+5i2aHKFHyRytm7RYr+b0WDJX6WjZpEWPr1R2fPrtv9fep1fH/F1Naq4rWxelySNH6/GRsteu/+GecR23LTLPE01WMj4vrvbSZM71zJrjlakWgz00ifSf82pfnrUY7KFJFLXOI03qybnXyaFJPc+alNCknqkmc2hSR9/jvLTFoLRJpGucCGq2GBQ24cZ4raqloAkjazTpj/ep+zv3fkf/+jyxzaX272AvajbJaTHQ47EaTUpapAXzHMWSJqUt0ow5jmhOkzkthmdkvFbSZEGLkx75cposbKFHoWdNKrTQY4apJjVa5LyHaRPPHLVobNREiwBummgRxLWJFtuiRRxaxKFFHFrc6wKOIzv6949Gj1isTQAAAAAAAAAAAAAAAAAAAAAAAAAAHNEPACNq7g==
+   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlBpKfYDnifpDxO12FeqkBJsy2frA+BOlzSJpEuaRNIlTSLpG1w0iaV1k+7N821ByyZ6TGvVpGaPLmOs8b5Lj2m85i2aHKFHzhytm7TYr0p6LJkrd7Rs0qLHV8pbn/7532sf06s1f1eTmvvK1kVp8sjRenyk2XvX/3DNuI7bFjPPE01WMj4vrvbSpOT/zJrjlakWgz00ifSb8+pYnrUY7KFJFLXOI03qmXOtM4cm9TxrkkOTeqaalNCkjr7HeWmLQW6TSP9xIqjZYpDZhBvjvaqWjCaMrNGkX+9T93fu/Y7+8XniOZfa34O9qNlkTouBHo/VaJLTIi2Y5yiWNMltkQrmOKKSJiUthntke5VzT+rVeuc0WdDitOcetc1psrCFHpmeNanQQo8CU01qtJjzGqZN3HPUorFREy0CuGmiRRDXJlpsixZxaBGHFnFoca/0/tWa48iO/vmj0SMWexMAAAAAAAAAAAAAAAAAAAAAAAAAAEf0A9lyavw=
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
