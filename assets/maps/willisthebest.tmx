@@ -78,7 +78,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -158,6 +158,7 @@
   <object type="Trampoline" gid="832" x="1854" y="546">
    <properties>
     <property name="goal" value="part2"/>
+    <property name="power" value="1000"/>
    </properties>
   </object>
   <object name="part2" x="2010" y="250" width="40" height="33"/>
@@ -183,7 +184,6 @@
     <property name="ontrigger" value="moving1:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object gid="832" x="1984" y="611"/>
   <object type="Trampoline" gid="832" x="415" y="416">
    <properties>
     <property name="collisionGroup" value="green"/>
@@ -197,38 +197,10 @@
    </properties>
   </object>
   <object name="spawn1" x="1061" y="193" width="36" height="30"/>
-  <object name="player2" gid="110" x="333" y="341"/>
-  <object name="player1" gid="110" x="252" y="331"/>
-  <object type="Trigger" x="1358" y="1210" width="10" height="89">
-   <properties>
-    <property name="filter" value="moving2"/>
-    <property name="ontrigger" value="moving2:setVelocity(-100,0)"/>
-   </properties>
-  </object>
-  <object type="Trigger" x="1072" y="1204" width="10" height="87">
-   <properties>
-    <property name="filter" value="moving2"/>
-    <property name="ontrigger" value="moving2:setVelocity(100,0)"/>
-   </properties>
-  </object>
-  <object name="moving2" type="PhysBox" x="1123" y="1240" width="116" height="35">
-   <properties>
-    <property name="onspawn" value="moving2:setVelocity(-100,0);"/>
-   </properties>
-  </object>
   <object name="spwn" x="1755" y="1226" width="45" height="33"/>
-  <object type="Slider" x="1128" y="1310" width="32" height="35">
-   <properties>
-    <property name="angle" value="0"/>
-    <property name="object" value="moving2"/>
-   </properties>
-  </object>
   <object name="moving1" type="PhysBox" x="1325" y="1366" width="111" height="33">
    <properties>
-    <property name="collisiongroup" value="blue"/>
-    <property name="frozen" value="false"/>
-    <property name="mass" value="0"/>
-    <property name="onspawn" value="self:setGravity(0);moving1:setVelocity(100,0)"/>
+    <property name="mass" value="1000"/>
    </properties>
   </object>
   <object type="Slider" gid="851" x="1465" y="1397">
@@ -237,10 +209,40 @@
     <property name="object" value="moving1"/>
    </properties>
   </object>
+  <object name="player2" gid="110" x="2276" y="246"/>
+  <object name="player1" gid="110" x="2195" y="236"/>
+  <object type="Trigger" x="82" y="1589" width="1551" height="13">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(spwn)"/>
+   </properties>
+  </object>
+  <object type="Slider" gid="851" x="1176" y="1398">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="moving2"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1029" y="1323" width="10" height="87">
+   <properties>
+    <property name="filter" value="moving2"/>
+    <property name="ontrigger" value="moving2:setVelocity(100,0)"/>
+   </properties>
+  </object>
+  <object name="moving1" type="PhysBox" x="1036" y="1367" width="111" height="33">
+   <properties>
+    <property name="mass" value="1000"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1277" y="1325" width="10" height="89">
+   <properties>
+    <property name="filter" value="moving2"/>
+    <property name="ontrigger" value="moving2:setVelocity(-100,0)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlBpKfYDnifpDxO12FeqkBJsy2frA+BOlzSJpEuaRNIlTSLpG1w0iaV1k+7N821ByyZ6TGvVpGaPLmOs8b5Lj2m85i2aHKFHzhytm7TYr0p6LJkrd7Rs0qLHV8pbn/7532sf06s1f1eTmvvK1kVp8sjRenyk2XvX/3DNuI7bFjPPE01WMj4vrvbSpOT/zJrjlakWgz00ifSb8+pYnrUY7KFJFLXOI03qmXOtM4cm9TxrkkOTeqaalNCkjr7HeWmLQW6TSP9xIqjZYpDZhBvjvaqWjCaMrNGkX+9T93fu/Y7+8XniOZfa34O9qNlkTouBHo/VaJLTIi2Y5yiWNMltkQrmOKKSJiUthntke5VzT+rVeuc0WdDitOcetc1psrCFHpmeNanQQo8CU01qtJjzGqZN3HPUorFREy0CuGmiRRDXJlpsixZxaBGHFnFoca/0/tWa48iO/vmj0SMWexMAAAAAAAAAAAAAAAAAAAAAAAAAAEf0A9lyavw=
+   eJzt2GFugjAYgOGybPf0KDuKR/Fowy0sSlApLfYDnifpDxO0yCsVSAm25bP1DnCnS5pE0iVNIumSJpH0DS6axNK6Sffm+bagZRM9prVqUrNHlzHW+NzSfRof8xZNjtAjZ47WTVqsV0t6lMyVO1o2adHjK+Udn37777X36dUxf1eTmuvK1kVp8sjRenyk2WvX/3DPuI7bFjPPE01WMj4vrvbSZMn1zJrjlakWgz00ifSf82pfnrUY7KFJFLXOI03qmXOvM4cm9TxrkkOTeqaaLKFJHX2Pc2mLQW6TSNc4EdRsMchswo3xWlVLRhNG1mjSH+9T93fu/Y7+9Xlim0vt38Fe1Gwyp8VAj8dqNMlpkQrmOYqSJrkt0oI5jmhJkyUthmdkvJbTpKDFSY/55jQpbKFHpmdNKrTQY4GpJjVazHkP0yaeOWrR2KiJFgHcNNEiiGsTLbZFizi0iEOLukqe72pxrws4juzo3z8aPWKxNgEAAAAAAAAAAAAAAAAAAAAAAAAAcEQ/DOJq8Q==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
