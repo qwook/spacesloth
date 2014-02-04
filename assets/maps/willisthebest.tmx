@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="collision" tilewidth="32" tileheight="32">
+  <image source="../sprites/collision.gif" width="160" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="colshape" value="1"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="colshape" value="2"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="colshape" value="3"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="colshape" value="4"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="colshape" value="5"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="6" name="Tiles_1_A_blue" tilewidth="32" tileheight="32">
+  <image source="../sprites/Tiles_1_A_blue.png" width="416" height="128"/>
+ </tileset>
+ <tileset firstgid="58" name="Tiles_1_A_green" tilewidth="32" tileheight="32">
+  <image source="../sprites/Tiles_1_A_green.png" width="416" height="128"/>
+ </tileset>
+ <tileset firstgid="110" name="generic_box" tilewidth="32" tileheight="32">
+  <image source="../sprites/box_generic.png" width="32" height="32"/>
+ </tileset>
+ <tileset firstgid="111" name="button" tilewidth="32" tileheight="32">
+  <image source="../sprites/button_blue.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="113" name="tramp" tilewidth="32" tileheight="32">
+  <image source="../sprites/trampoline.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="116" name="angled_tramp" tilewidth="32" tileheight="32">
+  <image source="../sprites/trampoline_angled.png" width="96" height="32"/>
+ </tileset>
+ <tileset firstgid="119" name="orange2" tilewidth="32" tileheight="32">
+  <image source="../sprites/Tiles_1_B_orange.png" width="416" height="128"/>
+ </tileset>
+ <tileset firstgid="171" name="henstile" tilewidth="32" tileheight="32">
+  <image source="../sprites/henstile.gif" width="983" height="730"/>
+  <terraintypes>
+   <terrain name="rock" tile="31"/>
+   <terrain name="clear" tile="34"/>
+  </terraintypes>
+  <tile id="0" terrain="1,1,1,0"/>
+  <tile id="1" terrain="1,1,0,0"/>
+  <tile id="2" terrain="1,1,0,1"/>
+  <tile id="3" terrain="0,0,0,1"/>
+  <tile id="4" terrain="0,0,1,0"/>
+  <tile id="5" terrain="1,1,1,1"/>
+  <tile id="30" terrain="1,0,1,0"/>
+  <tile id="31" terrain="0,0,0,0"/>
+  <tile id="32" terrain="0,1,0,1"/>
+  <tile id="33" terrain="0,1,0,0"/>
+  <tile id="34" terrain="1,0,0,0"/>
+  <tile id="60" terrain="1,0,1,1"/>
+  <tile id="61" terrain="0,0,1,1"/>
+  <tile id="62" terrain="0,1,1,1"/>
+ </tileset>
+ <tileset firstgid="831" name="object_tilemap" tilewidth="32" tileheight="32">
+  <image source="../sprites/object_tilemap.png" width="128" height="192"/>
+ </tileset>
+ <imagelayer name="Background" width="100" height="100">
+  <image source="../backgrounds/bgConcept1_big.png"/>
+ </imagelayer>
+ <layer name="SharedLayer" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztm0FS2zAUQHWUHCVHyS3SLuh40VWZLHqAdth1AS09greUHoJd21tUIlEQQrK+bMmW4b2ZP4Qkls1//l+yE5R6m/zMiNdA63/HtY4bYVwodbXMUb4NzLlyp+OXMC61D5zUI9fHR4WTmhgff3T8FYZ2scNJPXLmchPawe7kpF/KydzrjdbXMks7uR54rbSntawvHSez9S6bk5sR+8rtA2tc78/tZKyPofzmrPVzkIz3PbKt9JjM9p+8XMzVu9wcpnxIz+mctcxtYhyfH4Ix/0XGkq5371W4DuauE4kPKdI+dZd5jPfCcUPHIz1HjM9Yzud0MuSjRp/PvSawuQodi+T4Rqx1U056E7WcmFot1eeHKDHvxx6XIsdJrTrROe+HovT+DNJcxtzUWpvp/G50njc6310LvasGJXqe76JSbVgXW/3zQVgnq3JS8nwecw0j3a/v4uIYi/euEuRcg9QOc02RcuL2KOvioJ8/qDbmk6nkrp1qhl2XxYi56E7xTaVz3nrvKnUvpUS813n6qvO4149DEauLTj266LvT47U7MYSuFezP1Fo2NFbu3GH54OQqENuIi3ONvKbeFZrPY15i19dDzjLm623ASczFuS6+eLF2JyV8KO/9sddTeE5iPepFXdgIOFll70r1raHnUs4yfaTm7nNdmPBrw0Sgd63OSajnSO6F5Nw7SRG6vojVRaee8m4e+y4O6sW6S9S7Mg63KrEaiOU4VSP+uBK83HX69y40X7h9yQ372sF5f+4cv1/YydS1amgMd+xcnNw8WCeh+cL+HnHx7P16DOPBzEdXl8d7vn1sv0v4qHkt4e5jLKc5fes66VReXdjnJC4s+4Z9uO8du80UHCcbt3f566hOiepil3JhaMWHUi9zOKZXhcaZQshJaB2VqAuRC0MrPkJr1KH3xbYp6cIS6l2hdVSnxvUoZz+P27TkQ+opNlYthnrXlPnCGf9cS0uur0r4mItQnUydL1Rgm1rH/xoZWndNdCGuJXhOqHdN7FG4mIjvZMp8gYsyuL1rynyBi3JYJ/SodjBOcLEu6FHjSN2TGQMuyjH1mpQeVf8+vhRcHLG5W/L7j+b7jqfvQ+w+Hz8P7Cv+yU1jz+ec/+8vHffq6ftCS3/+2gJL+/it8OEy1cfQ/yHeCsfYH7+b0L/DRzP36AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADeAv8B0LVXbw==
+  </data>
+ </layer>
+ <layer name="BlueLayer" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <layer name="GreenLayer" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="100" height="100">
+  <object name="goal1" x="864" y="241" width="34" height="33"/>
+  <object name="goal2" x="863" y="505" width="29" height="32"/>
+  <object name="player1" gid="110" x="249" y="265"/>
+  <object name="player2" gid="110" x="323" y="268"/>
+  <object type="Trampoline" gid="110" x="416" y="416">
+   <properties>
+    <property name="collisionGroup" value="green"/>
+    <property name="goal" value="goal2"/>
+   </properties>
+  </object>
+  <object type="Trampoline" gid="110" x="416" y="416">
+   <properties>
+    <property name="collisionGroup" value="blue"/>
+    <property name="goal" value="goal1"/>
+   </properties>
+  </object>
+  <object name="muzak" x="66" y="44" width="57" height="58">
+   <properties>
+    <property name="onspawn" value="global:playMusic(stolen.ogg,0.8)"/>
+   </properties>
+   <ellipse/>
+  </object>
+  <object name="teleporter1" type="Trigger" x="1143" y="355" width="368" height="29">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(spawn1)"/>
+   </properties>
+  </object>
+  <object name="spawn1" gid="9" x="1079" y="271"/>
+  <object name="fallingblock" type="PhysBox" gid="110" x="1216" y="284"/>
+  <object name="fallingblock" type="PhysBox" gid="110" x="1309" y="285"/>
+  <object name="fallingblock" type="PhysBox" gid="110" x="1416" y="282"/>
+  <object type="Trigger" x="1384" y="348" width="109" height="10">
+   <properties>
+    <property name="filter" value="fallingblock"/>
+    <property name="ontrigger" value="activator:teleportTo(boxspawn3);fallingblock:setVelocity(0,10)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1276" y="347" width="101" height="10">
+   <properties>
+    <property name="filter" value="fallingblock"/>
+    <property name="ontrigger" value="activator:teleportTo(boxspawn2);fallingblock:setVelocity(0,10)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="1176" y="346" width="95" height="17">
+   <properties>
+    <property name="filter" value="fallingblock"/>
+    <property name="ontrigger" value="activator:teleportTo(boxspawn1);fallingblock:setVelocity(0,10)"/>
+   </properties>
+  </object>
+  <object name="boxspawn2" x="1317" y="102" width="21" height="19"/>
+  <object name="boxspawn1" x="1211" y="103" width="21" height="19"/>
+  <object name="boxspawn3" x="1419" y="105" width="22" height="19"/>
+  <object type="Toggle" gid="845" x="1312" y="546">
+   <properties>
+    <property name="onpress" value="fallingblock:setFrozen(true)"/>
+    <property name="onrelease" value="fallingblock:setFrozen(false)"/>
+   </properties>
+  </object>
+  <object name="triggaone" type="Trigger" x="1218" y="418" width="27" height="125">
+   <properties>
+    <property name="ontrigger" value="wallone:setVisible(true);triggaone:destroy()"/>
+   </properties>
+  </object>
+  <object name="wallone" type="PhysBox" x="1176" y="497" width="32" height="115">
+   <properties>
+    <property name="onspawn" value="wallone:setVisible(false); wallone:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="wallone" type="PhysBox" x="1494" y="498" width="31" height="124"/>
+  <object name="trigger2" type="Trigger" x="1537" y="152" width="30" height="135">
+   <properties>
+    <property name="ontrigger" value="wallone:setVisible(false);trigger2:destroy()"/>
+   </properties>
+  </object>
+  <object type="Trampoline" gid="832" x="1854" y="546">
+   <properties>
+    <property name="goal" value="part2"/>
+   </properties>
+  </object>
+  <object name="part2" x="2010" y="250" width="40" height="33"/>
+  <object type="Trampoline" gid="832" x="1788" y="288">
+   <properties>
+    <property name="goal" value="part2"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="325" y="684" width="629" height="27">
+   <properties>
+    <property name="ontrigger" value="activator:teleportTo(player1)"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="SharedCollision" width="100" height="100" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJzt19FtwjAUQFG7onsySkdhFEZr8gESiKpxYscvzjnS+0AK2PhKIaQEx3LpvQFe5KRJJDlpEklOmkQyNbhrEkvvJnnn9Y6gZxM9PuvVpGaPXDAtPnfrnt7PvEeTM/QoWaN3kx73qzU9tqxVOj2b9OjxncrOZ7r+p/We/jvzvZrUvK8cXZQmfzlbj9nCJs/xn7E9TeIZpcma55mWs8UITSL95tTYywhNRqNJPJrEo0k8msRT2iTSM86oCpuwg4Im7GA67+t01rfHTK9vH655NqOdJS0e9GirpMVMi3ZKW8z0aGNNi6+kRwsbWlz1qGtjCz0qqtBCj0pqtFjyHpbRIhYtYtEiFi2ORYs4tIhDizi0eJUDzpmd/ftHo0cs7k0AAAAAAAAAAAAAAAAAAAAAAAAAAJzRL/V6abY=
+  </data>
+ </layer>
+ <layer name="BlueCollision" width="100" height="100" opacity="0.48">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <layer name="GreenCollision" width="100" height="100" opacity="0.28">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <layer name="Decoration" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+</map>
