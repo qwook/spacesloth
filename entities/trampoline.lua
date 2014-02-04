@@ -24,6 +24,19 @@ function Trampoline:initPhysics()
 end
 
 function Trampoline:postSpawn()
+    -- no goal set
+    if not self:getProperty("goal") then return end
+
+    -- find the goal object
+    local goals = map:findObjectsByName(self:getProperty("goal"))
+    local goal
+    if goals[1] == nil then
+        return
+    else
+        goal = goals[1]
+    end
+
+    goal:getPosition()
 end
 
 function Trampoline:update(dt)
@@ -78,10 +91,10 @@ function Trampoline:touchedPlayer(player)
         if (xGoalPos < xPlayerPos) then
             flipped = true
             xGoalPos = 2*xPlayerPos - xGoalPos
-            xGoalPos = (xGoalPos - xPlayerPos)
+            xGoalPos = xGoalPos -- slight adjustment
+        else
+            xGoalPos = xGoalPos + 32 -- slight adjustment
         end
-
-        xGoalPos = xGoalPos + 32 -- slight adjustment
 
         local dx = xGoalPos - xPlayerPos
         local dy = yPlayerPos - yGoalPos -- Account for funky coordinate systems.
@@ -108,6 +121,7 @@ function Trampoline:touchedPlayer(player)
             -- Divide the velocity into x and y components.
             vx = vel*math.cos(theta)
             vy = vel*math.sin(theta)
+            if flipped then vx = -vx end
             -- print("theta: " .. math.deg(theta) .. " vx: ".. vx .. " vy: " .. vy)
         
             -- Sanity check to avoid feeding a nil value into the physics engine.

@@ -53,13 +53,13 @@
   </object>
   <object name="player2" gid="666" x="1188" y="619"/>
   <object name="player1" gid="670" x="1232" y="618"/>
-  <object type="Trampoline" gid="671" x="1370" y="961">
+  <object type="Trampoline" gid="671" x="1408" y="961">
    <properties>
     <property name="goal" value="goal"/>
     <property name="power" value="1000"/>
    </properties>
   </object>
-  <object name="goal" gid="666" x="1202" y="583"/>
+  <object name="goal" gid="666" x="1248" y="669"/>
   <object type="Slider" gid="686" x="1298" y="651">
    <properties>
     <property name="angle" value="0"/>
