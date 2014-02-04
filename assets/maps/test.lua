@@ -320,16 +320,15 @@ return {
           name = "dipshit",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1257,
+          x = 1113,
           y = 619,
           width = 111,
           height = 33,
           visible = true,
           properties = {
             ["collisiongroup"] = "blue",
-            ["disablerotation"] = "true",
             ["frozen"] = "false",
-            ["mass"] = "1000000000",
+            ["mass"] = "0",
             ["onspawn"] = "self:setGravity(0)"
           }
         },
@@ -389,7 +388,7 @@ return {
           type = "Slider",
           shape = "rectangle",
           x = 1298,
-          y = 653,
+          y = 651,
           width = 0,
           height = 0,
           gid = 686,
@@ -397,6 +396,34 @@ return {
           properties = {
             ["angle"] = "0",
             ["object"] = "dipshit"
+          }
+        },
+        {
+          name = "mover",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1375,
+          y = 552,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit",
+            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+          }
+        },
+        {
+          name = "shaker",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1103,
+          y = 552,
+          width = 27,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit",
+            ["onTrigger"] = "activator:setVelocity(100, 0)"
           }
         }
       }
