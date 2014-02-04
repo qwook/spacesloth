@@ -317,11 +317,11 @@ return {
       properties = {},
       objects = {
         {
-          name = "",
+          name = "dipshit",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1287,
-          y = 676,
+          x = 1257,
+          y = 619,
           width = 111,
           height = 33,
           visible = true,
@@ -383,6 +383,21 @@ return {
           gid = 666,
           visible = true,
           properties = {}
+        },
+        {
+          name = "",
+          type = "Slider",
+          shape = "rectangle",
+          x = 1298,
+          y = 653,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["angle"] = "0",
+            ["object"] = "dipshit"
+          }
         }
       }
     },

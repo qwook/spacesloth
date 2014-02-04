@@ -63,7 +63,8 @@ function Trampoline:touchedPlayer(player)
         if not self:getProperty("goal") then return end
 
         -- find the goal object
-        local goals, goal = map:findObjectsByName(self:getProperty("goal"))
+        local goals = map:findObjectsByName(self:getProperty("goal"))
+        local goal
         if goals[1] == nil then
             return
         else

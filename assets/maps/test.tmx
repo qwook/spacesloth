@@ -43,7 +43,7 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
-  <object type="PhysBox" x="1287" y="676" width="111" height="33">
+  <object name="dipshit" type="PhysBox" x="1257" y="619" width="111" height="33">
    <properties>
     <property name="collisiongroup" value="blue"/>
     <property name="disablerotation" value="true"/>
@@ -61,6 +61,12 @@
    </properties>
   </object>
   <object name="goal" gid="666" x="1404" y="537"/>
+  <object type="Slider" gid="686" x="1298" y="653">
+   <properties>
+    <property name="angle" value="0"/>
+    <property name="object" value="dipshit"/>
+   </properties>
+  </object>
  </objectgroup>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.jpg"/>

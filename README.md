@@ -93,7 +93,7 @@ Draws a text.
 `power` : `how much power it should push the player by`  
 `goal` : `name of a goal. it could be anything`  
 
-#Prop
+##Prop
 #####Attributes:
 `sprite` : `sprite relative to the sprite folder`   
 `spritewidth` : `sprite width`  
@@ -101,3 +101,10 @@ Draws a text.
 #####Methods
 `loopAnimation( y, xfrom, xto, speed )`  
 `playAnimation( y, xfrom, xto, duration )`
+
+##Slider
+It constraints an object to move only in one axis.
+It disables angle movement though.
+#####Attributes:
+`angle` : `angle of the axis the object can move in`
+`object` : `name of the object to constrain`
