@@ -78,7 +78,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -88,7 +88,7 @@
  </layer>
  <layer name="GreenLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJztxjERAAAIBKCvZ0ujeu42ECYSAAAAAAAAAAAAAAAAAAD4pZK+DgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsAboXAHT
   </data>
  </layer>
  <objectgroup name="Objects" width="100" height="100">
@@ -335,19 +335,84 @@
     <property name="ontrigger" value="movingboy:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object type="Trampoline" gid="836" x="706" y="2238">
-   <properties>
-    <property name="goal" value="holeinone"/>
-    <property name="power" value="500"/>
-   </properties>
-  </object>
   <object name="player1" gid="110" x="45" y="943"/>
   <object name="player2" gid="110" x="126" y="953"/>
-  <object name="holeinone" x="949" y="1983" width="28" height="28"/>
+  <object type="Trigger" x="22" y="1622" width="56" height="40">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,500)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="155" y="1747" width="53" height="55">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="508" y="1848" width="89" height="64">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,500)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="913" y="2056" width="79" height="30">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(0,-5000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="952" y="2207" width="38" height="30">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="354" y="1746" width="53" height="55">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(500,0)"/>
+   </properties>
+  </object>
+  <object name="loopout" type="PhysBox" gid="851" x="128" y="1248">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+    <property name="onspawn" value="self:setVisible(false);self:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object name="loopin" type="PhysBox" gid="851" x="32" y="1248">
+   <properties>
+    <property name="collisiongroup" value="green"/>
+    <property name="onspawn" value="self:setVisible(false);self:setFrozen(true)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="710" y="1633" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,4000)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="598" y="1630" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="482" y="1632" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="350" y="1632" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Trigger" x="267" y="1632" width="48" height="98">
+   <properties>
+    <property name="ontrigger" value="activator:addVelocity(-1000,0)"/>
+   </properties>
+  </object>
+  <object type="Text" x="43" y="1064" width="138" height="95">
+   <properties>
+    <property name="string" value="When you crouch, you fly."/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt2wFOwjAUgOE3g/f0KB6Fo3A0h2ZSuhb62lf6yv4vaaJE7bbfdkJQBJjLafQB4M4iNPFkEZp4sghNPFkbXGjiy+gmy4vnm8HIJvRIG9XEsseiGD1+busxxdd8RJMj9NDMMbrJiP2qpkfLXNoxssmIHp+iuz7r13/3PqZn1/xVTSz3ldl5aZJztB4fUrx3/Q+eM/YRtihcJzTpJF4XV+/SpObvmZ7jmVSLzTs08XTPeXYsj1ps3qGJF1briCZ2Sp7rlKCJnUdNNGhiJ9WkhlUTT/fZEdYe59YWG22T1HxH7mHZYqNssnPwHs37VIqiyc6Re1z1aLJe76/lb+39jvXzc+JrLqk5j97jyrJJSYsNPfIsmmhaSGYeety0NNG2kMwc9LhX06SmxfYaWYwee5omDS2+6FGupEljC3ooPWpi0IIeFVJNLFrkvocezyVec+zSQoQepaImXVqI0EMjaNKlhcitxxJ9jLRrk14tROjRQ20LEXpYa2khQg9LrS1E6BFqeX3XosV2DOGxhI/NZHE4as8jPJ/wsZnMeMwp9PDlnXrMtjflziM8n/AxvB49fKGHL6ke8fu5Zhszixvw3uuxwgY0GW9b4zTxIdx34ybs768XXyvNuqjthrza3/GWtYS8ln2ntgnyWu8FNU2QZ3F/1jZBnkUPbRPkWfXQNEGeZY+wCepY99A0Ya3s9ehRep3psUcPX+jhCz18oYcvo3qcMv8/B3uWawgAAAAAAAAAAAAAAAAAAAAAcAw/37h2vg==
+   eJzt2wFuozAQQNGh271njtKj5Cg92pKt3IyNSTz2ODbhPwmpRW0H+AUalIoAx/I5egMQWYQmM1mEJjNZhCYzWRt802Quo5ssL553BCOb0CNvVBPPHoth6fFzW7cpPeYjmpyhh2XG6CYjrlc1PVpmWZeRTUb0+Cu247N+/VfvbXp2zF/VxPO6cnSzNNlzth4fUnzt+l14zdiHblF4ntCkk/S8uHmXJjV/z/Rcnsm1CN6hyUz3nGfb8qhF8A5NZuF1HtHET8lrnRI08fOoiQVN/OSa1PBqMtN9doS1x7W1RWBtkpt35h6eLQJjk42T92i+TuUYmmycucdNjybr8b4sP+fe/2X9/Jr5mu/czLP3uPFsUtIioMc+jyaWFrIzhx53LU2sLWRnBj1iNU1qWoRnZCl6bFmaNLS40KNcSZPGFvQwetTEoQU9KuSaeLTY+x56PJd55tilhQg9SiVNurQQoYeFatKlhci9x5J8jLxbk14tROjRQ20LEXp4a2khQg9PrS1E6KG1PN/1aBG2QW+LXncky4RL7X7o/dHrjuSI25xDj7m8U4+jXZv29kPvj16H16PHXOgxl1yP9P1cR1uOLG3g/d7r9XXS5U9mfXhWiphu0KvJo9mIhXO8Z5OPn+Wam42Yvu6mTXpf3+mxlR4ry3lR203PRqz2d7zlXNKzEWu57tQ20bMRa70X1DTRsxHzuD9bm+jZiHn0sDbRsxHz6mFpomcj5tlDNymdjZh3D0sTemz16FF6nOmxRY+50GMu9JgLPeYyqsfnzv/PwZ/nOQQAAAAAAAAAAAAAAAAAAAAAOId/X9p32A==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
