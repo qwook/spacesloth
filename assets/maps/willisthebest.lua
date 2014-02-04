@@ -816,7 +816,7 @@ return {
           height = 35,
           visible = true,
           properties = {
-            ["mass"] = "10000",
+            ["mass"] = "100000",
             ["onspawn"] = "moving1:setVelocity(100,0);moving1:setGravity(0)"
           }
         },
@@ -963,7 +963,7 @@ return {
           height = 35,
           visible = true,
           properties = {
-            ["mass"] = "1000",
+            ["mass"] = "100000",
             ["onspawn"] = "moving2:setVelocity(-100,0);moving2:setGravity(0)"
           }
         }

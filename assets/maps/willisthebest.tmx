@@ -173,7 +173,7 @@
   </object>
   <object name="moving1" type="PhysBox" x="1428" y="1362" width="116" height="35">
    <properties>
-    <property name="mass" value="10000"/>
+    <property name="mass" value="1000000"/>
     <property name="onspawn" value="moving1:setVelocity(100,0);moving1:setGravity(0)"/>
    </properties>
   </object>
@@ -219,7 +219,7 @@
   </object>
   <object name="moving2" type="PhysBox" x="1220" y="1248" width="116" height="35">
    <properties>
-    <property name="mass" value="1000"/>
+    <property name="mass" value="100000"/>
     <property name="onspawn" value="moving2:setVelocity(-100,0);moving2:setGravity(0)"/>
    </properties>
   </object>
