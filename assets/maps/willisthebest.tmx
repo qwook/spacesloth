@@ -209,8 +209,8 @@
     <property name="object" value="moving1"/>
    </properties>
   </object>
-  <object name="player2" gid="110" x="1038" y="468"/>
-  <object name="player1" gid="110" x="957" y="458"/>
+  <object name="player2" gid="110" x="335" y="414"/>
+  <object name="player1" gid="110" x="254" y="404"/>
   <object type="Trigger" x="82" y="1589" width="1551" height="13">
    <properties>
     <property name="ontrigger" value="activator:teleportTo(spwn)"/>
