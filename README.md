@@ -1,3 +1,7 @@
+Cirrus.ogg belongs to A-Zu-Ra, taken from the Dropbox Assets folder for the Game Dev Club.
+Stolen.ogg belongs to Bibio, stolen from YouTube, only a temporary track.
+
+
 #Map API
 
 ---
