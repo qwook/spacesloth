@@ -551,60 +551,6 @@ return {
           properties = {}
         },
         {
-          name = "player1",
-          type = "",
-          shape = "rectangle",
-          x = 268,
-          y = 295,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "player2",
-          type = "",
-          shape = "rectangle",
-          x = 349,
-          y = 305,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "",
-          type = "Trampoline",
-          shape = "rectangle",
-          x = 416,
-          y = 416,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {
-            ["collisionGroup"] = "green",
-            ["goal"] = "goal2"
-          }
-        },
-        {
-          name = "",
-          type = "Trampoline",
-          shape = "rectangle",
-          x = 416,
-          y = 416,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {
-            ["collisionGroup"] = "blue",
-            ["goal"] = "goal1"
-          }
-        },
-        {
           name = "muzak",
           type = "",
           shape = "ellipse",
@@ -614,7 +560,7 @@ return {
           height = 58,
           visible = true,
           properties = {
-            ["onspawn"] = "global:playMusic(stolen.ogg,0.8)"
+            ["onspawn"] = "global:playMusic(stolen.ogg,0.01)"
           }
         },
         {
@@ -631,18 +577,6 @@ return {
           }
         },
         {
-          name = "spawn1",
-          type = "",
-          shape = "rectangle",
-          x = 1079,
-          y = 271,
-          width = 0,
-          height = 0,
-          gid = 9,
-          visible = true,
-          properties = {}
-        },
-        {
           name = "fallingblock",
           type = "PhysBox",
           shape = "rectangle",
@@ -652,7 +586,9 @@ return {
           height = 0,
           gid = 110,
           visible = true,
-          properties = {}
+          properties = {
+            ["onspawn"] = "fallingblock:setVelocity(0,10)"
+          }
         },
         {
           name = "fallingblock",
@@ -785,10 +721,10 @@ return {
           name = "wallone",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1176,
-          y = 497,
+          x = 1122,
+          y = 416,
           width = 32,
-          height = 115,
+          height = 122,
           visible = true,
           properties = {
             ["onspawn"] = "wallone:setVisible(false); wallone:setFrozen(true)"
@@ -798,8 +734,8 @@ return {
           name = "wallone",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1494,
-          y = 498,
+          x = 1492,
+          y = 418,
           width = 31,
           height = 124,
           visible = true,
@@ -880,35 +816,36 @@ return {
           height = 35,
           visible = true,
           properties = {
-            ["onspawn"] = "moving1:setVelocity(5,-100);setGravity(0)"
+            ["mass"] = "10000",
+            ["onspawn"] = "moving1:setVelocity(100,0);moving1:setGravity(0)"
           }
         },
         {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1564,
-          y = 1228,
+          x = 1566,
+          y = 1324,
           width = 10,
-          height = 187,
+          height = 89,
           visible = true,
           properties = {
             ["filter"] = "moving1",
-            ["ontrigger"] = "moving1:setVelocity(-5,0)"
+            ["ontrigger"] = "moving1:setVelocity(-100,0)"
           }
         },
         {
           name = "",
           type = "Trigger",
           shape = "rectangle",
-          x = 1209,
-          y = 1221,
-          width = 7,
-          height = 195,
+          x = 1280,
+          y = 1318,
+          width = 10,
+          height = 87,
           visible = true,
           properties = {
             ["filter"] = "moving1",
-            ["ontrigger"] = "moving1:setVelocity(5,0)"
+            ["ontrigger"] = "moving1:setVelocity(100,0)"
           }
         },
         {
@@ -922,6 +859,113 @@ return {
           gid = 832,
           visible = true,
           properties = {}
+        },
+        {
+          name = "",
+          type = "Trampoline",
+          shape = "rectangle",
+          x = 415,
+          y = 416,
+          width = 0,
+          height = 0,
+          gid = 832,
+          visible = true,
+          properties = {
+            ["collisionGroup"] = "green",
+            ["goal"] = "goal2"
+          }
+        },
+        {
+          name = "",
+          type = "Trampoline",
+          shape = "rectangle",
+          x = 415,
+          y = 416,
+          width = 0,
+          height = 0,
+          gid = 832,
+          visible = true,
+          properties = {
+            ["collisionGroup"] = "blue",
+            ["goal"] = "goal1"
+          }
+        },
+        {
+          name = "spawn1",
+          type = "",
+          shape = "rectangle",
+          x = 1061,
+          y = 193,
+          width = 36,
+          height = 30,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 1736,
+          y = 1325,
+          width = 0,
+          height = 0,
+          gid = 110,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player1",
+          type = "",
+          shape = "rectangle",
+          x = 1655,
+          y = 1315,
+          width = 0,
+          height = 0,
+          gid = 110,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1358,
+          y = 1210,
+          width = 10,
+          height = 89,
+          visible = true,
+          properties = {
+            ["filter"] = "moving2",
+            ["ontrigger"] = "moving2:setVelocity(-100,0)"
+          }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1072,
+          y = 1204,
+          width = 10,
+          height = 87,
+          visible = true,
+          properties = {
+            ["filter"] = "moving2",
+            ["ontrigger"] = "moving2:setVelocity(100,0)"
+          }
+        },
+        {
+          name = "moving2",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 1220,
+          y = 1248,
+          width = 116,
+          height = 35,
+          visible = true,
+          properties = {
+            ["mass"] = "1000",
+            ["onspawn"] = "moving2:setVelocity(-100,0);moving2:setGravity(0)"
+          }
         }
       }
     },
