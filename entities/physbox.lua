@@ -56,7 +56,7 @@ function PhysBox:initPhysics()
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    
+
     -- generate a randomized box thing
     local data = love.image.newImageData(self.width, self.height)
 
@@ -259,6 +259,29 @@ end
 
 function PhysBox:event_setvelocity(x, y)
     self.body:setLinearVelocity(tonumber(x), tonumber(y))
+end
+
+function PhysBox:event_multiplyvelocity(x, y)
+    local velx, vely = self.body:getLinearVelocity()
+    self.body:setLinearVelocity(velx*tonumber(x), vely*tonumber(y))
+end
+
+function PhysBox:event_addvelocity(x, y)
+    local velx, vely = self.body:getLinearVelocity()
+    self.body:setLinearVelocity(velx+tonumber(x), vely+tonumber(y))
+end
+
+function PhysBox:setAngle(r)
+    local hadFrozenJoint = false
+    if self.frozenJoint then
+        hadFrozenJoint = true
+        self.frozenJoint:destroy()
+    end
+    self.body:setAngle(r)
+    if hadFrozenJoint then
+        local x, y = self:getPosition()
+        self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+    end
 end
 
 function PhysBox:setPosition(x, y)

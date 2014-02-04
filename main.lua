@@ -26,6 +26,7 @@ Prop =          require("entities.prop")
 LayerObject =   require("entities.layerobject")
 Trampoline =    require("entities.trampoline")
 Slider =        require("entities.slider")
+Weld =        require("entities.weld")
 
 Bull =          require("entities.npc.bull")
 BlueBall =      require("entities.npc.blueball")
@@ -192,7 +193,7 @@ function reset()
     
     collisionSwapped = false
     singleCamera = false
-    
+
     clearUpdates()
     map:spawnObjects()
 end

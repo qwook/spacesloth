@@ -404,12 +404,12 @@ return {
           shape = "rectangle",
           x = 1375,
           y = 552,
-          width = 27,
-          height = 121,
+          width = 16,
+          height = 122,
           visible = true,
           properties = {
             ["filter"] = "dipshit",
-            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+            ["ontouching"] = "activator:setVelocity(-100, 0)"
           }
         },
         {
@@ -418,12 +418,12 @@ return {
           shape = "rectangle",
           x = 948,
           y = 551,
-          width = 27,
+          width = 17,
           height = 121,
           visible = true,
           properties = {
             ["filter"] = "dipshit",
-            ["onTrigger"] = "activator:setVelocity(100, 0)"
+            ["ontouching"] = "activator:setVelocity(100, 0)"
           }
         },
         {
@@ -460,8 +460,8 @@ return {
           name = "mover",
           type = "Trigger",
           shape = "rectangle",
-          x = 1139,
-          y = 706,
+          x = 980,
+          y = 709,
           width = 27,
           height = 121,
           visible = true,
@@ -542,6 +542,94 @@ return {
           properties = {
             ["filter"] = "dipshit2",
             ["onTrigger"] = "activator:setVelocity(100, 0)"
+          }
+        },
+        {
+          name = "gluedbutt",
+          type = "Toggle",
+          shape = "rectangle",
+          x = 1014,
+          y = 633,
+          width = 0,
+          height = 0,
+          gid = 676,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["ontoggle"] = "dipshit:multiplyVelocity(-1, 1)",
+            ["phystype"] = "dynamic"
+          }
+        },
+        {
+          name = "",
+          type = "Weld",
+          shape = "rectangle",
+          x = 972,
+          y = 632,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["object1"] = "gluedbutt",
+            ["object2"] = "dipshit"
+          }
+        },
+        {
+          name = "mover",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1390,
+          y = 552,
+          width = 16,
+          height = 122,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit",
+            ["onTrigger"] = "activator:setVelocity(-100, 0)"
+          }
+        },
+        {
+          name = "shaker",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 929,
+          y = 551,
+          width = 17,
+          height = 121,
+          visible = true,
+          properties = {
+            ["filter"] = "dipshit",
+            ["onTrigger"] = "activator:setVelocity(100, 0)"
+          }
+        },
+        {
+          name = "block",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 828,
+          y = 731,
+          width = 113,
+          height = 21,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["frozen"] = "true",
+            ["mass"] = "200"
+          }
+        },
+        {
+          name = "faller",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 825,
+          y = 716,
+          width = 116,
+          height = 14,
+          visible = true,
+          properties = {
+            ["onTrigger"] = "block:setFrozen(false)"
           }
         }
       }

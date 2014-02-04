@@ -12,7 +12,7 @@ function Trigger:initialize(x, y, w, h)
 end
 
 function Trigger:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
     self.shape = love.physics.newRectangleShape(self.width, self.height)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
@@ -34,6 +34,12 @@ function Trigger:setPosition(x, y)
 end
 
 function Trigger:update(dt)
+    for _, other in ipairs(self.touching) do
+        local filter = self:getProperty("filter")
+        if (filter and filter == other.name) or (not filter and other.type == "PLAYER") then
+            self:trigger("ontouching", other)
+        end
+    end
 end
 
 function Trigger:draw()

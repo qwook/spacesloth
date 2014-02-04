@@ -22,7 +22,7 @@ function Slider:postSpawn()
 
     local ang = math.rad(tonumber(self:getProperty("angle") or 0))
 
-    love.physics.newPrismaticJoint(map.body, obj.body, self.x, self.y, math.cos(ang), math.sin(ang), true)
+    self.joint = love.physics.newPrismaticJoint(map.body, obj.body, self.x, self.y, math.cos(ang), math.sin(ang), true)
 end
 
 function Slider:event_start()
@@ -47,6 +47,11 @@ function Slider:update(dt)
 end
 
 function Slider:draw()
+end
+
+function Slider:destroy()
+    PhysBox.destroy(self)
+    self.joint:destroy()
 end
 
 return Slider

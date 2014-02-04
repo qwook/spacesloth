@@ -11,7 +11,7 @@ function Button:initialize()
 end
 
 function Button:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
     -- self.shape = love.physics.newRectangleShape(32, 0.15)
     self.shape = love.physics.newPolygonShape(-16, 3, 16, 3, 8, -3, -8, -3 )
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)

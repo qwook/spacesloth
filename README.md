@@ -68,10 +68,11 @@ A rectangle that activates then the player enters.
 #####Attributes:
 `filter` : `PLAYER, PHYSBOX, TILE`
 #####Events:
-`onTrigger`
+`onTrigger` : will trigger only when the object starts touching it
 `onBothPlayers`
 `onTriggerEnd`
 `onBothPlayersEnd`
+`onTouching` : will trigger every second an object is touching it.
 
 ##Camera
 Moves the camera to a position on the map.
@@ -83,6 +84,8 @@ Moves the camera to a position on the map.
 `time` : `the time it takes for the timer to end`
 #####Methods
 `start(  )`
+#####Events
+`onEnd`
 
 ##Text
 Draws a text.
@@ -112,3 +115,11 @@ It disables angle movement though.
 #####Attributes:
 `angle` : `angle of the axis the object can move in`
 `object` : `name of the object to constrain`
+
+##Weld
+Glues two objects together
+Make sure you set the property "phystype" to "dynamic"
+before using this, or else the object might not move!
+#####Attributes:
+`object1` : `name of the object to constrain`
+`object2` : `name of the second object to constrain`

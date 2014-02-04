@@ -13,7 +13,7 @@ function Trampoline:initialize(x, y, w, h)
 end
 
 function Trampoline:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
     self.shape = love.physics.newRectangleShape(32, 16)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
