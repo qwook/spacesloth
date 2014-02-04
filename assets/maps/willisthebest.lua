@@ -982,7 +982,7 @@ return {
           }
         },
         {
-          name = "moving1",
+          name = "moving2",
           type = "PhysBox",
           shape = "rectangle",
           x = 1036,

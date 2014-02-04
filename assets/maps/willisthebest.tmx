@@ -228,7 +228,7 @@
     <property name="ontrigger" value="moving2:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object name="moving1" type="PhysBox" x="1036" y="1367" width="111" height="33">
+  <object name="moving2" type="PhysBox" x="1036" y="1367" width="111" height="33">
    <properties>
     <property name="mass" value="1000"/>
    </properties>
