@@ -392,7 +392,7 @@ function Player:beginContact(other, contact, isother)
     -- "Conservation of Energy"
     ------------------------------------------------------
 
-    if SLIDE then
+    if SLIDE or self.crouching == true then
 
         local velx, vely = self.body:getLinearVelocity()
 
