@@ -11,6 +11,7 @@ function PhysBox:initialize()
     self.visible = true
     self.frozen = false
     self.solid = true
+    self.color = {r = 255, g = 255, b = 255, a = 255}
 
     self.width = 32
     self.height = 32
@@ -134,6 +135,10 @@ function PhysBox:initPhysics()
     self.fixture:setUserData(self)
 end
 
+function PhysBox:event_setcolor(r, g, b, a)
+    self.color = {r = tonumber(r), g = tonumber(g), b = tonumber(b), a = tonumber(a)}
+end
+
 function PhysBox:event_setcollisiongroup(group)
     self.collisiongroup = group
 end
@@ -235,7 +240,7 @@ function PhysBox:draw()
     love.graphics.translate(x, y)
     love.graphics.rotate(r)
 
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.setColor(self.color.r, self.color.g, self.color.b, self.color.a)
     -- love.graphics.rectangle('fill', -self.width/2, -self.height/2, 32, 32)
     self.spritesheet:draw(0, 0, -self.width/2, -self.height/2, 0, self.width/32, self.height/32)
 

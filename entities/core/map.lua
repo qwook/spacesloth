@@ -124,8 +124,6 @@ function Map:generateTileCollision(layername, collisiongroup)
 
                     ang = ang % 4
 
-                    print(colshape)
-
                     if (colshape ~= "1") then
                         if (ang == -1) then
                             -- this is handled by the optimizer, just kept in incase STI is stupid
