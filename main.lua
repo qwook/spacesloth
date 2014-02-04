@@ -110,6 +110,14 @@ function contactFilter(fixture1, fixture2)
         return false
     end
 
+    if physical1.collisiongroup == "notplayer" and physical2.type == "PLAYER" then
+        return false
+    end
+
+    if physical2.collisiongroup == "notplayer" and physical1.type == "PLAYER" then
+        return false
+    end
+
     if physical1.type == "PLAYER" and physical2.type == "PLAYER" then
         return true
     end

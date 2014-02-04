@@ -329,7 +329,7 @@ return {
             ["collisiongroup"] = "blue",
             ["disablerotation"] = "true",
             ["frozen"] = "false",
-            ["mass"] = "100000",
+            ["mass"] = "1000000000",
             ["onspawn"] = "self:setGravity(0)"
           }
         },

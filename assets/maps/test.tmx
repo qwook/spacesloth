@@ -48,7 +48,7 @@
     <property name="collisiongroup" value="blue"/>
     <property name="disablerotation" value="true"/>
     <property name="frozen" value="false"/>
-    <property name="mass" value="100000"/>
+    <property name="mass" value="1000000000"/>
     <property name="onspawn" value="self:setGravity(0)"/>
    </properties>
   </object>
