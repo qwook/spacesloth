@@ -55,4 +55,7 @@ end
 
 function love.update(dt)
 	world:update(dt)
+	--[[if love.mouse.isDown("l") then
+		newLiveCircle(love.mouse.getX(), love.mouse.getY())
+	end]]
 end
