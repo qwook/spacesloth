@@ -11,8 +11,8 @@ function Toggle:initialize()
 end
 
 function Toggle:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
-    self.shape = love.physics.newRectangleShape(32, 0.15)
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
+    self.shape = love.physics.newPolygonShape(-16, 3, 16, 3, 8, -3, -8, -3 )
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
@@ -23,8 +23,12 @@ function Toggle:initPhysics()
     self.pressed = false
 end
 
-function Toggle:setPosition(x, y)
-    PhysBox.setPosition(self, x+8, y+10)
+function Toggle:fixSpawnPosition()
+    local x, y = self:getPosition()
+    self:setPosition(x+32, y+12)
+end
+
+function Toggle:postSpawn()
 end
 
 function Toggle:isTouchingPlayer()
@@ -70,15 +74,15 @@ function Toggle:draw()
     love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(1, 0, -16, -16-10)
+            self.spritesheet1:draw(1, 0, -16, -16 -12)
         else
-            self.spritesheet2:draw(1, 0, -16, -16-10)
+            self.spritesheet2:draw(1, 0, -16, -16 -12)
         end
     else
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(0, 0, -16, -16-10)
+            self.spritesheet1:draw(0, 0, -16, -16 -12)
         else
-            self.spritesheet2:draw(0, 0, -16, -16-10)
+            self.spritesheet2:draw(0, 0, -16, -16 -12)
         end
     end
 

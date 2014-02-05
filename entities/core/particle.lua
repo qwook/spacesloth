@@ -15,6 +15,12 @@ function Particle:initialize()
     self.spritesheet = SpriteSheet:new("sprites/dust1.png", 32, 32)
 end
 
+function Particle:fixSpawnPosition()
+end
+
+function Particle:postSpawn()
+end
+
 function Particle:initPhysics()
     -- no physics
 end

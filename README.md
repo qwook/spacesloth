@@ -1,3 +1,7 @@
+Cirrus.ogg belongs to A-Zu-Ra, taken from the Dropbox Assets folder for the Game Dev Club.
+Stolen.ogg belongs to Bibio, stolen from YouTube, only a temporary track.
+
+
 #Map API
 
 ---
@@ -64,10 +68,11 @@ A rectangle that activates then the player enters.
 #####Attributes:
 `filter` : `PLAYER, PHYSBOX, TILE`
 #####Events:
-`onTrigger`
+`onTrigger` : will trigger only when the object starts touching it
 `onBothPlayers`
 `onTriggerEnd`
 `onBothPlayersEnd`
+`onTouching` : will trigger every second an object is touching it.
 
 ##Camera
 Moves the camera to a position on the map.
@@ -79,6 +84,8 @@ Moves the camera to a position on the map.
 `time` : `the time it takes for the timer to end`
 #####Methods
 `start(  )`
+#####Events
+`onEnd`
 
 ##Text
 Draws a text.
@@ -93,7 +100,7 @@ Draws a text.
 `power` : `how much power it should push the player by`  
 `goal` : `name of a goal. it could be anything`  
 
-#Prop
+##Prop
 #####Attributes:
 `sprite` : `sprite relative to the sprite folder`   
 `spritewidth` : `sprite width`  
@@ -101,3 +108,18 @@ Draws a text.
 #####Methods
 `loopAnimation( y, xfrom, xto, speed )`  
 `playAnimation( y, xfrom, xto, duration )`
+
+##Slider
+It constraints an object to move only in one axis.
+It disables angle movement though.
+#####Attributes:
+`angle` : `angle of the axis the object can move in`
+`object` : `name of the object to constrain`
+
+##Weld
+Glues two objects together
+Make sure you set the property "phystype" to "dynamic"
+before using this, or else the object might not move!
+#####Attributes:
+`object1` : `name of the object to constrain`
+`object2` : `name of the second object to constrain`

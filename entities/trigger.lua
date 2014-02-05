@@ -12,7 +12,7 @@ function Trigger:initialize(x, y, w, h)
 end
 
 function Trigger:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
     self.shape = love.physics.newRectangleShape(self.width, self.height)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
@@ -23,11 +23,23 @@ function Trigger:initPhysics()
     self.TriggerDelay = 0
 end
 
+function Trigger:fixSpawnPosition()
+end
+
+function Trigger:postSpawn()
+end
+
 function Trigger:setPosition(x, y)
     PhysBox.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
 end
 
 function Trigger:update(dt)
+    for _, other in ipairs(self.touching) do
+        local filter = self:getProperty("filter")
+        if (filter and filter == other.name) or (not filter and other.type == "PLAYER") then
+            self:trigger("ontouching", other)
+        end
+    end
 end
 
 function Trigger:draw()

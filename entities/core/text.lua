@@ -13,6 +13,9 @@ function Text:initialize(x, y, w, h)
     self.nexttype = 0
 end
 
+function Text:postSpawn()
+end
+
 function Text:event_setstring(string)
     self:setProperty("string", string)
 end

@@ -24,7 +24,9 @@ Toggle =        require("entities.toggle")
 Trigger =       require("entities.trigger")
 Prop =          require("entities.prop")
 LayerObject =   require("entities.layerobject")
-Trampoline =    require("entities.Trampoline")
+Trampoline =    require("entities.trampoline")
+Slider =        require("entities.slider")
+Weld =        require("entities.weld")
 
 Bull =          require("entities.npc.bull")
 BlueBall =      require("entities.npc.blueball")
@@ -110,6 +112,14 @@ function contactFilter(fixture1, fixture2)
         return false
     end
 
+    if physical1.collisiongroup == "notplayer" and physical2.type == "PLAYER" then
+        return false
+    end
+
+    if physical2.collisiongroup == "notplayer" and physical1.type == "PLAYER" then
+        return false
+    end
+
     if physical1.type == "PLAYER" and physical2.type == "PLAYER" then
         return true
     end
@@ -140,6 +150,7 @@ function contactFilter(fixture1, fixture2)
 end
 
 function changeMap(mapname)
+
     if world then
         world:destroy()
     end
@@ -152,12 +163,15 @@ function changeMap(mapname)
     collisionSwapped = false
     singleCamera = false
 
+    clearUpdates()
+
     map = Map:new("assets/maps/" .. mapname)
 
     map:spawnObjects()
 end
 
 function reset()
+
     if world then
         world:destroy()
     end
@@ -177,10 +191,11 @@ function reset()
         end
     end
     
-    map:spawnObjects()
-
     collisionSwapped = false
+    singleCamera = false
 
+    clearUpdates()
+    map:spawnObjects()
 end
 
 function love.load()

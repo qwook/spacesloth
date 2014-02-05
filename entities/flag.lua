@@ -10,6 +10,12 @@ function Flag:initialize()
     self.spritesheet2 = SpriteSheet:new("sprites/Flag_green.png", 32, 32)
 end
 
+function Flag:fixSpawnPosition()
+end
+
+function Flag:postSpawn()
+end
+
 function Flag:initPhysics()
 end
 

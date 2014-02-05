@@ -17,6 +17,12 @@ function Camera:initialize()
     self.activated = false
 end
 
+function Camera:fixSpawnPosition()
+end
+
+function Camera:postSpawn()
+end
+
 function Camera:event_setactivated(activated)
     if activated == "true" then
         self.activated = true

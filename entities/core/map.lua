@@ -27,6 +27,11 @@ end
 -- giant wrapper for the tiled loader
 -- don't worry about it
 function Map:generateTileCollision(layername, collisiongroup)
+
+    if not self.tiledmap.layers[layername] then
+        return
+    end
+
     local collision = self.tiledmap:getCollisionMap(layername).data
 
     local tiles = {}
@@ -66,18 +71,72 @@ function Map:generateTileCollision(layername, collisiongroup)
         for x, tile in pairs(row) do
             if (tile == 1) then
                 if self.tiledmap.layers[layername].data[y][x].properties then
-                    local colshape = self.tiledmap.layers[layername].data[y][x].properties.colshape
-                    if (colshape == "1") then
-                        -- this is handled by the optimizer, just kept in incase STI is stupid
-                        -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
-                    elseif (colshape == "2") then
-                        self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
-                    elseif (colshape == "3") then
-                        self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                    local data = self.tiledmap.layers[layername].data[y][x]
+                    local colshape = data.properties.colshape
+
+                    -- this is the worst thing i've ever written in my entire life
+
+                    local ang = -1
+
+                    if (colshape == "2") then
+                        ang = 0
                     elseif (colshape == "4") then
-                        self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        ang = 1
+                    elseif (colshape == "3") then
+                        ang = 2
                     elseif (colshape == "5") then
-                        self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        ang = 3
+                    end
+
+                    if data.r == math.rad(90) then
+                        ang = ang + 1
+                    elseif data.r == math.rad(-90) then
+                        ang = ang - 1
+                    end
+
+                    ang = ang % 4
+
+                    if data.sx == -1 then
+                        if ang == 0 then
+                            ang = 2
+                        elseif ang == 2 then
+                            ang = 0
+                        elseif ang == 1 then
+                            ang = 3
+                        elseif ang == 3 then
+                            ang = 1
+                        end
+                    end
+
+                    ang = ang % 4
+
+                    -- if data.sy == -1 then
+                    --     if ang == 0 then
+                    --         ang = 3
+                    --     elseif ang == 3 then
+                    --         ang = 0
+                    --     elseif ang == 1 then
+                    --         ang = 2
+                    --     elseif ang == 2 then
+                    --         ang = 1
+                    --     end
+                    -- end
+
+                    ang = ang % 4
+
+                    if (colshape ~= "1") then
+                        if (ang == -1) then
+                            -- this is handled by the optimizer, just kept in incase STI is stupid
+                            -- self:set(x, y, Tile:new(self.tiledmap.tilewidth, self.tiledmap.tileheight))
+                        elseif (ang == 0) then
+                            self:set(x, y, Tile2:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 2) then --
+                            self:set(x, y, Tile3:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 1) then --
+                            self:set(x, y, Tile4:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        elseif (ang == 3) then
+                            self:set(x, y, Tile5:new(self.tiledmap.tilewidth, self.tiledmap.tileheight, collisiongroup))
+                        end
                     end
                 end
             end
@@ -92,12 +151,13 @@ function Map:spawnObjects()
         if v.name == "player1" then
             player = Player:new()
             player:setController(input)
-            player:setPosition(v.x + 16, v.y + 16)
+            -- tiled positional data being janky
+            player:setPosition(v.x + 32 + 16, v.y + 32)
         -- spawnpoint for player 2
         elseif v.name == "player2" then
             player2 = Cindy:new()
             player2:setController(input2)
-            player2:setPosition(v.x + 16, v.y + 16)
+            player2:setPosition(v.x + 32 + 16, v.y + 32)
         end
 
         -- so this determines the class by the Type
@@ -120,11 +180,22 @@ function Map:spawnObjects()
         end
         instance:initPhysics()
         instance:setPosition(v.x + 16, v.y + 16)
-        instance:postSpawn()
+        instance.collisiongroup = instance:getProperty("collisiongroup")
+        instance:event_setfrozen(instance:getProperty("frozen"))
+
+        if instance.fixture and instance.body then
+            instance.fixture:setFriction(instance:getProperty("friction") or 0.1)
+            instance.body:setMass(instance:getProperty("mass") or 1)
+            instance.body:setFixedRotation(instance:getProperty("disablerotation") == "true")
+        end
+
+        instance:fixSpawnPosition()
+
         table.insert(spawned, instance)
     end
 
     for k,v in pairs(spawned) do
+        v:postSpawn()
         v:trigger("onspawn")
     end
 end
@@ -173,6 +244,7 @@ function Map:get(x, y)
 end
 
 function Map:drawLayer(layerName)
+    if not self.tiledmap.layers[layerName] then return end
     self.tiledmap:drawTileLayer(self.tiledmap.layers[layerName])
 end
 
@@ -189,7 +261,7 @@ function Map:draw(player)
 
     self:drawLayer("SharedLayer")
 
-    self.tiledmap:drawTileLayer(self.tiledmap.layers["Decoration"])
+    self:drawLayer("Decoration")
     love.graphics.pop()
 
     -- debug drawings:

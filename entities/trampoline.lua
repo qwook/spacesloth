@@ -13,7 +13,7 @@ function Trampoline:initialize(x, y, w, h)
 end
 
 function Trampoline:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
     self.shape = love.physics.newRectangleShape(32, 16)
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
@@ -21,6 +21,25 @@ function Trampoline:initPhysics()
     self.fixture:setUserData(self)
 
     self.anim = 0
+end
+
+function Trampoline:fixSpawnPosition()
+end
+
+function Trampoline:postSpawn()
+    -- no goal set
+    if not self:getProperty("goal") then return end
+
+    -- find the goal object
+    local goals = map:findObjectsByName(self:getProperty("goal"))
+    local goal
+    if goals[1] == nil then
+        return
+    else
+        goal = goals[1]
+    end
+
+    goal:getPosition()
 end
 
 function Trampoline:update(dt)
@@ -35,11 +54,11 @@ end
 -- other strange factors also occur, idk.
 function Trampoline:getPosition()
     local x, y = PhysBox.getPosition(self)
-    return x-16, y
+    return x-32, y
 end
 
 function Trampoline:setPosition(x, y)
-    PhysBox.setPosition(self, x+16, y)
+    PhysBox.setPosition(self, x+32, y)
 end
 
 function Trampoline:touchedPlayer(player)
@@ -60,7 +79,8 @@ function Trampoline:touchedPlayer(player)
         if not self:getProperty("goal") then return end
 
         -- find the goal object
-        local goals, goal = map:findObjectsByName(self:getProperty("goal"))
+        local goals = map:findObjectsByName(self:getProperty("goal"))
+        local goal
         if goals[1] == nil then
             return
         else
@@ -70,7 +90,14 @@ function Trampoline:touchedPlayer(player)
         local xPlayerPos, yPlayerPos = player:getPosition()
         local xGoalPos, yGoalPos = goal:getPosition()
 
-        xGoalPos = xGoalPos + 32 -- slight adjustment
+        local flipped = false
+        if (xGoalPos < xPlayerPos) then
+            flipped = true
+            xGoalPos = 2*xPlayerPos - xGoalPos
+            xGoalPos = xGoalPos -- slight adjustment
+        else
+            xGoalPos = xGoalPos + 32 -- slight adjustment
+        end
 
         local dx = xGoalPos - xPlayerPos
         local dy = yPlayerPos - yGoalPos -- Account for funky coordinate systems.
@@ -97,6 +124,7 @@ function Trampoline:touchedPlayer(player)
             -- Divide the velocity into x and y components.
             vx = vel*math.cos(theta)
             vy = vel*math.sin(theta)
+            if flipped then vx = -vx end
             -- print("theta: " .. math.deg(theta) .. " vx: ".. vx .. " vy: " .. vy)
         
             -- Sanity check to avoid feeding a nil value into the physics engine.
@@ -128,8 +156,8 @@ function Trampoline:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(255, 255, 255)
-    -- self.spritesheet:draw(anim, 0, 0, -16, 0, 1, 1)
-    self.spritesheet:draw(anim, 0, 32, -16, 0, -1, 1)
+    -- self.spritesheet:draw(anim, 0, 16, -16, 0, 1, 1)
+    self.spritesheet:draw(anim, 0, 32+16, -16, 0, -1, 1)
 
     love.graphics.pop()
 end

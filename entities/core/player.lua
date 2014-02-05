@@ -91,6 +91,7 @@ function Player:initPhysics()
     self.body:setFixedRotation(true)
 
     self.contacts = {}
+    self.contactOwners = {}
 
     self.floorangle = 0
     self.floornx = 0
@@ -101,11 +102,13 @@ function Player:initPhysics()
     self.facing = 'right'
     self.moving = false
     self.crouching = false
+    self.lastFVX = 0
+    self.lastFVY = 0
 
     self.nextDust = 0
 end
 
-function Player:isOnFloor()
+function Player:getFloor()
     local x, y = self:getPosition()
     y = y + 6
 
@@ -113,7 +116,7 @@ function Player:isOnFloor()
         local x1, y1, x2, y2 = contact:getPositions()
         if ((y1 or y-1) > y and (y2 or y+1) > y) then
             self.floornx, self.floorny = contact:getNormal()
-            return true
+            return self.contactOwners[contact]
         end
     end
 
@@ -161,7 +164,27 @@ function Player:update(dt)
         self.nextJump = self.nextJump - dt
     end
 
-    if self:isOnFloor() then
+    local floor = self:getFloor()
+
+    if floor then
+
+        -- compensate for moving platform
+        if floor.type ~= "TILE" then
+            local fvx, fvy = floor.body:getLinearVelocity()
+            if math.distance(fvx, fvy, self.lastFVX, self.lastFVY) > 100 then
+                self.body:setLinearVelocity(fvx, fvy)
+            end
+            self.lastFVY = fvy
+            self.lastFVX = fvx
+
+
+            if math.distance(fvx, fvy, velx, vely) > 0.1 then
+                self.moving = true
+            else
+                self.moving = false
+            end
+        end
+
         if self.controller:isKeyDown("right") then
             if velx < 250 then
                 self.body:applyForce(1000, 0)
@@ -392,8 +415,8 @@ function Player:beginContact(other, contact, isother)
     -- "Conservation of Energy"
     ------------------------------------------------------
 
-    if SLIDE then
-            
+    if SLIDE or self.crouching == true then
+
         local velx, vely = self.body:getLinearVelocity()
 
         local smoke = DebugArrow:new()
@@ -427,6 +450,7 @@ function Player:beginContact(other, contact, isother)
     end
 
     table.insert(self.contacts, contact)
+    self.contactOwners[contact] = other
 
     -- detect a floor
     local x1, y1, x2, y2 = contact:getPositions()
@@ -455,6 +479,7 @@ function Player:endContact(other, contact, isother)
     local cx, cy, cz = math.crossproduct(normx, normy, 0, 0, 1, 0)
 
     table.removevalue(self.contacts, contact)
+    self.contactOwners[contact] = nil
 
     local x, y = self:getPosition()
     local x1, y1, x2, y2 = contact:getPositions()
@@ -465,7 +490,7 @@ function Player:endContact(other, contact, isother)
 end
 
 function Player:postSolve(other, contact, nx, ny, isother)
-    if self.moving and self.nextDust <= 0 and self:isOnFloor() then
+    if self.moving and self.nextDust <= 0 and self:getFloor() ~= false then
         local smoke = WalkingDust:new()
         local x, y = self:getPosition()
         local vx, vy = 0, -50

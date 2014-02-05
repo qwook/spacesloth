@@ -11,25 +11,25 @@ function Button:initialize()
 end
 
 function Button:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, 'static')
-    self.shape = love.physics.newRectangleShape(32, 0.15)
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
+    -- self.shape = love.physics.newRectangleShape(32, 0.15)
+    self.shape = love.physics.newPolygonShape(-16, 3, 16, 3, 8, -3, -8, -3 )
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 
     self.fixture:setUserData(self)
-    self.fixture:setFriction(0.5)
+    self.fixture:setFriction(0.25)
 
     self.hasPressedLastUpdate = false
     self.buttonDelay = 0
     self.pressed = false
 end
 
-function Button:setPosition(x, y)
-    PhysBox.setPosition(self, x+32, y+8)
+function Button:fixSpawnPosition()
+    local x, y = self:getPosition()
+    self:setPosition(x+32, y+12)
 end
 
-function Button:getPosition()
-    local x, y = PhysBox.getPosition(self)
-    return x, y-8
+function Button:postSpawn()
 end
 
 function Button:isTouchingPlayer()
@@ -77,19 +77,23 @@ function Button:draw()
     love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(1, 0, -16, -16)
+            self.spritesheet1:draw(1, 0, -16, -16 -12)
         else
-            self.spritesheet2:draw(1, 0, -16, -16)
+            self.spritesheet2:draw(1, 0, -16, -16 -12)
         end
     else
         if self.collisiongroup == "blue" then
-            self.spritesheet1:draw(0, 0, -16, -16)
+            self.spritesheet1:draw(0, 0, -16, -16 -12)
         else
-            self.spritesheet2:draw(0, 0, -16, -16)
+            self.spritesheet2:draw(0, 0, -16, -16 -12)
         end
     end
 
     love.graphics.pop()
+
+    -- love.graphics.setColor(255, 0, 0)
+    -- love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
+    
 end
 
 return Button
