@@ -118,7 +118,7 @@ function Trampoline:touchedPlayer(player)
                 discriminant = math.pow(vel, 4) - GRAVITY*(GRAVITY*dx*dx + 2*dy*vel*vel)
         end
         
-        if discriminant > 0 then
+        if discriminant >= 0 then
             -- Find the angle of launch.
             theta = math.atan((vel*vel + root*math.sqrt(discriminant))/(GRAVITY*dx))
             -- Divide the velocity into x and y components.
