@@ -200,7 +200,7 @@
   <object name="spwn" x="1819" y="1322" width="45" height="33"/>
   <object name="moving1" type="PhysBox" x="1389" y="1462" width="111" height="33">
    <properties>
-    <property name="friction" value="1"/>
+    <property name="friction" value="0.5"/>
     <property name="mass" value="10000"/>
    </properties>
   </object>
@@ -245,19 +245,19 @@
     <property name="ontrigger" value="moving4:setVelocity(100,0)"/>
    </properties>
   </object>
-  <object type="Trigger" x="871" y="1308" width="10" height="89">
+  <object type="Trigger" x="906" y="1305" width="10" height="89">
    <properties>
     <property name="filter" value="moving4"/>
     <property name="ontrigger" value="moving4:setVelocity(-100,0)"/>
    </properties>
   </object>
-  <object name="moving4" type="PhysBox" x="766" y="1353" width="111" height="33">
+  <object name="moving4" type="PhysBox" x="801" y="1350" width="111" height="33">
    <properties>
     <property name="friction" value="1"/>
     <property name="mass" value="10000"/>
    </properties>
   </object>
-  <object type="Slider" gid="851" x="770" y="1381">
+  <object type="Slider" gid="851" x="805" y="1378">
    <properties>
     <property name="angle" value="180"/>
     <property name="object" value="moving4"/>
@@ -428,11 +428,16 @@
   </object>
   <object type="Text" x="696" y="43" width="95" height="76">
    <properties>
-    <property name="string" value="FUCK YOU"/>
+    <property name="string" value="Good Luck"/>
    </properties>
   </object>
   <object name="player2" gid="110" x="686" y="1174"/>
   <object name="player1" gid="110" x="605" y="1164"/>
+  <object type="Trigger" x="683" y="36" width="118" height="89">
+   <properties>
+    <property name="ontrigger" value="global:changeMap(willisthebest)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
