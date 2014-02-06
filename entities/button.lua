@@ -2,25 +2,26 @@
 BaseEntity = require("entities.core.baseentity")
 
 Button = class("Button", BaseEntity)
+Button.spritesheet1 = SpriteSheet:new("sprites/button_blue.png", 32, 32)
+Button.spritesheet2 = SpriteSheet:new("sprites/button_green.png", 32, 32)
 
 function Button:initialize()
     PhysBox.initialize(self)
 
-    self.spritesheet1 = SpriteSheet:new("sprites/button_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("sprites/button_green.png", 32, 32)
-end
-
-function Button:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
-    self.shape = love.physics.newPolygonShape(-16, 3, 16, 3, 8, -3, -8, -3 )
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setUserData(self)
-    self.fixture:setFriction(0.25)
-
     self.hasPressedLastUpdate = false
     self.buttonDelay = 0
     self.pressed = false
+end
+
+function Button:initPhysics()
+    local shape = love.physics.newPolygonShape(
+        -16, 3, -- bottom left
+        16, 3, -- bottom right
+        8, -4, -- top right
+        -8, -4 -- top left
+    )
+    self:makeSolid("static", shape)
+    self:setFriction(4)
 end
 
 function Button:fixSpawnPosition()
@@ -90,8 +91,8 @@ function Button:draw()
 
     love.graphics.pop()
 
-    -- love.graphics.setColor(255, 0, 0)
-    -- love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
+    love.graphics.setColor(255, 0, 0, 100)
+    love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
     
 end
 

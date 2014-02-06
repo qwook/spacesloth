@@ -9,6 +9,11 @@ GRAVITY =       1000
 
 class =         require("libs.middleclass")
 
+require("core.update")
+require("core.draw")
+require("core.sounds")
+require("core.cache")
+
 Input =         require("core.input")
 Events =        require("core.events")
 
@@ -33,11 +38,6 @@ Weld =        require("entities.weld")
 Bull =          require("entities.npc.bull")
 BlueBall =      require("entities.npc.blueball")
 Fonz =          require("entities.npc.fonz")
-
-require("core.update")
-require("core.draw")
-require("core.sounds")
-require("core.cache")
 
 ----------------------------------------------------
 

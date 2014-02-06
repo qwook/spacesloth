@@ -97,6 +97,7 @@ function Player:initPhysics()
     self.floornx = 0
     self.floorny = 0
 
+    self.shortJump = 0
     self.nextJump = 0
 
     self.facing = 'right'
@@ -196,8 +197,9 @@ function Player:update(dt)
         end
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
             self.nextJump = 0.1
+            self.shortJump = 0.1
 
-            self.body:applyLinearImpulse(-velx*0.25, -350-vely)
+            self.body:applyLinearImpulse(-velx*0.25, -125-vely)
             playSound("bwop.wav")
             local smoke = Particle:new()
             smoke:setPosition(self:getPosition())
@@ -215,6 +217,15 @@ function Player:update(dt)
             if velx > -200 then
                 self.body:applyForce(-250, 0)
             end
+        end
+
+        -- we just jumped, allow for a longer jump
+        if self.shortJump > 0 and self.controller:isKeyDown("jump") then
+            self.body:applyForce(0, -2000)
+            self.shortJump = self.shortJump - dt
+        else
+            -- OCD.. constantly make sure we can't short jump
+            self.shortJump = 0
         end
     end
 

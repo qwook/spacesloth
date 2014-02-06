@@ -14,14 +14,32 @@ function BaseEntity:initialize()
     self.frozen = false
     self.solid = true
     self.color = {r = 255, g = 255, b = 255, a = 255}
+    self.x = 0
+    self.y = 0
+    self.r = 0
 
     table.insert(map.objects, self)
 end
 
+function BaseEntity:destroy()
+    table.removevalue(map.objects, self)
+
+    if self.fixture then
+        self.fixture:destroy()
+    end
+    if self.body then
+        self.body:destroy()
+    end
+    self.body = nil
+    self.fixture = nil
+    self.shape = nil
+end
+
 function BaseEntity:makeSolid(type, shape)
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or type)
+    self.body = love.physics.newBody(world, self.x, self.y, self:getProperty("phystype") or type)
     self.shape = shape
     self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    self.fixture:setUserData(self)
 end
 
 function BaseEntity:initPhysics()
@@ -114,20 +132,6 @@ function BaseEntity:eval(str, activator)
         end
     end
 
-end
-
-function BaseEntity:destroy()
-    table.removevalue(map.objects, self)
-
-    if self.fixture then
-        self.fixture:destroy()
-    end
-    if self.body then
-        self.body:destroy()
-    end
-    self.body = nil
-    self.fixture = nil
-    self.shape = nil
 end
 
 function BaseEntity:event_setcolor(r, g, b, a)
@@ -229,6 +233,9 @@ function BaseEntity:setAngle(r)
 end
 
 function BaseEntity:setPosition(x, y)
+    self.x = x
+    self.y = y
+
     local hadFrozenJoint = false
     if self.frozenJoint then
         hadFrozenJoint = true
@@ -242,15 +249,29 @@ function BaseEntity:setPosition(x, y)
 end
 
 function BaseEntity:getPosition()
+    if not self.body then
+        return self.x, self.y
+    end
     return self.body:getPosition()
 end
 
 function BaseEntity:setAngle(r)
+    self.r = r
     self.body:setAngle(r)
 end
 
 function BaseEntity:getAngle()
+    if not self.body then return self.r end
     return self.body:getAngle()
+end
+
+function BaseEntity:setFriction(frict)
+    if not self.fixture then return end
+    self.fixture:setFriction(frict)
+end
+
+function BaseEntity:getFriction()
+    return self.fixture:getFriction()
 end
 
 function BaseEntity:update(dt)
