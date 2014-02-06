@@ -125,7 +125,8 @@ function Player:getFloor()
     return false
 end
 
-function Player:stopJump()
+function Player:delayJump(time)
+    self.nextJump = love.timer.getTime() + time
 end
 
 function Player:update(dt)
@@ -237,107 +238,6 @@ function Player:update(dt)
             self.shortJump = 0
         end
     end
-
-    -- -- true = up, false = down, nil = going straight
-    -- local goingUpOrDown = nil
-    -- local ypoop = self.floornx
-
-    -- if self.crouching then
-    --     self.fixture:setFriction(PLAYER_FRICTION_SLIDING)
-    -- else
-    --     self.fixture:setFriction(PLAYER_FRICTION)
-    -- end
-
-    -- if self:isOnFloor() then
-
-    --     if self.nextJump > 0 then
-    --         self.nextJump = self.nextJump - dt
-    --     end
-
-    --     local jumping = false
-
-    --     if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-    --         self.body:setLinearVelocity(velx/10, vely/5)
-    --         self.body:applyLinearImpulse(0, -400)
-    --         self.nextJump = 0.1
-    --         goingUpOrDown = nil
-
-    --         playSound("bwop.wav")
-    --         jumping = true
-
-    --         local smoke = Particle:new()
-    --         smoke:setPosition(self:getPosition())
-    --     end
-
-    --     if self.controller:isKeyDown("left") and not jumping then
-    --         if math.abs(velx) < 100 then
-    --             self.body:applyLinearImpulse(-MOVING_ACCELERATION, 0)
-    --         else
-    --             self.body:setLinearVelocity(-MOVING_SPEED, vely)
-    --         end
-
-    --         -- this is for climbing stairs
-    --         if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
-    --             goingUpOrDown = false
-    --         end
-    --         if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
-    --             goingUpOrDown = true
-    --             ypoop = -ypoop
-    --         end
-    --     end
-
-    --     if self.controller:isKeyDown("right") and not jumping then
-    --         if math.abs(velx) < 100 then
-    --             self.body:applyLinearImpulse(MOVING_ACCELERATION, 0)
-    --         else
-    --             self.body:setLinearVelocity(MOVING_SPEED, vely)
-    --         end
-
-    --         -- this is for climbing stairs
-    --         if self.floorangle > -math.pi*(4/5) and self.floorangle < -math.pi/2-0.15  then
-    --             goingUpOrDown = true
-    --         end
-    --         if self.floorangle < math.pi*(4/5) and self.floorangle > -math.pi/2+0.15 then
-    --             goingUpOrDown = false
-    --             ypoop = -ypoop
-    --         end
-    --     end
-
-    --     -- so for climbing stairs, we actually push the player up a bit
-    --     -- when they're going up stairs, and push them down when they're going
-    --     -- down stairs.
-    --     if self.nextJump <= 0 then
-    --         local velx, vely = self.body:getLinearVelocity()
-    --         -- up
-    --         if goingUpOrDown == true then
-    --             -- self.body:applyLinearImpulse(0, -50)
-    --             self.body:setLinearVelocity(velx, 200 * ypoop)
-    --         -- down
-    --         elseif goingUpOrDown == false then
-    --             -- self.body:applyLinearImpulse(0, 10)
-    --             self.body:setLinearVelocity(velx, 200 * -ypoop)
-    --         end
-    --         goingUpOrDown = nil
-    --     end
-
-    -- -- not on floor, we're in the air
-    -- else
-    --     if self.controller:isKeyDown("left") then
-    --         if velx >= 0 then
-    --             self.body:setLinearVelocity(velx - DEACCELERATION_SPEED*dt, vely)
-    --         elseif math.abs(velx) < 250 then
-    --             self.body:applyLinearImpulse(-IMPULSE_AFTER_JUMPING, 0)
-    --         end
-    --     end
-
-    --     if self.controller:isKeyDown("right") then
-    --         if velx <= 0 then
-    --             self.body:setLinearVelocity(velx + DEACCELERATION_SPEED*dt, vely)
-    --         elseif math.abs(velx) < 250 then
-    --             self.body:applyLinearImpulse(IMPULSE_AFTER_JUMPING, 0)
-    --         end
-    --     end
-    -- end
 
 end
 

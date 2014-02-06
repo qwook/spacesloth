@@ -120,7 +120,6 @@ function Trampoline:touchedPlayer(player)
             -- Sanity check to avoid feeding a nil value into the physics engine.
             if vx == vx and vy == vy then
                 player:setVelocity(vx, -vy)
-                player:stopJump()
                 playSound("thwap.wav")
             end
         end
