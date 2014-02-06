@@ -53,6 +53,22 @@ function math.lerp(x1, y1, x2, y2, alpha)
     return math.approach2(x1, x2, alpha * dist), math.approach2(y1, y2, alpha * dist)
 end
 
+function math.lerpAngle(start, _end, inc)
+    local x, y, cross = math.crossproduct(math.cos(start), math.sin(start), 0, math.cos(_end), math.sin(_end), 0)
+    local sign = math.sign(cross)
+
+    local result = start + inc*sign
+
+    local x, y, cross2 = math.crossproduct(math.cos(result), math.sin(result), 0, math.cos(_end), math.sin(_end), 0)
+    local sign2 = math.sign(cross2)
+
+    if sign == sign2 then
+        return result
+    else
+        return _end
+    end
+end
+
 function math.round(num)
     if (num - math.floor(num)) < 0.5 then
         return math.floor(num)

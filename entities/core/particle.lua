@@ -2,6 +2,7 @@
 BaseEntity = require("entities.core.baseentity")
 
 Particle = class("Particle", BaseEntity)
+Particle.spritesheet = SpriteSheet:new("sprites/dust1.png", 32, 32)
 
 function Particle:initialize()
     BaseEntity.initialize(self)
@@ -12,7 +13,6 @@ function Particle:initialize()
 
     self.lifetime = 0.5
 
-    self.spritesheet = SpriteSheet:new("sprites/dust1.png", 32, 32)
 end
 
 function Particle:fixSpawnPosition()

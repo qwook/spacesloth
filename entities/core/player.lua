@@ -12,8 +12,10 @@ SpriteSheet =   require("util.spritesheet")
 Particle =      require("entities.core.particle")
 WalkingDust =   require("entities.particles.walkingdust")
 DebugArrow =    require("entities.particles.debugarrow")
+GhostPlayer =   require("entities.particles.ghostplayer")
 
 Player = class('Player', Physical)
+Player.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
 
 function Player:initialize()
     self.name = "Stewart"
@@ -21,11 +23,28 @@ function Player:initialize()
     self.collisiongroup = "blue"
     self.solid = true
 
-    self.spritesheet = SpriteSheet:new("sprites/players.png", 32, 32)
-    -- self.spritesheet = SpriteSheet:new("sprites/player_walk.png", 32, 32)
+    self.ang = 0
     self.expression = 0
    
     self.isother = false
+
+    self.contacts = {}
+    self.contactOwners = {}
+
+    self.floorangle = 0
+    self.floornx = 0
+    self.floorny = 0
+
+    self.shortJump = 0
+    self.nextJump = 0
+
+    self.facing = 'right'
+    self.moving = false
+    self.crouching = false
+    self.lastFVX = 0
+    self.lastFVY = 0
+
+    self.nextDust = 0
 
     self:initPhysics()
 end
@@ -89,24 +108,6 @@ function Player:initPhysics()
     self.body:setLinearDamping(0)
     self.body:setMass(20)
     self.body:setFixedRotation(true)
-
-    self.contacts = {}
-    self.contactOwners = {}
-
-    self.floorangle = 0
-    self.floornx = 0
-    self.floorny = 0
-
-    self.shortJump = 0
-    self.nextJump = 0
-
-    self.facing = 'right'
-    self.moving = false
-    self.crouching = false
-    self.lastFVX = 0
-    self.lastFVY = 0
-
-    self.nextDust = 0
 end
 
 function Player:getFloor()
@@ -117,7 +118,7 @@ function Player:getFloor()
         local x1, y1, x2, y2 = contact:getPositions()
         if ((y1 or y-1) > y and (y2 or y+1) > y) then
             self.floornx, self.floorny = contact:getNormal()
-            return self.contactOwners[contact]
+            return self.contactOwners[contact], contact
         end
     end
 
@@ -165,9 +166,14 @@ function Player:update(dt)
         self.nextJump = self.nextJump - dt
     end
 
-    local floor = self:getFloor()
+    local floordata, contact = self:getFloor()
 
-    if floor then
+    if floordata then
+
+        local floor = floordata.entity
+        local floorang = math.atan2(floordata.normy, floordata.normx) + math.pi/2
+        self.ang = math.lerpAngle(self.ang, floorang, 10*dt)
+
 
         -- compensate for moving platform
         if floor.type ~= "TILE" then
@@ -207,6 +213,9 @@ function Player:update(dt)
     else -- henry: okay so this code is basically the same as when we're on the floot
         -- with the exception that we can jump
         -- should we make it less redundant or something
+
+        local ang = math.sign(velx) * -math.pi/10 * -math.sign(vely)
+        self.ang = math.lerpAngle(self.ang, ang, 5*dt)
 
         -- we go slower in the air
         if self.controller:isKeyDown("right") then
@@ -338,10 +347,8 @@ function Player:draw()
 
     love.graphics.push()
     love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    -- love.graphics.setColor(0, 255, 0)
-    -- love.graphics.rectangle('fill', -16, -16, 32, 32)
+    -- love.graphics.rotate(r)
+    love.graphics.rotate(self.ang)
 
     if self.facing == 'right' then
         love.graphics.scale(1, 1)
@@ -418,8 +425,6 @@ function Player:beginContact(other, contact, isother)
 
     if not other.solid then return end
 
-    local normalVisual = DebugArrow:new()
-
     local x, y = self:getPosition()
     local normx, normy = contact:getNormal()
 
@@ -430,7 +435,8 @@ function Player:beginContact(other, contact, isother)
 
         local velx, vely = self.body:getLinearVelocity()
 
-        local smoke = DebugArrow:new()
+        -- local smoke = DebugArrow:new()
+        local smoke = GhostPlayer:new()
         smoke:setPosition(x, y)
 
         local ang = math.atan2(normy, normx)
@@ -461,7 +467,7 @@ function Player:beginContact(other, contact, isother)
     end
 
     table.insert(self.contacts, contact)
-    self.contactOwners[contact] = other
+    self.contactOwners[contact] = {entity = other, normx = normx, normy = normy}
 
     -- detect a floor
     local x1, y1, x2, y2 = contact:getPositions()
