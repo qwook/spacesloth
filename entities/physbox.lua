@@ -2,28 +2,24 @@
 Physical = require("entities.core.physical")
 
 PhysBox = class("PhysBox", BaseEntity)
+PhysBox.spritesheet = SpriteSheet:new("sprites/box_generic.png", 32, 32)
+PhysBox.image = loadImage("sprites/doorcrate.gif"):getData()
 
-function PhysBox:initialize()
-    self.name = "noname"
-    self.contacts = {}
-    self.touching = {}
-    self.properties = {}
-    self.visible = true
-    self.frozen = false
-    self.solid = true
-    self.color = {r = 255, g = 255, b = 255, a = 255}
+function PhysBox:initialize(x, y, w, h)
+    BaseEntity.initialize(self)
 
     self.width = 32
     self.height = 32
-    self.spritesheet = SpriteSheet:new("sprites/box_generic.png", 32, 32)
-    self.image = loadImage("sprites/doorcrate.gif"):getData()
 
-    self.type = "PHYSBOX"
-
-    table.insert(map.objects, self)
+    if self.width > 0 and self.height > 0 then
+        self.width = w
+        self.height = h
+    end
 end
 
 -- this will act as if an image is a framebuffer and draws on it
+-- useful for generating boxes of random sizes
+-- todo: move this somewhere else
 local function blit(dst, src, dx, dy, sx, sy, sw, sh)
     dst:mapPixel(function(x, y, r, g, b, a)
                  if (x >= dx and x < dx + sw) and
@@ -44,20 +40,14 @@ local function blit(dst, src, dx, dy, sx, sy, sw, sh)
 end
 
 function PhysBox:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'dynamic')
-    
-    if self.brushw > 0 and self.brushh > 0 then
-        self.width = self.brushw
-        self.height = self.brushh
-        self.shape = love.physics.newRectangleShape(self.brushw, self.brushh)
-    else
-        self.shape = love.physics.newRectangleShape(32, 32)
-    end
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+    local shape = love.physics.newRectangleShape(self.width, self.height)
+    self:makeSolid("dynamic", shape)
+end
 
-    self.fixture:setUserData(self)
-
-    -- generate a randomized box thing
+function PhysBox:postSpawn()
+    -- generate a randomized box
+    -- store and imagedata for each box
+    -- (a lot better than storing framebuffers)
     local data = love.image.newImageData(self.width, self.height)
 
     -- draw inner boxes
@@ -83,57 +73,11 @@ function PhysBox:initPhysics()
     blit(data, self.image, self.width-32, self.height-32, 32*2, 32*2, 32, 32)
     blit(data, self.image, 0, self.height-32, 0, 32*2, 32, 32)
     self.generatedbox = love.graphics.newImage(data)
-
-end
-
--- tiled wrongly offsets stuff
-function PhysBox:fixSpawnPosition()
-    local x, y = self:getPosition()
-    self:setPosition(x + self.width/2 + 16, y + self.height/2 + 16)
-end
-
-function PhysBox:postSpawn()
-end
-
-function PhysBox:destroy()
-    table.removevalue(map.objects, self)
-
-    if self.fixture then
-        self.fixture:destroy()
-    end
-    if self.body then
-        self.body:destroy()
-    end
-    self.body = nil
-    self.fixture = nil
-    self.shape = nil
-end
-
-function PhysBox:update(dt)
 end
 
 function PhysBox:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(self.color.r, self.color.g, self.color.b, self.color.a)
     love.graphics.draw(self.generatedbox, -self.width/2, -self.height/2)
-
-    love.graphics.pop()
 end
 
-function PhysBox:beginContact(other, contact)
-    table.insert(self.contacts, contact)
-    table.insert(self.touching, other)
-end
-
-function PhysBox:endContact(other, contact)
-    table.removevalue(self.contacts, contact)
-    table.removeonevalue(self.touching, other)
-end
 
 return PhysBox

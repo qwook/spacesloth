@@ -150,12 +150,12 @@ function Map:spawnObjects()
             player:setController(input)
             -- tiled positional data being janky
             -- this offsets the player
-            player:setPosition(v.x + 32 + 16, v.y + 32)
+            player:setPosition(v.x + 32 + 16, v.y - 32 + 16)
         -- spawnpoint for player 2
         elseif v.name == "player2" then
             player2 = Cindy:new()
             player2:setController(input2)
-            player2:setPosition(v.x + 32 + 16, v.y + 32)
+            player2:setPosition(v.x + 32 + 16, v.y - 32 + 16)
         end
 
         -- so this determines the class by the Type
@@ -175,10 +175,21 @@ function Map:spawnObjects()
         instance.brushw = v.width
         instance.brushh = v.height
 
+        -- tiled is very janky and offsets stuff
+        if v.width == 0 and v.height == 0 then
+            instance.brushy = instance.brushy - 32
+            instance.brushw = 32
+            instance.brushh = 32
+        end
+
         -- set all the properties of the object
         for prop, val in pairs(v.properties) do
             instance:setProperty(prop, val)
         end
+
+        -- set the position and then offset it
+        instance:setPosition(instance.brushx + instance.brushw/2 + 32, instance.brushy + instance.brushh/2 + 32)
+        instance:fixSpawnPosition() -- additional fixes for special objects
 
         -- insert the object in our `spawned` pool
         table.insert(spawned, instance)
@@ -201,11 +212,6 @@ function Map:spawnObjects()
             v.body:setMass(v:getProperty("mass") or 1)
             v.body:setFixedRotation(v:getProperty("disablerotation") == "true")
         end
-
-        -- set the position and then offset it
-        v:setPosition(v.brushx + 16, v.brushy + 16)
-        v:fixSpawnPosition() -- additional fixes for special objects
-
     end
 
     for k,v in pairs(spawned) do

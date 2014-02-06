@@ -13,9 +13,6 @@ function Text:initialize(x, y, w, h)
     self.nexttype = 0
 end
 
-function Text:postSpawn()
-end
-
 function Text:event_setstring(string)
     self:setProperty("string", string)
 end
@@ -28,23 +25,6 @@ function Text:event_type()
     self.nexttype = 0.05
 end
 
-function Text:initPhysics()
-end
-
-function Text:setPosition(x, y)
-    self.x = x
-    self.y = y
-    -- BaseEntity.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
-end
-
-function Text:getPosition()
-    return self.x, self.y
-end
-
-function Text:getAngle()
-    return 0
-end
-
 function Text:update(dt)
     if self.typing and self.typeprogr <= self:getProperty("string"):len() then
         self.nexttype = self.nexttype - dt
@@ -55,7 +35,28 @@ function Text:update(dt)
     end
 end
 
-function Text:drawSquiggle(w, h)
+function Text:draw()
+    local string = self:getProperty("string")
+
+    local font = love.graphics.getFont()
+    local width, lines = font:getWrap(string, self.width - 20)
+
+    local height = lines*(font:getHeight())
+
+    love.graphics.setColor(0, 0, 0, 100)
+
+    self:drawSquiggleBox(self.width, height + 20)
+
+    love.graphics.setColor(255, 255, 255, 255)
+
+    if self.typing then
+        love.graphics.printf(string:sub(0, self.typeprogr), 10, 10, self.width - 20)
+    else
+        love.graphics.printf(string, 10, 10, self.width - 20)
+    end
+end
+
+function Text:drawSquiggleBox(w, h)
 
     local squiggleSpeed = 20
 
@@ -97,37 +98,6 @@ function Text:drawSquiggle(w, h)
     -- revert the randomseed back.
     math.randomseed(love.timer.getTime())
 
-end
-
-function Text:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-    local string = self:getProperty("string")
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    local font = love.graphics.getFont()
-    local width, lines = font:getWrap(string, self.width - 20)
-
-    local height = lines*(font:getHeight())
-
-    love.graphics.setColor(0, 0, 0, 100)
-    -- love.graphics.rectangle('fill', 0, 0, self.width, height + 20)
-    -- love.graphics.rectangle('line', 0, 0, self.width, height + 20)
-
-    self:drawSquiggle(self.width, height + 20)
-
-    love.graphics.setColor(255, 255, 255, 255)
-
-    if self.typing then
-        love.graphics.printf(string:sub(0, self.typeprogr), 10, 10, self.width - 20)
-    else
-        love.graphics.printf(string, 10, 10, self.width - 20)
-    end
-
-    love.graphics.pop()
 end
 
 return Text

@@ -36,7 +36,9 @@ local function drawSingleScreen()
         player:draw()
         
         for i, object in pairs(map.objects) do
+            object:preDraw()
             object:draw()
+            object:postDraw()
         end
         
     love.graphics.pop()
@@ -110,7 +112,9 @@ local function drawSplitScreen()
 
             for i, object in pairs(map.objects) do
                 if object.zindex == -1 then
+                    object:preDraw()
                     object:draw()
+                    object:postDraw()
                 end
             end
             
@@ -123,7 +127,9 @@ local function drawSplitScreen()
                         object.collisiongroup == "shared" or
                         object.collisiongroup == "blue") or
                         (object.visibleonboth == "true") then
+                        object:preDraw()
                         object:draw()
+                        object:postDraw()
                     end
                 end
             end
@@ -152,7 +158,9 @@ local function drawSplitScreen()
 
             for i, object in pairs(map.objects) do
                 if object.zindex == -1 then
+                    object:preDraw()
                     object:draw()
+                    object:postDraw()
                 end
             end
 
@@ -165,7 +173,9 @@ local function drawSplitScreen()
                         object.collisiongroup == "shared" or
                         object.collisiongroup == "green") or
                         (object.visibleonboth == "true") then
+                        object:preDraw()
                         object:draw()
+                        object:postDraw()
                     end
                 end
             end

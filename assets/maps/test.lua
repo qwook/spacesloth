@@ -320,8 +320,8 @@ return {
           name = "dipshit",
           type = "PhysBox",
           shape = "rectangle",
-          x = 957,
-          y = 628,
+          x = 1024,
+          y = 608,
           width = 111,
           height = 33,
           visible = true,
@@ -357,7 +357,7 @@ return {
           properties = {}
         },
         {
-          name = "",
+          name = "goal2",
           type = "Trampoline",
           shape = "rectangle",
           x = 1280,
@@ -548,8 +548,8 @@ return {
           name = "gluedbutt",
           type = "Toggle",
           shape = "rectangle",
-          x = 1014,
-          y = 633,
+          x = 1079,
+          y = 609,
           width = 0,
           height = 0,
           gid = 676,
@@ -561,11 +561,11 @@ return {
           }
         },
         {
-          name = "",
+          name = "asdf",
           type = "Weld",
           shape = "rectangle",
-          x = 972,
-          y = 632,
+          x = 1024,
+          y = 608,
           width = 0,
           height = 0,
           gid = 686,
@@ -621,10 +621,10 @@ return {
           name = "block",
           type = "PhysBox",
           shape = "rectangle",
-          x = 1589,
+          x = 1600,
           y = 544,
-          width = 113,
-          height = 21,
+          width = 128,
+          height = 32,
           visible = true,
           properties = {
             ["collisiongroup"] = "blue",
@@ -762,6 +762,21 @@ return {
           properties = {
             ["onEnd"] = "block:setFrozen(false)",
             ["time"] = "0.15"
+          }
+        },
+        {
+          name = "",
+          type = "Trampoline",
+          shape = "rectangle",
+          x = 1410,
+          y = 960,
+          width = 0,
+          height = 0,
+          gid = 671,
+          visible = true,
+          properties = {
+            ["goal"] = "goal2",
+            ["power"] = "100"
           }
         }
       }

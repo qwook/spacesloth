@@ -2,6 +2,7 @@
 BaseEntity = require("entities.core.baseentity")
 
 Trampoline = class("Trampoline", BaseEntity)
+Trampoline.spritesheet = SpriteSheet:new("sprites/trampoline_angled.png", 32, 32)
 
 function Trampoline:initialize(x, y, w, h)
     BaseEntity.initialize(self)
@@ -9,22 +10,15 @@ function Trampoline:initialize(x, y, w, h)
     self.height = h
     self.solid = false
     self.touching = {}
-    self.spritesheet = SpriteSheet:new("sprites/trampoline_angled.png", 32, 32)
 
     self.ang = 0
     self.anim = 0
 end
 
 function Trampoline:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
-    self.shape = love.physics.newRectangleShape(32, 16)
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setSensor(true)
-    self.fixture:setUserData(self)
-end
-
-function Trampoline:fixSpawnPosition()
+    local shape = love.physics.newRectangleShape(32, 16)
+    self:makeSolid("static", shape)
+    self:setSensor(true)
 end
 
 function Trampoline:postSpawn()
@@ -55,19 +49,6 @@ function Trampoline:update(dt)
     if self.anim > 0 then
         self.anim = self.anim - dt*3
     end
-end
-
--- the reason I offset the position and setposition by 16,
--- is because the physics object is set by the origin
--- so i offset it by the origin.
--- other strange factors also occur, idk.
-function Trampoline:getPosition()
-    local x, y = BaseEntity.getPosition(self)
-    return x-32, y
-end
-
-function Trampoline:setPosition(x, y)
-    BaseEntity.setPosition(self, x+32, y)
 end
 
 function Trampoline:touchedPlayer(player)
@@ -149,31 +130,18 @@ function Trampoline:touchedPlayer(player)
 end
 
 function Trampoline:draw()
-    if not DEBUG then return end
-    
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-
     local anim = 0
 
     if self.anim > 0 then
         anim = math.floor((0.25 - self.anim)+2)
     end
 
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(255, 255, 255)
-
     -- ghetto trampoline flip, todo: adjust by angle
     if self.ang == 0 then
-        self.spritesheet:draw(anim, 0, 32+16, -16, 0, -1, 1)
+        self.spritesheet:draw(anim, 0, 16, -16, 0, -1, 1)
     else
-        self.spritesheet:draw(anim, 0, 16, -16, 0, 1, 1)
+        self.spritesheet:draw(anim, 0, -16, -16, 0, 1, 1)
     end
-
-    love.graphics.pop()
 end
 
 function Trampoline:beginContact(other, contact, isother)

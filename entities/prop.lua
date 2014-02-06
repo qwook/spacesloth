@@ -7,17 +7,11 @@ function Prop:initialize()
     BaseEntity.initialize(self)
 end
 
-function Prop:fixSpawnPosition()
-end
-
 function Prop:postSpawn()
     self.animlife = 0
     self.spritewidth = tonumber(self:getProperty("spritewidth"))
     self.spriteheight = tonumber(self:getProperty("spriteheight"))
     self.spritesheet = SpriteSheet:new("sprites/" .. self:getProperty("sprite"), self.spritewidth, self.spriteheight)
-
-    -- local x, y = self:getPosition()
-    -- self:setPosition(x + self.spritewidth, y)
 end
 
 function Prop:event_loopanimation(y, xfrom, xto, speed)
@@ -49,16 +43,6 @@ function Prop:update(dt)
 end
 
 function Prop:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(255, 255, 255)
-
-
     if self.animlife > 0 then
         local t
 
@@ -73,27 +57,6 @@ function Prop:draw()
     else
         self.spritesheet:draw(0, 0, -self.spritewidth/2 + 32, -self.spriteheight/2)
     end
-
-    love.graphics.pop()
-end
-
-function Prop:initPhysics()
-end
-
-function Prop:setPosition(x, y)
-    self.x = x
-    self.y = y
-end
-
-function Prop:getPosition()
-    return self.x, self.y
-end
-
-function Prop:setAngle(r)
-end
-
-function Prop:getAngle()
-    return 0
 end
 
 return Prop

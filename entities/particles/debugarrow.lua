@@ -24,11 +24,6 @@ function DebugArrow:update(dt)
 end
 
 function DebugArrow:draw()
-    local x, y = self:getPosition()
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-
     self.xAim = self.xAim or 0
     self.yAim = self.yAim or 0
 
@@ -40,8 +35,6 @@ function DebugArrow:draw()
     love.graphics.line(self.xAim, self.yAim, self.xAim + math.cos(self.ang-math.pi*(3/4))*10, self.yAim + math.sin(self.ang-math.pi*(3/4))*10)
 
     love.graphics.setLineWidth(1)
-
-    love.graphics.pop()
 end
 
 return DebugArrow

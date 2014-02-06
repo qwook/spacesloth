@@ -6,13 +6,6 @@ BaseEntity = require("entities.core.baseentity")
 
 Weld = class("Weld", BaseEntity)
 
-function Weld:initialize()
-    BaseEntity.initialize(self)
-end
-
-function Weld:fixSpawnPosition()
-end
-
 function Weld:postSpawn()
     local objs1 = map:findObjectsByName(self:getProperty("object1"))
     local obj1 = objs1[1]
@@ -26,36 +19,19 @@ function Weld:postSpawn()
     if not obj2 then return end
     if not obj2.body then return end
 
-    self.joint = love.physics.newWeldJoint(obj1.body, obj2.body, self.x, self.y, false)
-end
+    local x, y = self:getPosition()
 
-function Weld:event_start()
-end
-
-function Weld:initPhysics()
-end
-
-function Weld:setPosition(x, y)
-    self.x = x
-    self.y = y
-end
-
-function Weld:getPosition()
-    return self.x, self.y
-end
-
-function Weld:isTouchingPlayer()
-end
-
-function Weld:update(dt)
-end
-
-function Weld:draw()
+    self.joint = love.physics.newWeldJoint(obj1.body, obj2.body, x, y, false)
 end
 
 function Weld:destroy()
     BaseEntity.destroy(self)
     self.joint:destroy()
+end
+
+function Weld:draw()
+    love.graphics.setColor(255, 0, 0)
+    love.graphics.circle("fill", 0, 0, 10, 5)
 end
 
 return Weld

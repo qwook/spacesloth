@@ -183,7 +183,7 @@ function reset()
     world:setContactFilter(contactFilter)
     world:setGravity(0, 1000)
 
-    if arg[2] and DEBUG then 
+    if arg[2] then 
         map = Map:new(arg[2])
     else
         if not map then

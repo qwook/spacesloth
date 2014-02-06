@@ -6,7 +6,7 @@ Button.spritesheet1 = SpriteSheet:new("sprites/button_blue.png", 32, 32)
 Button.spritesheet2 = SpriteSheet:new("sprites/button_green.png", 32, 32)
 
 function Button:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 
     self.hasPressedLastUpdate = false
     self.buttonDelay = 0
@@ -26,10 +26,7 @@ end
 
 function Button:fixSpawnPosition()
     local x, y = self:getPosition()
-    self:setPosition(x+32, y+12)
-end
-
-function Button:postSpawn()
+    self:setPosition(x, y+12)
 end
 
 function Button:isTouchingPlayer()
@@ -67,14 +64,6 @@ function Button:update(dt)
 end
 
 function Button:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
             self.spritesheet1:draw(1, 0, -16, -16 -12)
@@ -87,13 +76,7 @@ function Button:draw()
         else
             self.spritesheet2:draw(0, 0, -16, -16 -12)
         end
-    end
-
-    love.graphics.pop()
-
-    love.graphics.setColor(255, 0, 0, 100)
-    love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
-    
+    end    
 end
 
 return Button

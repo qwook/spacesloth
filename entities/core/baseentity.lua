@@ -219,32 +219,21 @@ function BaseEntity:event_addvelocity(x, y)
     self.body:setLinearVelocity(velx+tonumber(x), vely+tonumber(y))
 end
 
-function BaseEntity:setAngle(r)
-    local hadFrozenJoint = false
-    if self.frozenJoint then
-        hadFrozenJoint = true
-        self.frozenJoint:destroy()
-    end
-    self.body:setAngle(r)
-    if hadFrozenJoint then
-        local x, y = self:getPosition()
-        self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
-    end
-end
-
 function BaseEntity:setPosition(x, y)
     self.x = x
     self.y = y
 
-    local hadFrozenJoint = false
-    if self.frozenJoint then
-        hadFrozenJoint = true
-        self.frozenJoint:destroy()
-    end
-    self.body:setPosition(x, y)
-    if hadFrozenJoint then
-        local x, y = self:getPosition()
-        self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+    if self.body then
+        local hadFrozenJoint = false
+        if self.frozenJoint then
+            hadFrozenJoint = true
+            self.frozenJoint:destroy()
+        end
+        self.body:setPosition(x, y)
+        if hadFrozenJoint then
+            local x, y = self:getPosition()
+            self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+        end
     end
 end
 
@@ -257,7 +246,19 @@ end
 
 function BaseEntity:setAngle(r)
     self.r = r
-    self.body:setAngle(r)
+
+    if self.body then
+        local hadFrozenJoint = false
+        if self.frozenJoint then
+            hadFrozenJoint = true
+            self.frozenJoint:destroy()
+        end
+        self.body:setAngle(r)
+        if hadFrozenJoint then
+            local x, y = self:getPosition()
+            self.frozenJoint = love.physics.newWeldJoint(self.body, map.body, x, y, true)
+        end
+    end
 end
 
 function BaseEntity:getAngle()
@@ -274,10 +275,15 @@ function BaseEntity:getFriction()
     return self.fixture:getFriction()
 end
 
+function BaseEntity:setSensor(bool)
+    if not self.fixture then return end
+    self.fixture:setSensor(bool)
+end
+
 function BaseEntity:update(dt)
 end
 
-function BaseEntity:draw()
+function BaseEntity:preDraw()
     local x, y = self:getPosition()
     local r = self:getAngle()
 
@@ -286,11 +292,18 @@ function BaseEntity:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(self.color.r, self.color.g, self.color.b, self.color.a)
-    -- love.graphics.rectangle('fill', -self.width/2, -self.height/2, 32, 32)
-    -- self.spritesheet:draw(0, 0, -self.width/2, -self.height/2, 0, self.width/32, self.height/32)
-    love.graphics.draw(self.generatedbox, -self.width/2, -self.height/2)
+end
 
+function BaseEntity:postDraw()
     love.graphics.pop()
+
+    if DEBUG and self.body and self.shape then
+        love.graphics.setColor(255, 0, 0, 100)
+        love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
+    end
+end
+
+function BaseEntity:draw()
 end
 
 function BaseEntity:beginContact(other, contact)

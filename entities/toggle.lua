@@ -2,33 +2,31 @@
 BaseEntity = require("entities.core.baseentity")
 
 Toggle = class("Toggle", BaseEntity)
+Toggle.spritesheet1 = SpriteSheet:new("sprites/switch_blue.png", 32, 32)
+Toggle.spritesheet2 = SpriteSheet:new("sprites/switch_green.png", 32, 32)    
 
 function Toggle:initialize()
     BaseEntity.initialize(self)
-
-    self.spritesheet1 = SpriteSheet:new("sprites/switch_blue.png", 32, 32)
-    self.spritesheet2 = SpriteSheet:new("sprites/switch_green.png", 32, 32)
-end
-
-function Toggle:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'static')
-    self.shape = love.physics.newPolygonShape(-16, 3, 16, 3, 8, -3, -8, -3 )
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setUserData(self)
-    self.fixture:setFriction(0.5)
 
     self.hasPressedLastUpdate = false
     self.ToggleDelay = 0
     self.pressed = false
 end
 
-function Toggle:fixSpawnPosition()
-    local x, y = self:getPosition()
-    self:setPosition(x+32, y+12)
+function Toggle:initPhysics()
+    local shape = love.physics.newPolygonShape(
+        -16, 3, -- bottom left
+        16, 3, -- bottom right
+        8, -4, -- top right
+        -8, -4 -- top left
+    )
+    self:makeSolid("static", shape)
+    self:setFriction(4)
 end
 
-function Toggle:postSpawn()
+function Toggle:fixSpawnPosition()
+    local x, y = self:getPosition()
+    self:setPosition(x, y+12)
 end
 
 function Toggle:isTouchingPlayer()
@@ -64,14 +62,6 @@ function Toggle:update(dt)
 end
 
 function Toggle:draw()
-    local x, y = self:getPosition()
-    local r = self:getAngle()
-
-    love.graphics.push()
-    love.graphics.translate(x, y)
-    love.graphics.rotate(r)
-
-    love.graphics.setColor(255, 255, 255)
     if self.pressed then
         if self.collisiongroup == "blue" then
             self.spritesheet1:draw(1, 0, -16, -16 -12)
@@ -85,8 +75,6 @@ function Toggle:draw()
             self.spritesheet2:draw(0, 0, -16, -16 -12)
         end
     end
-
-    love.graphics.pop()
 end
 
 return Toggle

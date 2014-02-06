@@ -6,13 +6,6 @@ BaseEntity = require("entities.core.baseentity")
 
 Slider = class("Slider", BaseEntity)
 
-function Slider:initialize()
-    BaseEntity.initialize(self)
-end
-
-function Slider:fixSpawnPosition()
-end
-
 function Slider:postSpawn()
     local objs = map:findObjectsByName(self:getProperty("object"))
     local obj = objs[1]
@@ -23,30 +16,6 @@ function Slider:postSpawn()
     local ang = math.rad(tonumber(self:getProperty("angle") or 0))
 
     self.joint = love.physics.newPrismaticJoint(map.body, obj.body, self.x, self.y, math.cos(ang), math.sin(ang), true)
-end
-
-function Slider:event_start()
-end
-
-function Slider:initPhysics()
-end
-
-function Slider:setPosition(x, y)
-    self.x = x
-    self.y = y
-end
-
-function Slider:getPosition()
-    return self.x, self.y
-end
-
-function Slider:isTouchingPlayer()
-end
-
-function Slider:update(dt)
-end
-
-function Slider:draw()
 end
 
 function Slider:destroy()

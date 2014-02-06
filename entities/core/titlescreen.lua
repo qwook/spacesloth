@@ -14,20 +14,8 @@ function TitleScreen:initialize()
     self.image:setFilter('linear', 'linear')
 end
 
-function TitleScreen:initPhysics()
-end
-
-function TitleScreen:setPosition(x, y)
-    self.x = x
-    self.y = y
-end
-
-function TitleScreen:getPosition()
-    return self.x, self.y
-end
-
-function TitleScreen:getCameraPosition(x, y)
-    return self.x, self.y
+function TitleScreen:getCameraPosition()
+    return self:getPosition()
 end
 
 function TitleScreen:update(dt)
@@ -43,7 +31,6 @@ function TitleScreen:draw()
 
     local x, y = self:getPosition()
     love.graphics.draw(self.image, x-self.image:getWidth()/2 * 1, y-self.image:getHeight()/2 + bounce*500 - 600, 0, 1)
-    -- love.graphics.draw(self.image, -self.image:getWidth()/2, -self.image:getHeight()/2)
 end
 
 return TitleScreen
