@@ -1,4 +1,6 @@
 
+require("libs.sun") -- eh, sunscript.
+require("libs.sunbit") -- eh, sunscript.
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"

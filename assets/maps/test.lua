@@ -88,7 +88,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = false,
+      visible = true,
       opacity = 1,
       properties = {},
       encoding = "lua",
@@ -633,11 +633,11 @@ return {
           }
         },
         {
-          name = "fallertime",
+          name = "blockstart",
           type = "Timer",
           shape = "rectangle",
-          x = 1634,
-          y = 559,
+          x = 1658,
+          y = 571,
           width = 0,
           height = 0,
           gid = 686,
@@ -733,6 +733,35 @@ return {
           properties = {
             ["collisiongroup"] = "blue",
             ["onTrigger"] = "fallertime2:start()"
+          }
+        },
+        {
+          name = "catcher",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1580,
+          y = 685,
+          width = 116,
+          height = 14,
+          visible = true,
+          properties = {
+            ["filter"] = "block",
+            ["onTrigger"] = "block:teleportTo(blockstart);block:setFrozen(true);block:setAngle(0);"
+          }
+        },
+        {
+          name = "fallertime",
+          type = "Timer",
+          shape = "rectangle",
+          x = 1661,
+          y = 532,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["onEnd"] = "block:setFrozen(false)",
+            ["time"] = "0.15"
           }
         }
       }

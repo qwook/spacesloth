@@ -32,7 +32,7 @@
  <tileset firstgid="666" name="object_tilemap" tilewidth="32" tileheight="32">
   <image source="../sprites/object_tilemap.png" width="128" height="192"/>
  </tileset>
- <layer name="SharedLayer" width="100" height="100" visible="0">
+ <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt11FOg0AQBuB9QrHXAMs51IN4Es8uaDdONoWF2BoMH8n31EDo/Lsz7CmldAIAAAAAAAC+NKOHi8cdvM/RdaP+4iyTP5NW5DF53sG7HoE89uE9Lc+HrXk0C8+insVHUevyKvM4h/yu5dgls+YWWcyt/Xz1C+J9XeV5rMtirn4vo6dKHnHPDPLYpJnJYql+Zc9aSx5103p/Dbbk0abvvdKG+5f2jhmy3Zp+n3vWVN8hzc+LKGf2toP/+F806afft5Xalef0a/OiX/ks6jWu9fraDIk9TBa/z+PauSKK+6icGfbDbfRFbfMar83oIZkR95JndVzj8Rssfk+V2cnhfpnM1Tb+lnOacnG22I9p7jhb7EfeJ/oVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHNsn/AbH3Q==
   </data>
@@ -168,7 +168,7 @@
     <property name="frozen" value="true"/>
    </properties>
   </object>
-  <object name="fallertime" type="Timer" gid="686" x="1634" y="559">
+  <object name="blockstart" type="Timer" gid="686" x="1658" y="571">
    <properties>
     <property name="onEnd" value="block:setFrozen(false)"/>
     <property name="time" value="0.15"/>
@@ -210,6 +210,18 @@
    <properties>
     <property name="collisiongroup" value="blue"/>
     <property name="onTrigger" value="fallertime2:start()"/>
+   </properties>
+  </object>
+  <object name="catcher" type="Trigger" x="1580" y="685" width="116" height="14">
+   <properties>
+    <property name="filter" value="block"/>
+    <property name="onTrigger" value="block:teleportTo(blockstart);block:setFrozen(true);block:setAngle(0);"/>
+   </properties>
+  </object>
+  <object name="fallertime" type="Timer" gid="686" x="1661" y="532">
+   <properties>
+    <property name="onEnd" value="block:setFrozen(false)"/>
+    <property name="time" value="0.15"/>
    </properties>
   </object>
  </objectgroup>

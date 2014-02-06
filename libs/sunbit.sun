@@ -1,0 +1,16 @@
+
+function bitleft(a, b) {
+    return bit.lshift(a, b);
+}
+
+function bitright(a, b) {
+    return bit.rshift(a, b);
+}
+
+function bitand(a, b) {
+    return bit.band(a, b);
+}
+
+function bitor(a, b) {
+    return bit.bor(a, b);
+}

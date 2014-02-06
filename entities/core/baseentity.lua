@@ -19,7 +19,9 @@ function BaseEntity:initialize()
 end
 
 function BaseEntity:makeSolid(type, shape)
-
+    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or type)
+    self.shape = shape
+    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
 end
 
 function BaseEntity:initPhysics()
@@ -64,7 +66,9 @@ function BaseEntity:trigger(event, activator)
     end
 end
 
+-- evaluate and execute map code
 function BaseEntity:eval(str, activator)
+    -- (name):(event)((arg))
     local name, event, arg = string.match(str, "([0-9A-z]+)%:([0-9A-z]+)%(([^%)]*)%)")
 
     if not name then print("[map syntax error: " .. self.name .. "] no name") return end
@@ -73,6 +77,7 @@ function BaseEntity:eval(str, activator)
     name = string.lower(name)
     event = string.lower(event)
 
+    -- split the arguments and store them in a table
     local args = {}
     string.gsub(arg, "[^, ]+", function(a) table.insert(args, a) end)
 
@@ -143,9 +148,7 @@ function BaseEntity:event_teleportto(name)
 
     for k,v in pairs(map.objects) do
         if v.name == name then
-            -- print(v:getPosition())
             self:setPosition(v:getPosition())
-            -- self:setPosition(self:getPosition())
             return
         end
     end
@@ -173,8 +176,11 @@ function BaseEntity:event_setfrozen(frozen)
     end
 end
 
+-- visibility disables physics and drawing
 function BaseEntity:event_setvisible(visible)
     if visible == "true" then
+        -- automatically freeze them
+        -- so they dont fall through the world
         if not self.frozen then
             if self.frozenJoint then
                 self.frozenJoint:destroy()
