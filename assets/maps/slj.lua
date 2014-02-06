@@ -542,26 +542,24 @@ return {
           }
         },
         {
-          name = "player1",
+          name = "player2",
           type = "",
           shape = "rectangle",
-          x = 328,
-          y = 340,
-          width = 0,
-          height = 0,
-          gid = 831,
+          x = 386,
+          y = 299,
+          width = 28,
+          height = 28,
           visible = true,
           properties = {}
         },
         {
-          name = "player2",
+          name = "player1",
           type = "",
           shape = "rectangle",
-          x = 410,
-          y = 329,
-          width = 0,
-          height = 0,
-          gid = 835,
+          x = 328,
+          y = 297,
+          width = 29,
+          height = 28,
           visible = true,
           properties = {}
         }

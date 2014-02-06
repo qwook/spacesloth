@@ -97,8 +97,8 @@
     <property name="ontrigger" value="activator:teleportTo(player1)"/>
    </properties>
   </object>
-  <object name="player1" gid="831" x="328" y="340"/>
-  <object name="player2" gid="835" x="410" y="329"/>
+  <object name="player2" x="386" y="299" width="28" height="28"/>
+  <object name="player1" x="328" y="297" width="29" height="28"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

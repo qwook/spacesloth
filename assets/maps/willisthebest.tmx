@@ -438,6 +438,8 @@
     <property name="ontrigger" value="global:changeMap(willisthebest)"/>
    </properties>
   </object>
+  <object name="player1" x="316" y="326" width="29" height="28"/>
+  <object name="player2" x="374" y="328" width="28" height="28"/>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">

@@ -225,6 +225,12 @@
     <property name="ontrigger" value="activator:addVelocity(-2000,-2000)"/>
    </properties>
   </object>
+  <object type="Trigger" x="759" y="1089" width="226" height="39">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="ontrigger" value="activator:addVelocity(-2000,-2000)"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
@@ -236,7 +242,7 @@
    eJzt2E1uwyAQgFFc5aA5Wo/io9VITRdp8E9iBizek7xi4RHfBk1KAAAAAAAAAAAAAAAAjGZKab61HoI/S4t5rcly9h05D+UmucVNj+qWe07Pd/9oMv2eaxFro4kWDaw1aTAOSZMeXanJ1HqAIFdpMkqP7ApNRuqR9d5ktB5Zz01G7JH12mTUHlmPTdZ6fIVN0U5vTUr7zWWm+3J2j52mjV6alPY4I7V4aN1Ei/9aNdGibGMvPFf4nxYbopposV/tJlocV6uJFu87u4kWnzuriRbn+fQtrMX53m2iRT1Hm2hR30qT9PxpEeNVkz20qOdoEy3q29tEizhbTbSIV2qiRTuv3ldaAAAAAAAAAAAAAAAAAMT7ARBPUjY=
   </data>
  </layer>
- <layer name="GreenCollision" width="100" height="100" visible="0" opacity="0.28">
+ <layer name="GreenCollision" width="100" height="100" opacity="0.28">
   <data encoding="base64" compression="zlib">
    eJzt2AsKgkAUQFGFFurSWkpLy7CgwJyPOj7rHIhA4zF2qRG7DgAAAAAAAAAAAAD4JX3XXY9eA5NHi4seIWgRhxZxaBGHFnFoEUeqxXhuGD8ztFvR/9IiDi3i0CKOPVs8ZvfTe7PXme3dwj1aPi3iqG3RT+dWzebT2t/FUhMtymz1HzXXRIsyW+8X702+zX7ObHp/dZZ7r9R6avbu53UutSieWSPi952S2otrridCizNL7MW3wllabOBbk/HYLbeJFtta00SLfdQ00WJfJU20aCOniRZtpZpo0V7Os8IXLdrIaaJFW0tNtDjGXBMtjjXzfHQ4dEEAAAAAAAAAAAAAAAAAAABwQnciA0dX
   </data>

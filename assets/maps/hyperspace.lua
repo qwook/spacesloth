@@ -890,6 +890,20 @@ return {
           properties = {
             ["ontrigger"] = "activator:addVelocity(-2000,-2000)"
           }
+        },
+        {
+          name = "",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 759,
+          y = 1089,
+          width = 226,
+          height = 39,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["ontrigger"] = "activator:addVelocity(-2000,-2000)"
+          }
         }
       }
     },
@@ -1128,7 +1142,7 @@ return {
       y = 0,
       width = 100,
       height = 100,
-      visible = false,
+      visible = true,
       opacity = 0.28,
       properties = {},
       encoding = "lua",
