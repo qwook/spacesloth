@@ -214,8 +214,8 @@ function Player:update(dt)
         -- with the exception that we can jump
         -- should we make it less redundant or something
 
-        local ang = math.sign(velx) * -math.pi/10 * -math.sign(vely)
-        self.ang = math.lerpAngle(self.ang, ang, 5*dt)
+        local ang = math.sign(velx) * -math.pi/20 * -math.sign(vely)
+        self.ang = math.lerpAngle(self.ang, ang, 1*dt)
 
         -- we go slower in the air
         if self.controller:isKeyDown("right") then
