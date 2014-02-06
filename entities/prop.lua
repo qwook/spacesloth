@@ -55,7 +55,7 @@ function Prop:draw()
         local s = (self.xto - self.xfrom) + 1
         self.spritesheet:draw(self.xfrom + (math.floor(t*s) % s), self.animy, -self.spritewidth/2 + 32, -self.spriteheight/2)
     else
-        self.spritesheet:draw(0, 0, -self.spritewidth/2 + 32, -self.spriteheight/2)
+        self.spritesheet:draw(0, 0, -self.spritewidth/2, -self.spriteheight/2)
     end
 end
 
