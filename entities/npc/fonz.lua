@@ -1,8 +1,8 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 SpriteSheet = require("util.spritesheet")
 
-Fonz = class("Fonz", PhysBox)
+Fonz = class("Fonz", BaseEntity)
 
 function Fonz:initialize()
     self.spritesheet = SpriteSheet:new("assets/fonz.png", 256, 256)

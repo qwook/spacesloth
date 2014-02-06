@@ -1,7 +1,7 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Flag = class("Flag", PhysBox)
+Flag = class("Flag", BaseEntity)
 
 function Flag:initialize()
     PhysBox.initialize(self)

@@ -2,12 +2,12 @@
 -- This is an empty entity. It's created when the map editor
 -- Doesn't supply
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Node = class("Node", PhysBox)
+Node = class("Node", BaseEntity)
 
 function Node:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 end
 
 function Node:initPhysics()

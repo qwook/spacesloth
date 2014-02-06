@@ -2,12 +2,12 @@
 -- This is an empty entity. It's created when the map editor
 -- Doesn't supply
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Timer = class("Timer", PhysBox)
+Timer = class("Timer", BaseEntity)
 
 function Timer:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
     self.activated = false
     self.timeLife = 0
 end

@@ -1,15 +1,18 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Trampoline = class("Trampoline", PhysBox)
+Trampoline = class("Trampoline", BaseEntity)
 
 function Trampoline:initialize(x, y, w, h)
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
     self.width = w
     self.height = h
     self.solid = false
     self.touching = {}
     self.spritesheet = SpriteSheet:new("sprites/trampoline_angled.png", 32, 32)
+
+    self.ang = 0
+    self.anim = 0
 end
 
 function Trampoline:initPhysics()
@@ -19,8 +22,6 @@ function Trampoline:initPhysics()
 
     self.fixture:setSensor(true)
     self.fixture:setUserData(self)
-
-    self.anim = 0
 end
 
 function Trampoline:fixSpawnPosition()
@@ -39,7 +40,15 @@ function Trampoline:postSpawn()
         goal = goals[1]
     end
 
-    goal:getPosition()
+    -- ghetto trampoline flip, todo: adjust by angle
+    local gx, gy = goal:getPosition()
+    local x, y = self:getPosition()
+
+    if gx > x then
+        self.ang = 0
+    else
+        self.ang = 1
+    end
 end
 
 function Trampoline:update(dt)
@@ -53,12 +62,12 @@ end
 -- so i offset it by the origin.
 -- other strange factors also occur, idk.
 function Trampoline:getPosition()
-    local x, y = PhysBox.getPosition(self)
+    local x, y = BaseEntity.getPosition(self)
     return x-32, y
 end
 
 function Trampoline:setPosition(x, y)
-    PhysBox.setPosition(self, x+32, y)
+    BaseEntity.setPosition(self, x+32, y)
 end
 
 function Trampoline:touchedPlayer(player)
@@ -156,8 +165,13 @@ function Trampoline:draw()
     love.graphics.rotate(r)
 
     love.graphics.setColor(255, 255, 255)
-    -- self.spritesheet:draw(anim, 0, 16, -16, 0, 1, 1)
-    self.spritesheet:draw(anim, 0, 32+16, -16, 0, -1, 1)
+
+    -- ghetto trampoline flip, todo: adjust by angle
+    if self.ang == 0 then
+        self.spritesheet:draw(anim, 0, 32+16, -16, 0, -1, 1)
+    else
+        self.spritesheet:draw(anim, 0, 16, -16, 0, 1, 1)
+    end
 
     love.graphics.pop()
 end

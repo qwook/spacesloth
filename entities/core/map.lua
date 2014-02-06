@@ -88,41 +88,37 @@ function Map:generateTileCollision(layername, collisiongroup)
                         ang = 3
                     end
 
-                    if data.r == math.rad(90) then
+                    if data.r == math.rad(-90) then
+                        ang = 2*ang - 1
+                    elseif data.r == math.rad(90) then
                         ang = ang + 1
-                    elseif data.r == math.rad(-90) then
-                        ang = ang - 1
                     end
 
                     ang = ang % 4
 
                     if data.sx == -1 then
                         if ang == 0 then
-                            ang = 2
-                        elseif ang == 2 then
-                            ang = 0
+                            ang = 1
                         elseif ang == 1 then
+                            ang = 0
+                        elseif ang == 2 then
                             ang = 3
                         elseif ang == 3 then
-                            ang = 1
+                            ang = 2
                         end
                     end
 
-                    ang = ang % 4
-
-                    -- if data.sy == -1 then
-                    --     if ang == 0 then
-                    --         ang = 3
-                    --     elseif ang == 3 then
-                    --         ang = 0
-                    --     elseif ang == 1 then
-                    --         ang = 2
-                    --     elseif ang == 2 then
-                    --         ang = 1
-                    --     end
-                    -- end
-
-                    ang = ang % 4
+                    if data.sy == -1 then
+                        if ang == 0 then
+                            ang = 3
+                        elseif ang == 3 then
+                            ang = 0
+                        elseif ang == 1 then
+                            ang = 2
+                        elseif ang == 2 then
+                            ang = 1
+                        end
+                    end
 
                     if (colshape ~= "1") then
                         if (ang == -1) then
@@ -144,6 +140,7 @@ function Map:generateTileCollision(layername, collisiongroup)
     end
 end
 
+-- spawn the objects defined in a map
 function Map:spawnObjects()
     local spawned = {}
     for _, v in ipairs(self:getObjectsLayer("Objects")) do
@@ -152,6 +149,7 @@ function Map:spawnObjects()
             player = Player:new()
             player:setController(input)
             -- tiled positional data being janky
+            -- this offsets the player
             player:setPosition(v.x + 32 + 16, v.y + 32)
         -- spawnpoint for player 2
         elseif v.name == "player2" then
@@ -165,33 +163,49 @@ function Map:spawnObjects()
         local c = Node
         if tostring(v.type) and _G[v.type] and type(_G[v.type]) == "table" then
             -- alright so we found a class that matches the type
-            -- lets create that.
+            -- lets create that
             c = _G[v.type]
         end
 
+        -- create the object
         local instance = c:new(v.x, v.y, v.width, v.height)
         instance.name = v.name
-        instance.brushz = v.x
+        instance.brushx = v.x
         instance.brushy = v.y
         instance.brushw = v.width
         instance.brushh = v.height
+
+        -- set all the properties of the object
         for prop, val in pairs(v.properties) do
             instance:setProperty(prop, val)
         end
-        instance:initPhysics()
-        instance:setPosition(v.x + 16, v.y + 16)
-        instance.collisiongroup = instance:getProperty("collisiongroup")
-        instance:event_setfrozen(instance:getProperty("frozen"))
 
-        if instance.fixture and instance.body then
-            instance.fixture:setFriction(instance:getProperty("friction") or 0.1)
-            instance.body:setMass(instance:getProperty("mass") or 1)
-            instance.body:setFixedRotation(instance:getProperty("disablerotation") == "true")
+        -- insert the object in our `spawned` pool
+        table.insert(spawned, instance)
+    end
+
+    -- we do all the main stuff after we set the properties
+    -- mostly because most of this stuff depends on the properties
+    -- being set on every object.
+
+    -- initialize all the physics for the
+    -- spawned map objects
+    for k,v in pairs(spawned) do
+        v:initPhysics()
+
+        v.collisiongroup = v:getProperty("collisiongroup")
+        v:event_setfrozen(v:getProperty("frozen"))
+
+        if v.fixture and v.body then
+            v.fixture:setFriction(v:getProperty("friction") or 0.1)
+            v.body:setMass(v:getProperty("mass") or 1)
+            v.body:setFixedRotation(v:getProperty("disablerotation") == "true")
         end
 
-        instance:fixSpawnPosition()
+        -- set the position and then offset it
+        v:setPosition(v.brushx + 16, v.brushy + 16)
+        v:fixSpawnPosition() -- additional fixes for special objects
 
-        table.insert(spawned, instance)
     end
 
     for k,v in pairs(spawned) do

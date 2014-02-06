@@ -2,12 +2,12 @@
 -- This is an empty entity. It's created when the map editor
 -- Doesn't supply
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Weld = class("Weld", PhysBox)
+Weld = class("Weld", BaseEntity)
 
 function Weld:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 end
 
 function Weld:fixSpawnPosition()
@@ -54,7 +54,7 @@ function Weld:draw()
 end
 
 function Weld:destroy()
-    PhysBox.destroy(self)
+    BaseEntity.destroy(self)
     self.joint:destroy()
 end
 

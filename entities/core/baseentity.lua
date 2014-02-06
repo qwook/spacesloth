@@ -18,75 +18,50 @@ function BaseEntity:initialize()
     table.insert(map.objects, self)
 end
 
-local function blit(dst, src, dx, dy, sx, sy, sw, sh)
-    dst:mapPixel(function(x, y, r, g, b, a)
-                 if (x >= dx and x < dx + sw) and
-                    (y >= dy and y < dy + sh) then
+function BaseEntity:makeSolid(type, shape)
 
-                    local deltax = (x - dx)
-                    local deltay = (y - dy)
-
-                    local r, g, b, a = src:getPixel(sx + deltax, sy + deltay)
-                    if a > 0 then
-                        return r, g, b, a
-                    end
-
-                 end
-
-                 return r, g, b, a
-    end)
 end
 
 function BaseEntity:initPhysics()
-    self.body = love.physics.newBody(world, 0, 0, self:getProperty("phystype") or 'dynamic')
-    
-    if self.brushw > 0 and self.brushh > 0 then
-        self.width = self.brushw
-        self.height = self.brushh
-        self.shape = love.physics.newRectangleShape(self.brushw, self.brushh)
-    else
-        self.shape = love.physics.newRectangleShape(32, 32)
-    end
-    self.fixture = love.physics.newFixture(self.body, self.shape, 1)
-
-    self.fixture:setUserData(self)
-
-    -- generate a randomized box thing
-    local data = love.image.newImageData(self.width, self.height)
-
-    -- draw inner boxes
-    for x = 0, math.ceil(self.width/32) do
-        for y = 0, math.ceil(self.height/32) do
-            blit(data, self.image, x*32, y*32, 32*math.floor(math.random(3, 4)), 0, 32, 32)
-        end
-    end
-
-    -- draw sides
-    for x = 0, math.ceil(self.width/32) do
-        blit(data, self.image, x*32, 0, 32*1, 0, 32, 32)
-        blit(data, self.image, x*32, self.height-32, 32*1, 32*2, 32, 32)
-    end
-    for y = 0, math.ceil(self.height/32) do
-        blit(data, self.image, 0, y*32, 0, 32*1, 32, 32)
-        blit(data, self.image, self.width-32, y*32, 32*2, 32*1, 32, 32)
-    end
-
-    -- draw corners
-    blit(data, self.image, 0, 0, 0, 0, 32, 32)
-    blit(data, self.image, self.width-32, 0, 32*2, 0, 32, 32)
-    blit(data, self.image, self.width-32, self.height-32, 32*2, 32*2, 32, 32)
-    blit(data, self.image, 0, self.height-32, 0, 32*2, 32, 32)
-    self.generatedbox = love.graphics.newImage(data)
-
 end
 
--- tiled wrongly offsets stuff
+-- Tiled wrongly positions some stuff
+-- so use this function to offset the entity
 function BaseEntity:fixSpawnPosition()
-    local x, y = self:getPosition()
-    self:setPosition(x + self.width/2 + 16, y + self.height/2 + 16)
 end
 
 function BaseEntity:postSpawn()
+end
+
+function BaseEntity:setProperty(name, value)
+    self.properties[name:lower()] = value
+end
+
+function BaseEntity:getProperty(name)
+    for k,v in pairs(self.properties) do
+        if k:lower() == name:lower() then
+            return v
+        end
+    end
+end
+
+function BaseEntity:call(name, args)
+    if self["event_" .. name:lower()] then
+        self["event_" .. name:lower()](self, unpack(args))
+    else
+        print("[map warning: " .. self.name .. "] no such event named: " .. name)
+    end
+end
+
+function BaseEntity:trigger(event, activator)
+    local n = self:getProperty(event)
+    if n then
+        local events = {}
+        string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
+        for _, i in pairs(events) do
+            self:eval(i, activator)
+        end
+    end
 end
 
 function BaseEntity:eval(str, activator)
@@ -134,37 +109,6 @@ function BaseEntity:eval(str, activator)
         end
     end
 
-end
-
-function BaseEntity:setProperty(name, value)
-    self.properties[name:lower()] = value
-end
-
-function BaseEntity:getProperty(name)
-    for k,v in pairs(self.properties) do
-        if k:lower() == name:lower() then
-            return v
-        end
-    end
-end
-
-function BaseEntity:call(name, args)
-    if self["event_" .. name:lower()] then
-        self["event_" .. name:lower()](self, unpack(args))
-    else
-        print("[map warning: " .. self.name .. "] no such event named: " .. name)
-    end
-end
-
-function BaseEntity:trigger(event, activator)
-    local n = self:getProperty(event)
-    if n then
-        local events = {}
-        string.gsub(n..";", "([^;]+);", function(a) table.insert(events, a) end)
-        for _, i in pairs(events) do
-            self:eval(i, activator)
-        end
-    end
 end
 
 function BaseEntity:destroy()
@@ -295,8 +239,8 @@ function BaseEntity:getPosition()
     return self.body:getPosition()
 end
 
-function BaseEntity:getAngle(r)
-    self.body:getAngle(r)
+function BaseEntity:setAngle(r)
+    self.body:setAngle(r)
 end
 
 function BaseEntity:getAngle()

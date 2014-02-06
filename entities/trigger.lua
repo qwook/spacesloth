@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Trigger = class("Trigger", PhysBox)
+Trigger = class("Trigger", BaseEntity)
 
 function Trigger:initialize(x, y, w, h)
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
     self.width = w
     self.height = h
     self.solid = false
@@ -30,7 +30,7 @@ function Trigger:postSpawn()
 end
 
 function Trigger:setPosition(x, y)
-    PhysBox.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
+    BaseEntity.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
 end
 
 function Trigger:update(dt)

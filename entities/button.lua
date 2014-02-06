@@ -1,7 +1,7 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Button = class("Button", PhysBox)
+Button = class("Button", BaseEntity)
 
 function Button:initialize()
     PhysBox.initialize(self)

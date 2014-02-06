@@ -72,7 +72,7 @@
  </layer>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt1TEKwCAQRUGv7s3TWgSS7C7kFzNgp4vwEPdaax+LHHpk0SOLHlm6PfbNqp6bnFPRvcuEiR6VeU/7OnM6PTp3maDH8zk99Jg6r0fPm3/1y7+rRxY9slTf1eScqbd+ziOHHln0yKJHFj2y6JFFDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD43wWQAUmT
+   eJzt1jEKwCAQRUGv7s3TWoSI7kJ+MQN2cRN4iJljjLkscuiRRY8semSp9pgv63bf1zqdc+Pm/d06etzM2z1XmVPpUfmWDnrs9+mhR9d+PWpO79XdXadHFj2ydPzDVud0nfV1Hjn0yKJHFj2y6JFFjyx6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMD/Hls7SxY=
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
@@ -109,8 +109,8 @@
   </object>
   <object name="point1" gid="117" x="887" y="21"/>
   <object type="Platform" x="430" y="106" width="69" height="9"/>
-  <object name="player1" gid="291" x="634" y="42"/>
-  <object name="player2" gid="291" x="692" y="46"/>
+  <object name="player1" gid="291" x="1112" y="78"/>
+  <object name="player2" gid="291" x="1170" y="82"/>
   <object name="othertoggle" type="Toggle" gid="301" x="412" y="292">
    <properties>
     <property name="collisiongroup" value="blue"/>

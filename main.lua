@@ -15,7 +15,7 @@ Map =           require("entities.core.map")
 Node =          require("entities.core.node")
 Camera =        require("entities.camera")
 TitleScreen =   require("entities.core.titlescreen")
-Text =          require("entities.core.text")
+Text =          require("entities.text")
 Timer =         require("entities.timer")
 
 PhysBox =       require("entities.physbox")

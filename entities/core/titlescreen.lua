@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-TitleScreen = class("TitleScreen", PhysBox)
+TitleScreen = class("TitleScreen", BaseEntity)
 
 function TitleScreen:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
     singleCamera = true
     self.isCamera = true
 

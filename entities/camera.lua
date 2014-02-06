@@ -7,9 +7,9 @@
 -- Events:
 -- onDone
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Camera = class("Camera", PhysBox)
+Camera = class("Camera", BaseEntity)
 
 function Camera:initialize()
     PhysBox.initialize(self)

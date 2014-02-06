@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Text = class("Text", PhysBox)
+Text = class("Text", BaseEntity)
 
 function Text:initialize(x, y, w, h)
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
     self.string = ""
     self.width = w
     self.height = h
@@ -34,7 +34,7 @@ end
 function Text:setPosition(x, y)
     self.x = x
     self.y = y
-    -- PhysBox.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
+    -- BaseEntity.setPosition(self, x + self.width/2 + 16, y + self.height/2 + 16)
 end
 
 function Text:getPosition()

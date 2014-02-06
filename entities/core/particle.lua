@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Particle = class("Particle", PhysBox)
+Particle = class("Particle", BaseEntity)
 
 function Particle:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 
     self.zindex = -1
     self.x = 0

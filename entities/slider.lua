@@ -2,12 +2,12 @@
 -- This is an empty entity. It's created when the map editor
 -- Doesn't supply
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Slider = class("Slider", PhysBox)
+Slider = class("Slider", BaseEntity)
 
 function Slider:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 end
 
 function Slider:fixSpawnPosition()
@@ -50,7 +50,7 @@ function Slider:draw()
 end
 
 function Slider:destroy()
-    PhysBox.destroy(self)
+    BaseEntity.destroy(self)
     self.joint:destroy()
 end
 

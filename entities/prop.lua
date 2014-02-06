@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Prop = class("Prop", PhysBox)
+Prop = class("Prop", BaseEntity)
 
 function Prop:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 end
 
 function Prop:fixSpawnPosition()

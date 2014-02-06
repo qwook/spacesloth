@@ -1,10 +1,10 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-Toggle = class("Toggle", PhysBox)
+Toggle = class("Toggle", BaseEntity)
 
 function Toggle:initialize()
-    PhysBox.initialize(self)
+    BaseEntity.initialize(self)
 
     self.spritesheet1 = SpriteSheet:new("sprites/switch_blue.png", 32, 32)
     self.spritesheet2 = SpriteSheet:new("sprites/switch_green.png", 32, 32)

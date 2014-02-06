@@ -1,7 +1,7 @@
 
-PhysBox = require("entities.physbox")
+BaseEntity = require("entities.core.baseentity")
 
-LayerObject = class("LayerObject", PhysBox)
+LayerObject = class("LayerObject", BaseEntity)
 
 function LayerObject:initialize()
     PhysBox.initialize(self)
