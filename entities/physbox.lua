@@ -11,7 +11,7 @@ function PhysBox:initialize(x, y, w, h)
     self.width = 32
     self.height = 32
 
-    if self.width > 0 and self.height > 0 then
+    if w > 0 and h > 0 then
         self.width = w
         self.height = h
     end

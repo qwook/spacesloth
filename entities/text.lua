@@ -35,12 +35,21 @@ function Text:update(dt)
     end
 end
 
+function Text:preDraw()
+    love.graphics.push()
+    love.graphics.translate(self.brushx + 32, self.brushy + 32)
+end
+
+function Text:postDraw()
+    love.graphics.pop()
+end
+
 function Text:draw()
+
     local string = self:getProperty("string")
 
     local font = love.graphics.getFont()
     local width, lines = font:getWrap(string, self.width - 20)
-
     local height = lines*(font:getHeight())
 
     love.graphics.setColor(0, 0, 0, 100)
@@ -54,6 +63,7 @@ function Text:draw()
     else
         love.graphics.printf(string, 10, 10, self.width - 20)
     end
+
 end
 
 function Text:drawSquiggleBox(w, h)

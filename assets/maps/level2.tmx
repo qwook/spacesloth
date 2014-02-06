@@ -81,7 +81,7 @@
   </data>
  </layer>
  <objectgroup name="Objects" width="200" height="100">
-  <object name="tramp2" gid="293" x="448" y="609">
+  <object name="tramp2" type="Prop" gid="293" x="448" y="609">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -98,14 +98,14 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp2:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp1" gid="293" x="415" y="608">
+  <object name="tramp1" type="Prop" gid="293" x="415" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
     <property name="spritewidth" value="32"/>
    </properties>
   </object>
-  <object name="tramp3" gid="293" x="481" y="608">
+  <object name="tramp3" type="Prop" gid="293" x="481" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -117,7 +117,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp3:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp4" gid="293" x="513" y="608">
+  <object name="tramp4" type="Prop" gid="293" x="513" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -129,7 +129,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp4:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp5" gid="293" x="545" y="608">
+  <object name="tramp5" type="Prop" gid="293" x="545" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -141,7 +141,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp5:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp6" gid="293" x="576" y="608">
+  <object name="tramp6" type="Prop" gid="293" x="576" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -153,7 +153,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp6:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp7" gid="293" x="608" y="609">
+  <object name="tramp7" type="Prop" gid="293" x="608" y="609">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
@@ -165,7 +165,7 @@
     <property name="ontrigger" value="activator:setVelocity(0,-700);tramp7:playAnimation(0,1,2,0.5)"/>
    </properties>
   </object>
-  <object name="tramp8" gid="293" x="639" y="608">
+  <object name="tramp8" type="Prop" gid="293" x="639" y="608">
    <properties>
     <property name="sprite" value="trampoline.png"/>
     <property name="spriteheight" value="32"/>
