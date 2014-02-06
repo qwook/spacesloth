@@ -55,7 +55,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt28FtwjAYBlCP0lEYhVF6CidO5dKeGIXR6tBEcltqEbDJr/KeZIECJJE/+QtIZJfS65BSGscu8Wi7r/k/j3H+D/nxLT+OI287rnt2z2ea//M4JHmsTR6xyCOWWh6Hlc/tGckjlloeH8V33/f8fM3z/M/y3Kb5O26e81TmkV/b5G3bOZMyG5m0N2ZRZjCPvO2UXztN7/krk6NM2pmyeKllUbxXJh0tyaL4jO7q4JqOqnx2zGQjkzbuyaLYh+5q4JaOquxLd92hxbq4sE/ddYMeWRT71l0LtOyoyjF01xV6rosLx5JJxSOzKI6puy7Y5356dBYzmfyW89gOed5/jt5ZzHRXPNZJPDKJR3fF43d8PLorHt0Vj+6KR3fFo7vi0V3xWCfxuJ7EI5N4dFc8rvHx6K54dFc8uiuee7pruq/FffON3dJdxf9r3GfXwZLuKrOQRz+1dTLf1zik71nIo68xk2HhyNePzdrnDQAAAAAAAAAAAAAAAAAAAAAAAAAAQCyfocmgsw==
+   eJzt28txwjAUhWGVQimUklK8sguATbKiFJcWCfvO3DiW8Fuv/5vRkAFsa3SiAyzcGdO0xhg3OoOrdcP6v4db/6d9fNhHN+xzr7izq49d89tjyKCxWZBHZOSRFvJISyiPZ+S51Whcf/JIRCiPH/Xd99v+HXOeJbNra+Q7rl1zo/Owr93tc1+Sic6GTI7nstAZyLDP9fa1fnyPL5MXmRxnzOIWykK9l0xOtCYLdQzddYIlHRU41mVyJ5Nj7MlCnYPuOsCWjgqci+7a4Yh9MXNOumuDM7JQ56a7VjiyowLXoLsWOHNfzFyLTAKuzEJdk+6acUVHBa5NJkrMLNQc6C4Tp6MCc6l6n6SwL2bmVGUmKWah5lZVd6XUUT61/I7PIQtRenel3FE+pXZXTvtiqrTuyjkLUUp35dhRPrl3Vwn7YirX7ioxC5HbPik5C5HL50lJnxefpJ5JTVmIVLurho7ySe0zvuYsRCrdVWNH+cTuLvbFf7G6iyz89nSXW1e5b17u415yDB0VtqW71P+4Ufd5NQuPIYsP1nSXzmKahy8TslgvtE/kvsbW/M1iLg/JpFWDLLZxmbQrRzeMvl05yAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyvULw6yC9w==
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -84,7 +84,7 @@
  </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJzt29tqhTAURVF/3V7+uxS6QdJzU5O44IwBG0QflEwEH+K6LMu6GeZab8z2GnO166/HtfTIokcWPbLokeVZj5qvmQ/1Zj6W+9+338vt90KTMapF6/fc59+xJnO80qJoMtaeFkWTMY60KJr0daZF0aSPHi2KJuf0bFE0OWZEi6LJPiNbFE1eM6NF0eSxmS2KJrdd0aJo8l+tSTujW7T3b71zk6tpkkeTPJrk0SSPJnk0yaNJHk3yaJJHkzya5NEkjyZ5NMmjSR5N8miSR5M8Z5ps/2uhnyNNtns69OhvT5N2f40eYzxq0k57nTHu7WV6NgAAAAAAAAAAAAAAAAAAAAAAAAAAALD1AwTziDs=
+   eJzt1o1ugjAYhlEuHd123xuZb6bIFH+A0p6TfEktoKZPTDx0XXc4G9b1c+b9aM6vsbKhwflaj23pURY9yqJHWfQoy70emc+Vv1dLjt3l/9zsD+uvbvp3ocky0mK8P+x9nNaarGNOi9BkWY+0CE2W8UyL0OS9XmkRmrzHO1qEJq95Z4vQ5DlLtAhNHrNki9BknjVahCa3rdkiNJm2RYvQ5NKWLUKTXyW0iNablNQiWm1SYotorUnJLaKVJntoEbU32VOLqLXJHltEbU323CJqaVJDi9h7k5paxF6b1Ngi9tak5haxlyYttIjSm7TUIkpt0mKLKK1Jyy2ilCZa/Nm6iRbXtmqixf9eaXI610w/zMxn+onPa75FPNMkLXJfzvhWEy3me6TJcXTveY/T66smWjzuVpPxTFzvR3v9eCbeV4s70uSJuTr/e6MFAAAAAAAAAAAAAAAAAAAAAAAAAABAvb4BBlv8+w==
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">
