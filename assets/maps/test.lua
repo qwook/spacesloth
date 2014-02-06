@@ -360,8 +360,8 @@ return {
           name = "",
           type = "Trampoline",
           shape = "rectangle",
-          x = 1408,
-          y = 961,
+          x = 1280,
+          y = 959,
           width = 0,
           height = 0,
           gid = 671,
@@ -375,8 +375,8 @@ return {
           name = "goal",
           type = "",
           shape = "rectangle",
-          x = 1248,
-          y = 669,
+          x = 1421,
+          y = 543,
           width = 0,
           height = 0,
           gid = 666,
@@ -604,32 +604,135 @@ return {
           }
         },
         {
+          name = "faller",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1586,
+          y = 529,
+          width = 116,
+          height = 14,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["onTrigger"] = "fallertime:start()"
+          }
+        },
+        {
           name = "block",
           type = "PhysBox",
           shape = "rectangle",
-          x = 828,
-          y = 731,
+          x = 1589,
+          y = 544,
           width = 113,
           height = 21,
           visible = true,
           properties = {
             ["collisiongroup"] = "blue",
             ["friction"] = "1",
-            ["frozen"] = "true",
-            ["mass"] = "200"
+            ["frozen"] = "true"
+          }
+        },
+        {
+          name = "fallertime",
+          type = "Timer",
+          shape = "rectangle",
+          x = 1634,
+          y = 559,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["onEnd"] = "block:setFrozen(false)",
+            ["time"] = "0.15"
+          }
+        },
+        {
+          name = "fallertime1",
+          type = "Timer",
+          shape = "rectangle",
+          x = 1769,
+          y = 558,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["onEnd"] = "block1:setFrozen(false)",
+            ["time"] = "0.15"
           }
         },
         {
           name = "faller",
           type = "Trigger",
           shape = "rectangle",
-          x = 825,
-          y = 716,
+          x = 1721,
+          y = 528,
           width = 116,
           height = 14,
           visible = true,
           properties = {
-            ["onTrigger"] = "block:setFrozen(false)"
+            ["collisiongroup"] = "blue",
+            ["onTrigger"] = "fallertime1:start()"
+          }
+        },
+        {
+          name = "block1",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 1724,
+          y = 543,
+          width = 113,
+          height = 21,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["frozen"] = "true"
+          }
+        },
+        {
+          name = "block2",
+          type = "PhysBox",
+          shape = "rectangle",
+          x = 1857,
+          y = 543,
+          width = 113,
+          height = 21,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["friction"] = "1",
+            ["frozen"] = "true"
+          }
+        },
+        {
+          name = "fallertime2",
+          type = "Timer",
+          shape = "rectangle",
+          x = 1902,
+          y = 558,
+          width = 0,
+          height = 0,
+          gid = 686,
+          visible = true,
+          properties = {
+            ["onEnd"] = "block2:setFrozen(false)",
+            ["time"] = "0.15"
+          }
+        },
+        {
+          name = "faller",
+          type = "Trigger",
+          shape = "rectangle",
+          x = 1854,
+          y = 528,
+          width = 116,
+          height = 14,
+          visible = true,
+          properties = {
+            ["collisiongroup"] = "blue",
+            ["onTrigger"] = "fallertime2:start()"
           }
         }
       }

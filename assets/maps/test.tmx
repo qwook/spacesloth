@@ -53,13 +53,13 @@
   </object>
   <object name="player2" gid="666" x="1188" y="619"/>
   <object name="player1" gid="670" x="1232" y="618"/>
-  <object type="Trampoline" gid="671" x="1408" y="961">
+  <object type="Trampoline" gid="671" x="1280" y="959">
    <properties>
     <property name="goal" value="goal"/>
     <property name="power" value="1000"/>
    </properties>
   </object>
-  <object name="goal" gid="666" x="1248" y="669"/>
+  <object name="goal" gid="666" x="1421" y="543"/>
   <object type="Slider" gid="686" x="1298" y="651">
    <properties>
     <property name="angle" value="0"/>
@@ -155,17 +155,61 @@
     <property name="onTrigger" value="activator:setVelocity(100, 0)"/>
    </properties>
   </object>
-  <object name="block" type="PhysBox" x="828" y="731" width="113" height="21">
+  <object name="faller" type="Trigger" x="1586" y="529" width="116" height="14">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="onTrigger" value="fallertime:start()"/>
+   </properties>
+  </object>
+  <object name="block" type="PhysBox" x="1589" y="544" width="113" height="21">
    <properties>
     <property name="collisiongroup" value="blue"/>
     <property name="friction" value="1"/>
     <property name="frozen" value="true"/>
-    <property name="mass" value="200"/>
    </properties>
   </object>
-  <object name="faller" type="Trigger" x="825" y="716" width="116" height="14">
+  <object name="fallertime" type="Timer" gid="686" x="1634" y="559">
    <properties>
-    <property name="onTrigger" value="block:setFrozen(false)"/>
+    <property name="onEnd" value="block:setFrozen(false)"/>
+    <property name="time" value="0.15"/>
+   </properties>
+  </object>
+  <object name="fallertime1" type="Timer" gid="686" x="1769" y="558">
+   <properties>
+    <property name="onEnd" value="block1:setFrozen(false)"/>
+    <property name="time" value="0.15"/>
+   </properties>
+  </object>
+  <object name="faller" type="Trigger" x="1721" y="528" width="116" height="14">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="onTrigger" value="fallertime1:start()"/>
+   </properties>
+  </object>
+  <object name="block1" type="PhysBox" x="1724" y="543" width="113" height="21">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="friction" value="1"/>
+    <property name="frozen" value="true"/>
+   </properties>
+  </object>
+  <object name="block2" type="PhysBox" x="1857" y="543" width="113" height="21">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="friction" value="1"/>
+    <property name="frozen" value="true"/>
+   </properties>
+  </object>
+  <object name="fallertime2" type="Timer" gid="686" x="1902" y="558">
+   <properties>
+    <property name="onEnd" value="block2:setFrozen(false)"/>
+    <property name="time" value="0.15"/>
+   </properties>
+  </object>
+  <object name="faller" type="Trigger" x="1854" y="528" width="116" height="14">
+   <properties>
+    <property name="collisiongroup" value="blue"/>
+    <property name="onTrigger" value="fallertime2:start()"/>
    </properties>
   </object>
  </objectgroup>

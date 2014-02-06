@@ -175,18 +175,18 @@ function joystickUpdate(dt)
     for _, joystick in ipairs(joysticks) do
         for i = 1, joystick:getAxisCount() do
             local axis = joystick:getAxis(i)
-            local lastAxes = lastAxes[joystick:getID() .. "_" .. i] or 0
-            if (axis > 0) and (lastAxes <= 0) then
+            local lastAxis = lastAxes[joystick:getID() .. "_" .. i] or 0
+            if (axis > 0) and (lastAxis <= 0) then
                 input:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
                 input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
                 input2:eventJoyPressed(joystick:getID() .. "_axisup_" .. i)
                 input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
-            elseif (axis < 0) and (lastAxes >= 0) then
+            elseif (axis < 0) and (lastAxis >= 0) then
                 input:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
                 input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
                 input2:eventJoyPressed(joystick:getID() .. "_axisdown_" .. i)
                 input2:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
-            elseif (axis == 0) and (lastAxes ~= 0) then
+            elseif (axis == 0) and (lastAxis ~= 0) then
                 input:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
                 input:eventJoyReleased(joystick:getID() .. "_axisup_" .. i)
                 input2:eventJoyReleased(joystick:getID() .. "_axisdown_" .. i)
