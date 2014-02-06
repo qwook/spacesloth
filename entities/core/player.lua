@@ -197,7 +197,7 @@ function Player:update(dt)
         end
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
             self.nextJump = 0.1
-            self.shortJump = 0.1
+            self.shortJump = 0.075
 
             self.body:applyLinearImpulse(-velx*0.25, -125-vely)
             playSound("bwop.wav")
@@ -221,7 +221,7 @@ function Player:update(dt)
 
         -- we just jumped, allow for a longer jump
         if self.shortJump > 0 and self.controller:isKeyDown("jump") then
-            self.body:applyForce(0, -2000)
+            self.body:applyForce(0, -3500)
             self.shortJump = self.shortJump - dt
         else
             -- OCD.. constantly make sure we can't short jump
