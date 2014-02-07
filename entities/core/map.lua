@@ -204,7 +204,7 @@ function Map:spawnObjects()
     for k,v in pairs(spawned) do
         v:initPhysics()
 
-        v.collisiongroup = v:getProperty("collisiongroup")
+        v.collisiongroup = v:getProperty("collisiongroup") or "shared"
         v:event_setfrozen(v:getProperty("frozen"))
 
         if v.fixture and v.body then

@@ -23,4 +23,11 @@ function Slider:destroy()
     self.joint:destroy()
 end
 
+function Slider:draw()
+    if DEBUG then
+        love.graphics.setColor(255, 0, 0)
+        love.graphics.circle("fill", 0, 0, 10, 5)
+    end
+end
+
 return Slider

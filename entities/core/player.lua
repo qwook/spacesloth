@@ -178,7 +178,7 @@ function Player:update(dt)
 
 
         -- compensate for moving platform
-        if floor.type ~= "TILE" then
+        if floor.type ~= "TILE" and self.nextJump <= 0 then
             local fvx, fvy = floor.body:getLinearVelocity()
             if math.distance(fvx, fvy, self.lastFVX, self.lastFVY) > 100 then
                 self.body:setLinearVelocity(fvx, fvy)

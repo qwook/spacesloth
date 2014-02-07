@@ -30,8 +30,10 @@ function Weld:destroy()
 end
 
 function Weld:draw()
-    love.graphics.setColor(255, 0, 0)
-    love.graphics.circle("fill", 0, 0, 10, 5)
+    if DEBUG then
+        love.graphics.setColor(255, 0, 0)
+        love.graphics.circle("fill", 0, 0, 10, 5)
+    end
 end
 
 return Weld

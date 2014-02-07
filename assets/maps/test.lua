@@ -780,14 +780,14 @@ return {
           }
         },
         {
-          name = "",
-          type = "RushCamera",
+          name = "angry_mister_f",
+          type = "MisterF",
           shape = "rectangle",
-          x = 1218,
-          y = 666,
+          x = 1397,
+          y = 543,
           width = 0,
           height = 0,
-          gid = 682,
+          gid = 666,
           visible = true,
           properties = {}
         }

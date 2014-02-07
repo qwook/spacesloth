@@ -13,6 +13,7 @@ function BaseEntity:initialize()
     self.visible = true
     self.frozen = false
     self.solid = true
+    self.collisiongroup = "shared"
     self.color = {r = 255, g = 255, b = 255, a = 255}
     self.x = 0
     self.y = 0
@@ -315,7 +316,12 @@ function BaseEntity:postDraw()
 
     if DEBUG and self.body and self.shape then
         love.graphics.setColor(255, 0, 0, 100)
-        love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
+        if self.shape:typeOf("PolygonShape") then
+            love.graphics.polygon("fill", self.body:getWorldPoints( self.shape:getPoints() ))
+        elseif self.shape:typeOf("CircleShape") then
+            local x, y = self:getPosition()
+            love.graphics.circle("fill", x, y, self.shape:getRadius())
+        end
     end
 end
 

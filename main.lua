@@ -23,6 +23,7 @@ RushCamera =    require("entities.rushcamera")
 TitleScreen =   require("entities.core.titlescreen")
 Text =          require("entities.text")
 Timer =         require("entities.timer")
+MisterF =       require("entities.misterf")
 
 PhysBox =       require("entities.physbox")
 Button =        require("entities.button")
@@ -108,6 +109,10 @@ function contactFilter(fixture1, fixture2)
 
     physical1.collisiongroup = physical1.collisiongroup or "shared"
     physical2.collisiongroup = physical2.collisiongroup or "shared"
+
+    if physical1:shouldCollide(physical2) == false or physical2:shouldCollide(physical1) == false then
+        return false
+    end
 
     if physical1.visible == false or physical2.visible == false then
         return false

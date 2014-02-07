@@ -1,6 +1,10 @@
 
 Physical = class("Physical")
 
+function Physical:shouldCollide(other)
+    return true
+end
+
 function Physical:beginContact(other, contact)
 end
 
