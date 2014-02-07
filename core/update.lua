@@ -29,7 +29,7 @@ function love.update(dt)
 
     -- update joystick axes detection
     -- its stupid we can do better
-    joystickUpdate(dt)
+    inputUpdate(dt)
 
     input:update(dt)
     input2:update(dt)
@@ -38,6 +38,9 @@ function love.update(dt)
 
     if input:wasKeyPressed("select") or input2:wasKeyPressed("select") then
         pausing = not pausing
+        if not pausing then
+            afkTimer = 0
+        end
     end
 
     if (input:isKeyDown("start") and input:wasKeyPressed("select")) or

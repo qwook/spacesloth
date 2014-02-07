@@ -207,6 +207,10 @@ function love.draw()
     if pausing then
         love.graphics.setColor(0, 0, 0, 100)
         love.graphics.rectangle('fill', 0, 0, love.graphics.getWidth(), love.graphics.getHeight())
+
+        local timer = 9 - math.floor((afkTimer - timeToPause) / timeToReset * 10)
+        love.graphics.setColor(255, 255, 255)
+        love.graphics.printf("Continue?\n" .. timer, 0, love.graphics.getHeight()/2-50, love.graphics.getWidth()/4, "center", 0, 4, 4)
     end
 
 end

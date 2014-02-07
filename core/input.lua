@@ -8,6 +8,10 @@ Input = class("Input")
 -- keyBoardLayout = "arcade" -- todo: figure a way out to load config stuff
 keyBoardLayout = "qwerty"
 
+timeToPause = 15
+timeToReset = 10
+afkTimer = 0 -- don't touch this
+
 IN_KEYS = {
     ["attack"] = bit.lshift(1, 1);
     ["jump"]   = bit.lshift(1, 2);
@@ -150,6 +154,11 @@ end
 
 
 function love.keypressed(key, isrepeat)
+    if afkTimer >= timeToPause then
+        pausing = false
+    end
+    afkTimer = 0
+
     if key == "escape" then
         love.event.quit()
     end
@@ -161,23 +170,52 @@ function love.keypressed(key, isrepeat)
 end
 
 function love.keyreleased(key)
+    if afkTimer >= timeToPause then
+        pausing = false
+    end
+    afkTimer = 0
+
     input:eventKeyReleased(key)
     input2:eventKeyReleased(key)
 end
 
 function love.joystickpressed( joystick, button )
+    if afkTimer >= timeToPause then
+        pausing = false
+    end
+    afkTimer = 0
+
     input:eventJoyPressed(joystick:getID() .. "_" .. button)
     input2:eventJoyPressed(joystick:getID() .. "_" .. button)
 end
 
 function love.joystickreleased( joystick, button )
+    if afkTimer >= timeToPause then
+        pausing = false
+    end
+    afkTimer = 0
+
     input:eventJoyReleased(joystick:getID() .. "_" .. button)
     input2:eventJoyReleased(joystick:getID() .. "_" .. button)
 end
 
 lastAxes = {}
 
-function joystickUpdate(dt)
+function inputUpdate(dt)
+
+    if map.mapname ~= "assets/maps/title" then
+        afkTimer = afkTimer + dt
+    end
+
+    if afkTimer >= timeToPause and map.mapname ~= "assets/maps/title" then
+        pausing = true
+    end
+
+    if afkTimer >= timeToPause + timeToReset and map.mapname ~= "assets/maps/title" then
+        changeMap("title")
+        afkTimer = 0
+        pausing = false
+    end
 
     local joysticks = love.joystick.getJoysticks()
 
