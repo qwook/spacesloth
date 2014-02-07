@@ -1457,30 +1457,6 @@ return {
           }
         },
         {
-          name = "player2",
-          type = "",
-          shape = "rectangle",
-          x = 686,
-          y = 1174,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
-          name = "player1",
-          type = "",
-          shape = "rectangle",
-          x = 605,
-          y = 1164,
-          width = 0,
-          height = 0,
-          gid = 110,
-          visible = true,
-          properties = {}
-        },
-        {
           name = "",
           type = "Trigger",
           shape = "rectangle",
@@ -1492,6 +1468,28 @@ return {
           properties = {
             ["ontrigger"] = "global:changeMap(willisthebest)"
           }
+        },
+        {
+          name = "player1",
+          type = "",
+          shape = "rectangle",
+          x = 316,
+          y = 326,
+          width = 29,
+          height = 28,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 374,
+          y = 328,
+          width = 28,
+          height = 28,
+          visible = true,
+          properties = {}
         }
       }
     },

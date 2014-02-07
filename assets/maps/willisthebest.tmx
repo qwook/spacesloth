@@ -431,8 +431,6 @@
     <property name="string" value="Good Luck"/>
    </properties>
   </object>
-  <object name="player2" gid="110" x="686" y="1174"/>
-  <object name="player1" gid="110" x="605" y="1164"/>
   <object type="Trigger" x="683" y="36" width="118" height="89">
    <properties>
     <property name="ontrigger" value="global:changeMap(willisthebest)"/>
