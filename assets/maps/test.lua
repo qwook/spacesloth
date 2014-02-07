@@ -778,6 +778,18 @@ return {
             ["goal"] = "goal2",
             ["power"] = "100"
           }
+        },
+        {
+          name = "",
+          type = "RushCamera",
+          shape = "rectangle",
+          x = 1218,
+          y = 666,
+          width = 0,
+          height = 0,
+          gid = 682,
+          visible = true,
+          properties = {}
         }
       }
     },

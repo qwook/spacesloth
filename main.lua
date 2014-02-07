@@ -1,6 +1,4 @@
 
-require("libs.sun") -- eh, sunscript.
-require("libs.sunbit") -- eh, sunscript.
 require("libs.mathext") -- this extends the math library
 require("libs.tableext") -- this extends the table library
 require("libs.print2") -- this adds "print2"
@@ -21,6 +19,7 @@ Player =        require("entities.core.player")
 Map =           require("entities.core.map")
 Node =          require("entities.core.node")
 Camera =        require("entities.camera")
+RushCamera =    require("entities.rushcamera")
 TitleScreen =   require("entities.core.titlescreen")
 Text =          require("entities.text")
 Timer =         require("entities.timer")

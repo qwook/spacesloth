@@ -230,6 +230,7 @@
     <property name="power" value="100"/>
    </properties>
   </object>
+  <object type="RushCamera" gid="682" x="1218" y="666"/>
  </objectgroup>
  <imagelayer name="Background" width="100" height="100">
   <image source="../backgrounds/bgConcept1_big.jpg"/>

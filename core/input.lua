@@ -5,6 +5,7 @@ bit = require("bit")
 Input = class("Input")
 
 -- This will be checked when keyBindings are loaded in from config.JSON.
+-- keyBoardLayout = "arcade" -- todo: figure a way out to load config stuff
 keyBoardLayout = "qwerty"
 
 IN_KEYS = {
@@ -38,6 +39,15 @@ function Input:loadKeyBindings()
         end
         --bind all the dvorak keys for player 2.
         for key,action in pairs(bindings_o.player2.dvorak) do
+            input2:bind(key, action)
+        end
+    elseif keyBoardLayout == "arcade" then
+        --bind all the arcade keys for player 1.
+        for key,action in pairs(bindings_o.player1.arcade) do
+            input:bind(key, action)
+        end
+        --bind all the arcade keys for player 2.
+        for key,action in pairs(bindings_o.player2.arcade) do
             input2:bind(key, action)
         end
     else

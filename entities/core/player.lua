@@ -126,7 +126,8 @@ function Player:getFloor()
 end
 
 function Player:delayJump(time)
-    self.nextJump = love.timer.getTime() + time
+    self.nextJump = time
+    self.shortJump = 0
 end
 
 function Player:update(dt)

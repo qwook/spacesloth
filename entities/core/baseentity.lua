@@ -205,6 +205,14 @@ function BaseEntity:event_setvisible(visible)
     player2:forceCollisionRecalculation()
 end
 
+function BaseEntity:event_setposition(x, y)
+    self:setPosition(tonumber(x), tonumber(y))
+end
+
+function BaseEntity:event_setangle(r)
+    self:setAngle(tonumber(r))
+end
+
 function BaseEntity:event_setvelocity(x, y)
     self.body:setLinearVelocity(tonumber(x), tonumber(y))
 end
@@ -264,6 +272,14 @@ end
 function BaseEntity:getAngle()
     if not self.body then return self.r end
     return self.body:getAngle()
+end
+
+function BaseEntity:setVelocity(x, y)
+    self.body:setLinearVelocity(x, y)
+end
+
+function BaseEntity:getVelocity()
+    return self.body:getLinearVelocity()
 end
 
 function BaseEntity:setFriction(frict)
