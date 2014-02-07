@@ -3,14 +3,15 @@ BaseEntity = require("entities.core.baseentity")
 Coconut = require("entities.coconut")
 
 MisterF = class("MisterF", BaseEntity)
-MisterF.spritesheet1 = SpriteSheet:new("sprites/button_blue.png", 32, 32)
-MisterF.spritesheet2 = SpriteSheet:new("sprites/button_green.png", 32, 32)
+MisterF.spritesheet = SpriteSheet:new("sprites/misterf.png", 64, 32)
 
 function MisterF:initialize()
     BaseEntity.initialize(self)
     self.collisiongroup = "shared"
     self.nextAttack = 0
     self.coconut = nil
+    self.anim = 0
+    self.ang = 1
 end
 
 function MisterF:shouldCollide(other)
@@ -73,36 +74,45 @@ function MisterF:calculateVelocity(goal)
     end
 end
 
+function MisterF:getGoal()
+    local goal
+    local x, y = self:getPosition()
+
+    local distancePlayer1 = math.distance(x, y, player:getPosition())
+    local distancePlayer2 = math.distance(x, y, player2:getPosition())
+
+    if (self.collisiongroup == "shared" and distancePlayer1 < distancePlayer2) then
+        goal = player
+    end
+
+    if (self.collisiongroup == "shared" and distancePlayer2 < distancePlayer1) then
+        goal = player2
+    end
+
+    return goal
+end
+
 function MisterF:update(dt)
     self.nextAttack = self.nextAttack - dt
+
+    self.anim = (math.floor((1 - self.nextAttack) * 7 + 2) % 7)
+
+    local goal = self:getGoal()
+
+    if goal then
+        local x, y = self:getPosition()
+        local gx, gy = goal:getPosition()
+        self.ang = math.sign(gx - x)
+        if self.ang == 0 then self.ang = 1 end
+    end
 
     if self.nextAttack <= 0 then
         self.nextAttack = 1
 
-        local goal = nil
-
-        local x, y = self:getPosition()
-
-        local distancePlayer1 = math.distance(x, y, player:getPosition())
-        local distancePlayer2 = math.distance(x, y, player2:getPosition())
-
-        if (self.collisiongroup == "shared" and distancePlayer1 < distancePlayer2) then
-            goal = player
-        end
-
-        if (self.collisiongroup == "shared" and distancePlayer2 < distancePlayer1) then
-            goal = player2
-        end
-
-        print("eh", goal, self.collisiongroup, distancePlayer1, distancePlayer2)
-
         if goal then
-            print("hmm")
-
             local vx, vy = self:calculateVelocity(goal)
 
             if vx and vy then
-                print("o ya")
                 local coconut = Coconut:new()
                 coconut:setPosition(self:getPosition())
                 coconut:initPhysics()
@@ -114,7 +124,8 @@ function MisterF:update(dt)
 end
 
 function MisterF:draw()
-    self.spritesheet2:draw(1, 0, -16, -16 -12)
+    love.graphics.scale(self.ang, 1)
+    self.spritesheet:draw(self.anim, 0, -32, -16)
 end
 
 return MisterF
