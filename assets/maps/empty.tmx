@@ -75,7 +75,7 @@
  </imagelayer>
  <layer name="SharedLayer" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJzt1kEKgzAQBdC5/1VU8AhuK/ZOZmGoixAdkFLKe/BXhgh/YDQCAAAAAP7LfArfN3fSO9N6dnWWa7WzoWQ8MkV/Tq2+e/dwX+3xVbIe2eLTaTbv0z1rmEdWax5Pxs7KqX2V3bKMD6fsrqW+g/sy34psIszjV/jHAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGjbAYUuegA=
   </data>
  </layer>
  <layer name="BlueLayer" width="100" height="100">
@@ -88,10 +88,12 @@
    eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
- <objectgroup name="Objects" width="100" height="100"/>
+ <objectgroup name="Objects" width="100" height="100">
+  <object x="507" y="435" width="32" height="43"/>
+ </objectgroup>
  <layer name="SharedCollision" width="100" height="100" opacity="0.48">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+   eJzt0TEKADAIA0D7/093dyxCRe8ga4YkAgAAAACA6U7K757t8o5V4Y0/evEHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANDBBY8eAEs=
   </data>
  </layer>
  <layer name="BlueCollision" width="100" height="100" opacity="0.48">

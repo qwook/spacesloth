@@ -96,7 +96,7 @@
   <object name="goal2" x="927" y="601" width="29" height="32"/>
   <object name="muzak" x="130" y="140" width="57" height="58">
    <properties>
-    <property name="onspawn" value="global:playMusic(stolen.ogg,0.01)"/>
+    <property name="onspawn" value="global:playMusic(cirrus.ogg,0.6)"/>
    </properties>
    <ellipse/>
   </object>
@@ -197,7 +197,7 @@
    </properties>
   </object>
   <object name="spawn1" x="1125" y="289" width="36" height="30"/>
-  <object name="spwn" x="1819" y="1322" width="45" height="33"/>
+  <object name="spwn" x="1866" y="1229" width="45" height="33"/>
   <object name="moving1" type="PhysBox" x="1389" y="1462" width="111" height="33">
    <properties>
     <property name="friction" value="0.5"/>

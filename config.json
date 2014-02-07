@@ -69,7 +69,8 @@
 			"r" 	 : "select",
 			"t" 	 : "start",
 			"left"   : "left",
-			"right"  : "right"
+			"right"  : "right",
+			" " 	 : "crouch"
 		},
 		"joystick" :
 		{

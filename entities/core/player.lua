@@ -187,17 +187,17 @@ function Player:update(dt)
 
         if self.controller:isKeyDown("right") then
             if velx < 250 then
-                self.body:applyForce(1000, 0)
+                self.body:applyForce(2000, 0)
             end
         elseif self.controller:isKeyDown("left") then
             if velx > -250 then
-                self.body:applyForce(-1000, 0)
+                self.body:applyForce(-2000, 0)
             end
         end
         if self.controller:isKeyDown("jump") and self.nextJump <= 0 then
-            self.nextJump = 0.1
-
-            self.body:applyLinearImpulse(-velx*0.25, -350-vely)
+            self.nextJump = 0.05
+            --more fluid jumping
+            self.body:applyLinearImpulse(0, -350)--vely)
             playSound("bwop.wav")
             local smoke = Particle:new()
             smoke:setPosition(self:getPosition())

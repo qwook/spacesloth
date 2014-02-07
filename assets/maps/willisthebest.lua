@@ -560,7 +560,7 @@ return {
           height = 58,
           visible = true,
           properties = {
-            ["onspawn"] = "global:playMusic(stolen.ogg,0.01)"
+            ["onspawn"] = "global:playMusic(cirrus.ogg,0.6)"
           }
         },
         {
@@ -1492,6 +1492,28 @@ return {
           properties = {
             ["ontrigger"] = "global:changeMap(willisthebest)"
           }
+        },
+        {
+          name = "player1",
+          type = "",
+          shape = "rectangle",
+          x = 316,
+          y = 326,
+          width = 29,
+          height = 28,
+          visible = true,
+          properties = {}
+        },
+        {
+          name = "player2",
+          type = "",
+          shape = "rectangle",
+          x = 374,
+          y = 328,
+          width = 28,
+          height = 28,
+          visible = true,
+          properties = {}
         }
       }
     },
