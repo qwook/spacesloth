@@ -16,7 +16,7 @@ function newLiveCircle(x, y)
 
 	-- Root is [÷/-]1. Sometimes two parabolas are possible, root selects which one is to be used.
 	-- root = -1 will launch the projectile such that it hits the target before the apex, if possible.
-	local root = -1
+	local root = 1
 	-- The discriminant determines if the shot is even possible.
 	local discriminant = math.pow(vel, 4) - gravity*(gravity*dx*dx + 2*dy*vel*vel)
 
